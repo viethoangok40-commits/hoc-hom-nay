@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#1E2B25">
+<title>HỌC HÔM NAY</title>
+<style>
+__FONTS__
+:root{--board:#1E2B25;--chalk:#F2EFE6;--dim:#B9C7BD;--yel:#F2C94C;--org:#F2994A;
+  --body:"Be Vietnam Pro","Segoe UI",system-ui,Arial,sans-serif;--pad:clamp(14px,3vw,40px);--ease:cubic-bezier(0.23,1,0.32,1)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--board);color:var(--chalk);font-family:var(--body);font-size:clamp(16px,.9rem + .35vw,21px);line-height:1.5;
+  background-image:radial-gradient(ellipse 80% 50% at 20% 0%,rgba(255,255,255,.06),transparent 65%);-webkit-text-size-adjust:100%}
+a{color:var(--yel)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--yel);outline-offset:3px;border-radius:8px}
+header.top{display:flex;align-items:baseline;gap:6px 16px;flex-wrap:wrap;padding:calc(env(safe-area-inset-top) + 14px) var(--pad) 4px}
+h1{font-weight:700;font-size:1.7em;margin:0;line-height:1.1;letter-spacing:.01em}
+.today{color:var(--dim);font-size:.95em}
+#status{padding:4px var(--pad) 8px}
+.note{display:inline-block;border:2px dashed var(--org);color:var(--org);border-radius:12px;padding:6px 14px;font-weight:600;margin:4px 0 6px}
+.bigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin:8px 0 4px}
+.big{display:block;text-align:left;border:3px solid var(--chalk);border-radius:16px 12px 18px 11px;padding:18px 20px;min-height:120px;transition:border-color .18s var(--ease),background-color .18s var(--ease)}
+.big .m{color:var(--yel);font-weight:700;font-size:1.25em;display:block}
+.big .t{font-size:1.05em;display:block;margin-top:4px}
+.big.on{border-color:var(--yel);background:rgba(242,201,76,.1)}
+@media (hover:hover) and (pointer:fine){.big:hover{border-color:var(--yel)}}
+.big:active{transform:scale(.98)}
+#viewer{margin:0 var(--pad);border:3px solid rgba(242,239,230,.7);border-radius:14px 10px 16px 9px;overflow:hidden;background:var(--board)}
+#viewer[hidden]{display:none}
+#viewer .bar{display:flex;align-items:center;gap:12px;padding:8px 14px;border-bottom:2px solid rgba(242,239,230,.3);font-size:.85em;color:var(--dim)}
+#viewer .bar .ttl{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#viewer .bar a{white-space:nowrap;font-weight:600}
+#frame{display:block;width:100%;height:calc(100vh - 190px);height:calc(100svh - 190px);min-height:420px;border:0;background:var(--board)}
+section.list{padding:22px var(--pad) 40px;max-width:70em}
+section.list h2{font-weight:700;color:var(--yel);font-size:1.3em;margin:0 0 6px}
+.day{margin:16px 0 0}
+.day h3{font-size:.9em;color:var(--dim);font-weight:600;margin:0 0 4px;border-bottom:1px solid rgba(242,239,230,.22);padding-bottom:4px}
+.day h3 .tag{color:var(--board);background:var(--yel);border-radius:999px;padding:0 10px;margin-left:8px;font-size:.85em}
+.it{display:flex;gap:12px;align-items:baseline;width:100%;text-align:left;padding:10px;border-radius:10px;min-height:48px}
+.it .m{color:var(--yel);font-weight:700;min-width:3.6em}
+.it .t{flex:1}
+.it .o{font-size:.8em;color:var(--dim);white-space:nowrap}
+.it.on{background:rgba(242,239,230,.09)}
+@media (hover:hover) and (pointer:fine){.it:hover{background:rgba(242,239,230,.09)}}
+.empty{color:var(--dim)}
+footer{color:var(--dim);font-size:.75em;padding:0 var(--pad) calc(env(safe-area-inset-bottom) + 24px)}
+@media (max-width:600px){ #viewer{margin:0;border-left:0;border-right:0;border-radius:0} #frame{height:calc(100svh - 150px);min-height:360px} .it{flex-wrap:wrap} .it .o{margin-left:auto} }
+</style>
+</head>
+<body>
+<header class="top"><h1>HỌC HÔM NAY</h1><span class="today" id="today"></span></header>
+<div id="status"></div>
+<div id="viewer" hidden><div class="bar"><span class="ttl" id="vttl"></span><a id="vopen" href="#">Toàn màn hình ↗</a></div><iframe id="frame" title="Bài học" allow="fullscreen"></iframe></div>
+<section class="list"><h2>Tất cả bài học</h2><div id="list"></div></section>
+<footer id="foot"></footer>
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(function(){
+"use strict";
+var D=JSON.parse(document.getElementById('data').textContent), items=D.items||[];
+var $=function(s){return document.querySelector(s)};
+function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+/* ngày hôm nay theo giờ Việt Nam */
+var today;
+try{ today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()); }
+catch(e){ var v=new Date(Date.now()+7*3600e3); today=v.toISOString().slice(0,10); }
+var THU=['Chủ nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
+function vnDate(ymd){ var a=ymd.split('-'), d=new Date(Date.UTC(+a[0],+a[1]-1,+a[2])); return THU[d.getUTCDay()]+', '+a[2]+'/'+a[1]+'/'+a[0]; }
+$('#today').textContent=vnDate(today);
+var frame=$('#frame'), viewer=$('#viewer'), cur=null;
+function mark(){ [].forEach.call(document.querySelectorAll('[data-f]'),function(b){ b.classList.toggle('on',!!cur&&b.getAttribute('data-f')===cur.f) }); }
+function open(it,scroll){
+  cur=it; viewer.hidden=false; frame.src=it.f; $('#vopen').href=it.f;
+  $('#vttl').textContent=vnDate(it.date)+' · '+(it.mon?it.mon+' · ':'')+it.title;
+  frame.onload=function(){ try{frame.focus()}catch(e){} };
+  mark();
+  if(scroll) viewer.scrollIntoView({behavior:'smooth',block:'start'});
+}
+var st=$('#status'), todays=items.filter(function(x){return x.date===today});
+if(!items.length){ st.appendChild(el('p','empty','Chưa có bài nào. Thêm file *-album.md vào thư mục <b>bai/</b> của repo.')); }
+else if(todays.length===1){ open(todays[0]); }
+else if(todays.length>1){
+  st.appendChild(el('p',null,'Hôm nay có <b>'+todays.length+' bài</b>. Chọn bài để học:'));
+  var g=el('div','bigs');
+  todays.forEach(function(it){ var b=el('button','big','<span class="m">'+esc(it.mon||'Bài')+'</span><span class="t">'+esc(it.title)+'</span>'); b.type='button'; b.setAttribute('data-f',it.f); b.addEventListener('click',function(){open(it,true)}); g.appendChild(b); });
+  st.appendChild(g);
+} else {
+  st.appendChild(el('div','note','Hôm nay chưa có bài mới'));
+  st.appendChild(el('p','empty','Đang mở bài mới nhất ('+vnDate(items[0].date)+').'));
+  open(items[0]);
+}
+/* danh sách theo ngày, mới nhất trên cùng */
+var L=$('#list'), lastDay='', box=null;
+items.forEach(function(it){
+  if(it.date!==lastDay){ lastDay=it.date; box=el('div','day'); box.appendChild(el('h3',null,vnDate(it.date)+(it.date===today?'<span class="tag">hôm nay</span>':''))); L.appendChild(box); }
+  var b=el('button','it','<span class="m">'+esc(it.mon||'')+'</span><span class="t">'+esc(it.title)+'</span><a class="o" href="'+esc(it.f)+'">mở riêng ↗</a>');
+  b.type='button'; b.setAttribute('data-f',it.f);
+  b.addEventListener('click',function(e){ if(e.target.closest('a')) return; open(it,true); });
+  box.appendChild(b);
+});
+mark();
+$('#foot').textContent=items.length+' bài · dựng lúc '+D.built+' (giờ Việt Nam)';
+})();
+</script>
+</body>
+</html>

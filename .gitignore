@@ -1,0 +1,10 @@
+_site/
+node_modules/
+*.mp4
+*.mp3
+*.wav
+*.m4a
+*.webm
+*.mov
+.DS_Store
+Thumbs.db
