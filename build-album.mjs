@@ -11,8 +11,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { execFileSync } from 'node:child_process';
-import { ROOT, fontCss, threeJs, esc, inl, deAccent, jsonForScript } from './lib/nhung.mjs';
+import { ROOT, fontCss, threeJs, molJs, esc, inl, deAccent, jsonForScript } from './lib/nhung.mjs';
 import { autoFig } from './lib/hinh-tu-ve.mjs';
+import { prefetch, creditHtml } from './lib/nguon-ngoai.mjs';
 
 const IN = path.join(ROOT, 'bai');
 const TPL = path.join(ROOT, 'templates', 'album.html');
@@ -26,16 +27,57 @@ const SPECIAL = [
   ['tudien', /^từ điển/i], ['nguon', /^nguồn tham khảo|^nguồn$/i], ['kiemtra', /^cần kiểm tra/i],
 ];
 const reFig = /^\[(HÌNH|HINH|3D|MÔ HÌNH|MO HINH)\s*:\s*([^\]]+)\]\s*$/i;
+// Định dạng hình (đều được):
+//   [HÌNH: <url trang nguồn> | file gợi ý | loại | chỗ | hiện | cùng ý | nhấn]   → tải hình gốc, ghi nguồn + giấy phép
+//   [HÌNH: tu-ve <tên>.svg | chỗ | hiện | cùng ý | nhấn]                        → tự vẽ nếu chưa có
+//   [HÌNH: <tên>.svg | chỗ: trái | hiện: vẽ nét | cùng ý: 1 | nhấn: …]          → kiểu cũ
+//   [3D: PubChem CID 962 | PDB 1CRN | kiểu | hiện | cùng ý | nhấn]                → tải tọa độ, dựng mô hình xoay được (3Dmol.js)
+//   [3D: <tên>.glb|.gltf | …]                                                     → mô hình glTF (three.js)
+const KEYS = { 'cho': 'cho', 'hien': 'hien', 'cung y': 'cungY', 'nhan': 'nhan', 'file': 'file', 'tep': 'file', 'file goi y': 'file', 'ten file': 'file', 'loai': 'loai', 'kieu': 'kieu' };
+const RE_CHO = /^(trai|phai|giua|thay bang|tren|duoi|ben trai|ben phai)$/;
+const RE_HIEN = /^(ve net|mo dan|truot vao|dung tung buoc|chuyen dong|xoay|hien ngay|dung yen)$/;
+const RE_LOAI = /^(anh|anh chup|so do|hinh ve|bieu do|minh hoa|anh hien vi|ban do|do thi|hinh)\b/;
+const RE_KIEU = /\b(que|cau|bang|day|stick|sphere|cartoon|ribbon|line|ball|space|dac)\b/;
 function parseFig(s) {
   const m = s.trim().match(reFig); if (!m) return null;
-  const parts = m[2].split('|').map((x) => x.trim());
-  const f = { file: parts[0], cho: '', hien: '', cungY: 0, nhan: '' };
-  for (const p of parts.slice(1)) {
-    const kv = p.match(/^([^:]+):\s*(.*)$/); if (!kv) continue;
-    const k = deAccent(kv[1]).toLowerCase().trim();
-    if (k === 'cho') f.cho = deAccent(kv[2]).toLowerCase(); else if (k === 'hien') f.hien = deAccent(kv[2]).toLowerCase().replace(/\s+/g, '-');
-    else if (k === 'cung y') f.cungY = parseInt(kv[2], 10) || 0; else if (k === 'nhan') f.nhan = kv[2];
+  const is3d = /3D|MÔ HÌNH|MO HINH/i.test(m[1]);
+  const parts = m[2].split('|').map((x) => x.trim()).filter(Boolean);
+  const f = { src: '', file: '', loai: '', kieu: '', cho: '', hien: '', cungY: 0, nhan: '', is3d, tuVe: false, mols: [] };
+  const set = (k, v) => {
+    const d = deAccent(v).toLowerCase().trim();
+    if (k === 'cho') f.cho = d; else if (k === 'hien') f.hien = d.replace(/\s+/g, '-'); else if (k === 'cungY') f.cungY = parseInt(v, 10) || 0;
+    else if (k === 'kieu') f.kieu = d; else f[k] = v.trim();
+  };
+  const pos = [];
+  for (const p of parts) {
+    if (is3d) {
+      const c = p.match(/pub\s*chem\s*(?:cid)?\s*[:#]?\s*(\d+)/i) || p.match(/^cid\s*[:#]?\s*(\d+)$/i);
+      if (c) { f.mols.push({ db: 'pubchem', id: c[1] }); continue; }
+      const d = p.match(/\b(?:pdb|rcsb)\s*(?:id)?\s*[:#]?\s*([0-9][A-Za-z0-9]{3})\b/i);
+      if (d) { f.mols.push({ db: 'pdb', id: d[1].toUpperCase() }); continue; }
+    }
+    const kv = p.match(/^([^:/]{1,16}):\s*(.*)$/);
+    if (kv) { const k = KEYS[deAccent(kv[1]).toLowerCase().trim()]; if (k) { set(k, kv[2]); continue; } }
+    pos.push(p);
   }
+  let first = pos.length && !f.mols.length ? pos.shift() : '';
+  if (/^https?:\/\//i.test(first)) f.src = first;
+  else if (/^tu[- ]?ve\s+/i.test(deAccent(first))) { f.tuVe = true; f.file = first.replace(/^\S+\s+/, '').trim(); }
+  else if (first) f.file = first;
+  // các giá trị không nhãn: nhận theo nội dung, còn lại theo thứ tự (loại → nhấn)
+  for (const p of pos) {
+    const d = deAccent(p).toLowerCase().trim();
+    if (!f.file && /^[\w.-]+\.(svg|png|jpe?g|gif|webp|glb|gltf)$/i.test(p)) f.file = p;
+    else if (RE_CHO.test(d) && !f.cho) f.cho = d;
+    else if (RE_HIEN.test(d) && !f.hien) f.hien = d.replace(/\s+/g, '-');
+    else if (/^\d{1,2}$/.test(d) && !f.cungY) f.cungY = +d;
+    else if (is3d && RE_KIEU.test(d) && !f.kieu) f.kieu = d;
+    else if (!is3d && RE_LOAI.test(d) && !f.loai) f.loai = p;
+    else if (!f.nhan) f.nhan = p;
+    else f.nhan += ' · ' + p;
+  }
+  if (/\.(glb|gltf)$/i.test(f.file)) f.is3d = true;
+  if (!f.file && f.src) f.file = '';
   return f;
 }
 function tableRows(lines) {
@@ -261,27 +303,61 @@ function inlineGltf(file) {
   return Buffer.from(JSON.stringify(j)).toString('base64');
 }
 let figSeq = 0;
+function loadLocal(file, id, F) {
+  if (/\.svg$/i.test(file)) return { kind: 'svg', svg: cleanSvg(fs.readFileSync(file, 'utf8'), id + '-') };
+  if (/\.(png|jpe?g|gif|webp)$/i.test(file)) { const ext = path.extname(file).slice(1).toLowerCase().replace('jpg', 'jpeg'); return { kind: 'img', src: `data:image/${ext};base64,` + fs.readFileSync(file).toString('base64') }; }
+  if (/\.glb$/i.test(file)) { F.has3d = true; return { kind: '3d', fmt: 'glb', b64: fs.readFileSync(file).toString('base64') }; }
+  if (/\.gltf$/i.test(file)) { F.has3d = true; return { kind: '3d', fmt: 'gltf', b64: inlineGltf(file) }; }
+  return null;
+}
+function nguonBox(f) {
+  const links = f.src ? [[f.src, (() => { try { const u = new URL(f.src); return decodeURIComponent(u.hostname + u.pathname).slice(0, 80); } catch { return f.src; } })()]]
+    : f.mols.map((m) => (m.db === 'pdb' ? [`https://www.rcsb.org/structure/${m.id}`, `RCSB PDB ${m.id}`] : [`https://pubchem.ncbi.nlm.nih.gov/compound/${m.id}`, `PubChem CID ${m.id}`]));
+  const a = links.map(([u, t]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join(' · ');
+  return { kind: 'nguon', html: `<b>${f.is3d ? 'Mô hình 3D' : 'Hình'}${f.nhan ? ': ' + esc(f.nhan) : ''}</b><br>${a}<br><small>Chưa tải được – mở link để xem tại nguồn.</small>` };
+}
 function resolveFig(f, ctx, dirs, F) {
-  const key = f.file + '|' + (f.nhan || '') + '|' + (ctx.board || []).join('/');
+  const key = [f.src, f.file, f.mols.map((m) => m.db + m.id).join(','), f.nhan || '', (ctx.board || []).join('/')].join('|');
   if (F.byKey[key]) return F.byKey[key];
-  const id = 'h' + (++figSeq), found = findFile(dirs, f.file);
-  let fig;
-  if (found && /\.svg$/i.test(found)) fig = { kind: 'svg', svg: cleanSvg(fs.readFileSync(found, 'utf8'), id + '-') };
-  else if (found && /\.(png|jpe?g|gif|webp)$/i.test(found)) { const ext = path.extname(found).slice(1).toLowerCase().replace('jpg', 'jpeg'); fig = { kind: 'img', src: `data:image/${ext};base64,` + fs.readFileSync(found).toString('base64') }; }
-  else if (found && /\.glb$/i.test(found)) { fig = { kind: '3d', fmt: 'glb', b64: fs.readFileSync(found).toString('base64') }; F.has3d = true; }
-  else if (found && /\.gltf$/i.test(found)) { fig = { kind: '3d', fmt: 'gltf', b64: inlineGltf(found) }; F.has3d = true; }
-  else { fig = { kind: 'auto', svg: autoFig({ file: f.file, nhan: f.nhan, board: ctx.board }) }; F.missing.add(f.file); }
-  Object.assign(fig, { file: f.file, cho: f.cho, hien: f.hien, nhan: f.nhan });
+  const id = 'h' + (++figSeq);
+  let fig = null;
+  if (f.src) {
+    fig = f.local ? loadLocal(f.local, id, F) : null;
+    if (!fig) { fig = nguonBox(f); F.loiNguon.push(f.src); }
+  } else if (f.mols.length) {
+    if (f.molData) { fig = { kind: 'mol', fmt: f.molData.fmt, data: fs.readFileSync(f.molData.file, 'utf8'), kieu: f.kieu }; F.has3dmol = true; }
+    else { fig = nguonBox(f); F.loiNguon.push(f.mols.map((m) => m.db + ' ' + m.id).join('/')); }
+  } else {
+    const found = f.file ? findFile(dirs, f.file) : null;
+    fig = found ? loadLocal(found, id, F) : null;
+    if (!fig) {
+      const svg = autoFig({ file: f.file || 'hinh', nhan: f.nhan, board: ctx.board });
+      fig = { kind: 'auto', svg };
+      if (f.tuVe && f.file && /\.svg$/i.test(f.file)) { // [HÌNH: tu-ve x.svg] → lưu hình tự vẽ vào assets của bài
+        fs.mkdirSync(F.dir, { recursive: true });
+        fs.writeFileSync(path.join(F.dir, path.basename(f.file)), svg.replace('<svg ', '<svg ') + '\n', 'utf8');
+        F.tuVe.push(f.file);
+      } else F.missing.add(f.file || '(không tên)');
+    }
+  }
+  Object.assign(fig, { file: f.file, cho: f.cho, hien: f.hien, nhan: f.nhan, credit: creditHtml(f.credit) });
   F.figs[id] = fig; F.byKey[key] = id;
   return id;
+}
+const assetDir = (A) => path.join(ROOT, 'assets', 'bai', A.stem.replace(/-album$/i, ''));
+function figsToFetch(A) {
+  const out = [];
+  for (const ch of A.chapters) for (const sc of ch.scenes) if (!sc.quiz) for (const x of sc.figs) out.push(x.f);
+  if (A.summaryFig) out.push(A.summaryFig);
+  return out;
 }
 
 // ============================================================ DỰNG
 function renderAlbum(A, mdFile) {
   figSeq = 0;
   const dirs = figDirs(mdFile, A);
-  const F = { figs: {}, byKey: {}, missing: new Set(), has3d: false };
-  const Q = (q) => ({ q: inl(q.q), opts: q.opts.map(inl), ans: q.ans ?? -1, expl: q.expl ? inl(q.expl) : '' });
+  const F = { figs: {}, byKey: {}, missing: new Set(), has3d: false, has3dmol: false, dir: assetDir(A), loiNguon: [], tuVe: [] };
+  const Q =(q) => ({ q: inl(q.q), opts: q.opts.map(inl), ans: q.ans ?? -1, expl: q.expl ? inl(q.expl) : '' });
   const chapters = A.chapters.map((ch) => ({
     n: ch.n, num: ch.isChap ? 'Chương ' + ch.n : String(ch.n), title: inl(ch.title), plain: ch.title, meta: inl(ch.meta), intro: ch.intro.map(inl),
     scenes: ch.scenes.map((sc, k) => {
@@ -311,19 +387,20 @@ function renderAlbum(A, mdFile) {
     extra: A.extra, figs: F.figs, built: vnNow(),
   };
   let html = fs.readFileSync(TPL, 'utf8');
-  html = html.replace('__TITLE__', () => esc(A.title.replace(/\*\*/g, ''))).replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript(data)).replace('__VENDOR__', () => (F.has3d ? threeJs() : ''));
-  const qs = chapters.flatMap((c) => c.scenes.filter((s) => s.quiz).flatMap((s) => s.quiz.qs)).concat(data.endQuiz);
-  const stats = { chapters: chapters.length, scenes: chapters.reduce((a, c) => a + c.scenes.length, 0), quiz: qs.length, quizNoAns: qs.filter((q) => q.ans < 0).length, figs: Object.keys(F.figs).length, figsTuVe: F.missing.size, has3d: F.has3d, kb: Math.round(Buffer.byteLength(html) / 1024) };
+  html = html.replace('__TITLE__', () => esc(A.title.replace(/\*\*/g, ''))).replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript(data)).replace('__VENDOR__', () => (F.has3d ? threeJs() : '') + (F.has3dmol ? molJs() : ''));
+  const qs =chapters.flatMap((c) => c.scenes.filter((s) => s.quiz).flatMap((s) => s.quiz.qs)).concat(data.endQuiz);
+  const stats = { chapters: chapters.length, scenes: chapters.reduce((a, c) => a + c.scenes.length, 0), quiz: qs.length, quizNoAns: qs.filter((q) => q.ans < 0).length, figs: Object.keys(F.figs).length, figsTuVe: F.missing.size + F.tuVe.length, has3d: F.has3d, has3dmol: F.has3dmol, loiNguon: F.loiNguon.length, kb: Math.round(Buffer.byteLength(html) / 1024) };
   return { html, stats, missing: [...F.missing] };
 }
 
-function main() {
+async function main() {
   const args = process.argv.slice(2);
   const ra = args.find((a) => a.startsWith('--ra='));
   const OUT = path.resolve(ra ? ra.slice(5) : path.join(ROOT, '_site'));
   const only = args.filter((a) => !a.startsWith('--')).map((f) => path.resolve(f));
   fs.mkdirSync(path.join(OUT, 'bai'), { recursive: true });
   const all = fs.existsSync(IN) ? fs.readdirSync(IN).filter((f) => /\.md$/i.test(f)).sort().map((f) => path.join(IN, f)) : [];
+  for (const f of only) if (!all.includes(f)) all.push(f); // file chỉ định ngoài bai/ (dựng thử)
   const items = []; let failed = 0;
   for (const md of all) {
     try {
@@ -331,6 +408,7 @@ function main() {
       const name = pageName(A);
       items.push({ f: 'bai/' + name, date: A.date, mon: A.mon, title: A.title.replace(/\*\*/g, ''), md: path.basename(md) });
       if (only.length && !only.includes(path.resolve(md))) continue;
+      await prefetch(figsToFetch(A), assetDir(A));
       const { html, stats, missing } = renderAlbum(A, md);
       fs.writeFileSync(path.join(OUT, 'bai', name), html, 'utf8');
       console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name}\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
@@ -344,4 +422,4 @@ function main() {
   console.log(`Trang chủ: index.html (${items.length} bài) → ${OUT}`);
   if (failed) { console.error(`${failed} bài lỗi`); process.exitCode = 1; }
 }
-main();
+main().catch((e) => { console.error(e); process.exitCode = 1; });

@@ -51,6 +51,15 @@ code{font-size:.9em;background:rgba(0,0,0,.25);padding:0 .3em;border-radius:4px}
 .fig>svg,.fig>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;overflow:visible}
 .fig canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
 .fig .m3d{position:absolute;inset:0}
+.fig.has-credit>svg,.fig.has-credit>img{height:calc(100% - 2.4em)}
+.fig .credit{position:absolute;left:0;right:0;bottom:0;font-size:.58em;line-height:1.3;color:var(--dim);text-align:center;max-height:2.7em;overflow:hidden;padding:0 4px}
+.fig .credit a{color:var(--dim);text-decoration:underline;text-underline-offset:2px}
+.fig .nguon-box{border:2px dashed rgba(242,239,230,.5);border-radius:14px;padding:16px 20px;max-width:92%;text-align:center;font-size:.82em;line-height:1.45}
+.fig .nguon-box small{color:var(--dim)}
+.fig .nguon-box a{word-break:break-all}
+.fig .mol{position:absolute;inset:0 0 2.4em 0;touch-action:none}
+.fig .mol canvas{touch-action:none}
+.fig .mol-hint{position:absolute;top:2px;right:6px;font-size:.6em;color:var(--dim);pointer-events:none;background:rgba(30,43,37,.7);padding:2px 8px;border-radius:999px}
 .fig .m3d-hint{position:absolute;left:0;right:0;bottom:4px;text-align:center;font-size:.7em;color:var(--dim);pointer-events:none}
 .chalkboard{flex:none;max-height:42%;overflow-y:auto;font-family:var(--hand);font-weight:600;font-size:1.08em;line-height:1.35;border:3px solid rgba(242,239,230,.8);border-radius:14px 10px 16px 9px;padding:10px 16px;background:rgba(0,0,0,.14);scrollbar-width:thin}
 .chalkboard[hidden]{display:none}
@@ -214,6 +223,9 @@ function makeFig(id){
   if(f.kind==='svg'||f.kind==='auto'){ w.innerHTML=f.svg; if(f.kind==='svg') w.classList.add('real'); }
   else if(f.kind==='img'){ var im=new Image(); im.alt=f.nhan||f.file; im.src=f.src; w.appendChild(im); w.classList.add('real'); }
   else if(f.kind==='3d'){ var box=el('div','m3d'); w.appendChild(box); w.appendChild(el('div','m3d-hint','Kéo để xoay mô hình 3D')); w.__m3d={box:box,f:f}; }
+  else if(f.kind==='mol'){ var mb=el('div','mol'); w.appendChild(mb); w.appendChild(el('div','mol-hint','Kéo / chạm để xoay · chụm hai ngón để phóng to')); w.__mol={box:mb,f:f}; }
+  else if(f.kind==='nguon'){ w.appendChild(el('div','nguon-box',f.html)); }
+  if(f.credit){ w.classList.add('has-credit'); w.appendChild(el('div','credit',f.credit)); }
   var svg=w.querySelector('svg');
   if(svg){
     svg.setAttribute('preserveAspectRatio','xMidYMid meet');
@@ -222,7 +234,32 @@ function makeFig(id){
   }
   return w;
 }
-function play(w){ w.classList.remove('play','h-'+w.dataset.hien); void w.offsetWidth; w.classList.add('play','h-'+w.dataset.hien); if(w.__m3d) start3d(w); }
+function play(w){ w.classList.remove('play','h-'+w.dataset.hien); void w.offsetWidth; w.classList.add('play','h-'+w.dataset.hien); if(w.__m3d) start3d(w); if(w.__mol) startMol(w); }
+/* mô hình phân tử: 3Dmol.js nhúng sẵn; lỗi/không có WebGL → khung nguồn */
+function molStyle(f){
+  var k=(f.kieu||'').toLowerCase();
+  if(/bang|cartoon|ribbon/.test(k)) return {cartoon:{color:'spectrum'}};
+  if(/day|line|wire/.test(k)) return {line:{}};
+  if(/dac|sphere|space/.test(k)||(/cau/.test(k)&&!/que/.test(k))) return {sphere:{}};
+  if((/que|stick/.test(k))&&!/cau|ball/.test(k)) return {stick:{radius:0.2}};
+  if(f.fmt!=='sdf'&&!k) return {cartoon:{color:'spectrum'}};
+  return {stick:{radius:0.16},sphere:{scale:0.28}};
+}
+var molViews=[];
+function startMol(w){
+  var m=w.__mol; if(m.v){ try{ m.v.resize(); m.v.render(); }catch(e){} return; }
+  if(m.failed) return;
+  function fail(msg){ m.failed=true; m.box.innerHTML='<div class="nguon-box" style="margin:auto">'+msg+'</div>'; m.box.style.display='grid'; }
+  if(!window.$3Dmol){ fail('Không mở được mô hình 3D (thiếu thư viện).'); return; }
+  try{
+    var v=$3Dmol.createViewer(m.box,{backgroundColor:'#1E2B25',antialias:true});
+    if(!v) throw new Error('không có WebGL');
+    v.addModel(m.f.data,m.f.fmt); v.setStyle({},molStyle(m.f)); v.zoomTo(); v.render();
+    if(!reduce&&/xoay|chuyen-dong/.test(m.f.hien||'')) v.spin('y',0.6);
+    m.v=v; molViews.push(v);
+    if(molViews.length===1) window.addEventListener('resize',function(){ molViews.forEach(function(x){ try{x.resize();x.render();}catch(e){} }); });
+  }catch(e){ fail('Không dựng được mô hình 3D trên máy này ('+String(e&&e.message||e).slice(0,80)+').'); }
+}
 /* 3D: three.js nhúng sẵn */
 function start3d(w){
   var m=w.__m3d; if(m.ready){ m.run(); return; }
@@ -306,7 +343,7 @@ function buildScene(sc){
     var show=null; figs.forEach(function(g){ if(g.at<=st) show=g; });
     if(figbox&&figs.length) figbox.classList.toggle('empty',!show);
     figs.forEach(function(g){ g.w.hidden=(g!==show); });
-    if(show&&show!==curFig){ play(show.w); } else if(show&&show.w.__m3d) start3d(show.w);
+    if(show&&show!==curFig){ play(show.w); } else if(show&&show.w.__m3d) start3d(show.w); else if(show&&show.w.__mol) startMol(show.w);
     curFig=show;
     var tgt=last&&cite?cite:steps[st-1]; scrollTo(tgt);
   }, leave:function(){ curFig=null; }};
@@ -426,7 +463,7 @@ $('#btn-next').addEventListener('click',function(e){e.stopPropagation(); next()}
 $('#btn-prev').addEventListener('click',function(e){e.stopPropagation(); prev()});
 function flash(side){ var h=stage.querySelector('.tap-hint.'+side); if(!h) return; h.classList.add('on'); setTimeout(function(){h.classList.remove('on')},180); }
 stage.addEventListener('click',function(e){
-  if(e.target.closest('a,button,table,.opt,canvas,input,select,textarea')) return;
+  if(e.target.closest('a,button,table,.opt,canvas,.mol,.m3d,input,select,textarea')) return;
   if(window.getSelection&&String(window.getSelection())) return;
   var r=stage.getBoundingClientRect();
   if(e.clientX < r.left + r.width/2){ flash('l'); prev(); } else { flash('r'); next(); }
@@ -442,7 +479,7 @@ document.addEventListener('keydown',function(e){
   else if(k==='m'||k==='M'){ openToc(); }
 });
 var tx=null;
-stage.addEventListener('touchstart',function(e){ if(e.touches.length===1) tx={x:e.touches[0].clientX,y:e.touches[0].clientY} },{passive:true});
+stage.addEventListener('touchstart',function(e){ if(e.target.closest&&e.target.closest('.mol,.m3d,canvas')){ tx=null; return; } if(e.touches.length===1) tx={x:e.touches[0].clientX,y:e.touches[0].clientY} },{passive:true});
 stage.addEventListener('touchend',function(e){ if(!tx) return; var t=e.changedTouches[0],dx=t.clientX-tx.x,dy=t.clientY-tx.y; tx=null; if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){ stage.__sw=Date.now(); if(dx<0){flash('r'); next();} else {flash('l'); prev();} } },{passive:true});
 stage.addEventListener('click',function(e){ if(stage.__sw&&Date.now()-stage.__sw<400) e.stopImmediatePropagation(); },true);
 
