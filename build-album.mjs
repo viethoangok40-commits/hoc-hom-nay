@@ -406,7 +406,9 @@ async function main() {
     try {
       const A = parseAlbum(fs.readFileSync(md, 'utf8'), md);
       const name = pageName(A);
-      items.push({ f: 'bai/' + name, date: A.date, mon: A.mon, title: A.title.replace(/\*\*/g, ''), md: path.basename(md) });
+      const mdName = path.basename(md);
+      const nhom = /^CNTP-/i.test(mdName) ? 'cntp' : /^D0/i.test(mdName) ? 'rnd' : '';
+      items.push({ f: 'bai/' + name, date: A.date, mon: A.mon, nhom, topic: A.topic.replace(/\*\*/g, '').replace(/^Ch(?:ương)?\s*\d+\s*/i, '').trim(), title: A.title.replace(/\*\*/g, ''), md: mdName });
       if (only.length && !only.includes(path.resolve(md))) continue;
       await prefetch(figsToFetch(A), assetDir(A));
       const { html, stats, missing } = renderAlbum(A, md);
@@ -414,7 +416,8 @@ async function main() {
       console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name}\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
     } catch (e) { failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
   }
-  items.sort((a, b) => b.date.localeCompare(a.date) || a.md.localeCompare(b.md));
+  const thuTu = { cntp: 0, rnd: 1, '': 2 };
+  items.sort((a, b) => b.date.localeCompare(a.date) || thuTu[a.nhom] - thuTu[b.nhom] || a.md.localeCompare(b.md));
   let home = fs.readFileSync(HOME_TPL, 'utf8');
   home = home.replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript({ items, built: vnNow() }));
   fs.writeFileSync(path.join(OUT, 'index.html'), home, 'utf8');

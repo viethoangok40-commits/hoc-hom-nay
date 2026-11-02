@@ -8,7 +8,7 @@
 <title>HỌC HÔM NAY</title>
 <style>
 __FONTS__
-:root{--board:#1E2B25;--chalk:#F2EFE6;--dim:#B9C7BD;--yel:#F2C94C;--org:#F2994A;
+:root{--board:#1E2B25;--chalk:#F2EFE6;--dim:#B9C7BD;--yel:#F2C94C;--org:#F2994A;--blu:#7FB8E0;
   --body:"Be Vietnam Pro","Segoe UI",system-ui,Arial,sans-serif;--pad:clamp(14px,3vw,40px);--ease:cubic-bezier(0.23,1,0.32,1)}
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -20,42 +20,67 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webki
 header.top{display:flex;align-items:baseline;gap:6px 16px;flex-wrap:wrap;padding:calc(env(safe-area-inset-top) + 14px) var(--pad) 4px}
 h1{font-weight:700;font-size:1.7em;margin:0;line-height:1.1;letter-spacing:.01em}
 .today{color:var(--dim);font-size:.95em}
+/* nhãn loại bài */
+.nhan{display:inline-block;font-size:.72em;font-weight:700;line-height:1.5;border-radius:999px;padding:1px 10px;white-space:nowrap;vertical-align:.12em;border:2px solid currentColor}
+.nhan.cntp{color:var(--org);background:rgba(242,153,74,.14)}
+.nhan.rnd{color:var(--blu);background:rgba(127,184,224,.14)}
+.nhan.khac{color:var(--dim)}
 #status{padding:4px var(--pad) 8px}
-.note{display:inline-block;border:2px dashed var(--org);color:var(--org);border-radius:12px;padding:6px 14px;font-weight:600;margin:4px 0 6px}
+.note{display:inline-block;border:2px dashed var(--yel);color:var(--yel);border-radius:12px;padding:6px 14px;font-weight:600;margin:4px 0 6px}
 .bigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin:8px 0 4px}
-.big{display:block;text-align:left;border:3px solid var(--chalk);border-radius:16px 12px 18px 11px;padding:18px 20px;min-height:120px;transition:border-color .18s var(--ease),background-color .18s var(--ease)}
-.big .m{color:var(--yel);font-weight:700;font-size:1.25em;display:block}
-.big .t{font-size:1.05em;display:block;margin-top:4px}
-.big.on{border-color:var(--yel);background:rgba(242,201,76,.1)}
-@media (hover:hover) and (pointer:fine){.big:hover{border-color:var(--yel)}}
+.big{display:block;text-align:left;border:3px solid var(--chalk);border-radius:16px 12px 18px 11px;padding:16px 20px;min-height:120px;transition:border-color .18s var(--ease),background-color .18s var(--ease)}
+.big .t{font-size:1.15em;font-weight:700;display:block;line-height:1.45}
+.big .t .nhan{font-size:.78em;margin-right:2px}
+.big.cntp{border-color:var(--org)}
+.big.rnd{border-color:var(--blu)}
+.big.on{background:rgba(242,239,230,.08);box-shadow:0 0 0 3px rgba(242,239,230,.25) inset}
+@media (hover:hover) and (pointer:fine){.big:hover{background:rgba(242,239,230,.06)}}
 .big:active{transform:scale(.98)}
 #viewer{margin:0 var(--pad);border:3px solid rgba(242,239,230,.7);border-radius:14px 10px 16px 9px;overflow:hidden;background:var(--board)}
+#viewer.cntp{border-color:var(--org)} #viewer.rnd{border-color:var(--blu)}
 #viewer[hidden]{display:none}
-#viewer .bar{display:flex;align-items:center;gap:12px;padding:8px 14px;border-bottom:2px solid rgba(242,239,230,.3);font-size:.85em;color:var(--dim)}
+#viewer .bar{display:flex;align-items:center;gap:10px;padding:8px 14px;border-bottom:2px solid rgba(242,239,230,.3);font-size:.85em;color:var(--dim)}
 #viewer .bar .ttl{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #viewer .bar a{white-space:nowrap;font-weight:600}
 #frame{display:block;width:100%;height:calc(100vh - 190px);height:calc(100svh - 190px);min-height:420px;border:0;background:var(--board)}
 section.list{padding:22px var(--pad) 40px;max-width:70em}
-section.list h2{font-weight:700;color:var(--yel);font-size:1.3em;margin:0 0 6px}
+section.list h2{font-weight:700;color:var(--yel);font-size:1.3em;margin:0 0 8px}
+.loc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.loc button{border:2px solid rgba(242,239,230,.45);border-radius:999px;padding:6px 14px;min-height:44px;font-weight:600;font-size:.9em;color:var(--dim);transition:border-color .15s var(--ease),background-color .15s var(--ease),color .15s var(--ease)}
+.loc button .so{font-weight:400;opacity:.8;margin-left:4px}
+.loc button[aria-pressed="true"]{color:var(--board);background:var(--chalk);border-color:var(--chalk)}
+.loc button.cntp[aria-pressed="true"]{background:var(--org);border-color:var(--org)}
+.loc button.rnd[aria-pressed="true"]{background:var(--blu);border-color:var(--blu)}
+@media (hover:hover) and (pointer:fine){.loc button[aria-pressed="false"]:hover{border-color:var(--chalk);color:var(--chalk)}}
 .day{margin:16px 0 0}
+.day[hidden],.it[hidden]{display:none}
 .day h3{font-size:.9em;color:var(--dim);font-weight:600;margin:0 0 4px;border-bottom:1px solid rgba(242,239,230,.22);padding-bottom:4px}
-.day h3 .tag{color:var(--board);background:var(--yel);border-radius:999px;padding:0 10px;margin-left:8px;font-size:.85em}
-.it{display:flex;gap:12px;align-items:baseline;width:100%;text-align:left;padding:10px;border-radius:10px;min-height:48px}
-.it .m{color:var(--yel);font-weight:700;min-width:3.6em}
+.day h3 .hn{color:var(--board);background:var(--yel);border-radius:999px;padding:0 10px;margin-left:8px;font-size:.85em}
+.it{display:flex;gap:12px;align-items:baseline;width:100%;text-align:left;padding:10px;border-radius:10px;min-height:48px;border-left:4px solid transparent}
+.it.cntp{border-left-color:rgba(242,153,74,.6)} .it.rnd{border-left-color:rgba(127,184,224,.6)}
+.it .nhan{flex:none;min-width:8.6em;text-align:center}
 .it .t{flex:1}
 .it .o{font-size:.8em;color:var(--dim);white-space:nowrap}
 .it.on{background:rgba(242,239,230,.09)}
 @media (hover:hover) and (pointer:fine){.it:hover{background:rgba(242,239,230,.09)}}
 .empty{color:var(--dim)}
 footer{color:var(--dim);font-size:.75em;padding:0 var(--pad) calc(env(safe-area-inset-bottom) + 24px)}
-@media (max-width:600px){ #viewer{margin:0;border-left:0;border-right:0;border-radius:0} #frame{height:calc(100svh - 150px);min-height:360px} .it{flex-wrap:wrap} .it .o{margin-left:auto} }
+@media (max-width:600px){ #viewer{margin:0;border-left:0;border-right:0;border-radius:0} #frame{height:calc(100svh - 150px);min-height:360px} .it{flex-wrap:wrap;row-gap:4px} .it .nhan{min-width:0} .it .o{margin-left:auto} .it .t{order:3;flex:1 0 100%} }
 </style>
 </head>
 <body>
 <header class="top"><h1>HỌC HÔM NAY</h1><span class="today" id="today"></span></header>
 <div id="status"></div>
-<div id="viewer" hidden><div class="bar"><span class="ttl" id="vttl"></span><a id="vopen" href="#">Toàn màn hình ↗</a></div><iframe id="frame" title="Bài học" allow="fullscreen"></iframe></div>
-<section class="list"><h2>Tất cả bài học</h2><div id="list"></div></section>
+<div id="viewer" hidden><div class="bar"><span id="vnhan"></span><span class="ttl" id="vttl"></span><a id="vopen" href="#">Toàn màn hình ↗</a></div><iframe id="frame" title="Bài học" allow="fullscreen"></iframe></div>
+<section class="list"><h2>Tất cả bài học</h2>
+  <div class="loc" role="group" aria-label="Lọc loại bài">
+    <button type="button" data-loc="tat-ca" aria-pressed="true">Tất cả<span class="so" id="so-tat-ca"></span></button>
+    <button type="button" data-loc="cntp" class="cntp" aria-pressed="false">Bàn học CNTP<span class="so" id="so-cntp"></span></button>
+    <button type="button" data-loc="rnd" class="rnd" aria-pressed="false">R&amp;D Food Lab<span class="so" id="so-rnd"></span></button>
+  </div>
+  <div id="list"></div>
+  <p class="empty" id="list-empty" hidden>Chưa có bài nào thuộc loại này.</p>
+</section>
 <footer id="foot"></footer>
 <script type="application/json" id="data">__DATA__</script>
 <script>
@@ -65,18 +90,27 @@ var D=JSON.parse(document.getElementById('data').textContent), items=D.items||[]
 var $=function(s){return document.querySelector(s)};
 function el(t,c,h){var e=document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function sget(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function sset(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+/* loại bài: tên file bắt đầu "CNTP-" → Bàn học CNTP; "D0" → R&D Food Lab */
+var LOAI={cntp:'Bàn học CNTP',rnd:'R&D Food Lab'};
+function nhom(it){ if(it.nhom) return it.nhom; var n=it.md||''; return /^CNTP-/i.test(n)?'cntp':/^D0/i.test(n)?'rnd':''; }
+items.forEach(function(it){ it.g=nhom(it); });
+function nhanHtml(it){ return it.g?'<span class="nhan '+it.g+'">'+esc(LOAI[it.g])+'</span>':(it.mon?'<span class="nhan khac">'+esc(it.mon)+'</span>':''); }
+function chuDe(it){ return it.topic||it.title; }
 /* ngày hôm nay theo giờ Việt Nam */
 var today;
 try{ today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date()); }
-catch(e){ var v=new Date(Date.now()+7*3600e3); today=v.toISOString().slice(0,10); }
+catch(e){ today=new Date(Date.now()+7*3600e3).toISOString().slice(0,10); }
 var THU=['Chủ nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
 function vnDate(ymd){ var a=ymd.split('-'), d=new Date(Date.UTC(+a[0],+a[1]-1,+a[2])); return THU[d.getUTCDay()]+', '+a[2]+'/'+a[1]+'/'+a[0]; }
 $('#today').textContent=vnDate(today);
 var frame=$('#frame'), viewer=$('#viewer'), cur=null;
 function mark(){ [].forEach.call(document.querySelectorAll('[data-f]'),function(b){ b.classList.toggle('on',!!cur&&b.getAttribute('data-f')===cur.f) }); }
 function open(it,scroll){
-  cur=it; viewer.hidden=false; frame.src=it.f; $('#vopen').href=it.f;
-  $('#vttl').textContent=vnDate(it.date)+' · '+(it.mon?it.mon+' · ':'')+it.title;
+  cur=it; viewer.hidden=false; viewer.className=it.g||''; frame.src=it.f; $('#vopen').href=it.f;
+  $('#vnhan').innerHTML=nhanHtml(it);
+  $('#vttl').textContent=vnDate(it.date)+' · '+it.title;
   frame.onload=function(){ try{frame.focus()}catch(e){} };
   mark();
   if(scroll) viewer.scrollIntoView({behavior:'smooth',block:'start'});
@@ -87,7 +121,12 @@ else if(todays.length===1){ open(todays[0]); }
 else if(todays.length>1){
   st.appendChild(el('p',null,'Hôm nay có <b>'+todays.length+' bài</b>. Chọn bài để học:'));
   var g=el('div','bigs');
-  todays.forEach(function(it){ var b=el('button','big','<span class="m">'+esc(it.mon||'Bài')+'</span><span class="t">'+esc(it.title)+'</span>'); b.type='button'; b.setAttribute('data-f',it.f); b.addEventListener('click',function(){open(it,true)}); g.appendChild(b); });
+  todays.forEach(function(it){
+    var loai=it.g?LOAI[it.g]:(it.mon||'Bài');
+    var b=el('button','big '+(it.g||''),'<span class="t">'+(nhanHtml(it)||esc(loai))+' – '+esc(chuDe(it))+'</span>');
+    b.type='button'; b.setAttribute('data-f',it.f); b.setAttribute('aria-label',loai+' – '+chuDe(it));
+    b.addEventListener('click',function(){open(it,true)}); g.appendChild(b);
+  });
   st.appendChild(g);
 } else {
   st.appendChild(el('div','note','Hôm nay chưa có bài mới'));
@@ -95,14 +134,28 @@ else if(todays.length>1){
   open(items[0]);
 }
 /* danh sách theo ngày, mới nhất trên cùng */
-var L=$('#list'), lastDay='', box=null;
+var L=$('#list'), lastDay='', box=null, days=[];
 items.forEach(function(it){
-  if(it.date!==lastDay){ lastDay=it.date; box=el('div','day'); box.appendChild(el('h3',null,vnDate(it.date)+(it.date===today?'<span class="tag">hôm nay</span>':''))); L.appendChild(box); }
-  var b=el('button','it','<span class="m">'+esc(it.mon||'')+'</span><span class="t">'+esc(it.title)+'</span><a class="o" href="'+esc(it.f)+'">mở riêng ↗</a>');
-  b.type='button'; b.setAttribute('data-f',it.f);
+  if(it.date!==lastDay){ lastDay=it.date; box=el('div','day'); box.appendChild(el('h3',null,vnDate(it.date)+(it.date===today?'<span class="hn">hôm nay</span>':''))); L.appendChild(box); days.push(box); }
+  var b=el('button','it '+(it.g||''),nhanHtml(it)+'<span class="t">'+esc(chuDe(it))+'</span><a class="o" href="'+esc(it.f)+'">mở riêng ↗</a>');
+  b.type='button'; b.setAttribute('data-f',it.f); b.setAttribute('data-g',it.g||'khac'); b.title=it.title;
   b.addEventListener('click',function(e){ if(e.target.closest('a')) return; open(it,true); });
   box.appendChild(b);
 });
+/* lọc: Tất cả · Bàn học CNTP · R&D Food Lab – nhớ lựa chọn lần trước */
+var KEY='hoc-hom-nay:loc', btns=[].slice.call(document.querySelectorAll('.loc button'));
+var dem={'tat-ca':items.length,cntp:0,rnd:0}; items.forEach(function(it){ if(it.g) dem[it.g]++; });
+Object.keys(dem).forEach(function(k){ var s=document.getElementById('so-'+k); if(s) s.textContent='('+dem[k]+')'; });
+function loc(v){
+  if(!/^(tat-ca|cntp|rnd)$/.test(v||'')) v='tat-ca';
+  btns.forEach(function(b){ b.setAttribute('aria-pressed',String(b.getAttribute('data-loc')===v)); });
+  var shown=0;
+  days.forEach(function(d){ var any=false; [].forEach.call(d.querySelectorAll('.it'),function(x){ var ok=v==='tat-ca'||x.getAttribute('data-g')===v; x.hidden=!ok; if(ok){any=true; shown++;} }); d.hidden=!any; });
+  $('#list-empty').hidden=shown>0;
+  sset(KEY,v);
+}
+btns.forEach(function(b){ b.addEventListener('click',function(){ loc(b.getAttribute('data-loc')); }); });
+loc(sget(KEY));
 mark();
 $('#foot').textContent=items.length+' bài · dựng lúc '+D.built+' (giờ Việt Nam)';
 })();
