@@ -115,6 +115,12 @@ function open(it,scroll){
   mark();
   if(scroll) viewer.scrollIntoView({behavior:'smooth',block:'start'});
 }
+/* nút "📚 Bài khác" trong khung bài gọi hàm này để mở bài khác ngay trong trang chủ */
+window.__hhnOpen=function(f){
+  var it=null; for(var i=0;i<items.length;i++) if(items[i].f===f){ it=items[i]; break; }
+  if(!it) return false;
+  open(it,false); return true;
+};
 var st=$('#status'), todays=items.filter(function(x){return x.date===today});
 if(!items.length){ st.appendChild(el('p','empty','Chưa có bài nào. Thêm file *-album.md vào thư mục <b>bai/</b> của repo.')); }
 else if(todays.length===1){ open(todays[0]); }

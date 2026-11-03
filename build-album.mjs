@@ -353,7 +353,7 @@ function figsToFetch(A) {
 }
 
 // ============================================================ DỰNG
-function renderAlbum(A, mdFile) {
+function renderAlbum(A, mdFile, extra = {}) {
   figSeq = 0;
   const dirs = figDirs(mdFile, A);
   const F = { figs: {}, byKey: {}, missing: new Set(), has3d: false, has3dmol: false, dir: assetDir(A), loiNguon: [], tuVe: [] };
@@ -385,6 +385,7 @@ function renderAlbum(A, mdFile) {
     sources: A.sources.map(inl), sourcesNote: A.sourcesNote.map(inl), checks: A.checks.map(inl), checksNote: A.checksNote.map(inl),
     dossier: A.dossier ? { head: A.dossier.head.map(inl), rows: A.dossier.rows.map((r) => r.map(inl)) } : null,
     extra: A.extra, figs: F.figs, built: vnNow(),
+    self: extra.self || '', ds: extra.ds || [], // nút "📚 Bài khác": tên file trang này + danh sách mọi bài (mới nhất trên)
   };
   let html = fs.readFileSync(TPL, 'utf8');
   html = html.replace('__TITLE__', () => esc(A.title.replace(/\*\*/g, ''))).replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript(data)).replace('__VENDOR__', () => (F.has3d ? threeJs() : '') + (F.has3dmol ? molJs() : ''));
@@ -401,7 +402,8 @@ async function main() {
   fs.mkdirSync(path.join(OUT, 'bai'), { recursive: true });
   const all = fs.existsSync(IN) ? fs.readdirSync(IN).filter((f) => /\.md$/i.test(f)).sort().map((f) => path.join(IN, f)) : [];
   for (const f of only) if (!all.includes(f)) all.push(f); // file chỉ định ngoài bai/ (dựng thử)
-  const items = []; let failed = 0;
+  // Lượt 1: đọc mọi bài → danh sách (để trang bài nào cũng có nút "📚 Bài khác" đủ mọi bài)
+  const items = [], parsed = []; let failed = 0;
   for (const md of all) {
     try {
       const A = parseAlbum(fs.readFileSync(md, 'utf8'), md);
@@ -409,15 +411,23 @@ async function main() {
       const mdName = path.basename(md);
       const nhom = /^CNTP-/i.test(mdName) ? 'cntp' : /^D0/i.test(mdName) ? 'rnd' : '';
       items.push({ f: 'bai/' + name, date: A.date, mon: A.mon, nhom, topic: A.topic.replace(/\*\*/g, '').replace(/^Ch(?:ương)?\s*\d+\s*/i, '').trim(), title: A.title.replace(/\*\*/g, ''), md: mdName });
-      if (only.length && !only.includes(path.resolve(md))) continue;
-      await prefetch(figsToFetch(A), assetDir(A));
-      const { html, stats, missing } = renderAlbum(A, md);
-      fs.writeFileSync(path.join(OUT, 'bai', name), html, 'utf8');
-      console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name}\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
+      parsed.push({ md, A, name });
     } catch (e) { failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
   }
   const thuTu = { cntp: 0, rnd: 1, '': 2 };
   items.sort((a, b) => b.date.localeCompare(a.date) || thuTu[a.nhom] - thuTu[b.nhom] || a.md.localeCompare(b.md));
+  // Lượt 2: dựng từng bài
+  for (const { md, A, name } of parsed) {
+    if (only.length && !only.includes(path.resolve(md))) continue;
+    try {
+      await prefetch(figsToFetch(A), assetDir(A));
+      const { html, stats, missing } = renderAlbum(A, md, { self: name, ds: items });
+      fs.writeFileSync(path.join(OUT, 'bai', name), html, 'utf8');
+      console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name}\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
+    } catch (e) { failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
+  }
+  // danh sách mới nhất cho các trang bài (trang bài đọc file này; mở offline thì dùng danh sách nhúng sẵn)
+  fs.writeFileSync(path.join(OUT, 'bai', 'danh-sach.json'), JSON.stringify({ items, built: vnNow() }), 'utf8');
   let home = fs.readFileSync(HOME_TPL, 'utf8');
   home = home.replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript({ items, built: vnNow() }));
   fs.writeFileSync(path.join(OUT, 'index.html'), home, 'utf8');

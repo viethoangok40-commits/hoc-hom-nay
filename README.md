@@ -20,7 +20,8 @@ Workflow `.github/workflows/lay-bai.yml` chạy lúc **06:30, 07:30, 08:30, 12:3
 
 ## Đọc bài
 - Điện thoại: chạm nửa phải màn hình = ý sau, nửa trái = lùi; vuốt trái/phải cũng được.
-- Máy tính: → hoặc Space = ý sau, ← = lùi, M = mục lục.
+- Máy tính: → hoặc Space = ý sau, ← = lùi, M = mục lục, B = bài khác.
+- Nút **📚 Bài khác** (cạnh ☰ trên thanh trên cùng, có ở trang chủ lẫn từng trang bài): mở danh sách mọi bài, lọc Tất cả / Bàn học CNTP / R&D Food Lab, mới nhất trên cùng; chạm bài nào mở bài đó. Bộ dựng nhúng danh sách vào mỗi bài và ghi `bai/danh-sach.json` để bài cũ vẫn thấy bài mới.
 
 ## Dựng thử trên máy
 ```
