@@ -24,7 +24,9 @@ Workflow `.github/workflows/lay-bai.yml` chạy lúc **06:30, 07:30, 08:30, 12:3
 - Nút **📚 Bài khác** (cạnh ☰ trên thanh trên cùng, có ở trang chủ lẫn từng trang bài): mở danh sách mọi bài, lọc Tất cả / Bàn học CNTP / R&D Food Lab, mới nhất trên cùng; chạm bài nào mở bài đó. Bộ dựng nhúng danh sách vào mỗi bài và ghi `bai/danh-sach.json` để bài cũ vẫn thấy bài mới.
 
 ## Vật thể kính theo chương
-Chọn theo **tên chương** (ưu tiên từ trên xuống), không khớp thì xoay vòng phân tử → tế bào → giọt sữa:
+Cú pháp đầy đủ (chữ trên bảng, dòng ghi đè `*Vật thể: …*`, hình, trắc nghiệm): **[huong-dan/cu-phap-album.md](huong-dan/cu-phap-album.md)**.
+
+Chọn theo **tên chương** (ưu tiên từ trên xuống); ghi đè bằng `*Vật thể: giọt sữa|tế bào|phân tử|khiên|bánh răng|không*`; không khớp và không ghi đè → không hiện vật thể, chỉ nền kính:
 - "quy trình" → bánh răng kính · vi sinh, tế bào, lên men… → tế bào/vi khuẩn · sữa, nhũ tương, ly tâm… → giọt sữa
 - chất lượng, ISO, HACCP, an toàn, quản lý → khiên kính có dấu tích · phân tử, protein, độ ẩm… → phân tử (lấy từ PubChem nếu bài có `[3D: PubChem CID …]`)
 - Trang bìa: quả cầu kính chứa trái cây – cá – cà chua. WebGL lỗi → ảnh tĩnh; `prefers-reduced-motion` → không xoay, chuyển cảnh chỉ mờ dần.

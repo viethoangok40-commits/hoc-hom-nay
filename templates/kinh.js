@@ -8,8 +8,8 @@ var body=document.body, root=document.documentElement;
 var CH=K.chapters||{};
 var G={ready:false}; // vật thể 3D (điền khi three.js đã tải)
 function toneOf(id){ var m=/^c(\d+)/.exec(id||''); var c=m&&CH[m[1]]; return (c&&c.tone)||K.tone||'cong-nghe'; }
-function vatOf(id){ var m=/^c(\d+)/.exec(id||''); var c=m&&CH[m[1]]; return c?c.vat:'bia'; }
-function modeOf(id){ return (id==='mo-dau'||/^c\d+$/.test(id||''))?'lon':'nho'; }
+function vatOf(id){ var m=/^c(\d+)/.exec(id||''); if(!m) return 'bia'; var c=CH[m[1]]; return c&&c.vat?c.vat:null; } // null: chương không có vật thể → chỉ nền kính
+function modeOf(id){ if(!vatOf(id)) return 'an'; return (id==='mo-dau'||/^c\d+$/.test(id||''))?'lon':'nho'; }
 
 /* ---------- nền: gradient + 2 quầng sáng + bụi sáng ---------- */
 var bg=document.createElement('div'); bg.id='kbg'; bg.setAttribute('aria-hidden','true');
@@ -43,13 +43,13 @@ document.addEventListener('scroll',function(e){ var t=e.target; if(t&&t.classLis
 document.addEventListener('album:render',function(){ ty=0; });
 
 /* ---------- theo màn: tông màu, chế độ vật thể, chuyển cảnh, đánh số thẻ ---------- */
-var curTone='', curVat='', curMode='';
+var curTone='', curVat, curMode=''; // curVat: undefined = chưa có màn nào; null = không vật thể
 function setTone(t){ if(t===curTone) return; body.classList.remove('tone-'+curTone); curTone=t; body.classList.add('tone-'+t); if(G.ready) G.setTone(t); }
 document.addEventListener('album:render',function(e){
   var d=e.detail||{}, el=d.el;
   setTone(toneOf(d.id));
   var mode=modeOf(d.id); setMode(mode);
-  if(mode==='lon'&&el) requestAnimationFrame(function(){ fitCover(el); });
+  if((mode==='lon'||mode==='an')&&el) requestAnimationFrame(function(){ fitCover(el); });
   var vat=vatOf(d.id); if(vat!==curVat){ curVat=vat; if(G.ready) G.show(vat); }
   if(el&&d.changed&&!reduce&&d.dir){ el.classList.remove('vao-tien','vao-lui'); void el.offsetWidth; el.classList.add(d.dir>0?'vao-tien':'vao-lui'); }
   else if(el&&d.changed&&reduce){ el.classList.remove('vao-tien'); void el.offsetWidth; el.classList.add('vao-tien'); }
@@ -57,10 +57,11 @@ document.addEventListener('album:render',function(e){
     var k=0; [].forEach.call(el.querySelectorAll('.step.idea'),function(p){ k++; var s=document.createElement('span'); s.className='so'; s.setAttribute('aria-hidden','true'); s.textContent=(k<10?'0':'')+k; p.appendChild(s); }); }
 });
 
-function setMode(m){ if(m===curMode) return; curMode=m; body.classList.toggle('orb-nho',m==='nho'); if(m==='nho'&&box.style.height){ box.style.height=''; if(G.ready) G.resize(); } }
+function setMode(m){ if(m===curMode) return; curMode=m; body.classList.toggle('orb-nho',m==='nho'); body.classList.toggle('orb-an',m==='an'); if(m!=='lon'&&box.style.height){ box.style.height=''; if(G.ready) G.resize(); } }
 /* bìa: chữ dài thì bớt khoảng trên; vật thể co vào phần trống phía trên chữ (quá ít chỗ → thu nhỏ về góc) */
 function fitCover(el){
   var cover=el.querySelector('.cover'); if(!cover||el.hidden) return;
+  if(curMode==='an'){ cover.style.removeProperty('--cover-top'); if(window.__album&&__album.refit) __album.refit(); return; } // không vật thể: CSS canh giữa
   if(innerWidth>820){ cover.style.removeProperty('--cover-top'); box.style.height=''; if(G.ready) G.resize(); return; }
   cover.style.removeProperty('--cover-top'); el.style.setProperty('--k','1');
   var need=cover.scrollHeight-cover.clientHeight, pad=parseFloat(getComputedStyle(cover).paddingTop)||0;
@@ -193,7 +194,9 @@ function start3d(){
   addEventListener('resize',size); size();
   G.resize=size;
   G.setTone=function(t){ scene.environment=envFor(t); };
-  G.show=function(v){ if(!builders[v]) v='bia'; if(!objs[v]){ objs[v]=builders[v](); scene.add(objs[v]); }
+  G.show=function(v){
+    if(!v){ Object.keys(objs).forEach(function(k){ objs[k].visible=false; }); cur=null; r.render(scene,cam); return; } // không vật thể: xóa khung
+    if(!builders[v]) v='bia'; if(!objs[v]){ objs[v]=builders[v](); scene.add(objs[v]); }
     Object.keys(objs).forEach(function(k){ objs[k].visible=(k===v); }); cur=objs[v]; cur.scale.setScalar(.86); fadeT=performance.now(); };
   G.frame=function(t){ if(!cur) return; var dt=lastT?Math.min(.05,(t-lastT)/1000):0; lastT=t;
     var k=Math.min(1,(t-fadeT)/700), e=1-Math.pow(1-k,3); cur.scale.setScalar(.86+.14*e);
@@ -201,7 +204,7 @@ function start3d(){
       if(cur.userData.tick) cur.userData.tick(dt);
       if(cur.userData.fish){ cur.userData.fish.rotation.y=-.35+Math.sin((t-t0)/700)*.25; } }
     r.render(scene,cam); };
-  G.setTone(curTone||K.tone||'cong-nghe'); G.show(curVat||'bia'); G.ready=true; G.frame(performance.now());
+  G.setTone(curTone||K.tone||'cong-nghe'); G.show(curVat===undefined?'bia':curVat); G.ready=true; G.frame(performance.now());
   requestAnimationFrame(function(){ cv.style.opacity='1'; box.classList.add('co-3d'); });
   if(reduce){ document.addEventListener('album:render',function(){ setTimeout(function(){ if(G.ready) G.frame(performance.now()); },30); }); }
   window.__kinh={renderer:r,show:function(v){ curVat=v; G.show(v); },info:function(){ return {calls:r.info.render.calls,tris:r.info.render.triangles,pr:r.getPixelRatio(),vat:curVat}; }};

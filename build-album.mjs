@@ -134,13 +134,32 @@ function parseQuiz(lines) {
   }
   return qs.filter((x) => x.opts.length >= 2);
 }
+// "Chữ trên bảng" – mọi kiểu đầu mục: "Chữ trên bảng: a / b", "- **Chữ trên bảng:** a / b", "  - Chữ trên bảng:" (+ các dòng dưới)
+const RE_BOARD = /^\s*(?:[-*]\s+)?(?:\*\*)?Chữ trên bảng\s*(?::\s*\*\*|\*\*\s*:|:)\s*(.*)$/i;
 function parseScene(title, lines) {
   const mt = title.match(/^(?:Cảnh\s+)?(\d+(?:\.\d+)*)\s*[–—-]\s*(.+)$/);
   const sc = { num: mt ? mt[1] : '', title: (mt ? mt[2] : title).trim(), steps: [], figs: [], cite: '', guide: '', quiz: null, notes: [] };
   const hasQuiz = lines.some((l, i) => /^\d+\.\s/.test(l) && /^\s+[-*]\s+[A-D][.)]/.test(lines[i + 1] || ''));
-  let item = null; const pending = [];
+  let item = null, boardTo = null; const pending = [];
   const step = (s) => { sc.steps.push(s); item = s; };
   for (const l of lines) {
+    // "Chữ trên bảng" kiểu xuống dòng: gom các dòng ngay dưới (thụt vào / gạch đầu dòng / dòng thường) tới dòng trống
+    if (boardTo) {
+      const t = l.trim(), body = t.replace(/^[-*]\s+/, '');
+      const end = !t || /^#/.test(t) || /^---+$/.test(t) || reFig.test(body) || /^[-*]\s+\*\*[^*]+?:?\*\*:?/.test(t) || RE_BOARD.test(t);
+      if (!end) { boardTo.board.push(...body.split(/\s+\/\s+/).map((x) => x.trim()).filter(Boolean)); continue; }
+      boardTo = null;
+    }
+    if (!hasQuiz) {
+      const bh = l.match(RE_BOARD);
+      if (bh) {
+        const tgt = item || sc.steps[sc.steps.length - 1];
+        const rest = bh[1].trim();
+        if (tgt) { if (rest) tgt.board.push(...rest.split(/\s+\/\s+/).map((x) => x.trim()).filter(Boolean)); else boardTo = tgt; }
+        else console.warn(`  ("Chữ trên bảng" ở cảnh ${sc.num || title} nằm trước mọi ý – bỏ qua)`);
+        continue;
+      }
+    }
     if (!l.trim() || /^---+\s*$/.test(l)) continue;
     const top = /^[-*]\s/.test(l), sub = /^\s{2,}[-*]\s/.test(l);
     if (top) {
@@ -187,7 +206,10 @@ function parseScene(title, lines) {
   }
   return sc;
 }
+const RE_VAT_LINE = /^\*{1,2}\s*vat the\s*:\s*([^*]+?)\s*\*{1,2}$/i; // so tr\u00EAn ch\u1EEF \u0111\u00E3 b\u1ECF d\u1EA5u
+const VAT_TEN = { 'giot sua': 'giot-sua', 'te bao': 'te-bao', 'vi khuan': 'te-bao', 'phan tu': 'phan-tu', 'khien': 'khien', 'banh rang': 'banh-rang', 'khong': null };
 function parseAlbum(src, file) {
+  src = src.normalize('NFC');
   const lines = src.replace(/^\uFEFF/, '').replace(/\r/g, '').split('\n');
   let h1 = ''; const pre = [], secs = []; let cur = null;
   for (const l of lines) {
@@ -222,7 +244,15 @@ function parseAlbum(src, file) {
     else {
       chN++;
       const mc = s.title.match(/^Chương\s+(\d+)\s*[–—:-]\s*(.+)$/i);
-      const ch = { n: mc ? +mc[1] : chN, title: mc ? mc[2].trim() : s.title, isChap: !!mc, meta: '', intro: [], scenes: [] };
+      const ch = { n: mc ? +mc[1] : chN, title: mc ? mc[2].trim() : s.title, isChap: !!mc, meta: '', intro: [], scenes: [], vat: undefined };
+      // dòng ghi đè vật thể kính: *Vật thể: giọt sữa|tế bào|phân tử|khiên|bánh răng|không* (đặt đâu trong chương cũng được)
+      s.lines = s.lines.filter((l) => {
+        const mv = deAccent(l.trim()).match(RE_VAT_LINE); if (!mv) return true; // so khớp trên chữ bỏ dấu: "Vật thể" = "Vat the"
+        const v = VAT_TEN[mv[1].toLowerCase().replace(/[^a-z ]/g, '').trim().replace(/\s+/g, ' ')];
+        if (v === undefined) console.warn(`  (Chương ${ch.n}: "Vật thể: ${mv[1]}" không hiểu – dùng: giọt sữa, tế bào, phân tử, khiên, bánh răng, không)`);
+        else ch.vat = v;
+        return false;
+      });
       const blocks = []; let b = { title: null, lines: [] }; blocks.push(b);
       for (const l of s.lines) { const m = l.match(/^###\s+(.+)$/); if (m) { b = { title: m[1].trim(), lines: [] }; blocks.push(b); } else b.lines.push(l); }
       const head = blocks.shift();
@@ -430,8 +460,8 @@ function kinhData(A, F) {
   A.chapters.forEach((ch, i) => {
     const t = textOf(ch);
     const tone = RE_CHAT_LUONG.test(ch.title) ? 'chat-luong' : (/tiếng anh|ielts/i.test(ch.title) ? lessonTone : (RE_CHAT_LUONG.test(t.slice(0, 4000)) && lessonTone === 'chat-luong' ? 'chat-luong' : lessonTone));
-    // chỉ dò theo tên chương (dò cả thân bài thì chữ "sữa" lạc trong ví dụ cũng kéo theo giọt sữa); không khớp → xoay vòng
-    const vat = (VAT.find(([, re]) => re.test(ch.title)) || [['phan-tu', 'te-bao', 'giot-sua'][i % 3]])[0];
+    // ưu tiên dòng ghi đè *Vật thể: …* (kể cả "không"); không có thì dò theo tên chương; không khớp → không hiện vật thể (chỉ nền kính)
+    const vat = ch.vat !== undefined ? ch.vat : ((VAT.find(([, re]) => re.test(ch.title)) || [null])[0]);
     chapters[ch.n] = { tone, vat };
   });
   const sdf = Object.values(F.figs).find((f) => f.kind === 'mol' && f.fmt === 'sdf');
