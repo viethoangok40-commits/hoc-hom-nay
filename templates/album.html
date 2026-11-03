@@ -306,7 +306,8 @@ function startMol(w){
   if(!m.f.data&&m.f.url){ wait('Đang tải mô hình 3D…'); fetch(m.f.url).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); }).then(function(t){ m.f.data=t; go(); }).catch(function(e){ m.loading=false; fail('Không tải được dữ liệu mô hình 3D ('+String(e&&e.message||e).slice(0,60)+').'); }); return; }
   if(!window.$3Dmol){ fail('Không mở được mô hình 3D (thiếu thư viện).'); return; }
   try{
-    var v=$3Dmol.createViewer(m.box,{backgroundColor:'#1E2B25',antialias:true});
+    var kinh=document.body.classList.contains('kinh'); // giao diện kính: nền trong suốt cho hợp khung kính
+    var v=$3Dmol.createViewer(m.box,{backgroundColor:kinh?'#0B2456':'#1E2B25',backgroundAlpha:kinh?0:1,antialias:true});
     if(!v) throw new Error('không có WebGL');
     v.addModel(m.f.data,m.f.fmt); v.setStyle({},molStyle(m.f)); v.zoomTo(); v.render();
     if(!reduce&&/xoay|chuyen-dong/.test(m.f.hien||'')) v.spin('y',0.6);

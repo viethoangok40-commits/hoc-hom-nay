@@ -68,7 +68,7 @@ function fitCover(el){
   if(window.__album&&__album.refit) __album.refit();
   var first=cover.querySelector('.kick')||cover.firstElementChild, top=box.getBoundingClientRect().top;
   var room=first?first.getBoundingClientRect().top-top-6:0;
-  if(room<.2*innerHeight){ setMode('nho'); box.style.height=''; }
+  if(room<.14*innerHeight){ setMode('nho'); box.style.height=''; }
   else { box.style.height=Math.min(.4*innerHeight,room)+'px'; }
   if(G.ready) G.resize();
 }
