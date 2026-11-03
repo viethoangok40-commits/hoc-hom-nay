@@ -1,0 +1,125 @@
+/* ===== Giao diện "kính 3D" (bật bằng: node build-album.mjs --giao-dien=kinh) =====
+   Nền gradient sâu theo tông chương + quầng sáng + bụi sáng; vật thể thủy tinh three.js (tải lười);
+   thẻ kính mờ; chuyển cảnh trượt + mờ theo chiều sâu. Mọi chuyển động tắt khi prefers-reduced-motion. */
+body.kinh{
+  --ink:#F4F7FF; --ink-2:#D5DDEE; --accent:#8AD8FF; --accent-2:#B4F0CC;
+  --g0:#060E2A; --g1:#0B2456; --g2:#145C9E; --glow-a:rgba(79,195,247,.42); --glow-b:rgba(120,140,255,.30);
+  --tt-a:#FFFFFF; --tt-b:#BFE6FF; --tt-c:#7FC8FF;
+  --card-tint:rgba(9,16,42,.40); --edge:rgba(255,255,255,.20); --edge-hi:rgba(255,255,255,.42);
+  --sy:0;
+  color:var(--ink); background:var(--g0); background-image:none;
+}
+body.kinh.tone-chat-luong{
+  --g0:#1C0C3F; --g1:#3A1F6E; --g2:#2F7A6A; --glow-a:rgba(155,227,181,.34); --glow-b:rgba(190,120,255,.34);
+  --tt-a:#FFFFFF; --tt-b:#E3D2FF; --tt-c:#A6EBC4; --accent:#C9B4FF; --accent-2:#A6EBC4; --card-tint:rgba(22,10,48,.42);
+}
+/* nền */
+#kbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#kbg .g{position:absolute;inset:0;background:linear-gradient(162deg,var(--g0) 0%,var(--g1) 48%,var(--g2) 100%);transition:background 1.2s ease}
+#kbg .q{position:absolute;border-radius:50%;filter:blur(8px);will-change:transform;transition:background 1.2s ease}
+#kbg .q1{width:120vmax;height:120vmax;left:-45vmax;top:-60vmax;background:radial-gradient(closest-side,var(--glow-b),transparent 70%);
+  transform:translate3d(0,calc(var(--sy) * -36px),0)}
+#kbg .q2{width:110vmax;height:110vmax;right:-50vmax;bottom:-55vmax;background:radial-gradient(closest-side,var(--glow-a),transparent 70%);
+  transform:translate3d(0,calc(var(--sy) * 48px),0)}
+#kbg canvas{position:absolute;inset:0;width:100%;height:100%}
+/* vật thể 3D: một canvas cố định; đổi chế độ bằng transform (không đổi cỡ canvas) */
+#k3d{position:fixed;z-index:1;pointer-events:none;left:0;right:0;top:calc(env(safe-area-inset-top) + 60px);height:40vh;height:40svh;
+  transform-origin:100% 0;transition:transform .7s cubic-bezier(.22,1,.36,1),opacity .7s cubic-bezier(.22,1,.36,1);
+  translate:0 calc(var(--sy) * -14px)}
+#k3d canvas,#k3d .tinh{position:absolute;inset:0;width:100%;height:100%;transition:opacity .8s ease}
+#k3d .tinh svg{width:100%;height:100%;display:block}
+#k3d.co-3d .tinh{opacity:0}
+/* trong cảnh: thu nhỏ về góc phải vùng tiêu đề (không đè hình/thẻ) */
+body.kinh.orb-nho #k3d{transform:translate3d(6%,-4%,0) scale(.3);opacity:.8}
+@media (max-width:820px){body.kinh .scr>header{padding-right:96px;min-height:96px}}
+body.kinh.orb-an #k3d{opacity:0}
+@media (min-width:821px){
+  #k3d{left:auto;right:2vw;width:46vw;top:12vh;height:70vh;transform-origin:100% 0}
+  body.kinh.orb-nho #k3d{transform:translate3d(2%,-6%,0) scale(.36)}
+}
+body.kinh #app{z-index:2}
+/* thanh trên, nút */
+body.kinh #prog{background:rgba(255,255,255,.10)}
+body.kinh #prog i{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+body.kinh .ib{border:1px solid var(--edge);border-radius:16px;background:rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 6px 18px -8px rgba(2,6,24,.6)}
+@media (hover:hover) and (pointer:fine){body.kinh .ib:hover{border-color:var(--edge-hi);color:var(--ink);background:rgba(255,255,255,.14)}}
+body.kinh #top .lbl,body.kinh #top .cnt,body.kinh #bot .mid{color:var(--ink-2)}
+/* chuyển cảnh: trượt + mờ theo chiều sâu */
+body.kinh #stage{perspective:1100px;perspective-origin:50% 40%}
+body.kinh .scr.vao-tien{animation:k-vao-tien .52s cubic-bezier(.22,1,.36,1) both}
+body.kinh .scr.vao-lui{animation:k-vao-lui .52s cubic-bezier(.22,1,.36,1) both}
+@keyframes k-vao-tien{from{opacity:0;transform:translate3d(34px,0,-140px) rotateY(-4deg)}to{opacity:1;transform:none}}
+@keyframes k-vao-lui{from{opacity:0;transform:translate3d(-34px,0,-140px) rotateY(4deg)}to{opacity:1;transform:none}}
+/* tiêu đề: cỡ lớn, đậm, chữ gradient */
+body.kinh .grad-txt,body.kinh .cover .big,body.kinh .scr h1{background:linear-gradient(100deg,var(--tt-a) 0%,var(--tt-b) 50%,var(--tt-c) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+body.kinh .scr .num{color:var(--accent);font-weight:700}
+body.kinh .scr h1{font-weight:700;letter-spacing:-.01em}
+body.kinh .cover .big{font-weight:700;font-size:clamp(2.1em,1.4em + 4vw,3.6em);line-height:1.04;letter-spacing:-.02em;margin:.08em 0 .28em;text-wrap:balance}
+body.kinh .cover .kick{color:var(--accent);font-weight:600;font-size:1.05em}
+body.kinh .cover .meta{color:var(--ink-2)}
+body.kinh .cover .lang{color:var(--ink-2)}
+body.kinh .cover{justify-content:flex-end;padding-top:var(--cover-top,calc(40vh - 30px));padding-bottom:8px}
+@media (min-width:821px){body.kinh .cover{justify-content:center;padding-top:0;margin-inline:0 auto;max-width:min(46em,52vw)}}
+/* thẻ kính mờ */
+body.kinh .kcard,body.kinh .step,body.kinh .card,body.kinh .cite{
+  position:relative;border-radius:24px;border:1px solid var(--edge);
+  background:linear-gradient(150deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.04) 55%,rgba(255,255,255,.02) 100%),var(--card-tint);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 0 0 1px rgba(255,255,255,.03),
+    0 1px 2px rgba(2,6,24,.22),0 6px 12px -6px rgba(2,6,24,.32),0 16px 26px -16px rgba(2,6,24,.42)}
+body.kinh .txt,body.kinh .cards{padding-left:6px;padding-right:8px}
+body.kinh .step{padding:14px 18px 26px;margin:0 0 14px;max-width:38em;opacity:0;transform:translateY(10px);border-left:1px solid var(--edge)}
+body.kinh .step.on{opacity:.72;transform:none}
+body.kinh .step.cur{opacity:1;border-color:var(--edge-hi);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 0 0 1px rgba(255,255,255,.10),
+  0 1px 2px rgba(2,6,24,.25),0 8px 16px -6px rgba(2,6,24,.38),0 20px 30px -16px rgba(2,6,24,.5),0 0 28px -10px var(--glow-a)}
+body.kinh .step .so{position:absolute;right:16px;bottom:8px;font-size:.66em;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em;color:var(--ink-2);opacity:.75}
+body.kinh .step.cur .so{color:var(--accent);opacity:1}
+body.kinh .step .tag{background:var(--accent);color:#0A1430;border-radius:999px}
+body.kinh .step.deep .tag{background:var(--accent-2)}
+body.kinh .step.hook{color:var(--ink);font-style:italic}
+body.kinh .step.hook::before{content:"?";font-style:normal;font-weight:700;color:var(--accent);margin-right:8px}
+body.kinh .step .sc{color:var(--ink-2)}
+body.kinh .guide{color:var(--ink-2)}
+body.kinh .cite{padding:10px 16px;color:var(--ink-2);border-radius:18px}
+body.kinh .cite b{color:var(--accent)}
+body.kinh .card{padding:14px 18px;border-radius:24px}
+body.kinh .card h2{color:var(--accent);font-weight:700}
+body.kinh .card.term .w{color:var(--accent)}
+body.kinh .cover .card{background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;border:0}
+/* bảng + hình */
+body.kinh .bang{gap:12px}
+body.kinh .figbox:not(.empty){border-radius:24px;border:1px solid var(--edge);background:linear-gradient(150deg,rgba(255,255,255,.10),rgba(255,255,255,.02)),var(--card-tint);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 18px 40px -18px rgba(2,6,24,.6)}
+body.kinh .figbox .fig{inset:10px}
+body.kinh .chalkboard{border-radius:20px;border:1px solid var(--edge);background:rgba(255,255,255,.06);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+body.kinh .chalkboard p{opacity:.7}
+body.kinh .chalkboard p.moi{color:var(--accent);opacity:1}
+body.kinh table.tb th{color:var(--accent)}
+body.kinh .tb td:first-child{color:var(--ink-2)}
+body.kinh .opt{border:1px solid var(--edge-hi);border-radius:16px;background:rgba(255,255,255,.06)}
+body.kinh .score{color:var(--accent)}
+/* mục lục + bài khác: kính đậm */
+body.kinh #toc,body.kinh #lib{background:rgba(7,12,34,.80);-webkit-backdrop-filter:blur(26px) saturate(140%);backdrop-filter:blur(26px) saturate(140%)}
+body.kinh.tone-chat-luong #toc,body.kinh.tone-chat-luong #lib{background:rgba(20,9,44,.82)}
+body.kinh #toc h2,body.kinh #lib h2,body.kinh #toc h3{color:var(--accent)}
+body.kinh #toc button.it .n{color:var(--accent)}
+body.kinh #lib a.bk{border-radius:16px}
+body.kinh #lib a.tai{border:1px solid var(--edge-hi);color:var(--accent);background:rgba(255,255,255,.06);border-radius:16px}
+@media (max-width:820px){
+  body.kinh .body{grid-template-rows:minmax(0,34vh) minmax(0,1fr)}
+  body.kinh .step{padding:12px 16px 24px}
+}
+/* không có backdrop-filter → tăng độ đặc của thẻ để giữ tương phản */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  body.kinh .step,body.kinh .card,body.kinh .cite,body.kinh .ib,body.kinh .figbox:not(.empty){background:rgba(10,16,40,.86)}
+}
+@media (prefers-reduced-motion:reduce){
+  body.kinh .scr.vao-tien,body.kinh .scr.vao-lui{animation:k-mo .15s linear both}
+  @keyframes k-mo{from{opacity:0}to{opacity:1}}
+  #k3d,#kbg .q{transition:none!important;translate:none!important}
+  body.kinh .step{transform:none!important}
+}

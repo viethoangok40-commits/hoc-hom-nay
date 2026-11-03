@@ -10,6 +10,7 @@ on:
       - 'lib/**'
       - 'build-album.mjs'
       - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/build.yml'
   workflow_dispatch:
 
@@ -30,13 +31,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Cài sharp (đổi hình sang WebP ≤ 1200 px)
+        run: npm ci --no-audit --no-fund
       - name: Dựng các bài trong bai/ và trang chủ
         run: node build-album.mjs --ra=_site
-      - name: Kiểm tra có trang chủ và ít nhất 1 bài
+      - name: Kiểm tra có trang chủ, ít nhất 1 bài, dung lượng trang bài
         run: |
           test -s _site/index.html
-          ls -la _site/bai
+          ls -la _site/bai _site/tai-ve
           test "$(ls _site/bai/*.html | wc -l)" -ge 1
+          for f in _site/bai/*.html; do s=$(stat -c%s "$f"); [ "$s" -lt 1572864 ] || echo "::warning file=$f::Trang bài nặng $((s/1024)) KB (> 1,5 MB trước khi tải 3D)"; done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

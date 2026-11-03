@@ -150,6 +150,8 @@ table.tb{border-collapse:collapse;width:100%;font-size:.84em}
 #lib a.bk.cur{background:rgba(242,239,230,.09)}
 #lib a.bk .t{flex:1 1 14em}
 #lib a.bk .o{font-size:.8em;color:var(--yel)}
+#lib a.tai{display:block;flex:none;margin-top:8px;padding:12px 14px;min-height:48px;border:1px dashed rgba(242,239,230,.45);border-radius:14px;font-size:.82em;font-weight:600;text-align:center;text-decoration:none}
+#lib a.tai[hidden]{display:none}
 @media (hover:hover) and (pointer:fine){#lib a.bk:hover{background:rgba(242,239,230,.09)}#lib .loc button[aria-pressed="false"]:hover{border-color:var(--chalk);color:var(--chalk)}}
 .nhan{display:inline-block;font-size:.78em;font-weight:700;line-height:1.5;border-radius:999px;padding:1px 10px;white-space:nowrap;border:2px solid currentColor}
 .nhan.cntp{color:var(--org);background:rgba(242,153,74,.14)} .nhan.rnd{color:var(--blu);background:rgba(127,184,224,.14)} .nhan.khac{color:var(--dim)}
@@ -199,6 +201,7 @@ table.tb{border-collapse:collapse;width:100%;font-size:.84em}
   .fig.play .ve-s{stroke-dasharray:none!important}
   #prog i{transition:none!important}
 }
+__KINH_CSS__
 </style>
 </head>
 <body>
@@ -227,9 +230,11 @@ table.tb{border-collapse:collapse;width:100%;font-size:.84em}
     <button type="button" data-loc="cntp" class="cntp" aria-pressed="false">Bàn học CNTP<span class="so"></span></button>
     <button type="button" data-loc="rnd" class="rnd" aria-pressed="false">R&amp;D Food Lab<span class="so"></span></button>
   </div>
-  <div class="list" id="lib-list"></div></nav>
+  <div class="list" id="lib-list"></div>
+  <a id="lib-tai" class="tai" href="#" download hidden>⬇ Tải bài này về máy (đọc offline)</a></nav>
 <script type="application/json" id="data">__DATA__</script>
 <pre id="selftest-result"></pre>
+__KINH_JS__
 __VENDOR__
 <script>
 (function(){
@@ -252,7 +257,7 @@ function makeFig(id){
   var hien=(f.hien||'mo-dan').replace(/[^a-z-]/g,''); if(!/^(ve-net|mo-dan|truot-vao|dung-tung-buoc|chuyen-dong)$/.test(hien)) hien='mo-dan';
   w.dataset.hien=hien;
   if(f.kind==='svg'||f.kind==='auto'){ w.innerHTML=f.svg; if(f.kind==='svg') w.classList.add('real'); }
-  else if(f.kind==='img'){ var im=new Image(); im.alt=f.nhan||f.file; im.src=f.src; w.appendChild(im); w.classList.add('real'); }
+  else if(f.kind==='img'){ var im=new Image(); im.alt=f.nhan||f.file; im.decoding='async'; if(f.lazy) im.dataset.src=f.src; else im.src=f.src; w.appendChild(im); w.classList.add('real'); }
   else if(f.kind==='3d'){ var box=el('div','m3d'); w.appendChild(box); w.appendChild(el('div','m3d-hint','Kéo để xoay mô hình 3D')); w.__m3d={box:box,f:f}; }
   else if(f.kind==='mol'){ var mb=el('div','mol'); w.appendChild(mb); w.appendChild(el('div','mol-hint','Kéo / chạm để xoay · chụm hai ngón để phóng to')); w.__mol={box:mb,f:f}; }
   else if(f.kind==='nguon'){ w.appendChild(el('div','nguon-box',f.html)); }
@@ -265,7 +270,21 @@ function makeFig(id){
   }
   return w;
 }
-function play(w){ w.classList.remove('play','h-'+w.dataset.hien); void w.offsetWidth; w.classList.add('play','h-'+w.dataset.hien); if(w.__m3d) start3d(w); if(w.__mol) startMol(w); }
+/* tải lười: ảnh (file riêng) và thư viện 3D chỉ tải khi cần */
+function loadImgs(root){ if(!root) return; [].forEach.call(root.querySelectorAll('img[data-src]'),function(i){ i.src=i.dataset.src; i.removeAttribute('data-src'); }); }
+var needQ={};
+function need(src,cb){
+  if(!src){ cb(false); return; }
+  if(needQ[src]==='ok'){ cb(true); return; }
+  if(needQ[src]){ needQ[src].push(cb); return; }
+  needQ[src]=[cb]; var s=document.createElement('script'); s.src=src; s.async=true;
+  s.onload=function(){ var l=needQ[src]; needQ[src]='ok'; l.forEach(function(f){f(true)}); };
+  s.onerror=function(){ var l=needQ[src]; delete needQ[src]; l.forEach(function(f){f(false)}); };
+  document.head.appendChild(s);
+}
+window.__need=need;
+var VEN=D.vendor||{};
+function play(w){ loadImgs(w); w.classList.remove('play','h-'+w.dataset.hien); void w.offsetWidth; w.classList.add('play','h-'+w.dataset.hien); if(w.__m3d) start3d(w); if(w.__mol) startMol(w); }
 /* mô hình phân tử: 3Dmol.js nhúng sẵn; lỗi/không có WebGL → khung nguồn */
 function molStyle(f){
   var k=(f.kieu||'').toLowerCase();
@@ -279,8 +298,12 @@ function molStyle(f){
 var molViews=[];
 function startMol(w){
   var m=w.__mol; if(m.v){ try{ m.v.resize(); m.v.render(); }catch(e){} return; }
-  if(m.failed) return;
+  if(m.failed||m.loading) return;
   function fail(msg){ m.failed=true; m.box.innerHTML='<div class="nguon-box" style="margin:auto">'+msg+'</div>'; m.box.style.display='grid'; }
+  function wait(msg){ m.loading=true; m.box.innerHTML='<div class="nguon-box" style="margin:auto">'+msg+'</div>'; m.box.style.display='grid'; }
+  function go(){ m.loading=false; m.box.innerHTML=''; m.box.style.display=''; if(!w.hidden) startMol(w); }
+  if(!window.$3Dmol&&VEN.mol){ wait('Đang tải mô hình 3D…'); need(VEN.mol,function(ok){ if(ok) go(); else { m.loading=false; fail('Không tải được thư viện mô hình 3D (cần mạng).'); } }); return; }
+  if(!m.f.data&&m.f.url){ wait('Đang tải mô hình 3D…'); fetch(m.f.url).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.text(); }).then(function(t){ m.f.data=t; go(); }).catch(function(e){ m.loading=false; fail('Không tải được dữ liệu mô hình 3D ('+String(e&&e.message||e).slice(0,60)+').'); }); return; }
   if(!window.$3Dmol){ fail('Không mở được mô hình 3D (thiếu thư viện).'); return; }
   try{
     var v=$3Dmol.createViewer(m.box,{backgroundColor:'#1E2B25',antialias:true});
@@ -294,13 +317,18 @@ function startMol(w){
 /* 3D: three.js nhúng sẵn */
 function start3d(w){
   var m=w.__m3d; if(m.ready){ m.run(); return; }
+  if(m.loading) return;
+  if((!window.THREE||!THREE.GLTFLoader)&&VEN.three&&!m.tried){ m.loading=true; m.tried=true; m.box.innerHTML='<p class="lang">Đang tải mô hình 3D…</p>';
+    need(VEN.three,function(a){ need(a?VEN.gltf:'',function(){ m.loading=false; m.box.innerHTML=''; if(!w.hidden) start3d(w); }); }); return; }
+  if(!m.f.b64&&m.f.url&&!m.buf){ if(m.fetching) return; m.fetching=true; fetch(m.f.url).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.arrayBuffer(); }).then(function(b){ m.buf=b; m.fetching=false; if(!w.hidden) start3d(w); }).catch(function(){ m.fetching=false; m.box.innerHTML='<p class="lang">Không tải được mô hình 3D.</p>'; }); return; }
   if(!window.THREE||!THREE.GLTFLoader){ m.box.innerHTML='<p class="lang">Không mở được mô hình 3D.</p>'; return; }
   m.ready=true;
   var r=new THREE.WebGLRenderer({antialias:true,alpha:true}); r.setPixelRatio(Math.min(2,window.devicePixelRatio||1)); m.box.appendChild(r.domElement);
   var scene=new THREE.Scene(), cam=new THREE.PerspectiveCamera(40,1,0.01,1000);
   scene.add(new THREE.HemisphereLight(0xffffff,0x334433,1.1)); var dl=new THREE.DirectionalLight(0xffffff,.9); dl.position.set(3,5,4); scene.add(dl);
   var holder=new THREE.Group(); scene.add(holder);
-  var bin=atob(m.f.b64), buf=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) buf[i]=bin.charCodeAt(i);
+  var buf;
+  if(m.buf) buf=new Uint8Array(m.buf); else { var bin=atob(m.f.b64); buf=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) buf[i]=bin.charCodeAt(i); }
   var data=m.f.fmt==='gltf'?new TextDecoder().decode(buf):buf.buffer;
   new THREE.GLTFLoader().parse(data,'',function(g){ var o=g.scene; holder.add(o); var b=new THREE.Box3().setFromObject(o), c=b.getCenter(new THREE.Vector3()), s=b.getSize(new THREE.Vector3()).length()||1; o.position.sub(c); cam.position.set(0,s*.25,s*1.25); cam.lookAt(0,0,0); },function(e){ m.box.innerHTML='<p class="lang">Mô hình 3D lỗi: '+e+'</p>'; });
   var drag=null, rx=0.2, ry=0, idle=0;
@@ -451,10 +479,13 @@ if(saved){ if(typeof saved.sc==='number'&&saved.sc>=0&&saved.sc<screens.length) 
 function fromHash(){var m=/^#(.+?)(?:\/(\d+))?$/.exec(location.hash||''); if(m&&idxById[m[1]]!==undefined){sc=idxById[m[1]]; st=m[2]?parseInt(m[2],10):1; return true} return false}
 function clamp(){ if(sc<0) sc=0; if(sc>=screens.length) sc=screens.length-1; var n=inst(sc).n; if(st<1) st=1; if(st>n) st=n; }
 function render(){
-  clamp(); var s=inst(sc);
+  clamp(); var s=inst(sc), changed=curI!==sc, dir=curI<0?0:(sc>curI?1:-1);
   if(curI!==sc){ if(curI>=0){ cache[curI].el.hidden=true; if(cache[curI].leave) cache[curI].leave(); } s.el.hidden=false; curI=sc; }
+  try{ document.dispatchEvent(new CustomEvent('album:render',{detail:{sc:sc,st:st,id:screens[sc].id,el:s.el,changed:changed,dir:dir}})); }catch(e){}
   s.apply(st);
   fit(s);
+  loadImgs(s.el); // hình của màn đang xem + tải trước màn kế tiếp
+  if(sc+1<screens.length){ var nx=sc+1; setTimeout(function(){ loadImgs(inst(nx).el); },500); }
   lbl.textContent=screens[sc].group+' · '+screens[sc].label;
   cnt.textContent=st+'/'+s.n;
   prog.style.transform='scaleX('+((cum[sc]+st)/total).toFixed(4)+')';
@@ -474,7 +505,7 @@ var fitT=0; window.addEventListener('resize',function(){ clearTimeout(fitT); fit
 function next(){ var n=inst(sc).n; if(st<n){st++} else if(sc<screens.length-1){sc++; st=1} render(); }
 function prev(){ if(st>1){st--} else if(sc>0){sc--; st=inst(sc).n} render(); }
 function jump(id,step){ if(idxById[id]===undefined) return; sc=idxById[id]; st=step||1; closeToc(); render(); }
-window.__album={next:next,prev:prev,jump:jump,screens:screens,inst:inst,state:function(){return {sc:sc,st:st}}};
+window.__album={next:next,prev:prev,jump:jump,screens:screens,inst:inst,state:function(){return {sc:sc,st:st}},refit:function(){ if(curI>=0) fit(cache[curI]); }};
 
 /* ---------- mục lục ---------- */
 function buildToc(){
@@ -531,6 +562,7 @@ function openLib(){
 function closeLib(){ if(!lib.classList.contains('open')) return; lib.classList.remove('open'); lib.hidden=true; $('#btn-lib').setAttribute('aria-expanded','false'); }
 [].forEach.call(lib.querySelectorAll('.loc button'),function(b){ b.addEventListener('click',function(){ libV=b.getAttribute('data-loc'); safeSet(LKEY,libV); buildLib(); }); });
 $('#btn-lib').addEventListener('click',function(e){e.stopPropagation(); openLib()});
+if(D.taiVe&&location.protocol!=='file:'){ var tv=$('#lib-tai'); tv.href=D.taiVe; tv.setAttribute('download',D.self||'bai-hoc.html'); tv.hidden=false; }
 $('#lib-close').addEventListener('click',closeLib);
 $('#toc-close').addEventListener('click',closeToc);
 $('#btn-next').addEventListener('click',function(e){e.stopPropagation(); next()});

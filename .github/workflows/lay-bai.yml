@@ -31,8 +31,13 @@ jobs:
         id: lay
         run: node tools/lay-drive.mjs
 
+      - name: Cài sharp (đổi hình sang WebP ≤ 1200 px)
+        run: npm ci --no-audit --no-fund
+
       - name: Dựng các bài (tải hình nguồn, mô hình 3D) và trang chủ
-        run: node build-album.mjs --ra=_site
+        run: |
+          node build-album.mjs --ra=_site
+          for f in _site/bai/*.html; do s=$(stat -c%s "$f"); [ "$s" -lt 1572864 ] || echo "::warning file=$f::Trang bài nặng $((s/1024)) KB (> 1,5 MB trước khi tải 3D)"; done
 
       - name: Commit + push bài và hình mới (GITHUB_TOKEN)
         run: |

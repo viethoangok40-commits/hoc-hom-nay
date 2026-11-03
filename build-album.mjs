@@ -14,6 +14,11 @@ import { execFileSync } from 'node:child_process';
 import { ROOT, fontCss, threeJs, molJs, esc, inl, deAccent, jsonForScript } from './lib/nhung.mjs';
 import { autoFig } from './lib/hinh-tu-ve.mjs';
 import { prefetch, creditHtml } from './lib/nguon-ngoai.mjs';
+import { tachHinh } from './lib/anh.mjs';
+
+// thư viện 3D chép ra <ra>/vendor/ và tải lười từ trang bài (bai/*.html → ../vendor/)
+const VENDOR_FILES = { three: ['three.min.js', 'three-r147.min.js'], gltf: ['GLTFLoader.js', 'GLTFLoader-r147.js'], mol: ['3Dmol-min.js', '3Dmol-2.5.5.min.js'] };
+const VENDOR_URL = Object.fromEntries(Object.entries(VENDOR_FILES).map(([k, [, to]]) => [k, '../vendor/' + to]));
 
 const IN = path.join(ROOT, 'bai');
 const TPL = path.join(ROOT, 'templates', 'album.html');
@@ -286,7 +291,7 @@ function findFile(dirs, name) {
   return null;
 }
 function cleanSvg(svg, pfx) {
-  svg = svg.replace(/<\?xml[\s\S]*?\?>/g, '').replace(/<!DOCTYPE[\s\S]*?>/gi, '').replace(/<!--[\s\S]*?-->/g, '')
+  svg = svg.replace(/<\?xml[\s\S]*?\?>/g, '').replace(/<!DOCTYPE[^[>]*(\[[\s\S]*?\])?\s*>/gi, '') // DOCTYPE có thể kèm [<!ENTITY …>].replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<script[\s\S]*?<\/script>/gi, '').replace(/\son\w+\s*=\s*("[^"]*"|'[^']*')/gi, '').replace(/(href\s*=\s*["'])\s*javascript:[^"']*/gi, '$1#');
   for (const id of new Set([...svg.matchAll(/\sid\s*=\s*["']([^"']+)["']/g)].map((m) => m[1]))) {
     const e = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -304,8 +309,8 @@ function inlineGltf(file) {
 }
 let figSeq = 0;
 function loadLocal(file, id, F) {
-  if (/\.svg$/i.test(file)) return { kind: 'svg', svg: cleanSvg(fs.readFileSync(file, 'utf8'), id + '-') };
-  if (/\.(png|jpe?g|gif|webp)$/i.test(file)) { const ext = path.extname(file).slice(1).toLowerCase().replace('jpg', 'jpeg'); return { kind: 'img', src: `data:image/${ext};base64,` + fs.readFileSync(file).toString('base64') }; }
+  if (/\.svg$/i.test(file)) return { kind: 'svg', svg: cleanSvg(fs.readFileSync(file, 'utf8'), id + '-'), path: file };
+  if (/\.(png|jpe?g|gif|webp)$/i.test(file)) return { kind: 'img', path: file, src: '' }; // lib/anh.mjs: WebP ≤1200px, file riêng (tải lười) hoặc nhúng (bản offline)
   if (/\.glb$/i.test(file)) { F.has3d = true; return { kind: '3d', fmt: 'glb', b64: fs.readFileSync(file).toString('base64') }; }
   if (/\.gltf$/i.test(file)) { F.has3d = true; return { kind: '3d', fmt: 'gltf', b64: inlineGltf(file) }; }
   return null;
@@ -353,7 +358,7 @@ function figsToFetch(A) {
 }
 
 // ============================================================ DỰNG
-function renderAlbum(A, mdFile, extra = {}) {
+async function renderAlbum(A, mdFile, extra = {}) {
   figSeq = 0;
   const dirs = figDirs(mdFile, A);
   const F = { figs: {}, byKey: {}, missing: new Set(), has3d: false, has3dmol: false, dir: assetDir(A), loiNguon: [], tuVe: [] };
@@ -386,12 +391,51 @@ function renderAlbum(A, mdFile, extra = {}) {
     dossier: A.dossier ? { head: A.dossier.head.map(inl), rows: A.dossier.rows.map((r) => r.map(inl)) } : null,
     extra: A.extra, figs: F.figs, built: vnNow(),
     self: extra.self || '', ds: extra.ds || [], // nút "📚 Bài khác": tên file trang này + danh sách mọi bài (mới nhất trên)
+    taiVe: extra.offline ? '' : '../tai-ve/' + (extra.self || ''), // bản tải về chạy offline
+    vendor: extra.offline ? {} : VENDOR_URL, // thư viện 3D tải lười (bản offline: nhúng sẵn)
   };
+  const media = await tachHinh(F.figs, { outDir: extra.outDir, offline: !!extra.offline });
   let html = fs.readFileSync(TPL, 'utf8');
-  html = html.replace('__TITLE__', () => esc(A.title.replace(/\*\*/g, ''))).replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript(data)).replace('__VENDOR__', () => (F.has3d ? threeJs() : '') + (F.has3dmol ? molJs() : ''));
+  let kinhCss = '', kinhJs = '';
+  if (extra.kinh) {
+    data.kinh = kinhData(A, F);
+    if (extra.offline) data.kinh.three = null; // bản offline: three.js nhúng sẵn bên dưới (window.THREE có ngay)
+    kinhCss = fs.readFileSync(path.join(ROOT, 'templates', 'kinh.css'), 'utf8');
+    kinhJs = '<script>' + fs.readFileSync(path.join(ROOT, 'templates', 'kinh.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script>';
+    html = html.replace('<body>', `<body class="kinh tone-${data.kinh.tone}">`);
+  }
+  html = html.replace('__KINH_CSS__', () => kinhCss).replace('__KINH_JS__', () => kinhJs);
+  html = html.replace('__TITLE__', () => esc(A.title.replace(/\*\*/g, ''))).replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript(data)).replace('__VENDOR__', () => (extra.offline ? ((F.has3d || extra.kinh ? threeJs() : '') + (F.has3dmol ? molJs() : '')) : ''));
   const qs =chapters.flatMap((c) => c.scenes.filter((s) => s.quiz).flatMap((s) => s.quiz.qs)).concat(data.endQuiz);
   const stats = { chapters: chapters.length, scenes: chapters.reduce((a, c) => a + c.scenes.length, 0), quiz: qs.length, quizNoAns: qs.filter((q) => q.ans < 0).length, figs: Object.keys(F.figs).length, figsTuVe: F.missing.size + F.tuVe.length, has3d: F.has3d, has3dmol: F.has3dmol, loiNguon: F.loiNguon.length, kb: Math.round(Buffer.byteLength(html) / 1024) };
+  stats.anh = media;
   return { html, stats, missing: [...F.missing] };
+}
+
+// ============================================================ GIAO DIỆN KÍNH 3D
+// Tông màu theo chương: chất lượng (tím → xanh lá nhạt) hay công nghệ (navy → xanh). Vật thể thủy tinh theo nội dung chương.
+const RE_CHAT_LUONG = /chất lượng|quality|QLCL|QMS|ISO|HACCP|GMP|ATTP|an toàn thực phẩm|kiểm soát|đảm bảo|cải tiến|hoạch định/i;
+// thứ tự = ưu tiên khi tên chương khớp nhiều nhóm
+const VAT = [
+  ['banh-rang', /quy trình|process/i],
+  ['te-bao', /vi sinh|vi khuẩn|tế bào|nấm men|nấm mốc|probiotic|lactic|lên men|vsv/i],
+  ['giot-sua', /sữa|nhũ tương|kem|giọt|váng|béo|whey|casein|ly tâm/i],
+  ['khien', /chất lượng|quality|ISO|HACCP|an toàn|quản lý/i],
+  ['phan-tu', /phân tử|hóa|protein|enzyme|nước tự do|nước liên kết|độ ẩm|đường|lipid|axit|liên kết|pubchem|trích ly|membrane/i],
+];
+function kinhData(A, F) {
+  const textOf = (ch) => [ch.title, ch.meta, ...ch.scenes.map((s) => s.title + ' ' + s.steps.map((x) => x.text).join(' '))].join(' ');
+  const lessonTone = RE_CHAT_LUONG.test(A.course + ' ' + A.topic) ? 'chat-luong' : 'cong-nghe';
+  const chapters = {};
+  A.chapters.forEach((ch, i) => {
+    const t = textOf(ch);
+    const tone = RE_CHAT_LUONG.test(ch.title) ? 'chat-luong' : (/tiếng anh|ielts/i.test(ch.title) ? lessonTone : (RE_CHAT_LUONG.test(t.slice(0, 4000)) && lessonTone === 'chat-luong' ? 'chat-luong' : lessonTone));
+    // chỉ dò theo tên chương (dò cả thân bài thì chữ "sữa" lạc trong ví dụ cũng kéo theo giọt sữa); không khớp → xoay vòng
+    const vat = (VAT.find(([, re]) => re.test(ch.title)) || [['phan-tu', 'te-bao', 'giot-sua'][i % 3]])[0];
+    chapters[ch.n] = { tone, vat };
+  });
+  const sdf = Object.values(F.figs).find((f) => f.kind === 'mol' && f.fmt === 'sdf');
+  return { tone: lessonTone, chapters, three: '../vendor/three-r147.min.js', mol: sdf ? sdf.data : null };
 }
 
 async function main() {
@@ -399,7 +443,14 @@ async function main() {
   const ra = args.find((a) => a.startsWith('--ra='));
   const OUT = path.resolve(ra ? ra.slice(5) : path.join(ROOT, '_site'));
   const only = args.filter((a) => !a.startsWith('--')).map((f) => path.resolve(f));
+  const kinh = !args.includes('--giao-dien=phan'); // mặc định: giao diện kính 3D; --giao-dien=phan → bảng phấn cũ
   fs.mkdirSync(path.join(OUT, 'bai'), { recursive: true });
+  fs.mkdirSync(path.join(OUT, 'tai-ve'), { recursive: true });
+  fs.mkdirSync(path.join(OUT, 'vendor'), { recursive: true }); // thư viện 3D tách file riêng → trang bài tải lười
+  for (const [from, to] of Object.values(VENDOR_FILES)) {
+    const src = path.join(ROOT, 'assets', 'vendor', from);
+    if (fs.existsSync(src)) fs.copyFileSync(src, path.join(OUT, 'vendor', to));
+  }
   const all = fs.existsSync(IN) ? fs.readdirSync(IN).filter((f) => /\.md$/i.test(f)).sort().map((f) => path.join(IN, f)) : [];
   for (const f of only) if (!all.includes(f)) all.push(f); // file chỉ định ngoài bai/ (dựng thử)
   // Lượt 1: đọc mọi bài → danh sách (để trang bài nào cũng có nút "📚 Bài khác" đủ mọi bài)
@@ -421,9 +472,12 @@ async function main() {
     if (only.length && !only.includes(path.resolve(md))) continue;
     try {
       await prefetch(figsToFetch(A), assetDir(A));
-      const { html, stats, missing } = renderAlbum(A, md, { self: name, ds: items });
+      const { html, stats, missing } = await renderAlbum(A, md, { self: name, ds: items, kinh, outDir: OUT });
       fs.writeFileSync(path.join(OUT, 'bai', name), html, 'utf8');
-      console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name}\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
+      const off = await renderAlbum(A, md, { self: name, ds: items, kinh, outDir: OUT, offline: true });
+      fs.writeFileSync(path.join(OUT, 'tai-ve', name), off.html, 'utf8');
+      const nang = stats.kb > 1536 ? `  ⚠ trang > 1,5 MB trước khi tải 3D` : '';
+      console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name} (${stats.kb} KB${nang}) + tai-ve/ (${off.stats.kb} KB, offline)\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
     } catch (e) { failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
   }
   // danh sách mới nhất cho các trang bài (trang bài đọc file này; mở offline thì dùng danh sách nhúng sẵn)
