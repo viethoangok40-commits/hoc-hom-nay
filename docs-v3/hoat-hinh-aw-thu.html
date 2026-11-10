@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoạt hình thử: nước đi từ aw cao sang aw thấp (D008, Cảnh 2.4)</title>
+<style>
+:root{--bg:#ffffff;--tx:#1a1a1a;--mu:#4a4a4a;--ln:#c9c9c9;--ac:#14508f;--bx:#f4f4f4;--bk:#e7dcc3}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--tx:#ececec;--mu:#b5b5b5;--ln:#444;--ac:#8ec1ff;--bx:#1c1c1c;--bk:#3a3426}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 system-ui,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.3rem;line-height:1.3;margin:0 0 6px}
+p{margin:0 0 10px;max-width:70ch}.mu{color:var(--mu);font-size:.92rem}
+.claim{border-left:4px solid var(--ac);padding-left:12px;margin:10px 0}
+.box{background:var(--bx);border:1px solid var(--ln);border-radius:8px;padding:14px 16px;margin:16px 0}
+button{font:inherit;color:var(--tx);background:var(--bg);border:2px solid var(--ac);border-radius:8px;padding:8px 14px;margin:4px 8px 4px 0;cursor:pointer;min-height:44px}
+button[aria-pressed="true"]{background:var(--ac);color:var(--bg)}
+input[type=range]{accent-color:var(--ac);min-height:32px;width:200px;vertical-align:middle}
+svg{width:100%;height:auto;display:block;max-width:760px}
+svg text{fill:var(--tx);font:14px system-ui,sans-serif}
+.cap{min-height:3.4em;font-weight:600;max-width:70ch}
+table{border-collapse:collapse;font-size:.95rem}th,td{border-bottom:1px solid var(--ln);padding:4px 10px;text-align:left}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+<h1>Nước đi từ chỗ aw cao sang chỗ aw thấp</h1>
+<p class="mu">Bản thử hoạt hình cơ chế cho D008, Cảnh 2.4. Chuyển động chỉ chạy khi bạn bấm.</p>
+<div class="claim"><b>Khẳng định:</b> Hai bên nước đều chuyển động ngẫu nhiên hai chiều, nhưng bên aw cao có nhiều phân tử hơn nên số phân tử đi sang bên aw thấp nhiều hơn số đi ngược lại. Kết quả là dòng nước thuần từ aw cao sang aw thấp, cho đến khi hai bên cân bằng.</div>
+
+<section class="box">
+<p>Tình huống của bài: bánh quy hở (aw 0,30) đặt trong hộp kín có không khí aw 0,80.</p>
+<svg id="sv" viewBox="0 0 760 300" role="img" aria-labelledby="t d">
+<title id="t">Phân tử nước chuyển động giữa không khí ẩm và bánh quy khô</title>
+<desc id="d">Bên trái là không khí aw 0,80 với nhiều phân tử nước, bên phải là bánh quy aw 0,30 với ít phân tử. Các phân tử đi qua lại mặt bánh, số đi vào bánh nhiều hơn số đi ra cho đến khi hai bên bằng nhau.</desc>
+<rect x="10" y="40" width="370" height="230" fill="none" stroke="currentColor" stroke-opacity=".5"/>
+<rect x="380" y="40" width="370" height="230" fill="var(--bk)" stroke="currentColor" stroke-opacity=".5"/>
+<line x1="380" y1="40" x2="380" y2="270" stroke="currentColor" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="14" y="30">Không khí trong hộp kín</text>
+<text x="384" y="30">Bánh quy</text>
+<g id="ps"></g>
+</svg>
+<p class="cap" id="cap" aria-live="polite"></p>
+<div>
+<button id="run" aria-pressed="false">Chạy</button>
+<button id="stp">Một bước</button>
+<button id="rst">Làm lại</button>
+<label for="sp" class="mu">Tốc độ <input id="sp" type="range" min="1" max="6" value="3"></label>
+</div>
+<table aria-label="Số liệu đang đếm">
+<tr><th scope="row">aw ước lượng của không khí (số phân tử / 100)</th><td id="aa">0,80</td></tr>
+<tr><th scope="row">aw ước lượng của bánh (số phân tử / 100)</th><td id="ab">0,30</td></tr>
+<tr><th scope="row">Số lần phân tử đi vào bánh</th><td id="vin">0</td></tr>
+<tr><th scope="row">Số lần phân tử đi ra khỏi bánh</th><td id="vout">0</td></tr>
+<tr><th scope="row">Dòng thuần vào bánh</th><td id="net">0</td></tr>
+</table>
+</section>
+
+<section class="box">
+<p><b>Giới hạn:</b> Đây là mô hình minh họa, không phải số đo. Mỗi phân tử là một chấm, số chấm trên 100 chỉ để so sánh aw hai bên (aw tương ứng áp suất hơi, tức mật độ phân tử nước ở thể hơi). Bánh thật còn giữ nước bằng nhiều cách khác (hấp phụ, nước liên kết) mà mô hình này bỏ qua. Việc "nước đi theo chênh lệch thế hóa học, aw cao sang thấp" là suy ra từ công thức μw = μw* + RT ln aw (Schiraldi, Fessas, Signorelli 2012) trong D008 Cảnh 2.4; phần giải thích bằng chuyển động ngẫu nhiên là cách album minh họa (Cần kiểm tra với một giáo trình hóa lý).</p>
+</section>
+</main>
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg",G=document.getElementById("ps"),N=100,W=370,X0=10,X1=380,Y0=40,H=230,R=6;
+var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var P,rnd,run=false,raf=0,vin,vout,tick;
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function f(x,d){return x.toFixed(d).replace(".",",")}
+function init(){
+  rnd=mulberry(7);G.innerHTML="";P=[];vin=0;vout=0;tick=0;
+  function mk(n,x0,x1){for(var i=0;i<n;i++){var c=document.createElementNS(NS,"circle");c.setAttribute("r",R);c.setAttribute("fill","var(--ac)");
+    var p={x:x0+R+rnd()*(x1-x0-2*R),y:Y0+R+rnd()*(H-2*R),side:x0<X1?0:1,c:c};P.push(p);G.appendChild(c)}}
+  mk(80,X0,X1);mk(30,X1,X1+W);draw();stats();cap();
+}
+function draw(){P.forEach(function(p){p.c.setAttribute("cx",p.x);p.c.setAttribute("cy",p.y)})}
+function stepOnce(){
+  var d=+document.getElementById("sp").value*5;
+  P.forEach(function(p){
+    p.x+=(rnd()-.5)*2*d;p.y+=(rnd()-.5)*2*d;
+    if(p.x<X0+R)p.x=2*(X0+R)-p.x;if(p.x>X1+W-R)p.x=2*(X1+W-R)-p.x;
+    if(p.y<Y0+R)p.y=2*(Y0+R)-p.y;if(p.y>Y0+H-R)p.y=2*(Y0+H-R)-p.y;
+    var s=p.x>=X1?1:0;if(s!==p.side){if(s===1)vin++;else vout++;p.side=s}
+  });tick++;
+}
+function counts(){var a=0;P.forEach(function(p){if(p.side===0)a++});return [a,P.length-a]}
+function stats(){var c=counts();
+  document.getElementById("aa").textContent=f(c[0]/N,2);document.getElementById("ab").textContent=f(c[1]/N,2);
+  document.getElementById("vin").textContent=vin;document.getElementById("vout").textContent=vout;document.getElementById("net").textContent=(vin-vout>0?"+":"")+(vin-vout);
+}
+function cap(){var c=counts(),el=document.getElementById("cap"),t;
+  if(tick<1)t="1. Lúc đầu: không khí có 80 phân tử (aw ≈ 0,80), bánh chỉ có 30 (aw ≈ 0,30). Bấm Chạy.";
+  else if(Math.abs(c[0]-c[1])>10)t="2. Mỗi phân tử chuyển động ngẫu nhiên, đi qua mặt bánh theo cả hai chiều. Nhưng bên không khí đông hơn nên số lần đi vào bánh nhiều hơn số lần đi ra: có dòng thuần từ aw cao sang aw thấp.";
+  else t="3. Hai bên gần bằng nhau (aw gần bằng nhau). Phân tử vẫn đi qua lại, nhưng số vào và số ra xấp xỉ bằng nhau nên dòng thuần dừng. Bánh đã hút ẩm.";
+  el.textContent=t}
+function frame(){if(!run)return;var k=+document.getElementById("sp").value;for(var i=0;i<k*2;i++)stepOnce();draw();stats();cap();raf=requestAnimationFrame(frame)}
+function setRun(v){run=v;var b=document.getElementById("run");b.setAttribute("aria-pressed",v);b.textContent=v?"Tạm dừng":"Chạy";if(v)raf=requestAnimationFrame(frame);else cancelAnimationFrame(raf)}
+document.getElementById("run").onclick=function(){setRun(!run)};
+document.getElementById("stp").onclick=function(){setRun(false);for(var i=0;i<8;i++)stepOnce();draw();stats();cap()};
+document.getElementById("rst").onclick=function(){setRun(false);init()};
+init();
+window.__awsim={counts:counts,stepOnce:stepOnce,stats:stats,get:function(){return{vin:vin,vout:vout,tick:tick}}};
+})();
+</script>
+</body>
+</html>

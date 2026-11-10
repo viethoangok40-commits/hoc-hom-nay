@@ -1,0 +1,3 @@
+studio_small_09_256.hdr
+Nguồn: Poly Haven – "Studio Small 09" (https://polyhaven.com/a/studio_small_09), giấy phép CC0 (public domain).
+Đã thu nhỏ từ bản 1k (1024×512) xuống 256×128 bằng tools/thu-nho-hdr.mjs (trung bình khối 4×4) để làm ánh sáng môi trường nhẹ (128 KB) cho cảnh máy.
