@@ -279,9 +279,9 @@ function parseAlbum(src, file) {
   A.topic = hm ? hm[hm.length - 1] : (h1 || stem);
   A.title = h1 || stem;
   let dm = (A.code + ' ' + stem).match(/(20\d\d)-(\d\d)-(\d\d)/);
-  if (!dm) { const v = metaGet(/^ngay/).match(/(\d{1,2})\/(\d{1,2})\/(20\d\d)/); if (v) dm = [null, v[3], p2(v[2]), p2(v[1])]; }
-  const mt = fs.statSync(file).mtime;
-  A.date = dm ? `${dm[1]}-${dm[2]}-${dm[3]}` : `${mt.getFullYear()}-${p2(mt.getMonth() + 1)}-${p2(mt.getDate())}`;
+  if (!dm) { const v = (metaGet(/^ngay/) || (pre.join('\n').match(/\*\*Ngày:\*\*\s*(.+)/i) || [])[1] || '').match(/(\d{1,2})\/(\d{1,2})\/(20\d\d)/); if (v) dm = [null, v[3], p2(v[2]), p2(v[1])]; }
+  if (!dm) throw new Error(`${path.basename(file)}: không đọc được ngày (tên file có YYYY-MM-DD hoặc dòng "Ngày: dd/mm/yyyy")`);
+  A.date = `${dm[1]}-${dm[2]}-${dm[3]}`;
   const mm = A.code.match(/^([A-Za-z][A-Za-z&]*)[-_]/) || stem.match(/^([A-Za-z][A-Za-z&]*)[-_]/);
   A.mon = (mm ? mm[1] : '') || (/R&D|Food Lab/i.test(src.slice(0, 2000)) ? 'RnD' : 'Chung');
   return A;
