@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Mặt cắt máy ly tâm đĩa: chén xoay, ống nạp giữa, chồng đĩa, cửa ra phần nhẹ và phần nặng">
+  <defs>
+    <linearGradient id="ltd-inox" x1="0" x2="1"><stop offset="0" stop-color="#9FB0C2"/><stop offset=".5" stop-color="#E9EFF5"/><stop offset="1" stop-color="#8A9BAD"/></linearGradient>
+    <marker id="ltd-mui" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="currentColor"/></marker>
+  </defs>
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <!-- chén xoay (mặt cắt) -->
+    <path d="M320 400 L130 345 L125 340 L125 205 L130 200 L250 95 L250 60 M320 400 L510 345 L515 340 L515 205 L510 200 L390 95 L390 60" stroke="url(#ltd-inox)" stroke-width="7"/>
+    <!-- chồng đĩa nón cụt -->
+    <g stroke="#C9D4DF" stroke-width="3">
+      <path d="M150 330 L285 245 M490 330 L355 245"/><path d="M150 312 L285 227 M490 312 L355 227"/><path d="M150 294 L285 209 M490 294 L355 209"/>
+      <path d="M150 276 L285 191 M490 276 L355 191"/><path d="M150 258 L285 173 M490 258 L355 173"/><path d="M150 240 L285 155 M490 240 L355 155"/>
+    </g>
+    <g stroke="#0B0F14" stroke-width="5"><path d="M218 287 v-6 M218 269 v-6 M218 251 v-6 M218 233 v-6 M422 287 v-6 M422 269 v-6 M422 251 v-6 M422 233 v-6"/></g>
+    <!-- ống nạp giữa -->
+    <path d="M306 20 L306 360 M334 20 L334 360 M290 8 L306 20 M350 8 L334 20" stroke="#E9EFF5" stroke-width="4"/>
+    <!-- cửa ra -->
+    <path d="M334 70 L600 70 M334 84 L600 84" stroke="#F2C230" stroke-width="4"/>
+    <path d="M250 105 L40 105 M250 119 L40 119" stroke="#3BA7E6" stroke-width="4"/>
+    <!-- dòng chảy -->
+    <g stroke-width="2.5" stroke-dasharray="7 6">
+      <path d="M320 30 V365 H218 V250" color="#F4F1E8" stroke="#F4F1E8" marker-end="url(#ltd-mui)"/>
+      <path d="M232 262 L292 224 L318 190 V78 H590" color="#F2C230" stroke="#F2C230" marker-end="url(#ltd-mui)"/>
+      <path d="M205 270 L140 310 L140 210 L255 112 H50" color="#3BA7E6" stroke="#3BA7E6" marker-end="url(#ltd-mui)"/>
+    </g>
+  </g>
+  <g font-family="Be Vietnam Pro,Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <g fill="#8AD8FF"><circle cx="560" cy="300" r="13"/><circle cx="380" cy="30" r="13"/><circle cx="560" cy="250" r="13"/><circle cx="600" cy="45" r="13"/><circle cx="40" cy="80" r="13"/></g>
+    <g fill="#06101F"><text x="560" y="305">1</text><text x="380" y="35">2</text><text x="560" y="255">3</text><text x="600" y="50">4</text><text x="40" y="85">5</text></g>
+    <g stroke="#8AD8FF" stroke-width="1.2"><path d="M547 300 H515 M367 30 H334 M547 250 H470 M600 58 V70 M40 93 V105"/></g>
+  </g>
+  <g font-family="Be Vietnam Pro,Segoe UI,system-ui,sans-serif" font-size="13" fill="#DCE5EE">
+    <text x="320" y="445" text-anchor="middle">1 Chén xoay · 2 Ống nạp giữa · 3 Chồng đĩa có lỗ · 4 Ra phần nhẹ (váng béo) · 5 Ra phần nặng (sữa gầy)</text>
+  </g>
+</svg>

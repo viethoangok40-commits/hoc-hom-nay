@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khung album mẫu</title>
+<style>
+:root{
+  --bg:#1E2B25; --panel:#263830; --line:#3A4F45; --text:#EAF0EC; --muted:#A9BDB2;
+  --accent:#7FB2E5;               /* R&D = xanh dương; CNTP = cam #E8A04A (đổi 1 biến này) */
+  --r-def:#7FB2E5; --r-mech:#7FD1A0; --r-num:#E8C05A; --r-warn:#F08A6A; --r-check:#B9A4F0;
+}
+@media (prefers-color-scheme: light){
+  :root{--bg:#F6F4EE;--panel:#FFFFFF;--line:#D9D5C8;--text:#1D2924;--muted:#51625A;--accent:#1F5F99;
+  --r-def:#1F5F99;--r-mech:#1E7A4B;--r-num:#8A5F00;--r-warn:#B23C17;--r-check:#5B3FB0;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:18px/1.65 "Segoe UI",system-ui,sans-serif}
+.mau{background:#3b3320;color:#F3E2B3;font-size:14px;padding:8px 16px;text-align:center}
+@media (prefers-color-scheme: light){.mau{background:#FFF2C9;color:#5B4500}}
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);max-width:1240px;margin:0 auto}
+nav.toc{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:24px 16px;border-right:1px solid var(--line);font-size:15px}
+nav.toc h2{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+nav.toc ol{list-style:none;margin:0;padding:0}
+nav.toc li{padding:7px 10px;border-radius:8px;color:var(--muted);line-height:1.35}
+nav.toc li.done{color:var(--r-mech)}
+nav.toc li.now{background:var(--panel);color:var(--text);border-left:3px solid var(--accent)}
+nav.toc small{display:block;color:var(--muted)}
+main{padding:28px 32px 80px;min-width:0}
+.crumb{font-size:14px;color:var(--muted);margin-bottom:6px}
+.crumb b{color:var(--text)}
+.prog{height:6px;background:var(--line);border-radius:3px;margin:8px 0 26px;overflow:hidden}
+.prog i{display:block;height:100%;width:37%;background:var(--accent)}
+h1{font-size:30px;line-height:1.25;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 24px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 9px;border-radius:999px;border:1.5px solid currentColor;margin-bottom:8px}
+.t-def{color:var(--r-def)} .t-mech{color:var(--r-mech)} .t-num{color:var(--r-num)} .t-warn{color:var(--r-warn)} .t-check{color:var(--r-check)}
+.hook{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--r-check);border-radius:12px;padding:18px 22px;margin-bottom:34px}
+.hook p{margin:.3em 0}
+details{margin-top:10px}
+summary{cursor:pointer;color:var(--accent);font-weight:600;min-height:44px;display:flex;align-items:center}
+summary:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.khoi{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.khoi h3{font-size:22px;line-height:1.35;margin:0 0 10px}
+.khoi p{margin:.5em 0;max-width:68ch}
+.nho{margin-top:14px;padding:10px 14px;background:var(--panel);border-radius:10px;border:1px dashed var(--line);font-weight:600}
+.fig{position:sticky;top:20px;align-self:start;margin:0}
+.fig .box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+.fig svg{width:100%;height:auto;display:block}
+.fig figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.45}
+.fig figcaption b{color:var(--text)}
+.btnrow{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:18px}
+button{font:inherit;font-weight:600;min-height:44px;padding:8px 18px;border-radius:10px;border:1.5px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+button.pri{background:var(--accent);color:var(--bg)}
+.vd{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--r-num);border-radius:12px;padding:18px 22px;margin:8px 0 26px}
+.vd ol{margin:8px 0 0;padding-left:0;list-style:none;counter-reset:b}
+.vd li{counter-increment:b;padding:8px 0 8px 40px;position:relative;border-top:1px solid var(--line)}
+.vd li:first-child{border-top:0}
+.vd li::before{content:counter(b);position:absolute;left:0;top:9px;width:28px;height:28px;border-radius:50%;background:var(--r-num);color:var(--bg);font-weight:700;text-align:center;line-height:28px;font-size:15px}
+.vd .why{color:var(--muted);font-size:16px;display:block}
+.vd .kq{margin-top:10px;font-weight:700}
+.quiz{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--r-check);border-radius:12px;padding:18px 22px;margin:8px 0 26px}
+.quiz .opt{display:block;width:100%;text-align:left;margin:8px 0 0;font-weight:500;color:var(--text);border-color:var(--line)}
+.quiz .opt.ok{border-color:var(--r-mech);background:rgba(127,209,160,.14)}
+.quiz .opt.no{border-color:var(--r-warn);background:rgba(240,138,106,.14)}
+.fb{display:none;margin-top:12px;font-size:16px}
+.tom{background:var(--panel);border-radius:12px;padding:16px 22px;border:1px solid var(--line)}
+.tom ul{margin:6px 0 0;padding-left:20px}
+@media (max-width:900px){
+  .wrap{display:block}
+  nav.toc{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+  nav.toc ol{display:flex;gap:6px;overflow:auto}
+  nav.toc li{white-space:nowrap}
+  main{padding:20px 16px 64px}
+  .khoi{grid-template-columns:1fr;gap:14px}
+  .fig{position:static}
+  h1{font-size:25px}
+}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="mau">TRANG MẪU để duyệt BỐ CỤC. Nội dung và số liệu chỉ để minh hoạ khung, không phải bài chính thức.</div>
+<div class="wrap">
+<nav class="toc" aria-label="Mục lục">
+  <h2>D008 · Hoạt độ nước</h2>
+  <ol>
+    <li class="done">0. Mở đầu<small>Câu hỏi, mục tiêu</small></li>
+    <li class="now">1. aw đo cái gì?<small>4 ý · ví dụ · quiz</small></li>
+    <li>2. Vì sao chất tan hạ aw<small>Raoult</small></li>
+    <li>3. aw và vi sinh vật</li>
+    <li>4. Đo aw trong phòng thí nghiệm</li>
+    <li>5. Ôn rải và tổng kết</li>
+  </ol>
+</nav>
+<main>
+  <div class="crumb">Chương <b>1/5</b> · Ý <b>2/4</b> · khoảng 9 phút</div>
+  <div class="prog" role="progressbar" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100" aria-label="Tiến độ bài"><i></i></div>
+  <h1>aw đo cái gì? Vì sao % nước không đủ</h1>
+  <p class="sub">Sau chương này bạn tự viết được công thức aw, đổi sang %ERH và giải thích bằng lời một ví dụ.</p>
+
+  <section class="hook" aria-labelledby="hq">
+    <span class="tag t-check">Đoán trước</span>
+    <p id="hq"><b>Hai mẫu thực phẩm có cùng 20% nước. Mẫu A để được nhiều tháng, mẫu B mốc sau vài ngày. Theo bạn, điều gì có thể khác nhau?</b></p>
+    <details><summary>Xem gợi ý và câu trả lời</summary>
+      <p>Khác ở <b>mức độ "tự do" của nước</b>: nước bị đường, muối hay protein giữ chặt thì vi sinh vật khó dùng. Đại lượng đo mức tự do đó là <b>hoạt độ nước (aw)</b>, không phải % nước.</p></details>
+  </section>
+
+  <article class="khoi" id="y2">
+    <div>
+      <span class="tag t-def">Định nghĩa</span>
+      <h3>Hoạt độ nước là tỉ số giữa áp suất hơi của nước trên mẫu và trên nước tinh khiết</h3>
+      <p>Đặt mẫu trong hộp kín cho đến khi cân bằng. Các phân tử nước thoát khỏi mẫu tạo ra một <b>áp suất hơi p</b>. Ở cùng nhiệt độ, nước tinh khiết tạo ra áp suất hơi <b>p₀</b>. Hoạt độ nước là <b>aw = p / p₀</b>.</p>
+      <p>Vì mẫu luôn giữ nước tốt hơn nước tinh khiết nên p ≤ p₀, nghĩa là aw nằm từ 0 đến 1. Nước tinh khiết có aw = 1.</p>
+      <p>Không khí trong hộp lúc cân bằng có độ ẩm tương đối bằng <b>%ERH = aw × 100</b>. Vì vậy mẫu có aw = 0,60 cân bằng với không khí 60% ẩm.</p>
+      <div class="nho">Nhớ: aw = p / p₀ và %ERH = aw × 100.</div>
+      <div class="btnrow"><button type="button">← Ý trước</button><button type="button" class="pri">Ý tiếp theo →</button></div>
+    </div>
+    <figure class="fig">
+      <div class="box">
+        <svg viewBox="0 0 320 250" role="img" aria-labelledby="f1t f1d">
+          <title id="f1t">Hộp kín chứa mẫu và hơi nước</title>
+          <desc id="f1d">Mẫu ở đáy hộp phát ra hơi nước có áp suất p, so với p₀ của nước tinh khiết.</desc>
+          <rect x="30" y="20" width="260" height="190" rx="10" fill="none" stroke="currentColor" stroke-width="2" opacity=".7"/>
+          <rect x="31" y="150" width="258" height="59" rx="8" fill="#7FB2E5" opacity=".28"/>
+          <text x="160" y="185" text-anchor="middle" font-size="15" fill="currentColor">Mẫu thực phẩm</text>
+          <g fill="#7FB2E5"><circle cx="90" cy="118" r="4"/><circle cx="140" cy="96" r="4"/><circle cx="205" cy="124" r="4"/><circle cx="240" cy="88" r="4"/><circle cx="170" cy="60" r="4"/></g>
+          <g stroke="#7FB2E5" stroke-width="2" fill="none"><path d="M90 148v-24"/><path d="M140 148v-46"/><path d="M205 148v-18"/></g>
+          <text x="160" y="42" text-anchor="middle" font-size="14" fill="currentColor">hơi nước → áp suất p</text>
+          <rect x="52" y="226" width="216" height="0" fill="none"/>
+          <text x="160" y="240" text-anchor="middle" font-size="14" fill="currentColor">aw = p ÷ p₀ (p₀: nước tinh khiết, cùng nhiệt độ)</text>
+        </svg>
+      </div>
+      <figcaption><b>Nhìn vào:</b> các chấm xanh là phân tử nước thoát khỏi mẫu. Số chấm càng ít thì p càng nhỏ, aw càng thấp. <br>Sơ đồ tự vẽ cho ý này, không dùng ảnh trang trí.</figcaption>
+    </figure>
+  </article>
+
+  <section class="vd" aria-labelledby="vdt">
+    <span class="tag t-num">Ví dụ có lời giải</span>
+    <p id="vdt"><b>Dung dịch sucrose 40% khối lượng, theo mô hình dung dịch lý tưởng (Raoult), có aw bằng bao nhiêu?</b></p>
+    <ol>
+      <li>Số mol sucrose = 40 g ÷ 342,3 g/mol ≈ 0,117 mol<span class="why">Vì sao: 100 g dung dịch chứa 40 g sucrose.</span></li>
+      <li>Số mol nước = 60 g ÷ 18,02 g/mol ≈ 3,33 mol<span class="why">Vì sao: phần còn lại 60 g là nước.</span></li>
+      <li>Phần mol nước x = 3,33 ÷ (3,33 + 0,117) ≈ 0,966<span class="why">Vì sao: định luật Raoult cho aw ≈ x khi dung dịch lý tưởng.</span></li>
+    </ol>
+    <p class="kq">Kết quả: aw ≈ 0,966, tương ứng %ERH ≈ 96,6%.</p>
+    <details><summary>Bạn tự làm: sucrose 60% khối lượng thì sao?</summary><p>Nước 40 g ÷ 18,02 ≈ 2,22 mol; sucrose 60 g ÷ 342,3 ≈ 0,175 mol; x = 2,22 ÷ 2,395 ≈ <b>0,927</b>.</p></details>
+  </section>
+
+  <section class="quiz" aria-labelledby="qt">
+    <span class="tag t-check">Tự kiểm tra</span>
+    <p id="qt"><b>Một mẫu có aw = 0,60. Không khí cân bằng với nó có độ ẩm tương đối bao nhiêu?</b></p>
+    <button class="opt" type="button" data-k="no">A. 6%</button>
+    <button class="opt" type="button" data-k="ok">B. 60%</button>
+    <button class="opt" type="button" data-k="no">C. 0,60%</button>
+    <div class="fb" id="fb" role="status"></div>
+  </section>
+
+  <section class="tom">
+    <span class="tag t-def">Chương này, bạn nhớ</span>
+    <ul>
+      <li>aw = p / p₀, nằm từ 0 đến 1.</li>
+      <li>%ERH = aw × 100.</li>
+      <li>Chất tan giữ nước làm giảm p nên giảm aw.</li>
+    </ul>
+  </section>
+</main>
+</div>
+<script>
+const fb=document.getElementById('fb');
+document.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{
+  const ok=b.dataset.k==='ok';
+  document.querySelectorAll('.opt').forEach(x=>x.classList.remove('ok','no'));
+  b.classList.add(ok?'ok':'no');
+  fb.style.display='block';
+  fb.textContent=ok?'Đúng. %ERH = aw × 100 = 0,60 × 100 = 60%.':'Chưa đúng. %ERH = aw × 100. Với aw = 0,60 thì %ERH = 60%. Hãy thử lại.';
+}));
+</script>
+</body>
+</html>

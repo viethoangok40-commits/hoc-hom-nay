@@ -261,6 +261,8 @@ function makeFig(id){
   else if(f.kind==='3d'){ var box=el('div','m3d'); w.appendChild(box); w.appendChild(el('div','m3d-hint','Kéo để xoay mô hình 3D')); w.__m3d={box:box,f:f}; }
   else if(f.kind==='mol'){ var mb=el('div','mol'); w.appendChild(mb); w.appendChild(el('div','mol-hint','Kéo / chạm để xoay · chụm hai ngón để phóng to')); w.__mol={box:mb,f:f}; }
   else if(f.kind==='nguon'){ w.appendChild(el('div','nguon-box',f.html)); }
+  else if(f.kind==='may'){ var mx=el('div','may-xem',f.poster||''); var mb2=el('button','may-mo','▶ Mở cảnh máy 3D'); mb2.type='button';
+    mb2.addEventListener('click',function(ev){ ev.stopPropagation(); moMay(f); }); mx.appendChild(mb2); w.appendChild(mx); w.classList.add('real'); }
   if(f.credit){ w.classList.add('has-credit'); w.appendChild(el('div','credit',f.credit)); }
   var svg=w.querySelector('svg');
   if(svg){
@@ -284,6 +286,25 @@ function need(src,cb){
 }
 window.__need=need;
 var VEN=D.vendor||{};
+/* cảnh mô phỏng máy: lớp phủ toàn màn hình; three.js + addon + bộ máy + module máy tải khi bấm mở */
+function coWebgl(){ try{ var c=document.createElement('canvas'); return !!(c.getContext('webgl2')||c.getContext('webgl')); }catch(e){ return false; } }
+function pcHienTai(){ return document.body.getAttribute('data-pc')||((D.phongCach||{}).bai)||'kinh'; }
+function moMay(f){
+  if(document.body.classList.contains('may-mo')) return;
+  var host=el('div','may-host'); document.body.appendChild(host); document.body.classList.add('may-mo');
+  host.innerHTML='<div class="may-cho" role="status">Đang tải cảnh máy 3D…</div>';
+  function xong(){ document.body.classList.remove('may-mo'); host.remove(); window.__may=null; try{ stage.focus(); }catch(e){} }
+  function loi(msg){ host.innerHTML='<div class="may-loi">'+(f.poster||'')+'<p></p><button type="button">Đóng</button></div>'; host.querySelector('p').textContent=msg; host.querySelector('button').addEventListener('click',xong); window.__may={loi:msg}; }
+  if(!coWebgl()) return loi('Máy này không mở được WebGL – đây là sơ đồ tĩnh của máy.');
+  var chain=[ window.THREE?'':VEN.three, (window.THREE&&THREE.OrbitControls)?'':VEN.addons, window.HHN_MAY?'':VEN.may,
+    (window.HHN_MAY_LIB&&HHN_MAY_LIB[f.ma])?'':(VEN.mayDir?VEN.mayDir+f.ma+'.js':'') ].filter(Boolean);
+  (function tiep(){
+    if(!chain.length){ try{ host.innerHTML=''; window.__may=window.HHN_MAY.mo(host,{ma:f.ma,buoc:f.buoc,nhan:f.nhanSo,phongCach:pcHienTai(),hdr:VEN.hdr,reduce:reduce,onClose:xong}); }
+      catch(e){ loi('Không dựng được cảnh máy ('+String(e&&e.message||e).slice(0,90)+') – đây là sơ đồ tĩnh.'); } return; }
+    need(chain.shift(),function(ok){ if(!ok) return loi('Không tải được thư viện 3D (cần mạng) – đây là sơ đồ tĩnh.'); tiep(); });
+  })();
+}
+window.__moMay=function(id){ var f=D.figs[id]; if(f&&f.kind==='may') moMay(f); };
 function play(w){ loadImgs(w); w.classList.remove('play','h-'+w.dataset.hien); void w.offsetWidth; w.classList.add('play','h-'+w.dataset.hien); if(w.__m3d) start3d(w); if(w.__mol) startMol(w); }
 /* mô hình phân tử: 3Dmol.js nhúng sẵn; lỗi/không có WebGL → khung nguồn */
 function molStyle(f){
@@ -577,6 +598,7 @@ stage.addEventListener('click',function(e){
 });
 document.addEventListener('keydown',function(e){
   if(e.ctrlKey||e.metaKey||e.altKey) return;
+  if(document.body.classList.contains('may-mo')) return; // cảnh máy đang mở: phím thuộc về cảnh máy
   if(toc.classList.contains('open')){ if(e.key==='Escape') closeToc(); return; }
   if(lib.classList.contains('open')){ if(e.key==='Escape') closeLib(); return; }
   if(e.key==='b'||e.key==='B'){ openLib(); return; }

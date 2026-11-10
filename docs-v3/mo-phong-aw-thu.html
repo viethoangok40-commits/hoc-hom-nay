@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mô phỏng thử: aw của dung dịch đường và muối (D008, Chương 3–4)</title>
+<style>
+:root{--bg:#ffffff;--tx:#1a1a1a;--mu:#4a4a4a;--ln:#c9c9c9;--ac:#14508f;--bx:#f4f4f4}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--tx:#ececec;--mu:#b5b5b5;--ln:#444;--ac:#8ec1ff;--bx:#1c1c1c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 system-ui,"Segoe UI",sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.35rem;line-height:1.3;margin:0 0 6px}
+h2{font-size:1.05rem;margin:0 0 8px}
+p{margin:0 0 10px;max-width:70ch}
+.mu{color:var(--mu);font-size:.92rem}
+.box{background:var(--bx);border:1px solid var(--ln);border-radius:8px;padding:14px 16px;margin:16px 0}
+button{font:inherit;color:var(--tx);background:var(--bg);border:2px solid var(--ac);border-radius:8px;padding:8px 14px;margin:4px 8px 4px 0;cursor:pointer;min-height:44px}
+button[aria-pressed="true"]{background:var(--ac);color:var(--bg)}
+input[type=range]{width:100%;accent-color:var(--ac);min-height:32px}
+label{display:block;font-weight:600;margin:8px 0 2px}
+.big{font-size:1.6rem;font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{border-bottom:1px solid var(--ln);padding:4px 6px;text-align:left}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.cols{grid-template-columns:1fr}}
+svg text{fill:var(--tx);font:13px system-ui,sans-serif}
+.claim{border-left:4px solid var(--ac);padding-left:12px;margin:10px 0}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+<h1>Mô phỏng: cùng khối lượng, muối hay đường hạ aw nhiều hơn?</h1>
+<p class="mu">Bản thử cho D008 (Chương 3 và 4). Chạy bằng số liệu trong bài: khối lượng mol và ngưỡng aw tối thiểu từ bảng IFT/FDA.</p>
+
+<div class="claim"><b>Khẳng định:</b> Định luật Raoult đếm hạt, không đếm gam. Cùng khối lượng chất tan, NaCl cho nhiều hạt hơn sucrose nên hạ aw lý tưởng nhiều hơn.</div>
+
+<section class="box" aria-labelledby="b1">
+<h2 id="b1">Bước 1 · Dự đoán trước</h2>
+<p>10 g chất tan hòa vào 90 g nước. Chất nào làm aw giảm nhiều hơn?</p>
+<div role="group" aria-label="Dự đoán">
+<button id="pd" aria-pressed="false" data-v="duong">Đường (sucrose)</button>
+<button id="pm" aria-pressed="false" data-v="muoi">Muối (NaCl)</button>
+</div>
+<p id="kq" aria-live="polite"></p>
+</section>
+
+<section class="box" aria-labelledby="b2">
+<h2 id="b2">Bước 2 · Thử với thanh trượt</h2>
+<div role="group" aria-label="Chọn chất tan">
+<button id="cd" aria-pressed="true" data-v="duong">Đường (sucrose)</button>
+<button id="cm" aria-pressed="false" data-v="muoi">Muối (NaCl)</button>
+</div>
+<label for="pct">Khối lượng chất tan trong 100 g dung dịch: <span id="pctv">10</span> %</label>
+<input id="pct" type="range" min="0" max="60" step="1" value="10">
+<div class="cols">
+<div>
+<div class="big" aria-live="polite">aw lý tưởng ≈ <span id="aw">—</span></div>
+<table aria-label="Tính từng bước">
+<tr><th scope="row">mol chất tan (hạt)</th><td id="nh"></td></tr>
+<tr><th scope="row">mol nước</th><td id="nw"></td></tr>
+<tr><th scope="row">x nước = aw</th><td id="xw"></td></tr>
+</table>
+<p class="mu" id="note"></p>
+</div>
+<div>
+<svg id="bar" viewBox="0 0 360 90" role="img" aria-label="So sánh aw lý tưởng của đường và muối ở cùng phần trăm"></svg>
+<p class="mu">Thanh dài hơn là aw cao hơn (hạ ít hơn). Trục từ 0,90 đến 1,00.</p>
+</div>
+</div>
+</section>
+
+<section class="box" aria-labelledby="b3">
+<h2 id="b3">Bước 3 · Vi sinh vật nào còn phát triển ở aw này?</h2>
+<p class="mu">Vạch dọc là aw của dung dịch. Vạch ngắn mỗi dòng là aw tối thiểu để vi sinh vật đó phát triển (bảng IFT/FDA, dữ liệu ICMSF 1996). Đặc: còn phát triển được. Viền rỗng: dừng.</p>
+<svg id="mc" viewBox="0 0 560 330" role="img" aria-label="aw tối thiểu của từng vi sinh vật so với aw dung dịch"></svg>
+<p id="mctext" aria-live="polite"></p>
+<table aria-label="Bảng thay thế đồ thị"><thead><tr><th>vi sinh vật</th><th>aw tối thiểu</th><th>ở aw hiện tại</th></tr></thead><tbody id="tb"></tbody></table>
+</section>
+
+<section class="box">
+<h2>Giới hạn của mô phỏng này</h2>
+<p>Đây là aw <b>lý tưởng</b> theo Raoult (aw ≈ phần mol nước, NaCl tính là 2 hạt). Thực phẩm thật lệch khỏi giá trị này (Cảnh 3.3), nên con số chỉ là ước lượng, muốn số thật thì đo. Thanh trượt giới hạn ở 60 % cho đường và 26 % cho muối theo độ tan thông thường ở nhiệt độ phòng; giới hạn này chưa trích nguồn trong bài (Cần kiểm tra). Ngưỡng vi sinh là ngưỡng khi các yếu tố khác thuận lợi; pH, nhiệt độ, chất bảo quản cùng tác động (Cảnh 4.2). aw thấp là "không phát triển", không phải "bị tiêu diệt" (Cảnh 4.4).</p>
+</section>
+</main>
+<script>
+var Mw=18.015, S={duong:{ten:"đường (sucrose)",M:342.30,i:1,max:60},muoi:{ten:"muối (NaCl)",M:58.44,i:2,max:26}};
+var MIC=[["Campylobacter",0.98],["C. botulinum E, Shigella, Yersinia enterocolitica",0.97],["Vibrio vulnificus",0.96],["E. coli xuất huyết",0.95],["Salmonella, V. parahaemolyticus",0.94],["B. cereus, C. botulinum A và B",0.93],["Listeria monocytogenes",0.92],["Staphylococcus aureus",0.83]];
+var chat="duong";
+function f(x,d){return x.toFixed(d).replace(".",",")}
+function aw(k,p){var s=S[k],nh=s.i*p/s.M,nw=(100-p)/Mw;return {nh:nh,nw:nw,x:nw/(nw+nh)}}
+function el(n,a,t){var e=document.createElementNS("http://www.w3.org/2000/svg",n);for(var k in a)e.setAttribute(k,a[k]);if(t)e.textContent=t;return e}
+function draw(){
+  var p=+document.getElementById("pct").value, s=S[chat], r=aw(chat,p);
+  document.getElementById("pctv").textContent=p;
+  document.getElementById("aw").textContent=f(r.x,3);
+  document.getElementById("nh").textContent=f(r.nh,4)+" mol"+(s.i==2?" (đã tính Na⁺ và Cl⁻)":"");
+  document.getElementById("nw").textContent=f(r.nw,4)+" mol";
+  document.getElementById("xw").textContent=f(r.nw,4)+" / ("+f(r.nw,4)+" + "+f(r.nh,4)+") = "+f(r.x,3);
+  document.getElementById("note").textContent="Ví dụ kiểm: "+s.ten+" "+p+" % khối lượng.";
+  var a=aw("duong",p).x,b=p<=S.muoi.max?aw("muoi",p).x:null,bar=document.getElementById("bar");
+  bar.innerHTML="";
+  [["Đường",a,0],["Muối",b,1]].forEach(function(t){
+    if(t[1]===null){bar.appendChild(el("text",{x:0,y:10+t[2]*38+20},"Muối: không tan tới "+p+" % ở nhiệt độ phòng"));return}
+    var w=Math.max(0,(t[1]-0.90)/0.10)*260,y=10+t[2]*38;
+    bar.appendChild(el("text",{x:0,y:y+20},t[0]));
+    bar.appendChild(el("rect",{x:60,y:y,width:260,height:28,fill:"none",stroke:"currentColor","stroke-opacity":".4"}));
+    bar.appendChild(el("rect",{x:60,y:y,width:w,height:28,fill:"var(--ac)"}));
+    bar.appendChild(el("text",{x:326,y:y+20},f(t[1],3)));
+  });
+  var c=document.getElementById("mc");c.innerHTML="";
+  var x0=250,x1=540,lo=0.80,hi=1.00,X=function(v){return x0+(v-lo)/(hi-lo)*(x1-x0)};
+  var tb=document.getElementById("tb");tb.innerHTML="";var ok=[],stop=[];
+  MIC.forEach(function(m,i){
+    var y=14+i*36,grow=r.x>=m[1];
+    c.appendChild(el("text",{x:0,y:y+17},m[0].length>38?m[0].slice(0,36)+"…":m[0]));
+    c.appendChild(el("rect",{x:x0,y:y,width:x1-x0,height:24,fill:"none",stroke:"currentColor","stroke-opacity":".25"}));
+    var w=Math.max(0,X(r.x)-X(Math.min(m[1],hi)));
+    if(grow){c.appendChild(el("rect",{x:X(m[1]),y:y,width:Math.max(2,X(r.x)-X(m[1])),height:24,fill:"var(--ac)"}));ok.push(m[0])}else stop.push(m[0]);
+    c.appendChild(el("line",{x1:X(m[1]),x2:X(m[1]),y1:y-3,y2:y+27,stroke:"currentColor","stroke-width":3}));
+    var tr=document.createElement("tr");tr.innerHTML="<td>"+m[0]+"</td><td>"+f(m[1],2)+"</td><td>"+(grow?"còn phát triển được":"dừng")+"</td>";tb.appendChild(tr);
+  });
+  c.appendChild(el("line",{x1:X(Math.max(lo,Math.min(hi,r.x))),x2:X(Math.max(lo,Math.min(hi,r.x))),y1:4,y2:322,stroke:"currentColor","stroke-width":2,"stroke-dasharray":"5 4"}));
+  c.appendChild(el("text",{x:x0,y:326},"0,80"));c.appendChild(el("text",{x:x1-28,y:326},"1,00"));
+  document.getElementById("mctext").textContent="aw = "+f(r.x,3)+": "+(ok.length?ok.length+" nhóm vẫn phát triển được ("+ok.join("; ")+")":"không nhóm nào trong bảng phát triển được")+".";
+}
+function setChat(k){chat=k;var m=S[k].max,p=document.getElementById("pct");p.max=m;if(+p.value>m)p.value=m;
+  document.getElementById("cd").setAttribute("aria-pressed",k=="duong");document.getElementById("cm").setAttribute("aria-pressed",k=="muoi");draw()}
+document.getElementById("cd").onclick=function(){setChat("duong")};
+document.getElementById("cm").onclick=function(){setChat("muoi")};
+document.getElementById("pct").oninput=draw;
+["pd","pm"].forEach(function(id){document.getElementById(id).onclick=function(){
+  var v=this.getAttribute("data-v"),a=aw("duong",10).x,b=aw("muoi",10).x;
+  document.getElementById("pd").setAttribute("aria-pressed",v=="duong");document.getElementById("pm").setAttribute("aria-pressed",v=="muoi");
+  document.getElementById("kq").innerHTML=(v=="muoi"?"Đúng. ":"Chưa đúng. ")+"Với 10 g trong 90 g nước: đường cho aw lý tưởng "+f(a,3)+", muối cho "+f(b,3)+". 10 g NaCl cho 0,342 mol hạt, 10 g sucrose chỉ 0,029 mol, nên muối hạ aw nhiều hơn. Bây giờ kéo thanh trượt ở Bước 2 để kiểm.";
+}});
+draw();
+</script>
+</body>
+</html>

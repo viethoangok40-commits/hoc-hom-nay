@@ -37,7 +37,7 @@ body.kinh.orb-an .cover{justify-content:center;padding-top:0}
 @media (max-width:820px){body.kinh.orb-an .scr>header{padding-right:0;min-height:0}}
 @media (min-width:821px){
   #k3d{left:auto;right:2vw;width:46vw;top:12vh;height:70vh;transform-origin:100% 0}
-  body.kinh.orb-nho #k3d{transform:translate3d(2%,-6%,0) scale(.36)}
+  body.kinh.orb-nho #k3d{transform:translate3d(2%,-6%,0) scale(.36);opacity:0} /* màn rộng: cảnh đã có hình riêng, vật thể chỉ hiện ở bìa */
 }
 body.kinh #app{z-index:2}
 /* thanh trên, nút */

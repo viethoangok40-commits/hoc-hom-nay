@@ -9,6 +9,11 @@ var CH=K.chapters||{};
 var G={ready:false}; // vật thể 3D (điền khi three.js đã tải)
 function toneOf(id){ var m=/^c(\d+)/.exec(id||''); var c=m&&CH[m[1]]; return (c&&c.tone)||K.tone||'cong-nghe'; }
 function vatOf(id){ var m=/^c(\d+)/.exec(id||''); if(!m) return 'bia'; var c=CH[m[1]]; return c&&c.vat?c.vat:null; } // null: chương không có vật thể → chỉ nền kính
+var PCH=D.phongCach||{bai:'kinh',chapters:{}}, curPc='';
+function pcOf(id){ var m=/^c(\d+)/.exec(id||''); return (m&&PCH.chapters&&PCH.chapters[m[1]])||PCH.bai||'kinh'; }
+function setPc(p){ if(p===curPc) return; if(curPc) body.classList.remove('pc-'+curPc); curPc=p; body.classList.add('pc-'+p); body.setAttribute('data-pc',p);
+  try{ hatMau=(getComputedStyle(body).getPropertyValue('--hat')||'').trim()||'#fff'; }catch(e){} }
+var hatMau='#fff';
 function modeOf(id){ if(!vatOf(id)) return 'an'; return (id==='mo-dau'||/^c\d+$/.test(id||''))?'lon':'nho'; }
 
 /* ---------- nền: gradient + 2 quầng sáng + bụi sáng ---------- */
@@ -35,7 +40,7 @@ function drawDust(t){
   for(var i=0;i<parts.length;i++){ var p=parts[i];
     if(!reduce){ p.y-=p.v*dt; p.w+=dt*.6; if(p.y<-.02){p.y=1.02; p.x=Math.random();} }
     var x=(p.x+Math.sin(p.w)*.006)*W, y=p.y*H-sy*14*DPR*p.r;
-    dctx.globalAlpha=p.a*(.6+.4*Math.sin(p.w*1.7)); dctx.beginPath(); dctx.arc(x,y,p.r*DPR,0,6.283); dctx.fillStyle='#fff'; dctx.fill(); }
+    dctx.globalAlpha=p.a*(.6+.4*Math.sin(p.w*1.7)); dctx.beginPath(); dctx.arc(x,y,p.r*DPR,0,6.283); dctx.fillStyle=hatMau; dctx.fill(); }
 }
 /* ---------- parallax: chỉ theo cuộn (vùng chữ .txt / .cards); không dùng cảm biến nghiêng ---------- */
 var sy=0, ty=0; // sy: vị trí cuộn đã làm mượt (0 → 1)
@@ -47,7 +52,7 @@ var curTone='', curVat, curMode=''; // curVat: undefined = chưa có màn nào; 
 function setTone(t){ if(t===curTone) return; body.classList.remove('tone-'+curTone); curTone=t; body.classList.add('tone-'+t); if(G.ready) G.setTone(t); }
 document.addEventListener('album:render',function(e){
   var d=e.detail||{}, el=d.el;
-  setTone(toneOf(d.id));
+  setTone(toneOf(d.id)); setPc(pcOf(d.id));
   var mode=modeOf(d.id); setMode(mode);
   if((mode==='lon'||mode==='an')&&el) requestAnimationFrame(function(){ fitCover(el); });
   var vat=vatOf(d.id); if(vat!==curVat){ curVat=vat; if(G.ready) G.show(vat); }

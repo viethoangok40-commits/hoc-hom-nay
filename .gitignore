@@ -9,3 +9,5 @@ node_modules/
 .DS_Store
 Thumbs.db
 _preview/
+_tmp-build/
+docs-v3-day-du.zip
