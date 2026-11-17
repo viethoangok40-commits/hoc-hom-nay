@@ -1,556 +1,493 @@
 # D007 · Nước tự do, nước liên kết và độ ẩm
 
-- **Mã bài:** D007 · R&D Food Lab · Giai đoạn Nền tảng (mô-đun m0) · Tuần 1 · Bài 2/5
+- **Mã bài:** D007 · R&D Food Lab · Nền tảng (m0) · Tuần 1 · Bài 2/5
 - **Ngày:** 03/11/2026
-- **Số chương:** 8 (+ phần cuối: Tổng kết, Trắc nghiệm, Đối chiếu, Từ điển, Nguồn, Cần kiểm tra lại)
-- **Thời gian đọc dự kiến:** 45–60 phút
-- **Lộ trình:**
-  1. Câu hỏi mở: cùng là nước, sao có phần ép ra được, có phần không?
-  2. Ba "trạng thái" nước theo giáo trình: tự do, bị giữ, liên kết
-  3. Nhìn nước bằng máy: LF-NMR và thời gian hồi phục T2
-  4. Độ ẩm: định nghĩa, cơ sở ướt – cơ sở khô, cách đo
-  5. Áp dụng: sấy bã đậu nành (okara) – một phụ phẩm thật
-  6. Bài tính: từ cân sấy đến cân bằng khối lượng máy sấy
-  7. Bài đọc chính: Wiesman (2026) – "Beyond Moisture Content"
-  8. Tiếng Anh: thuật ngữ và câu mẫu
+- **Bản:** viết lại theo KHUNG v3 (11/11/2026) từ nội dung D007 đã kiểm chứng ngày 03/11/2026; bỏ toàn bộ hình trang trí cũ, thay bằng 4 mô phỏng/hoạt hình gắn với từng khẳng định
+- **Số chương:** 7 · mỗi chương 8–12 phút · tổng khoảng 70–85 phút (đọc + làm bài)
 
-> **Câu hỏi mở đầu:** Một mẻ bã đậu nành vừa ra khỏi máy lọc sữa có khoảng 79% nước. Sấy 5 giờ ở 80 °C, độ ẩm mới xuống 57%; nhưng chỉ thêm 2 giờ nữa nó đã gần khô hẳn. Vì sao nước "chịu đi" nhanh chậm khác nhau như vậy – và con số độ ẩm có kể hết câu chuyện không?
+> **Câu hỏi thật:** Một mẻ bã đậu nành vừa ra khỏi túi lọc có khoảng 79% nước. Sấy 80 °C, sau 5 giờ độ ẩm mới xuống 57% mà nghe như mới bớt được ít, rồi chỉ 2 giờ sau đã gần khô hẳn. Con số độ ẩm kể được những gì về nước trong mẻ bã đó, và còn bỏ sót điều gì?
 
----
+**Sau bài này bạn tự làm được:**
+1. Phân biệt nước tự do, nước bị nhốt và nước liên kết, và giải thích vì sao ép, cắt hay sấy lấy ra mỗi loại khác nhau.
+2. Đọc ý nghĩa của thời gian hồi phục T2 trong LF-NMR và nói được vì sao không nên coi T2 là "mức liên kết của nước".
+3. Đổi độ ẩm giữa cơ sở ướt và cơ sở khô, rồi làm cân bằng khối lượng cho một mẻ sấy dựa trên chất khô không đổi.
 
-## CHƯƠNG 1 – Cùng là nước, nhưng không giống nhau
-
-### Cảnh 1.1 – Nối từ bài D006
-Câu dẫn: Bài trước mình đã thấy phân tử nước phân cực và tạo liên kết hydro. Hôm nay hỏi tiếp: khi nước nằm trong thực phẩm, nó "ở" đâu?
-- Ở D006, oxy mang điện tích âm từng phần, hydro mang điện tích dương từng phần, nên nước bám vào ion và nhóm phân cực.
-[3D: PubChem CID 962 | kiểu: que-bi | hiện: xoay chậm, tô sáng δ− ở O và δ+ ở H | chỗ: phải | cùng ý: 1]
-- Trong thực phẩm, các "chỗ bám" đó chính là nhóm phân cực và nhóm ion của tinh bột, pectin, protein (Kuna, e-PG Pathshala).
-[3D: PubChem CID 5793 | kiểu: que-bi | hiện: tô sáng 5 nhóm –OH của glucose (đơn vị của tinh bột) | chỗ: trái | cùng ý: 2]
-- Phân tử bị hút càng chặt thì càng khó đi ra khi ép, cắt hay sấy. Đó là ý chính của cả bài.
-
-Chữ trên bảng:
-Nước + nhóm phân cực (–OH, ion) → bị giữ
-Giữ càng chặt → càng khó ép, khó sấy
-
-### Cảnh 1.2 – Thực phẩm nhiều nước đến mức nào
-Câu dẫn: Trước khi chia loại, nhớ lại lượng nước trong thực phẩm.
-- Theo học liệu Kuna, phần lớn thực phẩm tự nhiên (chưa sấy) chứa tới khoảng 70% khối lượng là nước hoặc hơn; rau quả tới khoảng 95% hoặc hơn.
-[HÌNH: tu-ve thanh-ty-le-nuoc.svg | chỗ: giữa | hiện: hai cột mọc dần tới 70% và 95% (xanh dương) | cùng ý: 1 | nhấn: nhãn "≥ 70%", "≤ 95%+"]
-- Bã đậu nành tươi trong nghiên cứu của Chen và cộng sự (2022) có độ ẩm 0,7880 g/g, tức 78,8% (cơ sở ướt).
-[HÌNH: https://commons.wikimedia.org/wiki/File:Okara_(soybean_pulp).jpg | file gợi ý: okara.jpg | loại: ảnh | chỗ: phải | hiện: trượt vào | cùng ý: 2 | nhấn: khối bã ướt trong túi lọc]
-
-Chữ trên bảng:
-Thực phẩm tự nhiên ≥ ~70% nước · rau quả tới ~95%
-Bã đậu nành tươi: 78,8% (Chen và cs., 2022)
-
-### Cảnh 1.3 – Thí nghiệm tư duy: ép, cắt, sấy
-Câu dẫn: Thử tưởng tượng ba thao tác với một lát dưa chuột.
-- Ép nhẹ: một phần nước chảy ra ngay. Đó là nước dễ lấy ra nhất.
-- Cắt nhỏ: nước trong tế bào bị vỡ cũng chảy ra. Trước đó nó bị nhốt, chứ không bị "bám" chặt.
-- Sấy: còn lại một phần nước rất khó lấy ra, cần nhiều thời gian và năng lượng.
-[HÌNH: tu-ve ep-cat-say.svg | chỗ: giữa | hiện: dựng từng bước 3 khung (ép → cắt → sấy), giọt xanh dương giảm dần | cùng ý: 1 | nhấn: khung "sấy" viền cam đỏ]
-- Ba thao tác này gợi ra ba nhóm nước mà giáo trình đặt tên. Chương 2 đi vào từng nhóm.
-
-Chữ trên bảng:
-Ép → nước tự do · Cắt → nước bị nhốt
-Sấy lâu mới ra → nước liên kết
+[NHỚ LẠI]
+1. Vì sao nước bám được vào ion và nhóm phân cực? | từ: D006 | đáp: Oxy mang điện tích âm từng phần, hydro mang điện tích dương từng phần, nên phân tử nước bị hút vào ion và nhóm phân cực.
+2. Liên kết hydro giữa hai phân tử nước hình thành thế nào? | từ: D006 | đáp: Hydro (dương từng phần) của phân tử này bị hút vào oxy (âm từng phần) của phân tử kia.
+3. Nhiệt hóa hơi của nước ở điểm sôi khoảng bao nhiêu? | từ: D006 | đáp: Khoảng 540 cal/g (Kuna).
+[/NHỚ LẠI]
 
 ---
 
-## CHƯƠNG 2 – Ba "trạng thái" nước theo giáo trình
+## Chương 1 – Ba cách nước nằm trong thực phẩm
 
-### Cảnh 2.1 – Nước tự do (free water)
-Câu dẫn: Bắt đầu với loại dễ nhất.
-- Kuna định nghĩa nước tự do là nước có thể lấy ra dễ dàng khỏi thực phẩm bằng cách vắt, cắt hoặc ép.
-- Nước tự do không bị giữ bởi chất rắn, nên không mang các tính chất đặc biệt của nước liên kết sẽ gặp ở Cảnh 2.3 (không hòa tan, khó đông, gần như không có áp suất hơi).
-[HÌNH: tu-ve nuoc-tu-do.svg | chỗ: trái | hiện: các phân tử nước (xanh dương) chạy tự do giữa các khối chất rắn | cùng ý: 1 | nhấn: mũi tên chuyển động]
+[HỎI TRƯỚC: Một lát dưa chuột: ép nhẹ thì chảy ra một ít nước; thái nhỏ thì chảy thêm nhiều; sấy nhiều giờ vẫn còn một phần nước rất khó ra. Đó là cùng một loại nước hay khác? | đáp: Khác: ba kiểu nước bị giữ khác nhau. | vì sao: Mỗi kiểu bị giữ bằng một cách riêng, nên lấy ra bằng một thao tác riêng. Chương này đặt tên cho ba kiểu đó.]
 
-Chữ trên bảng:
-Nước tự do: vắt / cắt / ép là ra
-Không bị chất rắn giữ
+### Cảnh 1.1 – Nước tự do là phần ép, cắt, vắt là ra
 
-### Cảnh 2.2 – Nước bị nhốt (entrapped water)
-Câu dẫn: Có loại nước không bị hút chặt, nhưng không chạy đi được vì bị giam.
-- Theo Kuna, nước bị nhốt nằm bất động trong mao quản hoặc trong tế bào; khi cắt hay làm tổn thương mô, nó được giải phóng và chảy tự do.
-- Nước bị nhốt mang tính chất của nước tự do, không mang tính chất của nước liên kết.
-[HÌNH: tu-ve te-bao-nhot-nuoc.svg | chỗ: giữa | hiện: dựng từng bước – tế bào nguyên → dao cắt → nước tràn ra | cùng ý: 1 | nhấn: thành tế bào (trắng), nước (xanh dương)]
-- Ý quan trọng cho R&D: nước bị nhốt "giữ được" chỉ nhờ cấu trúc. Cấu trúc hỏng (cắt, đông lạnh, nấu) thì nước thoát ra – đó là chỗ sinh ra dịch rỉ.
+- **Thẻ:** Định nghĩa
+- Theo học liệu Kuna, phần lớn thực phẩm tự nhiên chưa sấy chứa khoảng 70% khối lượng là nước hoặc hơn; rau quả tới khoảng 95% hoặc hơn. Nước đó không đồng nhất.
+- {{nước tự do}} là nước lấy ra dễ dàng khỏi thực phẩm bằng cách vắt, cắt hoặc ép. Nó không bị chất rắn giữ nên không mang các tính chất đặc biệt của nước liên kết (Cảnh 1.3).
+- Nhớ: Vắt, cắt, ép là ra: nước tự do.
 
-Chữ trên bảng:
-Nước bị nhốt: bị giam trong mao quản/tế bào
-Cấu trúc hỏng → nước chảy ra như nước tự do
+### Cảnh 1.2 – Nước bị nhốt không bị hút chặt, chỉ bị giam trong cấu trúc
 
-### Cảnh 2.3 – Nước liên kết (bound water): bốn tính chất
-Câu dẫn: Giờ đến loại "cứng đầu" nhất.
-- Kuna nhấn mạnh: nước liên kết thường được định nghĩa theo cách đo nó, nên mỗi phương pháp cho một con số khác nhau.
-- Tính chất 1: không còn tự do để làm dung môi cho muối và đường.
-- Tính chất 2: chỉ đông đá ở nhiệt độ rất thấp, dưới điểm đông của nước.
-[HÌNH: tu-ve nhiet-ke-dong-da.svg | chỗ: phải | hiện: nhiệt kế hạ dần; nước tự do hóa đá ở ~0 °C, lớp nước liên kết vẫn lỏng | cùng ý: 3 | nhấn: lớp liên kết màu xanh dương đậm]
-- Tính chất 3: hầu như không có áp suất hơi. Tính chất 4: tỷ trọng lớn hơn nước tự do.
-- Ví dụ của Kuna: nước trong cây xương rồng hay lá thông không thể ép ra được.
+- **Thẻ:** Cơ chế
+- {{nước bị nhốt}} nằm bất động trong mao quản hoặc trong tế bào. Khi cắt hay làm tổn thương mô, nó được giải phóng và chảy tự do, và mang tính chất của nước tự do (Kuna).
+- Ý cho R&D: nước bị nhốt chỉ "giữ" được nhờ cấu trúc. Cấu trúc hỏng (cắt, đông lạnh, nấu) thì nước thoát ra, đó là chỗ sinh ra dịch rỉ.
+[MÔ PHỎNG: nuoc-bi-nhot | kiểu: hoạt-hình | chỗ: phải | khẳng định: Khi thành tế bào bị cắt, nước bị nhốt trong tế bào chảy ra ngoài, còn lớp nước bám sát thành vẫn ở lại vì nó dính vào thành | chức năng: giải thích | nhìn: so khung 1 với khung 4: mực nước trong tế bào hạ xuống, còn vòng đậm sát thành vẫn còn]
+- hình: hoat-hinh/nuoc-bi-nhot.svg
+- bước: 1 | chữ: Tế bào nguyên: nước chứa kín bên trong, một lớp nước bám sát thành. | vì sao: Nước bị nhốt không chảy đi được vì thành tế bào còn nguyên.
+- bước: 2 | chữ: Dao hạ xuống thành tế bào. | vì sao: Đây là tác động cơ học làm hỏng cấu trúc đang giam nước.
+- bước: 3 | chữ: Thành vỡ, nước bị nhốt chảy ra qua chỗ rách. | vì sao: Khi cấu trúc hỏng, nước bị nhốt xử sự như nước tự do (Kuna).
+- bước: 4 | chữ: Sau cắt: mực nước trong tế bào hạ thấp, dịch đã chảy ra; lớp sát thành vẫn còn. | vì sao: Nước bám sát thành không phải nước bị nhốt, nên cắt không lấy nó ra được.
+- nguồn: Kuna, Water in food systems, e-PG Pathshala (đã mở 03/11/2026): định nghĩa nước bị nhốt, nước giải phóng khi cắt hoặc làm tổn thương mô, và ví dụ nước liên kết không ép ra được
+- giới hạn: Sơ đồ minh họa một tế bào lý tưởng, không đúng tỉ lệ và không có số đo. Tế bào thật có không bào, màng và nhiều ngăn; hình chỉ nói ý nước bị nhốt chảy ra khi cấu trúc hỏng. Vị trí của lớp nước bám thành là cách vẽ của album để phân biệt với nước bị nhốt, không phải phép đo.
+[/MÔ PHỎNG]
+- Nhớ: Cấu trúc hỏng thì nước bị nhốt chảy ra.
 
-Chữ trên bảng:
-Nước liên kết: không hòa tan · khó đông
-Hầu như không có áp suất hơi · đặc hơn
+### Cảnh 1.3 – Nước liên kết bám vào nhóm phân cực và rất khó lấy ra
 
-### Cảnh 2.4 – Nước bám theo từng lớp
-Câu dẫn: Vì sao nước liên kết lại "khác"? Vì nó bám vào bề mặt đại phân tử.
-- Theo Kuna, nước gắn vào các vị trí phân cực hoặc ion trên tinh bột, pectin, protein.
-- Lớp nước gần đại phân tử nhất bị giữ chặt nhất; các lớp ngoài bị giữ lỏng dần và kém trật tự hơn.
-[HÌNH: tu-ve lop-nuoc-quanh-chuoi.svg | chỗ: giữa | hiện: dựng từng bước – chuỗi polymer → lớp 1 (xanh dương đậm) → lớp 2 → lớp 3 nhạt dần | cùng ý: 2 | nhấn: lớp 1 viền vàng]
-- Hình dung như bãi đỗ xe: hàng sát cửa (lớp 1) xe đậu kín, khó ra; càng xa cửa càng thưa, xe ra vào dễ.
+- **Thẻ:** Cơ chế
+- {{nước liên kết}} gắn vào các vị trí phân cực hoặc ion trên tinh bột, pectin, protein. Lớp nước sát đại phân tử bị giữ chặt nhất, các lớp ngoài giữ lỏng dần và kém trật tự hơn (Kuna).
+- Kuna nêu bốn tính chất: không làm dung môi cho muối và đường; chỉ đông ở nhiệt độ rất thấp; hầu như không có {{áp suất hơi}}; tỷ trọng lớn hơn nước tự do. Ví dụ của Kuna: nước trong cây xương rồng hay lá thông không ép ra được.
+- Kuna lưu ý nước liên kết thường được định nghĩa theo cách đo nó, nên mỗi phương pháp cho một con số khác nhau.
+- Nhớ: Bám sát đại phân tử thì giữ chặt nhất.
 
-Chữ trên bảng:
-Lớp sát đại phân tử: giữ chặt nhất
-Càng ra ngoài: giữ lỏng dần, kém trật tự
+### Cảnh 1.4 – Nước trong cơ thịt và cá chia theo ngăn
 
-### Cảnh 2.5 – Nhìn tận mắt nước trên bề mặt protein
-Câu dẫn: Có thể "thấy" nước bám vào protein không? Tinh thể học tia X cho ta một bức ảnh.
-- Cấu trúc lysozyme lòng trắng trứng gà PDB 2VB1 (Wang và cộng sự, 2007) có độ phân giải 0,65 Å; bản đồ mật độ điện tử cho thấy tổng cộng 170 phân tử nước.
-[3D: PDB 2VB1 | kiểu: ribbon + nước dạng bi | hiện: xoay chậm, zoom vào các phân tử nước bám mặt protein | chỗ: giữa | cùng ý: 1]
-- Lưu ý: đây là nước trong tinh thể protein, không phải phép đo "nước liên kết" trong thực phẩm. Hình chỉ giúp hình dung nước có vị trí xác định quanh nhóm phân cực.
+- **Thẻ:** Ví dụ số
+- Tổng quan của Wang, Xie và Chen (2021) về sản phẩm thủy sản chia nước thành ba trạng thái: nước liên kết (gắn chặt vào đại phân tử như protein), nước bị giữ (trong cấu trúc tơ cơ) và nước tự do (ngoài tơ cơ).
+- Theo tóm tắt một bài trên J Food Sci (2023, DOI 10.1111/1750-3841.16466), phi lê cá rô phi đông và rã nhiều chu kỳ thì hao hụt khi rã đông tăng và khả năng giữ nước giảm. Album chỉ đọc phần tóm tắt.
+- Nhớ: Đông rã nhiều lần làm cấu trúc hỏng nên nước rỉ ra nhiều hơn.
 
-Chữ trên bảng:
-PDB 2VB1: lysozyme, 0,65 Å, 170 phân tử nước
-Minh họa nước bám bề mặt – không phải số đo thực phẩm
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao cắt dưa chuột lấy được nước bị nhốt mà không lấy được nước liên kết. | đáp: Nước bị nhốt chỉ bị giam trong tế bào, cắt phá cấu trúc nên nó chảy ra. Nước liên kết dính vào nhóm phân cực của đại phân tử, không phụ thuộc cấu trúc giam nên cắt không lấy ra được.]
 
-### Cảnh 2.6 – Nước trong cơ thịt, cá: ba ngăn
-Câu dẫn: Với thịt và cá, các nhà nghiên cứu chia nước theo vị trí trong sợi cơ.
-- Tổng quan của Wang, Xie và Chen (2021) về sản phẩm thủy sản chia nước thành ba trạng thái: nước liên kết (gắn chặt vào đại phân tử như protein), nước bị giữ (trong cấu trúc tơ cơ – myofibril) và nước tự do (bên ngoài tơ cơ).
-[HÌNH: tu-ve soi-co-3-ngan.svg | chỗ: giữa | hiện: dựng từng bước – sợi cơ → tơ cơ → tô ba vùng nước | cùng ý: 1 | nhấn: nước bị giữ (xanh dương) trong tơ cơ]
-- Khi cá, tôm đông – rã nhiều lần, nhiều nghiên cứu ghi nhận nước bị giữ giảm, nước tự do tăng; ví dụ phi lê cá rô phi: số chu kỳ đông – rã tăng thì hao hụt rã đông tăng, khả năng giữ nước giảm (theo tóm tắt bài J Food Sci 2023, DOI 10.1111/1750-3841.16466).
+[QUIZ]
+1. Theo Kuna, loại nước nào lấy ra dễ dàng bằng cách vắt, cắt hoặc ép?
+  - A) Nước liên kết
+  - B) Nước tự do
+  - C) Nước ở lớp sát đại phân tử
+  - đáp: B
+  - vì sao: Kuna định nghĩa nước tự do là nước lấy ra dễ bằng vắt, cắt, ép. A và C là nước bị giữ chặt.
+2. Tính chất nào KHÔNG phải của nước liên kết theo Kuna?
+  - A) Không làm dung môi cho muối, đường
+  - B) Chỉ đông ở nhiệt độ rất thấp
+  - C) Có áp suất hơi cao hơn nước tự do
+  - đáp: C
+  - vì sao: Kuna ghi nước liên kết hầu như không có áp suất hơi; C ngược lại. A và B là hai trong bốn tính chất.
+3. Nước bị nhốt khác nước liên kết ở chỗ:
+  - A) Nó bị hút chặt vào nhóm phân cực
+  - B) Nó bị giam trong cấu trúc và chảy ra khi cấu trúc hỏng
+  - C) Nó không bao giờ rời mẫu
+  - đáp: B
+  - vì sao: Kuna: nước bị nhốt giải phóng khi cắt hoặc làm tổn thương mô. A là nước liên kết; C sai vì nước bị nhốt chảy ra được.
+4. Cá đông rã nhiều lần rỉ dịch nhiều hơn chủ yếu vì:
+  - A) Cấu trúc giữ nước bị hỏng dần
+  - B) Cá hút thêm nước từ không khí
+  - C) Nước liên kết biến thành nước bị nhốt
+  - đáp: A
+  - vì sao: Theo tóm tắt bài J Food Sci 2023, số chu kỳ tăng thì hao hụt rã đông tăng và khả năng giữ nước giảm. B và C không có trong nguồn.
+[/QUIZ]
 
-Chữ trên bảng:
-Thịt/cá: liên kết · bị giữ (trong tơ cơ) · tự do
-Đông – rã nhiều lần: bị giữ → tự do → rỉ dịch
-
----
-
-## CHƯƠNG 3 – Nhìn nước bằng máy: LF-NMR và T2
-
-### Cảnh 3.1 – Vì sao cần máy
-Câu dẫn: Mắt thường chỉ thấy "ướt" hay "khô". Muốn biết nước nào đang ở trạng thái nào, cần một công cụ khác.
-- Cộng hưởng từ hạt nhân trường thấp (LF-NMR, còn gọi TD-NMR) đo tín hiệu của proton (¹H) trong nước mà không phá mẫu (Wiesman, 2026).
-- Thông số hay dùng là T2 – thời gian hồi phục ngang. Trong một hệ và quy trình đo xác định, T2 ngắn thường ứng với nước bị hạn chế chuyển động hơn; T2 dài ứng với nước linh động hơn.
-[HÌNH: tu-ve t2-ngan-dai.svg | chỗ: giữa | hiện: hai đường tắt dần – đường tắt nhanh (T2 ngắn) và tắt chậm (T2 dài) | cùng ý: 2 | nhấn: nhãn "ngắn = bị hạn chế", "dài = linh động"]
-
-Chữ trên bảng:
-LF-NMR: đo proton ¹H, không phá mẫu
-T2 ngắn → nước bị hạn chế · T2 dài → linh động
-
-### Cảnh 3.2 – Phổ T2 ba đỉnh: T21, T22, T23
-Câu dẫn: Khi "trải" tín hiệu ra thành phổ, người ta thường thấy vài đỉnh.
-- Trong nghiên cứu bã đậu nành, Chen và cộng sự (2022) gán T21 cho nước liên kết, T22 cho nước bất động (immobilized), T23 cho nước tự do.
-- Lúc bắt đầu sấy (0 giờ): T21 khoảng 0,48 ms; T22 khoảng 7,06 ms; T23 khoảng 69,08 ms.
-[HÌNH: https://www.mdpi.com/1420-3049/27/14/4421 (Hình 5 – phổ T2) | file gợi ý: chen2022-fig5-pho-t2.png | loại: ảnh | chỗ: phải | hiện: mờ dần | cùng ý: 2 | nhấn: ba đỉnh T21, T22, T23]
-- Ba con số cách nhau khoảng 10 lần mỗi bậc – đó là lý do phổ thường vẽ trục thời gian theo thang log.
-
-Chữ trên bảng:
-Bã đậu nành, 0 h: T21 ≈ 0,48 · T22 ≈ 7,06 · T23 ≈ 69,08 ms
-liên kết · bất động · tự do (Chen và cs., 2022)
-
-### Cảnh 3.3 – Cẩn thận với nhãn "liên kết / bất động / tự do"
-Câu dẫn: Nghe gọn gàng, nhưng tổng quan mới nhất cảnh báo đừng hiểu máy móc.
-- Wiesman (2026) viết rằng nước trong thực phẩm nhìn chung không tồn tại thành ba loại phân tử được định nghĩa giống nhau ở mọi nơi.
-- Tác giả khuyên gọi là môi trường "T2 ngắn, T2 trung bình, T2 dài"; chỉ dùng nhãn cũ khi trích nghiên cứu trước hoặc khi đã định nghĩa rõ cho hệ đó.
-[HÌNH: tu-ve doi-nhan-t2.svg | chỗ: giữa | hiện: ba thẻ "liên kết / bất động / tự do" lật thành "T2 ngắn / trung bình / dài" | cùng ý: 2 | nhấn: thẻ mới viền xanh lá]
-- Lý do: các "quần thể" đo được chịu ảnh hưởng của tương tác nước – đại phân tử, kích thước khoang, trao đổi giữa các khoang, trao đổi proton, hiệu ứng bề mặt, tín hiệu của lipid, nhiệt độ và cài đặt xung đo.
-
-Chữ trên bảng:
-Không phải 3 "loại nước" cố định
-Gọi theo T2: ngắn · trung bình · dài (Wiesman, 2026)
-
-### Cảnh 3.4 – Linh động chưa chắc đã "ra được"
-Câu dẫn: Một điểm tinh tế mà con số độ ẩm không nói.
-- Wiesman (2026) phân biệt độ linh động cục bộ (đo bằng hồi phục T1, T2) với khả năng di chuyển xa (đo bằng tự khuếch tán D).
-- Một phân tử nước có thể linh động tại chỗ nhưng vẫn bị giam trong khoang kín – vùng "T2 cao – D thấp".
-[HÌNH: tu-ve t2-d-bon-o.svg | chỗ: giữa | hiện: dựng lưới 2×2 (T2 cao/thấp × D cao/thấp), tô sáng ô "T2 cao – D thấp" | cùng ý: 2 | nhấn: ô đó màu vàng]
-- Các "rào chắn" có thể là mạng protein, gel polysaccharide, màng, bề mặt dầu, thành tế bào, lỗ nhỏ, kênh cụt, đường đi quanh co.
-- Nối với Chương 2: đây chính là cách nói hiện đại của "nước bị nhốt".
-
-Chữ trên bảng:
-Linh động tại chỗ ≠ di chuyển được xa
-"Giữ lại được" chưa chắc "lấy ra được"
+[TÓM: Nước tự do ép, cắt, vắt là ra | Nước bị nhốt bị giam trong cấu trúc, cấu trúc hỏng thì chảy ra | Nước liên kết bám nhóm phân cực, rất khó lấy ra]
 
 ---
 
-## CHƯƠNG 4 – Độ ẩm: định nghĩa và cách đo
+## Chương 2 – Nhìn nước bằng máy: LF-NMR và T2
 
-### Cảnh 4.1 – Độ ẩm cơ sở ướt và cơ sở khô
-Câu dẫn: Trước khi đo, phải thống nhất cách biểu diễn.
-- Độ ẩm cơ sở ướt (wet basis): khối lượng nước chia cho tổng khối lượng mẫu. Chen và cộng sự (2022) viết: MC = (m − m_d)/m, với m là khối lượng mẫu, m_d là khối lượng chất khô.
-- Độ ẩm cơ sở khô (dry basis): khối lượng nước chia cho khối lượng chất khô, X = (m − m_d)/m_d. Chen dùng cơ sở khô khi tính tỷ số ẩm cho mô hình khuếch tán.
-[HÌNH: tu-ve uot-vs-kho.svg | chỗ: giữa | hiện: một khối mẫu tách thành nước (xanh dương) + chất khô (nâu); hai phân số hiện lần lượt | cùng ý: 1 | nhấn: mẫu số khác nhau (vàng)]
-- Đổi qua lại: X = w/(1 − w) và w = X/(1 + X) (suy ra trực tiếp từ hai định nghĩa trên).
+[HỎI TRƯỚC: Hai mẫu chả cá cùng độ ẩm 75%, nhưng một mẫu rỉ dịch nhiều hơn khi rã đông. Con số 75% có cho biết sự khác nhau đó không? | đáp: Không. | vì sao: Độ ẩm chỉ đếm có bao nhiêu nước, không nói nước được giữ ra sao. Muốn biết phải đo thêm một đại lượng về độ linh động của nước.]
 
-Chữ trên bảng:
-Cơ sở ướt w = nước / tổng · cơ sở khô X = nước / chất khô
-X = w/(1 − w) · w = X/(1 + X)
+### Cảnh 2.1 – T2 ngắn nghĩa là tín hiệu tắt nhanh, thường ứng với nước bị hạn chế hơn
 
-### Cảnh 4.2 – Vì sao R&D hay dùng cơ sở khô khi sấy
-Câu dẫn: Khi sấy, mẫu số "tổng khối lượng" thay đổi liên tục; còn chất khô thì gần như không đổi.
-- Với cơ sở khô, mẫu số cố định nên lượng nước mất đi tỷ lệ thẳng với độ giảm của X. Với cơ sở ướt, cả tử và mẫu đều giảm nên con số "đánh lừa" cảm giác.
-[HÌNH: tu-ve hai-duong-say.svg | chỗ: phải | hiện: hai đường cong w và X giảm theo thời gian, X giảm dốc hơn ở đầu | cùng ý: 1 | nhấn: nhãn "cùng một mẻ sấy"]
-- Bài tính Chương 6 sẽ cho thấy: bã đậu nành từ 78,8% xuống 57% (cơ sở ướt) nghe như mới bớt 22 điểm %, nhưng thực ra đã mất khoảng 64% lượng nước ban đầu.
+- **Thẻ:** Định nghĩa
+- {{LF-NMR}} đo tín hiệu của proton ¹H trong nước mà không phá mẫu (Wiesman, 2026). Phép đo cho một tín hiệu tắt dần theo thời gian; hằng số thời gian của sự tắt dần đó là {{T2}}.
+- Trong một hệ và quy trình đo xác định, T2 ngắn thường ứng với nước bị hạn chế chuyển động hơn, T2 dài ứng với nước linh động hơn (Wiesman, 2026).
+[MÔ PHỎNG: t2-tat-dan | kiểu: thanh-trượt | chỗ: phải | khẳng định: Cùng một thời điểm đo, tín hiệu của nhóm proton có T2 ngắn đã tắt gần hết trong khi nhóm có T2 dài còn lại phần lớn, nên phép đo tách được các nhóm nước có độ linh động khác nhau | chức năng: giải thích | nhìn: tín hiệu còn lại ở 20 ms của ba nhóm T2 ngắn, trung bình, dài]
+- dự đoán: Ở thời điểm 20 ms, nhóm nào còn trên 70% tín hiệu ban đầu? | chọn: T2 ngắn; T2 trung bình; T2 dài | đáp: T2 dài | vì sao: Với T2 = 69,08 ms thì exp(−20/69,08) ≈ 0,75, tức 75%. T2 = 7,06 ms còn khoảng 6%, T2 = 0,48 ms còn gần như 0.
+- biến: th | nhãn: Thời gian đo | đơn vị: ms | min: 0 | max: 200 | bước: 1 | mặc định: 20
+- chọn: T2 ngắn (0,48 ms) {tau: 0.48}; T2 trung bình (7,06 ms) {tau: 7.06}; T2 dài (69,08 ms) {tau: 69.08}
+- tính: s = 100 * exp(0 - th / tau)
+- ra: s | nhãn: Tín hiệu còn lại (% so với lúc đầu) | chữ số: 1
+- nguồn: Wiesman (2026), mục 2: tín hiệu CPMG có thể biểu diễn bằng các hàm mũ rời rạc hoặc phân bố liên tục thời gian hồi phục, và T2 ngắn thường ứng với nước bị hạn chế hơn (đã mở 11/11/2026). Ba giá trị T2 lấy từ phổ bã đậu nành tươi của Chen và cs. (2022); dạng hàm mũ đơn cho từng nhóm là cách vẽ của album
+- giới hạn: Mô hình minh họa cho một nhóm proton độc lập, không phải tín hiệu thật của một mẫu. Mẫu thật là tổng của nhiều thành phần với tỉ lệ khác nhau (Chen không công bố tỉ lệ), và phổ T2 có được từ biến đổi Laplace ngược nên số đỉnh phụ thuộc cách xử lý. Ba giá trị T2 chỉ có nghĩa trong hệ và cài đặt đo của bài Chen.
+[/MÔ PHỎNG]
+- Nhớ: T2 ngắn tắt nhanh, T2 dài tắt chậm; so sánh chỉ có nghĩa trong cùng một hệ đo.
 
-Chữ trên bảng:
-Sấy: chất khô không đổi → dùng cơ sở khô
-Cơ sở ướt "giảm chậm" dù nước đã đi nhiều
+### Cảnh 2.2 – Phổ T2 của bã đậu nành tươi có ba đỉnh
 
-### Cảnh 4.3 – Phương pháp sấy tủ: chuẩn phổ biến nhất
-Câu dẫn: Cách đo độ ẩm đơn giản nhất: cân, sấy, cân lại.
-- Theo tài liệu FAO "Food Composition Data" (Greenfield & Southgate, 2003), tủ sấy không khí ở 100–105 °C dùng cho phần lớn thực phẩm, trừ thực phẩm giàu đường và chất béo; với hầu hết thực phẩm, sấy tủ được coi là đạt yêu cầu cho cơ sở dữ liệu thành phần.
-[HÌNH: https://commons.wikimedia.org/wiki/File:Exsiccator_hg.jpg | file gợi ý: binh-hut-am.jpg | loại: ảnh | chỗ: phải | hiện: trượt vào | cùng ý: 1 | nhấn: lớp silica gel dưới đáy]
-- Ví dụ quy trình thật: Chen và cộng sự (2022) sấy 2–5 g mẫu ở 105 °C trong 2–4 giờ, để nguội, cân, rồi sấy lại từng chu kỳ 1 giờ đến khi khối lượng thay đổi dưới 2 mg (khối lượng không đổi).
-[HÌNH: tu-ve quy-trinh-say-tu.svg | chỗ: giữa | hiện: dựng từng bước – cân cốc → cân mẫu → sấy 105 °C → làm nguội trong bình hút ẩm → cân → lặp đến Δ < 2 mg | cùng ý: 2 | nhấn: vòng lặp (vàng)]
+- **Thẻ:** Ví dụ số
+- Trong nghiên cứu bã đậu nành, Chen và cs. (2022) gán T21 cho nước liên kết, T22 cho nước bất động và T23 cho nước tự do. Ở 0 giờ sấy: T21 khoảng 0,48 ms; T22 khoảng 7,06 ms; T23 khoảng 69,08 ms.
+- T22 gấp khoảng 15 lần T21, T23 gấp khoảng 10 lần T22; vì vậy phổ thường vẽ trục thời gian theo thang logarit.
+- Nhớ: Ba đỉnh cách nhau cỡ một bậc mười trên trục log.
 
-Chữ trên bảng:
-Tủ sấy 100–105 °C (FAO, 2003) · đến khối lượng không đổi
-Ví dụ: 2–5 g, 105 °C, lặp đến Δ < 2 mg (Chen và cs., 2022)
+### Cảnh 2.3 – Đừng coi ba nhãn "liên kết, bất động, tự do" là ba loại nước cố định
 
-### Cảnh 4.4 – Khi sấy tủ đo sai
-Câu dẫn: Sấy tủ giả định rằng "mất khối lượng = mất nước". Giả định đó không phải lúc nào cũng đúng.
-- FAO (2003) liệt kê hạn chế: đường bị caramel hóa, chất béo không no bị phân hủy, các chất bay hơi khác mất theo.
-- Với thực phẩm thực vật, phương pháp chính thức AOAC khuyên sấy ở 70 °C để hạn chế phá hủy carbohydrate; tủ sấy chân không được ưu tiên ở 60–70 °C, nhất là với thực phẩm giàu đường (FAO, 2003).
-[HÌNH: tu-ve sai-so-say.svg | chỗ: giữa | hiện: ba mũi tên cam đỏ rời khỏi mẫu: "caramel hóa", "chất béo phân hủy", "chất bay hơi" | cùng ý: 1 | nhấn: biểu tượng cảnh báo]
-- Thực phẩm nhiều chất bay hơi (gia vị, phô mai) dùng chưng cất Dean – Stark với dung môi không tan trong nước như toluene, xylene; được AOAC chấp nhận cho gia vị và phô mai; hạn chế là an toàn dung môi (FAO, 2003).
+- **Thẻ:** Hiểu sai thường gặp
+- Wiesman (2026) viết rằng nước trong thực phẩm nhìn chung không tồn tại thành ba loại phân tử được định nghĩa giống nhau ở mọi nơi. Tác giả khuyên gọi là "T2 ngắn, T2 trung bình, T2 dài"; chỉ dùng nhãn cũ khi trích nghiên cứu trước hoặc khi đã định nghĩa rõ cho hệ đó.
+- Các đỉnh đo được chịu ảnh hưởng của tương tác nước với đại phân tử, kích thước khoang, trao đổi giữa các khoang, trao đổi proton, hiệu ứng bề mặt, tín hiệu lipid, nhiệt độ và cài đặt xung đo.
+- Nhớ: Gọi theo T2 ngắn, trung bình, dài; nhãn "liên kết, bất động, tự do" chỉ là cách gán của từng nghiên cứu.
 
-Chữ trên bảng:
-Sai số: caramel hóa · béo phân hủy · mất chất bay hơi
-Giàu đường → chân không 60–70 °C · nhiều chất bay hơi → Dean – Stark
+### Cảnh 2.4 – Linh động tại chỗ chưa chắc đã di chuyển được xa
 
-### Cảnh 4.5 – Karl Fischer, NIR, NMR
-Câu dẫn: Ngoài sấy, còn các phương pháp đo theo hóa học hoặc vật lý.
-- Chuẩn độ Karl Fischer: hữu ích cho thực phẩm rất ít ẩm và hút ẩm, khó sấy theo cách thường; độ chính xác của nó hiếm khi cần cho cơ sở dữ liệu thành phần (FAO, 2003).
-[HÌNH: https://commons.wikimedia.org/wiki/File:KF_Titrator.jpg | file gợi ý: kf-titrator.jpg | loại: ảnh | chỗ: phải | hiện: mờ dần | cùng ý: 1 | nhấn: bình chuẩn độ]
-- NIR (phản xạ cận hồng ngoại): dùng nhiều cho hạt ngũ cốc, cần hiệu chuẩn rộng theo phương pháp chuẩn, nhạy với cỡ hạt; chi phí đầu tư cao (FAO, 2003).
-- NMR: cần hiệu chuẩn chi tiết; giá trị nhất là đo sự phân bố nước và nhận diện các dạng nước trong thịt (FAO, 2003) – đúng chủ đề Chương 3.
+- **Thẻ:** Cơ chế
+- Wiesman (2026) phân biệt độ linh động cục bộ (hồi phục T1, T2) với khả năng di chuyển xa, đo bằng {{tự khuếch tán}} D. Một phân tử nước có thể linh động tại chỗ nhưng vẫn bị giam trong khoang kín: vùng "T2 cao, D thấp".
+- Các rào chắn có thể là mạng protein, gel polysaccharide, màng, bề mặt dầu, thành tế bào, lỗ nhỏ, kênh cụt hay đường đi quanh co. Đây là cách nói hiện đại cho ý "nước bị nhốt" ở Chương 1.
+- Nhớ: Giữ lại được chưa chắc lấy ra được.
 
-Chữ trên bảng:
-Karl Fischer: mẫu rất khô, hút ẩm · NIR: ngũ cốc, cần hiệu chuẩn
-NMR: phân bố và dạng nước (thịt)
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao một mẫu có T2 dài vẫn có thể rỉ dịch ít. | đáp: T2 dài chỉ cho biết nước linh động tại chỗ. Nếu mạng protein hay gel giam nước (D thấp) thì nước không di chuyển xa được nên không rỉ ra. Cần đo cả D để biết nước có ra được không (Wiesman, 2026).]
 
-### Cảnh 4.6 – Độ ẩm, aw và khả năng giữ nước: ba câu hỏi khác nhau
-Câu dẫn: Ba khái niệm hay bị lẫn, Wiesman (2026) tách bạch rõ.
-- Độ ẩm (đo cân): có bao nhiêu nước – dùng cho thành phần, công thức, cân bằng khối lượng, kiểm soát quy định; nhưng không mô tả nước được tổ chức thế nào.
-- Hoạt độ nước aw: mức "sẵn sàng" về nhiệt động của nước, nền cho ổn định vi sinh và nhiều phản ứng. aw và độ linh động phân tử liên quan nhưng khác nhau, nên TD-NMR không thay được phép đo aw.
-- Khả năng giữ nước (water-holding capacity – WHC): matrix giữ nước tốt đến đâu dưới một tác động xác định (ly tâm, rỉ dịch, ép, hao hụt khi nấu).
-[HÌNH: tu-ve ba-cau-hoi-ve-nuoc.svg | chỗ: giữa | hiện: ba cột lần lượt "Bao nhiêu?" (độ ẩm) – "Sẵn sàng đến đâu?" (aw) – "Giữ được không?" (WHC) | cùng ý: 3 | nhấn: cột aw viền vàng, ghi "Bài D008"]
+[QUIZ]
+1. Trong cùng một hệ và quy trình đo, T2 ngắn hơn thường cho thấy:
+  - A) Nước linh động hơn
+  - B) Nước bị hạn chế chuyển động hơn
+  - C) Mẫu có aw cao hơn
+  - đáp: B
+  - vì sao: Wiesman (2026): T2 ngắn phản ánh hồi phục hiệu quả hơn và nước bị hạn chế hơn. aw là đại lượng khác.
+2. Với một thành phần dạng hàm mũ, tại thời điểm t đúng bằng T2 thì tín hiệu còn khoảng:
+  - A) 37%
+  - B) 50%
+  - C) 63%
+  - đáp: A
+  - vì sao: exp(−1) ≈ 0,37. Đây là tính của album với một thành phần dạng hàm mũ. B và C là nhầm với nửa chu kỳ.
+3. Wiesman (2026) khuyên gọi các đỉnh phổ là gì?
+  - A) Nước liên kết, bất động, tự do cho mọi thực phẩm
+  - B) T2 ngắn, trung bình, dài, trừ khi đã định nghĩa rõ cho hệ cụ thể
+  - C) Giá trị aw
+  - đáp: B
+  - vì sao: Tác giả nêu nhãn cũ chỉ dùng khi trích nghiên cứu trước hoặc đã định nghĩa rõ.
+4. Vùng "T2 cao, D thấp" mô tả nước:
+  - A) Linh động tại chỗ nhưng bị giam, khó di chuyển xa
+  - B) Bị hút chặt vào bề mặt, không động đậy
+  - C) Đã bay hơi hết
+  - đáp: A
+  - vì sao: T2 cao là linh động cục bộ, D thấp là khó di chuyển xa (Wiesman, 2026). B là T2 ngắn.
+[/QUIZ]
 
-Chữ trên bảng:
-Độ ẩm: bao nhiêu · aw: sẵn sàng đến đâu (D008)
-WHC: giữ được dưới tác động nào
-
----
-
-## CHƯƠNG 5 – Áp dụng: sấy bã đậu nành (okara)
-
-### Cảnh 5.1 – Vì sao chọn bã đậu nành
-Câu dẫn: Một sản phẩm thật, nằm ngay trong xu hướng "nâng cấp phụ phẩm" (upcycling).
-- Bã đậu nành (okara) là phần còn lại trong túi lọc khi làm sữa đậu nành, đậu phụ.
-[HÌNH: https://commons.wikimedia.org/wiki/File:Okara_(soybean_pulp).jpg | file gợi ý: okara.jpg | loại: ảnh | chỗ: trái | hiện: phóng to dần | cùng ý: 1 | nhấn: túi lọc]
-- Mẫu trong nghiên cứu Chen và cộng sự (2022) lấy từ một xưởng đậu phụ, độ ẩm ban đầu 0,7880 g/g (cơ sở ướt). Ẩm cao thế này khiến bã khó bảo quản và khó vận chuyển – lý do phải sấy nếu muốn làm nguyên liệu.
-
-Chữ trên bảng:
-Okara = bã lọc sữa đậu nành / đậu phụ
-Ẩm ban đầu 78,8% (cơ sở ướt)
-
-### Cảnh 5.2 – Thiết kế thí nghiệm
-Câu dẫn: Nhóm tác giả theo dõi cả độ ẩm lẫn trạng thái nước trong suốt mẻ sấy.
-- Sấy không khí nóng 80 °C; bã trải trên khay 320 × 300 × 28 mm, đảo mỗi 15 phút.
-- Lấy mẫu mỗi giờ từ 1 đến 5 giờ, rồi ở 5,5; 6; 6,5 và 7 giờ. Mỗi mẫu đo độ ẩm bằng sấy tủ và đo LF-NMR (phổ T2) cùng ảnh cộng hưởng từ.
-[HÌNH: tu-ve thiet-ke-tn-okara.svg | chỗ: giữa | hiện: dòng thời gian 0 → 7 h, các mốc lấy mẫu hiện lần lượt | cùng ý: 2 | nhấn: mốc 5 h và 6,5 h (vàng)]
-- Bài không ghi bề dày lớp bã và tốc độ gió – hai thông số ảnh hưởng mạnh tới tốc độ sấy.
-
-Chữ trên bảng:
-80 °C, khay 320×300×28 mm, đảo 15 phút
-Lấy mẫu 1–5 h, rồi 5,5 · 6 · 6,5 · 7 h
-
-### Cảnh 5.3 – Đường cong sấy
-Câu dẫn: Độ ẩm giảm thế nào theo thời gian?
-- Độ ẩm từ 0,7880 g/g xuống 0,57 g/g sau 5 giờ, và 0,01 g/g sau 7 giờ.
-[HÌNH: https://www.mdpi.com/1420-3049/27/14/4421 (Hình 2 – đường cong sấy) | file gợi ý: chen2022-fig2-duong-cong-say.png | loại: ảnh | chỗ: phải | hiện: mờ dần | cùng ý: 1 | nhấn: đoạn 5–7 h]
-- Tốc độ giảm độ ẩm cao nhất ở khoảng 6–6,5 giờ.
-[HÌNH: tu-ve cot-do-am-okara.svg | chỗ: trái | hiện: ba cột hạ dần 78,8 → 57 → 1 (%), số đếm chạy | cùng ý: 2 | nhấn: cột 1% xanh lá]
-
-Chữ trên bảng:
-78,8% → 57% (5 h) → 1% (7 h)
-Giảm nhanh nhất ở 6–6,5 h
-
-### Cảnh 5.4 – Nước nào đi trước?
-Câu dẫn: Đây là chỗ LF-NMR "kể" thêm điều mà con số độ ẩm không kể được.
-- 0–4 giờ: nước tự do chiếm ưu thế; nước tự do và nước bất động đều giảm; nước liên kết lúc đầu giảm rồi tăng.
-- Nước liên kết yếu ra đi trước; các đỉnh còn lại dịch về phía T2 ngắn hơn – nước còn lại bị giữ chặt hơn.
-[HÌNH: https://www.mdpi.com/1420-3049/27/14/4421 (Hình 6 – trạng thái nước theo giai đoạn) | file gợi ý: chen2022-fig6-trang-thai-nuoc.png | loại: ảnh | chỗ: phải | hiện: mờ dần | cùng ý: 2 | nhấn: các đỉnh dịch sang trái]
-- Khoảng 5 giờ: nước bất động trở thành chủ yếu và xuất hiện đỉnh mới. Khoảng 6,5 giờ: nước liên kết thành dạng chính. 6,5–7 giờ: tác giả ghi nước tự do lại tăng và chiếm ưu thế.
-[HÌNH: tu-ve dien-bien-3-dang-nuoc.svg | chỗ: giữa | hiện: dựng từng bước theo 4 mốc 0–4 h · 5 h · 6,5 h · 7 h, mỗi mốc tô dạng nước chiếm ưu thế | cùng ý: 3 | nhấn: mốc 6,5 h (vàng)]
-
-Chữ trên bảng:
-Đi trước: nước tự do, nước liên kết yếu
-Còn lại: dịch về T2 ngắn → bị giữ chặt hơn
-
-### Cảnh 5.5 – Dự đoán độ ẩm không cần sấy
-Câu dẫn: Ý nghĩa thực tế: nếu đo LF-NMR nhanh và không phá mẫu, có thể dùng nó để biết độ ẩm ngay trên dây chuyền không?
-- Mô hình theo diện tích đỉnh: y = 1,42 × 10⁻⁵ x₁ − 0,14, R² = 0,98, sai số dự đoán 1,69–8,58%.
-- Mô hình theo giá trị xám của ảnh MRI: y = 3,97 × 10⁻³ x₂ + 0,02, R² = 0,93, sai số 1,39–3,48%.
-[HÌNH: https://www.mdpi.com/1420-3049/27/14/4421 (Hình 8 – ảnh mật độ proton giả màu) | file gợi ý: chen2022-fig8-anh-gia-mau.png | loại: ảnh | chỗ: phải | hiện: mờ dần | cùng ý: 2 | nhấn: màu nhạt dần theo thời gian sấy]
-- Chính tác giả lưu ý: giá trị xám không dự đoán được vật liệu mà nước liên kết chiếm ưu thế.
-
-Chữ trên bảng:
-Diện tích đỉnh: R² = 0,98 · giá trị xám: R² = 0,93
-Giá trị xám bất lực khi nước liên kết chiếm ưu thế
-
-### Cảnh 5.6 – Đọc phản biện bài áp dụng
-Câu dẫn: Bài báo có ích, nhưng phải đọc có phê phán.
-- Mục 3.3.2 ghi độ ẩm 16,31 và 1,19 g/g ở 6,5 và 7 giờ, mâu thuẫn với mục 3.1.1 (0,01 g/g ở 7 giờ) – nhiều khả năng là lỗi.
-- Một giá trị T23 trong bảng 1 bị in lỗi; khoảng T23 ghi là 29,90–288,67 ms, ngoài ra còn đỉnh T23′ khoảng 487 ms (4 h) và 939 ms (6 h).
-- Kết quả "nước tự do tăng lại ở 6,5–7 giờ" khi mẫu gần khô hoàn toàn là điều nên đọc thận trọng: như Wiesman (2026) nhắc, nhãn "tự do" gán theo vị trí đỉnh T2 chưa chắc phản ánh đúng một loại nước.
-[HÌNH: tu-ve kinh-lup-bang-so.svg | chỗ: giữa | hiện: kính lúp soi hai con số 0,01 và 1,19 g/g | cùng ý: 1 | nhấn: cam đỏ ở con số mâu thuẫn]
-
-Chữ trên bảng:
-Lỗi số: 0,01 vs 1,19 g/g ở 7 h
-Nhãn "tự do" theo đỉnh T2 → đọc thận trọng
+[TÓM: T2 ngắn thường ứng với nước bị hạn chế trong cùng một hệ đo | Nên gọi T2 ngắn trung bình dài, không coi ba nhãn là ba loại nước cố định | T2 cao D thấp là nước linh động nhưng bị giam]
 
 ---
 
-## CHƯƠNG 6 – Bài tính: từ cân sấy đến máy sấy
+## Chương 3 – Độ ẩm: cơ sở ướt, cơ sở khô và cách đo
 
-### Cảnh 6.1 – Bài 1: tính độ ẩm từ phép sấy tủ (số giả định)
-Câu dẫn: Bắt đầu như một buổi thực hành.
-- Giả định: cốc nhôm đã sấy khô cân được 25,0000 g; cho mẫu bã đậu nành vào, cốc + mẫu = 28,0000 g; sau sấy đến khối lượng không đổi, cốc + mẫu khô = 25,6360 g.
-- Bước 1: khối lượng mẫu ướt m = 28,0000 − 25,0000 = 3,0000 g (nằm trong khoảng 2–5 g như Chen dùng).
-- Bước 2: khối lượng chất khô m_d = 25,6360 − 25,0000 = 0,6360 g.
-- Bước 3: khối lượng nước = 3,0000 − 0,6360 = 2,3640 g.
-[HÌNH: tu-ve bang-tinh-say-tu.svg | chỗ: giữa | hiện: dựng từng bước 3 dòng, số đếm chạy | cùng ý: 1 | nhấn: nhãn "GIẢ ĐỊNH" cam đỏ]
-- Bước 4: cơ sở ướt w = 2,3640/3,0000 = 0,7880 = 78,80%. Bước 5: cơ sở khô X = 2,3640/0,6360 ≈ 3,717 g nước/g chất khô.
+[HỎI TRƯỚC: Cách đo độ ẩm đơn giản nhất là cân mẫu, sấy, cân lại. Cách đó ngầm giả định điều gì, và giả định đó sai khi nào? | đáp: Giả định mọi khối lượng mất đi đều là nước; sai khi mẫu mất cả chất khác như chất bay hơi hay đường bị phân hủy. | vì sao: FAO (2003) nêu các giới hạn này; chương này đi qua chúng sau khi định nghĩa hai cách tính độ ẩm.]
 
-Chữ trên bảng:
-w = 2,3640 / 3,0000 = 78,80%
-X = 2,3640 / 0,6360 ≈ 3,72 g/g chất khô
+### Cảnh 3.1 – Hai cách tính cùng một lượng nước
 
-### Cảnh 6.2 – Bài 2: 100 kg bã tươi sau 5 giờ sấy
-Câu dẫn: Giờ lên quy mô xưởng, dùng số thật của Chen (78,8% → 57%).
-- Giả định: 100 kg bã tươi, chất khô không mất trong khi sấy. Nước = 78,8 kg; chất khô = 21,2 kg.
-- Ở 57% (cơ sở ướt): khối lượng bã = 21,2 / (1 − 0,57) = 21,2 / 0,43 ≈ 49,30 kg.
-- Nước còn lại = 49,30 − 21,2 ≈ 28,10 kg. Nước đã bay hơi = 78,8 − 28,10 ≈ 50,70 kg, tức ≈ 64,3% lượng nước ban đầu.
-[HÌNH: tu-ve can-bang-5h.svg | chỗ: giữa | hiện: thanh 100 kg chia 78,8 (xanh dương) + 21,2 (nâu); phần xanh dương co lại còn 28,1 | cùng ý: 3 | nhấn: "≈ 64,3% nước đã đi" (vàng)]
-- Cơ sở khô: từ 3,717 xuống 0,57/0,43 ≈ 1,326 g/g – giảm khoảng 64% đúng bằng tỷ lệ nước đã mất, còn cơ sở ướt chỉ giảm từ 78,8 xuống 57.
+- **Thẻ:** Định nghĩa
+- {{cơ sở ướt}}: nước chia cho tổng khối lượng mẫu, MC = (m − m_d)/m với m_d là khối lượng {{chất khô}}. {{cơ sở khô}}: nước chia cho chất khô, X = (m − m_d)/m_d (Chen và cs., 2022). Đổi qua lại: X = w/(1 − w) và w = X/(1 + X), suy trực tiếp từ hai định nghĩa.
+[MÔ PHỎNG: doi-co-so | kiểu: thanh-trượt | chỗ: phải | khẳng định: Độ ẩm cơ sở khô X luôn lớn hơn số phần trăm cơ sở ướt viết thành số thập phân, và tăng vọt khi độ ẩm cơ sở ướt gần 100%: 50% ướt ứng với 1 g nước/g chất khô, 80% ứng với 4, 90% ứng với 9 | chức năng: giải thích | nhìn: giá trị X ở w bằng 0,5; 0,8 và 0,9]
+- dự đoán: Một mẫu có độ ẩm cơ sở ướt 80%. Độ ẩm cơ sở khô của nó là bao nhiêu? | chọn: 0,8 g/g; 1,25 g/g; 4,0 g/g | đáp: 4,0 g/g | vì sao: 100 g mẫu có 80 g nước và 20 g chất khô, nên X = 80/20 = 4,0 g/g.
+- biến: w | nhãn: Độ ẩm cơ sở ướt w | đơn vị: phần (0,80 là 80%) | min: 0.05 | max: 0.95 | bước: 0.05 | mặc định: 0.5
+- tính: x = w / (1 - w)
+- ra: x | nhãn: Độ ẩm cơ sở khô X (g nước / g chất khô) | chữ số: 2
+- nguồn: Định nghĩa MC = (m − m_d)/m của Chen và cs. (2022), Molecules 27(14):4421; công thức X và phép đổi là suy trực tiếp từ hai định nghĩa (phép tính của album)
+- giới hạn: Chỉ là phép đổi đại số giữa hai cách biểu diễn, không nói gì về chính mẫu. Giả định chất khô và nước là hai phần duy nhất; không gồm chất bay hơi khác.
+[/MÔ PHỎNG]
+- Nhớ: X = w/(1 − w); 80% ướt là 4 g nước trên g chất khô.
 
-Chữ trên bảng:
-100 kg → 49,3 kg sau 5 h · mất ≈ 50,7 kg nước (≈ 64%)
-X: 3,72 → 1,33 g/g; w chỉ 78,8 → 57%
+### Cảnh 3.2 – Sấy tủ đến khối lượng không đổi
 
-### Cảnh 6.3 – Bài 3: sấy đến độ ẩm mục tiêu và năng lượng hóa hơi
-Câu dẫn: Nối với bài D006: cần bao nhiêu nhiệt chỉ để hóa hơi số nước đó?
-- Giả định mục tiêu 10% (cơ sở ướt) – con số chọn để luyện tập, không phải quy chuẩn.
-- Khối lượng sản phẩm = 21,2 / 0,90 ≈ 23,56 kg; nước còn ≈ 2,36 kg; nước phải bay hơi ≈ 78,8 − 2,36 ≈ 76,44 kg (≈ 97,0% nước ban đầu).
-- Nhiệt hóa hơi dùng như D006: khoảng 540 cal/g ở điểm sôi (Kuna) = 540 kcal/kg. Q ≈ 76,44 × 540 ≈ 41.280 kcal ≈ 41.280 × 4,184 ≈ 172.716 kJ ≈ 172,7 MJ.
-[HÌNH: tu-ve nang-luong-hoa-hoi.svg | chỗ: giữa | hiện: số đếm chạy tới 172,7 MJ, ngọn lửa cam đỏ | cùng ý: 3 | nhấn: "chỉ phần hóa hơi" (vàng)]
-- Đây là mức tối thiểu cho riêng phần hóa hơi, bỏ qua nhiệt làm nóng, thất thoát, và việc sấy ở 80 °C chứ không ở điểm sôi. Thực tế còn tốn hơn – nhất là vì phần nước cuối bị giữ chặt.
+- **Thẻ:** Cơ chế
+- Theo FAO (Greenfield & Southgate, 2003), tủ sấy không khí ở 100–105 °C dùng cho phần lớn thực phẩm, trừ thực phẩm giàu đường và chất béo; với hầu hết thực phẩm, sấy tủ được coi là đạt yêu cầu cho cơ sở dữ liệu thành phần.
+- Ví dụ quy trình thật (Chen và cs., 2022): sấy 2–5 g mẫu ở 105 °C trong 2–4 giờ, để nguội, cân, rồi sấy lại từng chu kỳ 1 giờ đến khi khối lượng đổi dưới 2 mg, gọi là {{khối lượng không đổi}}.
+- Nhớ: Sấy lặp đến khi khối lượng không đổi mới dừng.
 
-Chữ trên bảng:
-Về 10%: bay hơi ≈ 76,4 kg nước (giả định)
-Hóa hơi ≈ 41.280 kcal ≈ 172,7 MJ (tối thiểu)
+### Cảnh 3.3 – Khi sấy tủ đo sai
 
-### Cảnh 6.4 – Rút ra cho R&D
-Câu dẫn: Ba bài tính nói gì?
-- Luôn ghi rõ cơ sở ướt hay khô; đổi được hai chiều bằng X = w/(1 − w).
-- Khi sấy, tính theo chất khô không đổi – đó là "neo" của mọi cân bằng khối lượng.
-- Con số % cơ sở ướt "đánh lừa": 78,8% → 57% nghe ít nhưng đã mất ~64% nước.
-[HÌNH: tu-ve ba-bai-hoc.svg | chỗ: giữa | hiện: ba dấu tích xanh lá hiện lần lượt | cùng ý: 1 | nhấn: "chất khô = neo"]
+- **Thẻ:** Hiểu sai thường gặp
+- FAO (2003) liệt kê hạn chế của sấy tủ: đường bị caramel hóa, chất béo không no bị phân hủy, các chất bay hơi khác mất theo, nên "mất khối lượng" không còn bằng "mất nước".
+- Với thực phẩm thực vật, phương pháp AOAC khuyên sấy ở 70 °C để hạn chế phá hủy carbohydrate; tủ chân không ở 60–70 °C được ưu tiên, nhất là với thực phẩm giàu đường. Thực phẩm nhiều chất bay hơi (gia vị, phô mai) dùng chưng cất Dean–Stark với dung môi không tan trong nước như toluene hay xylene; hạn chế là an toàn dung môi.
+- Nhớ: Giàu đường dùng chân không 60–70 °C; nhiều chất bay hơi dùng Dean–Stark.
 
-Chữ trên bảng:
-Ghi rõ cơ sở · neo vào chất khô
-% ướt giảm chậm ≠ nước đi ít
+### Cảnh 3.4 – Karl Fischer, NIR, NMR và ba câu hỏi về nước
 
----
+- **Thẻ:** Định nghĩa
+- Chuẩn độ {{Karl Fischer|chuẩn độ Karl Fischer}} hợp với thực phẩm rất ít ẩm và hút ẩm, nhưng độ chính xác của nó hiếm khi cần cho dữ liệu thành phần. NIR dùng nhiều cho ngũ cốc, cần hiệu chuẩn rộng và nhạy với cỡ hạt. NMR cần hiệu chuẩn chi tiết, giá trị nhất khi đo phân bố và dạng nước trong thịt (FAO, 2003).
+- Wiesman (2026) tách ba câu hỏi: độ ẩm hỏi có bao nhiêu nước; {{hoạt độ nước}} aw hỏi nước sẵn sàng đến đâu (bài D008); {{khả năng giữ nước}} hỏi nền giữ được dưới một tác động xác định (ly tâm, rỉ dịch, ép, hao hụt khi nấu). TD-NMR không thay được phép đo aw.
+- Nhớ: Độ ẩm đếm lượng, aw đo mức sẵn sàng, WHC đo khả năng giữ.
 
-## CHƯƠNG 7 – Bài đọc chính: Wiesman (2026)
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao khi sấy người ta thường tính độ ẩm theo cơ sở khô. | đáp: Khi sấy, khối lượng cả mẫu giảm theo nước, còn khối lượng chất khô gần như không đổi. Mẫu số cố định nên cơ sở khô tỉ lệ thẳng với lượng nước còn lại, còn cơ sở ướt có cả tử và mẫu cùng đổi.]
 
-### Cảnh 7.1 – Thẻ bài đọc
-Câu dẫn: Bài đọc chính hôm nay là một tổng quan mới, rất hợp với câu hỏi mở đầu.
-- Tên: "Beyond Moisture Content: Time-Domain NMR for Quantifying Molecular Mobility, Water Accessibility and Food Function".
-- Tác giả: Zeev Wiesman (Đại học Ben-Gurion vùng Negev, Israel). Tạp chí Molecules, năm 2026, tập 31, số 19, bài 3476. DOI: 10.3390/molecules31193476. Giấy phép CC BY 4.0.
-- Loại bài: tổng quan tường thuật, định hướng cơ chế – không phải tổng quan hệ thống hay phân tích gộp.
-[HÌNH: tu-ve the-bai-doc.svg | chỗ: giữa | hiện: thẻ sách vẽ phấn với tên, tác giả, năm, DOI hiện lần lượt | cùng ý: 1 | nhấn: DOI (vàng)]
+[QUIZ]
+1. Mẫu có độ ẩm cơ sở ướt 80%. Độ ẩm cơ sở khô là:
+  - A) 0,8 g/g
+  - B) 1,25 g/g
+  - C) 4,0 g/g
+  - đáp: C
+  - vì sao: X = 0,80/0,20 = 4,0. A là chép số ướt; B là nghịch đảo nhầm.
+2. Theo FAO (2003), với thực phẩm giàu đường nên sấy bằng:
+  - A) Tủ sấy không khí 130 °C
+  - B) Tủ sấy chân không 60–70 °C
+  - C) Đèn hồng ngoại 150 °C
+  - đáp: B
+  - vì sao: Tủ không khí nóng làm đường caramel hóa. Chân không 60–70 °C được ưu tiên.
+3. Thực phẩm nhiều chất bay hơi như gia vị nên đo độ ẩm bằng:
+  - A) Sấy không khí 105 °C
+  - B) Chưng cất Dean–Stark
+  - C) Cân thường
+  - đáp: B
+  - vì sao: Sấy tủ làm mất cả chất bay hơi, nên khối lượng mất không chỉ là nước (FAO, 2003).
+4. Câu "nền giữ nước tốt đến đâu dưới một tác động xác định" mô tả đại lượng nào?
+  - A) Độ ẩm
+  - B) aw
+  - C) Khả năng giữ nước
+  - đáp: C
+  - vì sao: Wiesman (2026) tách ba câu hỏi: độ ẩm là bao nhiêu, aw là sẵn sàng đến đâu, WHC là giữ được không.
+[/QUIZ]
 
-Chữ trên bảng:
-Wiesman (2026) · Molecules 31(19):3476
-DOI 10.3390/molecules31193476 · CC BY 4.0
-
-### Cảnh 7.2 – Tóm tắt
-Câu dẫn: Bài nói gì, bằng một đoạn?
-- Độ ẩm là một trong những chỉ tiêu đo thường xuyên nhất, nhưng riêng lượng nước không quyết định hành vi chế biến, độ bền, cấu trúc, khả năng nhả dịch hay cảm quan.
-- Tác giả đề xuất thang bậc: lượng nước → trạng thái phân tử → độ linh động cục bộ → ngăn hóa/kết nối → khả năng di chuyển → vận chuyển/nhả → chức năng thực phẩm; và giới thiệu TD-NMR (hồi phục T1, T2 và tự khuếch tán) như công cụ đo các bậc giữa.
-[HÌNH: tu-ve thang-bac-wiesman.svg | chỗ: giữa | hiện: dựng từng bậc thang từ dưới lên, bậc "lượng nước" màu trắng, bậc "chức năng" màu vàng | cùng ý: 2 | nhấn: khoảng trống giữa hai đầu thang]
-
-Chữ trên bảng:
-Lượng nước → trạng thái → linh động → kết nối
-→ di chuyển → nhả dịch → chức năng
-
-### Cảnh 7.3 – Năm ý cốt lõi
-Câu dẫn: Năm ý mang về, kèm điều kiện để hiểu đúng.
-- Ý 1: Phân tích độ ẩm thông thường thực chất chỉ trả lời một câu hỏi: có bao nhiêu nước. Thực phẩm có độ ẩm tương tự vẫn có thể khác nhau về cấu trúc, hao hụt khi nấu và độ mọng nước.
-- Ý 2: Trong một hệ và quy trình đo xác định, T2 ngắn hơn thường cho thấy nước bị hạn chế hơn; nhưng nên gọi "T2 ngắn/trung bình/dài" thay vì "liên kết/bất động/tự do".
-- Ý 3: "Nước giữ lại được không nhất thiết là nước tiếp cận được" – cần đo thêm tự khuếch tán D; T2 cao với D thấp nghĩa là linh động tại chỗ nhưng bị giới hạn khi di chuyển xa.
-[HÌNH: tu-ve nam-y-wiesman.svg | chỗ: trái | hiện: năm thẻ số 1–5 hiện lần lượt theo từng ý | cùng ý: 1 | nhấn: thẻ đang nói viền vàng]
-- Ý 4: Phổ phân bố T2 có được từ biến đổi Laplace ngược – một bài toán "điều kiện kém"; số đỉnh và độ rộng đỉnh phụ thuộc mức chính quy hóa và nhiễu, nên phải báo cáo đầy đủ cách xử lý.
-- Ý 5: Ứng dụng đã có ở thịt (cấu trúc – T2 – hao hụt khi nấu), thịt thực vật, gel sữa (tách huyết thanh – syneresis), bánh mì (thoái hóa), thực phẩm đông lạnh, sấy và hoàn nguyên (protein đậu nành tạo kết cấu); ví dụ "độ mọng nước" là trường hợp mẫu, nhưng chuỗi nhân quả đầy đủ vẫn chưa được chứng minh.
-- Về số liệu: bài tổng quan này không đưa giá trị T2 bằng số; con số cụ thể trong album lấy từ nghiên cứu bã đậu nành của Chen và cộng sự (2022).
-
-Chữ trên bảng:
-Độ ẩm = "bao nhiêu" · T2 = "bị hạn chế đến đâu"
-D = "đi được xa không" · phổ T2 phụ thuộc cách xử lý
-
-### Cảnh 7.4 – Phản biện (critique)
-Câu dẫn: Đọc tổng quan cũng cần soi giới hạn.
-- Tự tác giả thừa nhận: chọn tài liệu theo lối tường thuật, không hệ thống, không có trọng số phân tích gộp.
-- Các thành phần hồi phục không ứng một – một với một quần thể hóa học hay không gian; tương quan không phải nhân quả – tránh nói "T2 bằng mức liên kết nước".
-- Triển khai công nghiệp còn vướng chuyển giao hiệu chuẩn, trôi tín hiệu, giới hạn bao bì; điều khiển vòng kín bằng TD-NMR mới là cơ hội, chưa phải năng lực đã thiết lập.
-[HÌNH: tu-ve kinh-lup-tong-quan.svg | chỗ: phải | hiện: kính lúp lướt qua 3 nhãn cam đỏ | cùng ý: 2 | nhấn: "tương quan ≠ nhân quả"]
-- Điểm dễ hiểu sai: TD-NMR không phải cách đo khác của aw. Muốn biết aw vẫn phải đo aw (bài D008).
-- Giới hạn với người học: bài thiên về phương pháp đo, ít số liệu, nhiều thuật ngữ vật lý; nên đọc cùng một nghiên cứu cụ thể như Chen (2022) để có con số.
-
-Chữ trên bảng:
-Tường thuật, không hệ thống · tương quan ≠ nhân quả
-TD-NMR không thay phép đo aw
-
-### Cảnh 7.5 – Câu hỏi đào sâu
-Câu dẫn: Ba câu để tự nghĩ – không có đáp án sẵn.
-- 1. Nếu hai mẫu chả cá cùng độ ẩm 75% nhưng một mẫu rỉ dịch nhiều hơn khi rã đông, bạn sẽ đo thêm chỉ tiêu nào, và kỳ vọng phổ T2 khác nhau ra sao?
-- 2. Trong bài okara, vì sao giai đoạn cuối sấy lại chậm và tốn năng lượng dù lượng nước còn rất ít?
-- 3. Khi viết báo cáo dùng LF-NMR, bạn sẽ ghi những thông tin nào để người khác lặp lại được (theo tinh thần của Wiesman)?
-[HÌNH: tu-ve ba-cau-hoi.svg | chỗ: giữa | hiện: ba dấu hỏi vàng hiện lần lượt | cùng ý: 1 | nhấn: —]
-
-Chữ trên bảng:
-Cùng độ ẩm, khác rỉ dịch → đo gì?
-Báo cáo LF-NMR → ghi gì để lặp lại?
+[TÓM: Cơ sở ướt chia cho cả mẫu, cơ sở khô chia cho chất khô, X = w/(1 − w) | Sấy tủ đến khối lượng không đổi nhưng có thể sai khi mẫu mất chất khác ngoài nước | Độ ẩm, aw và khả năng giữ nước trả lời ba câu hỏi khác nhau]
 
 ---
 
-## CHƯƠNG 8 – Tiếng Anh: thuật ngữ và câu mẫu
+## Chương 4 – Bài tính có lời giải: từ cân sấy đến cân bằng khối lượng
 
-### Cảnh 8.1 – Sáu cụm từ cốt lõi
-Câu dẫn: Những cụm này sẽ gặp trong mọi bảng thông số (spec sheet) và phương pháp phân tích.
-- free water · bound water · entrapped water – ba "trạng thái" nước của Chương 2.
-- moisture content (wet basis / dry basis) · constant weight · water-holding capacity.
-[HÌNH: tu-ve the-tu-vung.svg | chỗ: giữa | hiện: 6 thẻ lật lần lượt, mặt sau là nghĩa Việt | cùng ý: 1 | nhấn: "wet basis / dry basis" viền vàng]
+[HỎI TRƯỚC: Khi tính cân bằng khối lượng một mẻ sấy, nên giữ cố định đại lượng nào: khối lượng cả mẫu hay khối lượng chất khô? | đáp: Khối lượng chất khô. | vì sao: Nước bay đi nên khối lượng cả mẫu giảm; chất khô (giả định không mất) là phần duy nhất không đổi nên dùng làm điểm neo.]
 
-Chữ trên bảng:
-free / bound / entrapped water
-moisture content (wb / db) · constant weight · WHC
+### Cảnh 4.1 – Bài 1: tính độ ẩm từ phép sấy tủ (số giả định)
 
-### Cảnh 8.2 – Hai câu mẫu
-Câu dẫn: Đọc to, rồi tự viết một câu tương tự về một sản phẩm khác.
-- "The moisture content of fresh okara was 78.8% on a wet basis, which corresponds to about 3.72 g of water per gram of dry matter." – Độ ẩm bã đậu nành tươi là 78,8% theo cơ sở ướt, tương ứng khoảng 3,72 g nước trên mỗi gam chất khô.
-- "Bound water does not act as a solvent and freezes only at very low temperatures." – Nước liên kết không đóng vai trò dung môi và chỉ đông đá ở nhiệt độ rất thấp.
-[HÌNH: tu-ve cau-mau.svg | chỗ: giữa | hiện: câu tiếng Anh hiện trước, câu Việt mờ dần ra sau | cùng ý: 1 | nhấn: "on a wet basis" (vàng)]
-- Nhiệm vụ: viết 1 câu tiếng Anh giải thích vì sao cá đông – rã nhiều lần bị rỉ dịch, dùng "entrapped water" và "water-holding capacity".
+- **Thẻ:** Ví dụ số
+- Số liệu là đề bài giả định của album, không phải thí nghiệm thật. Cốc nhôm đã sấy khô nặng 25,0000 g; cốc cộng mẫu bã đậu nành ướt nặng 28,0000 g; sau sấy đến khối lượng không đổi, cốc cộng mẫu khô nặng 25,6360 g.
+[VÍ DỤ GIẢI]
+- Bước 1: Khối lượng mẫu ướt m = 28,0000 − 25,0000 = 3,0000 g. | vì sao: Trừ khối lượng cốc rỗng.
+- Bước 2: Khối lượng chất khô m_d = 25,6360 − 25,0000 = 0,6360 g. | vì sao: Sau sấy chỉ còn chất khô.
+- Bước 3: Khối lượng nước = 3,0000 − 0,6360 = 2,3640 g. | vì sao: Nước là phần đã mất khi sấy (giả định mất khối lượng bằng mất nước).
+- Bước 4: Cơ sở ướt w = 2,3640/3,0000 = 0,7880, tức 78,80%. | vì sao: Nước chia cho cả mẫu.
+- Bước 5: Cơ sở khô X = 2,3640/0,6360 ≈ 3,717 g nước/g chất khô. | vì sao: Nước chia cho chất khô.
+- Bỏ trống: Nếu cốc cộng mẫu khô nặng 25,5000 g thì m_d = ____ g | đáp: 0,5000
+- Tự làm: Với m_d = 0,5000 g và m = 3,0000 g, tính độ ẩm cơ sở ướt. | đáp: Nước = 2,5000 g; w = 2,5/3,0 ≈ 0,833, tức 83,3%.
+[/VÍ DỤ GIẢI]
+- Nhớ: Cân ba lần cho ra m, m_d, nước; từ đó ra cả hai cơ sở.
 
-Chữ trên bảng:
-"…78.8% on a wet basis…"
-Viết 1 câu: entrapped water + water-holding capacity
+### Cảnh 4.2 – Bài 2: 100 kg bã tươi sau 5 giờ sấy, mất bao nhiêu nước
 
----
+- **Thẻ:** Ví dụ số
+- Dùng số của Chen và cs. (2022): bã tươi 78,8% ẩm, sau 5 giờ ở 80 °C còn 57% (cơ sở ướt). Giả định chất khô không mất khi sấy.
+[VÍ DỤ GIẢI]
+- Bước 1: 100 kg bã có 78,8 kg nước và 21,2 kg chất khô. | vì sao: Chất khô là neo, giữ cố định.
+- Bước 2: Ở 57% ướt, khối lượng bã = 21,2/(1 − 0,57) = 21,2/0,43 ≈ 49,30 kg. | vì sao: Chất khô chiếm 43% khối lượng mới.
+- Bước 3: Nước còn lại = 49,30 − 21,2 ≈ 28,10 kg; nước đã bay hơi = 78,8 − 28,10 ≈ 50,70 kg, tức khoảng 64,3% nước ban đầu. | vì sao: Lấy nước đầu trừ nước còn.
+- Bước 4: Cơ sở khô giảm từ 3,717 xuống 0,57/0,43 ≈ 1,326 g/g, giảm khoảng 64%, đúng bằng tỉ lệ nước đã mất. | vì sao: Mẫu số chất khô cố định nên X tỉ lệ thẳng với lượng nước.
+- Bỏ trống: Nước đã bay hơi khoảng ____ kg | đáp: 50,7
+- Tự làm: Nếu sấy xuống 40% ướt (cơ sở ướt) thì nước còn lại bao nhiêu kg trên 100 kg bã đầu? | đáp: Khối lượng = 21,2/0,60 ≈ 35,33 kg; nước còn ≈ 14,13 kg.
+[/VÍ DỤ GIẢI]
+[MÔ PHỎNG: say-can-bang | kiểu: thanh-trượt | chỗ: phải | khẳng định: Khi sấy, độ ẩm cơ sở ướt giảm ít điểm phần trăm nhưng lượng nước đã mất rất lớn: từ 78,8% xuống 57%, tức giảm 22 điểm, đã bay hơi khoảng 64% nước ban đầu, nếu chất khô không đổi | chức năng: giải thích | nhìn: phần trăm nước ban đầu đã bay hơi khi độ ẩm cơ sở ướt là 57%]
+- dự đoán: Độ ẩm cơ sở ướt giảm từ 78,8% xuống 57%. Khoảng bao nhiêu phần trăm nước ban đầu đã bay hơi? | chọn: Khoảng 22%; Khoảng 64%; Khoảng 78% | đáp: Khoảng 64% | vì sao: Chất khô 21,2 kg thì khối lượng còn 49,3 kg, nước còn 28,1 kg, nên mất 50,7 trên 78,8 kg nước, khoảng 64%.
+- biến: w | nhãn: Độ ẩm cơ sở ướt sau khi sấy | đơn vị: phần (0,57 là 57%) | min: 0.1 | max: 0.78 | bước: 0.01 | mặc định: 0.57
+- hằng: ds = 0.212
+- tính: con = ds / (1 - w) ; pct = 100 * (1 - (con - ds) / (1 - ds))
+- ra: pct | nhãn: Nước ban đầu đã bay hơi (%) | chữ số: 1
+- nguồn: Độ ẩm đầu 78,8% và 57% sau 5 giờ ở 80 °C của Chen và cs. (2022); phép cân bằng khối lượng với chất khô không đổi là phép tính của album (Bài 2)
+- giới hạn: Mô hình cân bằng khối lượng, không mô tả tốc độ sấy hay đường cong theo thời gian. Giả định chất khô không mất và mẫu chỉ mất nước. Thanh trượt dừng ở 78% vì mẫu bắt đầu ở 78,8%.
+[/MÔ PHỎNG]
+- Nhớ: 78,8% xuống 57% nghe ít nhưng là hơn nửa lượng nước.
 
-## TỔNG KẾT
+### Cảnh 4.3 – Bài 3: sấy xuống 10% và nhiệt hóa hơi tối thiểu
 
-1. Nước trong thực phẩm không đồng nhất: giáo trình chia thành nước tự do (vắt, cắt, ép là ra), nước bị nhốt (bị giam trong mao quản/tế bào, cấu trúc hỏng thì chảy ra) và nước liên kết (bám nhóm phân cực/ion của tinh bột, pectin, protein) (Kuna).
-2. Nước liên kết không làm dung môi, chỉ đông ở nhiệt độ rất thấp, hầu như không có áp suất hơi, đặc hơn nước tự do; lượng của nó phụ thuộc phương pháp đo.
-3. LF-NMR đo T2: trong một hệ xác định, T2 ngắn ≈ nước bị hạn chế. Bã đậu nành tươi có T21 ≈ 0,48, T22 ≈ 7,06, T23 ≈ 69,08 ms (Chen và cs., 2022). Nhưng nên gọi "T2 ngắn/trung bình/dài" và không đồng nhất T2 với mức liên kết (Wiesman, 2026).
-4. Độ ẩm cơ sở ướt w = nước/tổng; cơ sở khô X = nước/chất khô; X = w/(1 − w). Sấy tủ 100–105 °C đến khối lượng không đổi là phổ biến; thực phẩm giàu đường dùng chân không 60–70 °C, nhiều chất bay hơi dùng Dean – Stark, mẫu rất khô dùng Karl Fischer (FAO, 2003).
-5. Okara 78,8% → 57% sau 5 giờ ở 80 °C nghĩa là đã mất ≈ 64% nước; nước dễ đi ra trước, phần còn lại bị giữ chặt hơn nên giai đoạn cuối khó.
-6. Độ ẩm trả lời "bao nhiêu", aw trả lời "sẵn sàng đến đâu", WHC trả lời "giữ được không". Bài sau (D008) đi vào aw.
+- **Thẻ:** Ví dụ số
+- Giả định mục tiêu 10% (cơ sở ướt), chỉ chọn để luyện tập, không phải quy chuẩn. Nối với D006: nhiệt hóa hơi nước ở điểm sôi khoảng 540 cal/g, tức 540 kcal/kg (Kuna).
+[VÍ DỤ GIẢI]
+- Bước 1: Khối lượng sản phẩm = 21,2/0,90 ≈ 23,56 kg; nước còn ≈ 2,36 kg. | vì sao: Chất khô chiếm 90% khối lượng sản phẩm.
+- Bước 2: Nước phải bay hơi ≈ 78,8 − 2,36 ≈ 76,44 kg, tức khoảng 97,0% nước ban đầu. | vì sao: Lấy nước đầu trừ nước còn.
+- Bước 3: Q ≈ 76,44 × 540 ≈ 41.278 kcal ≈ 41.278 × 4,184 ≈ 172.700 kJ ≈ 172,7 MJ. | vì sao: Nhân khối lượng nước với nhiệt hóa hơi, đổi cal sang J.
+- Bỏ trống: Đây chỉ là mức ____ cho riêng phần hóa hơi | đáp: tối thiểu
+- Tự làm: Nêu hai khoản năng lượng thật mà con số 172,7 MJ chưa tính. | đáp: Nhiệt làm nóng mẫu và thiết bị lên nhiệt độ sấy, và nhiệt thất thoát ra ngoài.
+[/VÍ DỤ GIẢI]
+- Nhớ: 172,7 MJ chỉ là phần hóa hơi; thực tế còn nhiệt làm nóng và thất thoát.
 
-**Bài sau – D008:** Hai loại bánh cùng độ ẩm 20%, sao một loại mốc nhanh còn loại kia thì không? Câu trả lời nằm ở hoạt độ nước aw.
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao 78,8% xuống 57% ướt đã mất hơn nửa lượng nước. | đáp: Khi nước bay đi, cả tử số lẫn khối lượng cả mẫu cùng giảm, nên số phần trăm cơ sở ướt giảm chậm. Neo vào chất khô không đổi thì thấy nước còn 28,1 kg trên 78,8 kg ban đầu.]
 
----
+[QUIZ]
+1. 100 kg bã 78,8% ẩm sấy xuống 57% (cơ sở ướt), chất khô không mất. Nước đã bay hơi khoảng:
+  - A) 21,8 kg
+  - B) 28,1 kg
+  - C) 50,7 kg
+  - đáp: C
+  - vì sao: Khối lượng cuối ≈ 49,3 kg, nước còn ≈ 28,1 kg, nên bay hơi ≈ 78,8 − 28,1 = 50,7 kg. A là chênh số phần trăm; B là nước còn lại.
+2. Vì sao dùng chất khô làm điểm neo khi sấy?
+  - A) Nó có khối lượng lớn nhất
+  - B) Nó gần như không đổi khi nước bay đi
+  - C) Nó luôn là 21,2 kg
+  - đáp: B
+  - vì sao: Đó là giả định của bài tính. A sai vì chất khô thường nhỏ hơn nước; C chỉ đúng với mẻ bã 100 kg này.
+3. Sấy 100 kg bã xuống 10% ướt, khối lượng sản phẩm xấp xỉ:
+  - A) 10 kg
+  - B) 23,56 kg
+  - C) 78,8 kg
+  - đáp: B
+  - vì sao: 21,2/0,90 ≈ 23,56 kg. A nhầm 10% là khối lượng; C là lượng nước đầu.
+[/QUIZ]
 
-## TRẮC NGHIỆM
-
-**Câu 1.** Theo học liệu Kuna, loại nước nào lấy ra được dễ dàng bằng cách vắt, cắt hoặc ép?
-A. Nước liên kết  B. Nước tự do  C. Nước kết tinh  D. Nước trong lớp đơn phân tử
-
-**Câu 2.** Tính chất nào KHÔNG phải của nước liên kết theo Kuna?
-A. Không làm dung môi cho muối, đường  B. Chỉ đông ở nhiệt độ rất thấp  C. Có áp suất hơi cao hơn nước tự do  D. Tỷ trọng lớn hơn nước tự do
-
-**Câu 3.** Một mẫu có độ ẩm cơ sở ướt 80%. Độ ẩm cơ sở khô là:
-A. 0,8 g/g  B. 1,25 g/g  C. 4,0 g/g  D. 5,0 g/g
-
-**Câu 4.** Trong LF-NMR, trong cùng một hệ và quy trình đo, T2 ngắn hơn thường cho thấy:
-A. Nước linh động hơn  B. Nước bị hạn chế chuyển động hơn  C. Mẫu có aw cao hơn  D. Mẫu chứa nhiều chất béo hơn
-
-**Câu 5.** Theo FAO (2003), với thực phẩm giàu đường, phương pháp sấy được ưu tiên là:
-A. Tủ sấy không khí 130 °C  B. Tủ sấy chân không 60–70 °C  C. Lò vi sóng công suất cao  D. Đèn hồng ngoại 150 °C
-
-**Câu 6.** 100 kg bã đậu nành 78,8% ẩm (cơ sở ướt) sấy xuống 57%. Giả sử chất khô không mất, nước đã bay hơi khoảng:
-A. 21,8 kg  B. 28,1 kg  C. 50,7 kg  D. 78,8 kg
-
-**Câu 7.** Wiesman (2026) khuyên gì về nhãn "liên kết / bất động / tự do"?
-A. Dùng cho mọi thực phẩm vì đã chuẩn hóa  B. Thay bằng "T2 ngắn / trung bình / dài" trừ khi đã định nghĩa cho hệ cụ thể  C. Thay bằng giá trị aw  D. Chỉ dùng cho thịt
-
-**Câu 8.** Phát biểu nào đúng về TD-NMR theo Wiesman (2026)?
-A. Là phương pháp thay thế để đo aw  B. Đo được độ linh động, nhưng không phải cách đo khác của aw  C. Chỉ đo được độ ẩm  D. Cần phá mẫu
-
-### Đáp án và giải thích
-1. **B.** Kuna định nghĩa nước tự do là nước lấy ra dễ dàng bằng vắt, cắt, ép (Kuna, e-PG Pathshala).
-2. **C.** Kuna ghi nước liên kết "hầu như không có áp suất hơi" – ngược với phương án C (Kuna).
-3. **C.** X = w/(1 − w) = 0,80/0,20 = 4,0 g nước/g chất khô (suy từ định nghĩa của Chen và cs., 2022).
-4. **B.** Trong hệ xác định, T2 ngắn thường chỉ nước bị hạn chế hơn (Wiesman, 2026). aw là đại lượng khác (Câu 8).
-5. **B.** FAO (2003): tủ sấy chân không ưu tiên ở 60–70 °C, nhất là thực phẩm giàu đường; tủ không khí gây caramel hóa đường.
-6. **C.** Chất khô 21,2 kg → khối lượng ở 57% = 21,2/0,43 ≈ 49,30 kg → nước còn ≈ 28,10 kg → đã bay hơi ≈ 50,70 kg (số liệu ẩm từ Chen và cs., 2022; giả định chất khô không đổi).
-7. **B.** Wiesman (2026) khuyên dùng "short-, intermediate-, long-T2" và chỉ giữ nhãn cũ khi trích nghiên cứu trước hoặc đã định nghĩa rõ.
-8. **B.** Tác giả nhấn mạnh aw và độ linh động liên quan nhưng khác nhau; TD-NMR không phải cách đo khác của aw; ưu điểm là không phá mẫu (Wiesman, 2026).
-
----
-
-## ĐỐI CHIẾU ĐỦ NỘI DUNG
-
-Đã rà từng mục trước khi lưu (03/11/2026).
-
-| # | Mục yêu cầu | Chương · Cảnh |
-|---|---|---|
-| 1 | Câu hỏi mở thật | Đầu file; 1.2; 5.3 |
-| 2 | Nối bài D006 (phân cực, liên kết hydro) | 1.1 |
-| 3 | Hàm lượng nước trong thực phẩm | 1.2 |
-| 4 | Khái niệm nền: nước tự do | 2.1 |
-| 5 | Nước bị nhốt (entrapped) | 2.2 |
-| 6 | Nước liên kết – 4 tính chất, phụ thuộc phương pháp đo | 2.3 |
-| 7 | Cơ chế: bám vị trí phân cực/ion, theo lớp | 2.4 |
-| 8 | Minh họa 3D nước quanh protein (PDB 2VB1) | 2.5 |
-| 9 | Nước trong cơ thịt/cá (3 ngăn), đông – rã | 2.6 |
-| 10 | LF-NMR, T2 | 3.1, 3.2 |
-| 11 | Phê phán nhãn liên kết/bất động/tự do | 3.3 |
-| 12 | Linh động vs tiếp cận (T2 – D) | 3.4 |
-| 13 | Độ ẩm cơ sở ướt, cơ sở khô, công thức đổi | 4.1, 4.2 |
-| 14 | Sấy tủ, khối lượng không đổi | 4.3 |
-| 15 | Sai số sấy, chân không, Dean – Stark | 4.4 |
-| 16 | Karl Fischer, NIR, NMR | 4.5 |
-| 17 | Độ ẩm vs aw vs WHC | 4.6 |
-| 18 | Áp dụng sản phẩm thật: okara – bối cảnh | 5.1 |
-| 19 | Okara – thiết kế thí nghiệm | 5.2 |
-| 20 | Okara – đường cong sấy | 5.3 |
-| 21 | Okara – diễn biến trạng thái nước | 5.4 |
-| 22 | Okara – mô hình dự đoán | 5.5 |
-| 23 | Okara – phản biện | 5.6 |
-| 24 | Bài tính 1 (sấy tủ, giả định) đủ 5 bước | 6.1 |
-| 25 | Bài tính 2 (cân bằng khối lượng 5 h) | 6.2 |
-| 26 | Bài tính 3 (mục tiêu 10%, năng lượng hóa hơi) | 6.3 |
-| 27 | Rút ra cho R&D | 6.4 |
-| 28 | Bài đọc chính: tên, tác giả, tạp chí, năm, DOI, giấy phép | 7.1 |
-| 29 | Tóm tắt bài đọc | 7.2 |
-| 30 | 4–5 ý cốt lõi (số liệu: ghi rõ bài không có số, số lấy từ Chen) | 7.3 |
-| 31 | Critique | 7.4 |
-| 32 | Câu hỏi đào sâu | 7.5 |
-| 33 | Thuật ngữ + 1–2 câu mẫu | 8.1, 8.2; Từ điển |
-| 34 | Tổng kết + câu mở bài sau | Tổng kết |
-| 35 | Trắc nghiệm + đáp án dẫn nguồn | Trắc nghiệm |
-| 36 | Mỗi cảnh ≥ 1 hình | Tất cả cảnh 1.1–8.2 |
-| 37 | Góc khóa luận | Không đưa vào bài này (đã có ở D006, ~1 lần/tuần) |
+[TÓM: Neo vào chất khô không đổi để cân bằng khối lượng | Cơ sở ướt giảm 22 điểm có thể là mất hơn nửa lượng nước | Nhiệt hóa hơi chỉ là mức tối thiểu của năng lượng sấy]
 
 ---
 
-## TỪ ĐIỂN THUẬT NGỮ
+## Chương 5 – Áp dụng: sấy bã đậu nành bằng LF-NMR (Chen và cs., 2022)
+
+[HỎI TRƯỚC: Bã đậu nành sấy 80 °C: độ ẩm 78,8% xuống 57% sau 5 giờ và xuống 1% sau 7 giờ. Độ ẩm có giảm đều theo thời gian không? | đáp: Không đều: 5 giờ đầu giảm khoảng 22 điểm, 2 giờ sau giảm tới khoảng 56 điểm; tốc độ cao nhất ở 6–6,5 giờ. | vì sao: Số liệu của Chen và cs. (2022) cho thấy đường cong sấy không tuyến tính; bài không giải thích đầy đủ nguyên nhân nên album không tự suy.]
+
+### Cảnh 5.1 – Mẫu và thiết kế thí nghiệm
+
+- **Thẻ:** Định nghĩa
+- Bã đậu nành ({{okara|bã đậu nành}}) là phần còn lại khi làm sữa đậu nành hoặc đậu phụ. Mẫu của Chen và cs. (2022) lấy từ một xưởng đậu phụ, độ ẩm đầu 0,7880 g/g (cơ sở ướt).
+- Sấy không khí nóng 80 °C; bã trải trên khay 320 × 300 × 28 mm, đảo mỗi 15 phút. Lấy mẫu mỗi giờ từ 1 đến 5 giờ, rồi ở 5,5; 6; 6,5 và 7 giờ; mỗi mẫu đo độ ẩm bằng sấy tủ, đo LF-NMR (phổ T2) và ảnh cộng hưởng từ.
+- Bài không ghi bề dày lớp bã và tốc độ gió, hai thông số ảnh hưởng mạnh tới tốc độ sấy.
+- Nhớ: Số liệu chỉ đúng với điều kiện sấy của bài.
+
+### Cảnh 5.2 – Đường cong sấy và nước nào đi trước
+
+- **Thẻ:** Ví dụ số
+- Độ ẩm xuống 0,57 g/g sau 5 giờ và 0,01 g/g sau 7 giờ; tốc độ giảm cao nhất ở khoảng 6–6,5 giờ.
+- Theo LF-NMR, 0–4 giờ nước tự do chiếm ưu thế; nước tự do và nước bất động đều giảm; nước liên kết lúc đầu giảm rồi tăng. Nước liên kết yếu đi trước; các đỉnh còn lại dịch về phía T2 ngắn hơn, tức nước còn lại bị hạn chế hơn.
+- Khoảng 5 giờ nước bất động thành chủ yếu và xuất hiện đỉnh mới; khoảng 6,5 giờ nước liên kết thành dạng chính; 6,5–7 giờ tác giả ghi nước tự do lại tăng và chiếm ưu thế. Theo Wiesman (2026) nên đọc kết quả cuối thận trọng vì nhãn "tự do" gán theo vị trí đỉnh T2 chưa chắc phản ánh đúng một loại nước.
+- Nhớ: Bài chỉ mô tả định tính các giai đoạn; không có tỉ lệ phần trăm từng dạng nước.
+
+### Cảnh 5.3 – Dự đoán độ ẩm không cần sấy tủ
+
+- **Thẻ:** Ví dụ số
+- Mô hình theo diện tích đỉnh: y = 1,42 × 10⁻⁵ x₁ − 0,14, R² = 0,98, sai số dự đoán 1,69–8,58%. Mô hình theo giá trị xám của ảnh cộng hưởng từ: y = 3,97 × 10⁻³ x₂ + 0,02, R² = 0,93, sai số 1,39–3,48%.
+- Chính tác giả lưu ý: giá trị xám không dự đoán được vật liệu mà nước liên kết chiếm ưu thế. Ý nghĩa thực tế: đo nhanh, không phá mẫu, có thể thay một phần phép sấy tủ nếu đã hiệu chuẩn.
+- Nhớ: R² cao trong một nghiên cứu chưa phải năng lực dùng trên dây chuyền.
+
+### Cảnh 5.4 – Đọc phản biện bài áp dụng
+
+- **Thẻ:** Hiểu sai thường gặp
+- Mục 3.3.2 ghi độ ẩm 16,31 và 1,19 g/g ở 6,5 và 7 giờ, mâu thuẫn với mục 3.1.1 (0,01 g/g ở 7 giờ); nhiều khả năng là lỗi. Một giá trị T23 trong bảng 1 bị in lỗi, và còn đỉnh T23′ khoảng 487 ms (4 giờ) và 939 ms (6 giờ).
+- Album dùng số ở mục 3.1.1 và bảng 1; bài không công bố tỉ lệ từng dạng nước theo thời gian nên album không tự suy số.
+- Nhớ: Số liệu mâu thuẫn trong bài gốc thì nêu rõ và dùng phần nhất quán.
+
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao hai con số 0,01 g/g và 1,19 g/g ở 7 giờ không thể cùng đúng. | đáp: Cùng một thời điểm, cùng một mẫu chỉ có một độ ẩm. Hai số khác nhau hơn trăm lần nên ít nhất một số bị ghi sai; album chọn số nhất quán với đường cong sấy ở mục 3.1.1.]
+
+[QUIZ]
+1. Theo Chen và cs. (2022), độ ẩm bã đậu nành tươi (cơ sở ướt) là:
+  - A) 0,5700 g/g
+  - B) 0,7880 g/g
+  - C) 0,0100 g/g
+  - đáp: B
+  - vì sao: 0,7880 g/g là độ ẩm đầu; 0,57 là sau 5 giờ; 0,01 là sau 7 giờ.
+2. Điều gì đúng về giá trị xám của ảnh cộng hưởng từ?
+  - A) Dự đoán tốt mọi vật liệu
+  - B) Không dự đoán được vật liệu mà nước liên kết chiếm ưu thế
+  - C) Thay được phép đo aw
+  - đáp: B
+  - vì sao: Chính tác giả lưu ý hạn chế này. C sai vì NMR không thay phép đo aw (Wiesman, 2026).
+3. Vì sao cần cẩn thận với kết luận "nước tự do tăng lại ở 6,5–7 giờ"?
+  - A) Nhãn "tự do" gán theo vị trí đỉnh T2 chưa chắc phản ánh một loại nước
+  - B) Mẫu đã hút thêm nước
+  - C) Tác giả không đo ở giờ đó
+  - đáp: A
+  - vì sao: Wiesman (2026) nhắc nhãn theo đỉnh T2 không phải loại nước cố định. B và C không có trong nguồn.
+[/QUIZ]
+
+[TÓM: Bã đậu nành sấy 80 °C từ 78,8% xuống 1% sau 7 giờ, tốc độ cao nhất ở 6–6,5 giờ | LF-NMR cho thấy các đỉnh dịch về T2 ngắn nhưng nhãn dạng nước chỉ là cách gán | Bài gốc có số mâu thuẫn nên phải đọc có phê phán]
+
+---
+
+## Chương 6 – Đọc bài báo chính: Wiesman (2026)
+
+[HỎI TRƯỚC: Nếu độ ẩm không đủ để dự đoán độ mọng của một miếng thịt, một người làm R&D nên đo thêm điều gì? | đáp: Một đại lượng nói về trạng thái và khả năng di chuyển của nước, ví dụ T2 và D bằng TD-NMR. | vì sao: Độ ẩm chỉ đếm lượng nước; bài của Wiesman tập trung vào phần còn thiếu đó.]
+
+### Cảnh 6.1 – Bài của Wiesman là một tổng quan tường thuật
+
+- **Thẻ:** Định nghĩa
+- Wiesman Z. (2026). "Beyond Moisture Content: Time-Domain NMR for Quantifying Molecular Mobility, Water Accessibility and Food Function". Molecules 31(19):3476, DOI 10.3390/molecules31193476, CC BY 4.0, đọc qua PMC13666914. Tác giả ở Đại học Ben-Gurion vùng Negev (Israel).
+- Loại bài: tổng quan tường thuật, định hướng cơ chế; không phải tổng quan hệ thống hay phân tích gộp.
+- Nhớ: Tổng quan, không phải thí nghiệm mới.
+
+### Cảnh 6.2 – Ý chính và năm ý mang về
+
+- **Thẻ:** Cơ chế
+- Tác giả đề xuất thang bậc: lượng nước, trạng thái phân tử, độ linh động cục bộ, ngăn hóa và kết nối, khả năng di chuyển, vận chuyển và nhả dịch, chức năng thực phẩm; TD-NMR (hồi phục T1, T2 và tự khuếch tán) đo các bậc giữa.
+- Năm ý: (1) độ ẩm chỉ trả lời "bao nhiêu nước"; (2) trong hệ xác định T2 ngắn thường ứng với nước bị hạn chế hơn, nhưng nên gọi theo T2; (3) giữ lại được chưa chắc tiếp cận được, cần đo thêm D; (4) phổ T2 có từ biến đổi Laplace ngược nên số đỉnh và độ rộng phụ thuộc cách xử lý; (5) ứng dụng đã có ở thịt, thịt thực vật, gel sữa (hiện tượng {{tách dịch}}), bánh mì, thực phẩm đông lạnh, sấy và hoàn nguyên, nhưng chuỗi nhân quả đầy đủ chưa được chứng minh.
+- Bài tổng quan này không đưa giá trị T2 bằng số; số liệu cụ thể trong album lấy từ Chen và cs. (2022).
+- Nhớ: Độ ẩm là bậc thấp nhất của thang; chức năng thực phẩm là bậc cao nhất.
+
+### Cảnh 6.3 – Phản biện và câu hỏi đào sâu
+
+- **Thẻ:** Hiểu sai thường gặp
+- Tác giả thừa nhận chọn tài liệu theo lối tường thuật, không hệ thống, không có trọng số phân tích gộp. Các thành phần hồi phục không ứng một một với một quần thể hóa học hay không gian; tương quan không phải nhân quả, nên tránh nói "T2 bằng mức liên kết nước".
+- Triển khai công nghiệp còn vướng chuyển giao hiệu chuẩn, trôi tín hiệu và giới hạn bao bì; điều khiển vòng kín bằng TD-NMR mới là cơ hội, chưa phải năng lực đã thiết lập.
+- Bài thiên về phương pháp đo, ít số liệu và nhiều thuật ngữ vật lý nên nên đọc cùng một nghiên cứu cụ thể như Chen (2022).
+- Nhớ: TD-NMR không phải cách đo khác của aw; muốn biết aw vẫn phải đo aw.
+
+[TỰ GIẢI THÍCH: Hãy tự nói thang bậc của Wiesman cho thấy điều gì về việc chỉ dựa vào độ ẩm. | đáp: Độ ẩm là bậc đầu (lượng nước), còn hành vi chế biến, rỉ dịch, cảm quan phụ thuộc các bậc cao hơn (trạng thái, khả năng di chuyển, nhả dịch). Hai mẫu cùng độ ẩm vẫn có thể khác ở các bậc đó.]
+
+[QUIZ]
+1. Loại bài của Wiesman (2026) là:
+  - A) Nghiên cứu thực nghiệm
+  - B) Tổng quan tường thuật
+  - C) Phân tích gộp
+  - đáp: B
+  - vì sao: Chính tác giả mô tả đây là tổng quan tường thuật, không hệ thống, không phân tích gộp.
+2. Phát biểu nào đúng theo Wiesman (2026)?
+  - A) TD-NMR là cách đo khác của aw
+  - B) TD-NMR đo độ linh động, không phải cách đo khác của aw
+  - C) TD-NMR cần phá mẫu
+  - đáp: B
+  - vì sao: aw và độ linh động liên quan nhưng khác nhau; ưu điểm của TD-NMR là không phá mẫu.
+3. Phổ T2 có từ biến đổi Laplace ngược, nên:
+  - A) Số đỉnh luôn là ba
+  - B) Số đỉnh và độ rộng phụ thuộc cách xử lý và nhiễu
+  - C) T2 không còn ý nghĩa
+  - đáp: B
+  - vì sao: Đó là ý 4 của bài; vì vậy phải báo cáo đầy đủ cách xử lý.
+[/QUIZ]
+
+[TÓM: Wiesman đặt độ ẩm là bậc đầu của một thang đến chức năng thực phẩm | TD-NMR đo T1 T2 và D nhưng không thay được aw | Bài là tổng quan tường thuật nên tương quan chưa phải nhân quả]
+
+---
+
+## Chương 7 – Tiếng Anh: thuật ngữ và câu mẫu
+
+### Cảnh 7.1 – Sáu cụm từ cốt lõi
+
+- **Thẻ:** Định nghĩa
+- free water · bound water · entrapped water.
+- moisture content (wet basis, dry basis) · constant weight · water-holding capacity.
+- Nhớ: Sáu cụm này xuất hiện trong bảng thông số và bài báo.
+
+### Cảnh 7.2 – Hai câu mẫu tiếng Anh về độ ẩm và nước liên kết
+
+- **Thẻ:** Định nghĩa
+- "The moisture content of fresh okara was 78.8% on a wet basis, which corresponds to about 3.72 g of water per gram of dry matter." Độ ẩm bã đậu nành tươi là 78,8% theo cơ sở ướt, ứng với khoảng 3,72 g nước trên mỗi gam chất khô.
+- "Bound water does not act as a solvent and freezes only at very low temperatures." Nước liên kết không đóng vai trò dung môi và chỉ đông ở nhiệt độ rất thấp (ý của Kuna).
+- Nhớ: Luôn ghi cơ sở ướt hay khô khi báo cáo độ ẩm.
+
+[QUIZ]
+1. Câu nào đúng nhất cho "độ ẩm 78,8% theo cơ sở ướt"?
+  - A) The moisture content was 78.8% on a wet basis.
+  - B) The moisture content was 78.8% in wet basic.
+  - C) The wet moisture is basis 78.8%.
+  - đáp: A
+  - vì sao: A đúng ngữ pháp và đủ ý. B sai từ "basic"; C sai trật tự từ.
+2. [TỰ LUẬN] Viết một câu tiếng Anh giải thích vì sao cá đông rã nhiều lần bị rỉ dịch, dùng "entrapped water" và "water-holding capacity". | mẫu: Repeated freeze–thaw cycles damage the structure that holds entrapped water, so water-holding capacity falls and more liquid is lost.
+[/QUIZ]
+
+[TÓM: Học sáu cụm gốc | Báo cáo độ ẩm luôn kèm cơ sở ướt hay khô | Tự viết câu về nước bị nhốt để nhớ lâu]
+
+---
+
+## Ôn rải
+
+[ÔN RẢI: lịch: 1,3,7,21]
+1. Kể ba cách nước nằm trong thực phẩm. | từ: D007-C1 | đáp: Nước tự do, nước bị nhốt, nước liên kết.
+2. Vì sao cắt lấy được nước bị nhốt mà không lấy được nước liên kết? | từ: D007-C1 | đáp: Cắt phá cấu trúc giam nước; nước liên kết dính vào nhóm phân cực.
+3. T2 ngắn thường cho biết điều gì trong cùng một hệ đo? | từ: D007-C2 | đáp: Nước bị hạn chế chuyển động hơn.
+4. Wiesman khuyên gọi các đỉnh phổ T2 là gì? | từ: D007-C2 | đáp: T2 ngắn, trung bình, dài.
+5. Công thức đổi từ độ ẩm cơ sở ướt w sang cơ sở khô X? | từ: D007-C3 | đáp: X = w/(1 − w).
+6. Vì sao sấy tủ có thể đo sai? | từ: D007-C3 | đáp: Mẫu mất cả chất bay hơi, đường caramel hóa, chất béo phân hủy nên khối lượng mất không chỉ là nước.
+7. Mẫu 80% ẩm cơ sở ướt có độ ẩm cơ sở khô bao nhiêu? | từ: D007-C3 | đáp: 4,0 g/g.
+8. 100 kg bã 78,8% sấy xuống 57%: nước bay hơi bao nhiêu? | từ: D007-C4 | đáp: Khoảng 50,7 kg, tức 64,3% nước đầu.
+9. Độ ẩm, aw, WHC lần lượt trả lời câu hỏi nào? | từ: D007-C3 | đáp: Bao nhiêu nước; nước sẵn sàng đến đâu; nền giữ được không.
+10. Hai mẫu cùng độ ẩm nhưng khác bền: vì sao? | từ: D007-C6 | đáp: Độ ẩm chỉ đếm lượng nước, không nói trạng thái và khả năng di chuyển của nước.
+[/ÔN RẢI]
+
+**Bài sau, D008:** Hai loại bánh cùng độ ẩm 20%, vì sao một loại mốc nhanh còn loại kia thì không? Câu trả lời nằm ở hoạt độ nước aw.
+
+---
+
+## Từ điển thuật ngữ
 
 | Term | IPA | Loại từ | Nghĩa Anh | Nghĩa Việt | Ví dụ Anh – Việt |
 |---|---|---|---|---|---|
@@ -561,46 +498,42 @@ A. Là phương pháp thay thế để đo aw  B. Đo được độ linh độn
 | wet basis | /wet ˈbeɪsɪs/ | noun phrase | Water mass divided by total sample mass | cơ sở ướt | Fresh okara contains 78.8% water on a wet basis. – Okara tươi chứa 78,8% nước theo cơ sở ướt. |
 | dry basis | /draɪ ˈbeɪsɪs/ | noun phrase | Water mass divided by dry-matter mass | cơ sở khô | On a dry basis, the value is 3.72 g/g. – Theo cơ sở khô, giá trị là 3,72 g/g. |
 | constant weight | /ˈkɒnstənt weɪt/ | noun phrase | The point at which repeated drying no longer changes the sample mass beyond a set limit | khối lượng không đổi | Samples were dried to constant weight at 105 °C. – Mẫu được sấy đến khối lượng không đổi ở 105 °C. |
-| water-holding capacity | /ˈwɔːtər ˈhoʊldɪŋ kəˈpæsəti/ | noun phrase | The ability of a food matrix to retain water under a defined force or treatment | khả năng giữ nước | Repeated freeze–thaw cycles reduce water-holding capacity. – Đông – rã nhiều lần làm giảm khả năng giữ nước. |
+| water-holding capacity | /ˈwɔːtər ˈhoʊldɪŋ kəˈpæsəti/ | noun phrase | The ability of a food matrix to retain water under a defined force or treatment | khả năng giữ nước | Repeated freeze–thaw cycles reduce water-holding capacity. – Đông rã nhiều lần làm giảm khả năng giữ nước. |
 | transverse relaxation time (T2) | /trænzˈvɜːrs ˌriːlækˈseɪʃən taɪm/ | noun phrase | NMR time constant; within a defined system, shorter T2 usually means more restricted water | thời gian hồi phục ngang | A shorter T2 indicates more restricted water. – T2 ngắn hơn cho thấy nước bị hạn chế hơn. |
 | low-field NMR | /loʊ fiːld ˌen em ˈɑːr/ | noun phrase | Nuclear magnetic resonance at low magnetic field, used to study water non-destructively | cộng hưởng từ hạt nhân trường thấp | Low-field NMR tracked water changes during drying. – LF-NMR theo dõi biến đổi nước khi sấy. |
-| Karl Fischer titration | /kɑːrl ˈfɪʃər taɪˈtreɪʃən/ | noun phrase | Chemical titration for water, useful for very dry or hygroscopic samples | chuẩn độ Karl Fischer | Milk powder is often tested by Karl Fischer titration. – Bột sữa thường được kiểm bằng chuẩn độ Karl Fischer. |
-| syneresis | /sɪˈnɪərəsɪs/ | noun | The expulsion of liquid (serum) from a gel | sự tách dịch (rỉ huyết thanh) khỏi gel | Syneresis appears as whey on top of yogurt. – Hiện tượng tách dịch thấy rõ ở lớp whey trên mặt sữa chua. |
+| Karl Fischer titration | /kɑːrl ˈfɪʃər taɪˈtreɪʃən/ | noun phrase | Chemical titration for water, useful for very dry or hygroscopic samples | chuẩn độ Karl Fischer | Karl Fischer titration suits very dry samples. – Chuẩn độ Karl Fischer hợp với mẫu rất khô. |
+| syneresis | /sɪˈnɪərəsɪs/ | noun | The expulsion of liquid (serum) from a gel | sự tách dịch khỏi gel | Syneresis appears as whey on top of yogurt. – Tách dịch thấy rõ ở lớp whey trên mặt sữa chua. |
 | okara | /oʊˈkɑːrə/ | noun | The insoluble soybean residue left after making soy milk or tofu | bã đậu nành | Okara is a high-moisture by-product. – Bã đậu nành là phụ phẩm có độ ẩm cao. |
 
 ---
 
-## NGUỒN THAM KHẢO
+## Nguồn tham khảo
 
-**Tài liệu (đã mở đọc ngày 03/11/2026)**
-- Wiesman Z. (2026). Beyond Moisture Content: Time-Domain NMR for Quantifying Molecular Mobility, Water Accessibility and Food Function. *Molecules*, 31(19), 3476. DOI: 10.3390/molecules31193476. https://pmc.ncbi.nlm.nih.gov/articles/PMC13666914/ – CC BY 4.0. **Bài đọc chính.**
-- Chen T., Zhang W., Liu Y., Song Y., Wu L., Liu C., Wang T. (2022). Water Status and Predictive Models of Moisture Content during Drying of Soybean Dregs Based on LF-NMR. *Molecules*, 27(14), 4421. DOI: 10.3390/molecules27144421. https://www.mdpi.com/1420-3049/27/14/4421 – CC BY (metadata trang ghi 3.0).
-- Kuna A. Water in food systems. e-PG Pathshala (INFLIBNET/UGC, Ấn Độ). https://ebooks.inflibnet.ac.in/ftp03/chapter/water-in-food-systems – CC BY-NC 4.0. Học liệu đại học, không bình duyệt.
-- Greenfield H., Southgate D.A.T. (2003). Food Composition Data: Production, Management and Use, 2nd ed. FAO, Rome. Chương 7 "Review of methods of analysis" – mục Water. https://www.fao.org/4/y4705e/y4705e12.htm – © FAO; chỉ tóm tắt bằng lời.
-- Wang X.-Y., Xie J., Chen X.-J. (2021). Applications of Non-invasive and Novel Methods of Low-Field NMR and MRI in Aquatic Products. *Frontiers in Nutrition*, 8, 651804. DOI: 10.3389/fnut.2021.651804. https://pmc.ncbi.nlm.nih.gov/articles/PMC8044990 – CC BY.
-- Bài về phi lê cá rô phi đông – rã: J Food Sci (2023), DOI 10.1111/1750-3841.16466 – chỉ dùng phần tóm tắt (abstract) trên chỉ mục PubMed.
-- Clark M.A., Douglas M., Choi J. (2018). Biology 2e, mục 2.2 Water. OpenStax – CC BY-NC-SA (nhắc lại từ D006).
+**Tài liệu (đã mở đọc; ngày ghi sau mỗi nguồn)**
+- Wiesman Z. (2026). Beyond Moisture Content: Time-Domain NMR for Quantifying Molecular Mobility, Water Accessibility and Food Function. *Molecules*, 31(19), 3476. DOI: 10.3390/molecules31193476. https://pmc.ncbi.nlm.nih.gov/articles/PMC13666914/ – CC BY 4.0 (03/11/2026; mục 2 mở lại 11/11/2026). Bài đọc chính.
+- Chen T., Zhang W., Liu Y., Song Y., Wu L., Liu C., Wang T. (2022). Water Status and Predictive Models of Moisture Content during Drying of Soybean Dregs Based on LF-NMR. *Molecules*, 27(14), 4421. DOI: 10.3390/molecules27144421. https://www.mdpi.com/1420-3049/27/14/4421 – CC BY (metadata trang ghi 3.0) (03/11/2026).
+- Kuna A. Water in food systems. e-PG Pathshala (INFLIBNET/UGC, Ấn Độ). https://ebooks.inflibnet.ac.in/ftp03/chapter/water-in-food-systems – CC BY-NC 4.0 (03/11/2026). Học liệu đại học, không bình duyệt.
+- Greenfield H., Southgate D.A.T. (2003). Food Composition Data: Production, Management and Use, 2nd ed. FAO, Rome. Chương 7, mục Water. https://www.fao.org/4/y4705e/y4705e12.htm – © FAO; chỉ tóm tắt bằng lời (03/11/2026).
+- Wang X.-Y., Xie J., Chen X.-J. (2021). Applications of Non-invasive and Novel Methods of Low-Field NMR and MRI in Aquatic Products. *Frontiers in Nutrition*, 8, 651804. DOI: 10.3389/fnut.2021.651804. https://pmc.ncbi.nlm.nih.gov/articles/PMC8044990 – CC BY (03/11/2026).
+- Bài về phi lê cá rô phi đông rã: J Food Sci (2023), DOI 10.1111/1750-3841.16466 – chỉ đọc phần tóm tắt trên PubMed.
 
-**Hình và mô hình 3D**
-- Okara (soybean pulp).jpg – Pax Ahimsa Gethen, Wikimedia Commons, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Okara_(soybean_pulp).jpg
-- Exsiccator hg.jpg – Hannes Grobe/AWI, Wikimedia Commons, CC BY 3.0. https://commons.wikimedia.org/wiki/File:Exsiccator_hg.jpg
-- KF Titrator.jpg – Datamax, Wikimedia Commons, Public domain. https://commons.wikimedia.org/wiki/File:KF_Titrator.jpg
-- Chen và cs. (2022), Hình 2, 5, 6, 8 – *Molecules* (MDPI), CC BY; ghi công tác giả và DOI khi dùng.
-- PubChem CID 962 (nước), CID 5793 (D-glucose) – NCBI PubChem, dữ liệu công khai.
-- RCSB PDB 2VB1 – "HEWL at 0.65 angstrom resolution", Wang J., Dauter M., Alkire R., Joachimiak A., Dauter Z. (2007); https://www.rcsb.org/structure/2VB1 – dữ liệu PDB dùng tự do (CC0).
-- Các hình "tu-ve" – tự vẽ cho album.
+**Hình**
+- Không dùng ảnh và không dùng mô hình 3D. Bốn mô phỏng và hoạt hình (nuoc-bi-nhot, t2-tat-dan, doi-co-so, say-can-bang) là hình tự dựng gắn với một khẳng định và một nguồn, nêu giới hạn ngay trong từng khối. Các hình trang trí và hình minh họa cũ (khoảng 40 hình "tu-ve", ảnh Wikimedia Commons, hình Chen 2022, mô hình 3D PubChem và PDB) đã bỏ.
 
 ---
 
-## CẦN KIỂM TRA LẠI
+## Cần kiểm tra lại
 
-1. Giấy phép bài Chen và cs. (2022): metadata trang ghi CC BY 3.0; MDPI thường dùng CC BY 4.0 – cần xem dòng giấy phép trên PDF trước khi chép hình.
-2. Chen (2022) có số mâu thuẫn (mục 3.3.2 ghi 16,31 và 1,19 g/g; mục 3.1.1 ghi 0,01 g/g ở 7 h) và một giá trị T23 in lỗi – album dùng số ở mục 3.1.1 và bảng 1.
-3. Chen (2022) không ghi bề dày lớp bã và tốc độ gió; không có tỷ lệ % từng dạng nước theo thời gian (chỉ mô tả định tính) – album không tự suy số.
+1. Giấy phép bài Chen và cs. (2022): metadata trang ghi CC BY 3.0, MDPI thường dùng CC BY 4.0; cần xem PDF trước khi chép hình (album hiện không chép hình).
+2. Chen (2022) có số mâu thuẫn (mục 3.3.2 ghi 16,31 và 1,19 g/g; mục 3.1.1 ghi 0,01 g/g ở 7 giờ) và một giá trị T23 in lỗi; album dùng số ở mục 3.1.1 và bảng 1.
+3. Chen (2022) không ghi bề dày lớp bã, tốc độ gió và tỉ lệ phần trăm từng dạng nước theo thời gian; album không tự suy số. Album cũng không giải thích vì sao đường cong sấy nhanh dần ở cuối, vì bài gốc không nêu nguyên nhân.
 4. Thông tin bài cá rô phi (DOI 10.1111/1750-3841.16466) chỉ lấy từ tóm tắt, chưa đọc toàn văn.
-5. Kuna không cho số liệu định lượng về nước liên kết (nhiệt độ đông, lượng); trang ghi giấy phép theo tên học phần "Food Additives and Food Quality Assurance" khác với "Food Chemistry" (đã ghi ở D006).
-6. Con số 540 cal/g là nhiệt hóa hơi ở điểm sôi (Kuna); sấy ở 80 °C thì giá trị thực khác – bài 3 chỉ là ước lượng tối thiểu, mục tiêu 10% ẩm là giả định luyện tập.
-7. Phiên âm IPA trong Từ điển chưa đối chiếu với từ điển chuẩn.
-8. Phần cuối (≈ 400 ký tự) trang PMC của Wiesman (2026) chưa đọc – có thể chỉ là chú thích/tài liệu tham khảo.
+5. Kuna không cho số định lượng về nước liên kết; tên học phần trên trang ("Food Additives and Food Quality Assurance") khác với "Food Chemistry" đã ghi ở D006.
+6. Con số 540 cal/g là nhiệt hóa hơi ở điểm sôi (Kuna); sấy ở 80 °C thì giá trị thực khác. Bài tính 3 chỉ là ước lượng tối thiểu và mục tiêu 10% là giả định luyện tập.
+7. Mô hình t2-tat-dan dùng hàm mũ đơn cho từng nhóm; Wiesman (2026) nói tín hiệu "có thể biểu diễn" bằng hàm mũ rời rạc hoặc phân bố. Cách vẽ này là của album, chưa đối chiếu giáo trình NMR.
+8. Hoạt hình nuoc-bi-nhot vẽ lớp nước bám thành là cách minh họa của album; Kuna không mô tả vị trí đó trên tế bào cụ thể.
+9. Phần cuối (khoảng 400 ký tự) trang PMC của Wiesman (2026) chưa đọc; có thể chỉ là chú thích hoặc tài liệu tham khảo.
+10. Phiên âm IPA chưa đối chiếu từ điển chuẩn.
+11. Ví dụ whey trên sữa chua (trang tách dịch) và bột sữa (Karl Fischer) là ví dụ của album, chưa gắn nguồn mở.
 
-verified: true — Mọi định nghĩa, cơ chế và số liệu đã đối chiếu với các nguồn mở đọc trực tiếp ngày 03/11/2026 (Wiesman 2026 trên PMC, Chen 2022 trên MDPI, học liệu Kuna, FAO 2003 chương 7, Wang 2021, trang RCSB 2VB1, trang Wikimedia Commons của từng hình); các con số tự tính đã chạy lại bằng Python; điểm chưa chắc chắn đưa vào "Cần kiểm tra lại".
+verified: false — Bản v3 chờ Hoàng duyệt; nội dung gốc đã kiểm chứng 03/11/2026, số tính chạy lại bằng Python 11/11/2026 (X = 3,717 g/g; 49,30 kg; 50,70 kg; 64,3%; 23,56 kg; 76,44 kg; 41.278 kcal; 172,7 MJ; tín hiệu 20 ms: 0, 5,9%, 74,9%).

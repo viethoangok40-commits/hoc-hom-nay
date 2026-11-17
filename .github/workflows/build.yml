@@ -6,6 +6,8 @@ on:
     paths:
       - 'bai/**'
       - 'assets/**'
+      - 'tu-dien/**'
+      - 'hoat-hinh/**'
       - 'templates/**'
       - 'lib/**'
       - 'build-album.mjs'

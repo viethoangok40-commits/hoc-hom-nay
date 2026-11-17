@@ -1,635 +1,655 @@
 # CNTP-Ngay01 · Công nghệ chế biến – Ch5 Tách và cô: ly tâm, lọc, membrane, trích ly
 
-| Mục | Nội dung |
-|---|---|
-| Mã bài | CNTP-Ngay01_2026-11-02_cncb |
-| Ngày | Thứ 2, 02/11/2026 |
-| Chuẩn bị cho | Công nghệ chế biến TP · Thứ 3 03/11/2026 · 07:00–11:40 · ND105 |
-| Số chương | 7 |
-| Khung giờ gợi ý | Sáng có lớp Kỹ năng tìm việc làm → Chương 1–4: 13:30–15:00 · Chương 7 (tiếng Anh): 18:30–19:15 · Chương 5–6: 19:45–20:30 · dừng 21:30 |
-| Phong cách | Bảng đen phấn, hình tự vẽ; bấm → / Space tới ý sau, ← lùi |
+- **Mã bài:** CNTP-Ngay01_2026-11-02_cncb · Bàn học CNTP · Công nghệ chế biến TP
+- **Ngày:** Thứ 2, 02/11/2026
+- **Bản:** viết lại theo KHUNG v3 (09/11/2026) từ bản đã kiểm chứng ngày 02/11/2026; nội dung khoa học giữ nguyên, chỉ tái cấu trúc
+- **Chuẩn bị cho:** Công nghệ chế biến TP · Thứ 3 03/11/2026 · 07:00–11:40
+- **Số chương:** 9 · khoảng 100 phút chuyên ngành + 35 phút tiếng Anh
+- **Gợi ý xếp giờ:** sáng có lớp → Chương 1–5: 13:30–15:00 và 19:45–20:30 · Chương 6–7: 19:45–20:30 · Chương 8–9 (tiếng Anh): 18:30–19:15
 
-**Lộ trình:** Ch1 Ly tâm → Ch2 Lọc → Ch3 Phân riêng bằng membrane → Ch4 Trích ly → Ch5 Ngân hàng đề (câu 30, 33, 36, 40) → Ch6 Bài báo: màng lọc nước quả (Membranes 2023) → Ch7 Tiếng Anh: IELTS Writing Task 2 – Giao thông đô thị.
+> **Câu hỏi thật:** Một can sữa tươi để yên vài giờ thì váng béo nổi lên. Nhà máy làm thế nào để tách hết béo chỉ trong vài giây, và với một hỗn hợp khác (bia đục, nước quả có pectin, hạt cà phê chứa caffeine) thì phải đổi sang quá trình tách nào?
 
-**Lời nhắc:** Bàn học bắt đầu lại từ Ngày 1 theo dạng album. Ưu tiên Chương 1–3 trước buổi học; nếu giảng viên chưa dạy Ch5 mà còn phần Ch4, hãy báo trong chat để mình dời kế hoạch. Mang theo câu 17, 42, 64 để hỏi đáp án.
+**Sau bài này bạn tự làm được:**
+1. Chọn đúng quá trình tách (ly tâm, lọc, membrane, trích ly) theo tính chất của hỗn hợp, và nêu động lực của từng quá trình.
+2. Tính lực ly tâm đổi thế nào khi đổi vận tốc góc, tính độ phân riêng R của màng, và nêu mục đích công nghệ (chuẩn bị, khai thác, bảo quản, hoàn thiện) của một công đoạn.
+3. Làm đúng các câu ngân hàng đề về phân riêng và trích ly, và viết câu mở bài IELTS Task 2 nêu rõ quan điểm.
+
+**Lời nhắc:** nếu giảng viên chưa dạy Ch5 mà còn phần Ch4, hãy báo lại để dời kế hoạch học. Mang theo câu 17, 42, 64 để hỏi đáp án.
+
+**Nhớ lại:** đây là bài đầu tiên của bộ Bàn học CNTP nên chưa có bài trước để ôn. Phần Nhớ lại bắt đầu từ bài CNTP-Ngay02.
 
 ---
 
-## Chương 1 – Ly tâm (Centrifugation)
+## Chương 1 – Ly tâm: phân riêng theo khối lượng riêng
 
-*Thời gian: 20 phút · bắt đầu 13:30 · Vì sao: Ch5 'Tách và cô các thành phần của TP' là phần tiếp theo sau Ch4 trong cấu trúc bài giảng; ly tâm có 1 câu trong ngân hàng đề (câu 64).*
+[HỎI TRƯỚC: Động lực của ly tâm là gì, và nó phân biệt hai chất dựa vào tính chất nào? | đáp: Động lực là lực ly tâm; yếu tố tạo khác biệt là khối lượng riêng. | vì sao: Giáo trình nêu đúng hai ý này ở mục ly tâm; chênh lệch khối lượng riêng càng lớn thì tách càng dễ (Lê Văn Việt Mẫn và cs., 2011, tr.80).]
 
-### Cảnh 1.1 – Ly tâm là gì
-- **Câu mở:** Một can sữa tươi để yên vài giờ thì váng béo nổi lên. Làm sao nhà máy tách hết béo trong vài giây?
-- **Ý 1:** Ly tâm dùng lực ly tâm để phân riêng các cấu tử có khối lượng riêng khác nhau.
-  - Chữ trên bảng: Ly tâm: phân riêng theo khối lượng riêng
-  - [HÌNH: ly-tam-ong-quay.svg | chỗ: trái | hiện: chuyển động | cùng ý: 1 | nhấn: ống quay]
-- **Ý 2:** Động lực là lực ly tâm; yếu tố tạo khác biệt là khối lượng riêng. Chênh lệch càng lớn thì tách càng dễ.
-  - Chữ trên bảng: Động lực: lực ly tâm / Khác biệt: khối lượng riêng
-- **Ý 3:** Công thức: F = m·R·ω². Lực tỷ lệ với bán kính và với bình phương vận tốc góc.
-  - Chữ trên bảng: F = m·R·ω²
-  - [HÌNH: cong-thuc-luc-ly-tam.svg | chỗ: phải | hiện: vẽ nét | cùng ý: 3 | nhấn: ω²]
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.80, 86
+### Cảnh 1.1 – Ly tâm phân riêng các cấu tử nhờ chênh lệch khối lượng riêng dưới lực ly tâm
 
-### Cảnh 1.2 – Ly tâm tách những gì
-- **Ý 1:** Bốn đối tượng: hai chất lỏng không tan vào nhau (nhũ tương o/w, w/o); huyền phù (làm trong nước quả); ly tâm lọc; hạt lơ lửng trong khí (tách bụi).
-  - Chữ trên bảng: 4 đối tượng: lỏng–lỏng · huyền phù / · ly tâm lọc · bụi trong khí
-  - [HÌNH: bon-o-doi-tuong.svg | chỗ: giữa | hiện: dựng từng bước | cùng ý: 1 | nhấn: lỏng–lỏng]
-- **Ý 2:** Trong ly tâm lỏng – lỏng, chất lỏng nặng ra sát thành, chất lỏng nhẹ ở gần tâm; giữa hai lớp là mặt phân chia pha.
-  - Chữ trên bảng: Nặng → sát thành · Nhẹ → gần tâm
-  - [HÌNH: hai-vanh-khuyen.svg | chỗ: trái | hiện: chuyển động | cùng ý: 2 | nhấn: mặt phân chia pha (vàng)]
-- **Ý 3:** Để phân định mặt phân chia, thiết bị có "vòng chặn" (ring dam) hay "dĩa trọng lực" (gravity disc).
-  - Chữ trên bảng: ring dam / gravity disc
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.80–83
+- **Thẻ:** Định nghĩa
+- Ly tâm dùng lực ly tâm để phân riêng các cấu tử có khối lượng riêng khác nhau. Động lực là lực ly tâm, yếu tố tạo khác biệt là khối lượng riêng; chênh lệch càng lớn thì tách càng dễ.
+- Công thức: F = m·R·ω² (F: N; m: kg; R: m; ω: rad/s). Lực tỷ lệ với bán kính và với bình phương vận tốc góc (Lê Văn Việt Mẫn và cs., 2011, tr.80, 86).
+- Nhớ: F = m·R·ω² · động lực: lực ly tâm · khác biệt: khối lượng riêng.
 
-### Cảnh 1.3 – Yếu tố ảnh hưởng
-- **Ý 1:** Độ nhớt pha lỏng càng lớn, trở lực càng lớn, tách càng chậm.
-  - Chữ trên bảng: Nhớt ↑ → tách chậm
-  - [HÌNH: thanh-yeu-to.svg | chỗ: phải | hiện: dựng từng bước | cùng ý: 1 | nhấn: độ nhớt]
-- **Ý 2:** Chênh lệch khối lượng riêng của hai chất lỏng không nên thấp hơn 3%.
-  - Chữ trên bảng: Δρ ≥ 3%
-- **Ý 3:** Nhiệt độ cao làm giảm độ nhớt; tách béo sữa thường gia nhiệt khoảng 60 °C. Nhưng nhiệt có thể làm biến đổi vitamin, protein.
-  - Chữ trên bảng: Sữa: ≈ 60 °C trước khi tách béo
-  - [HÌNH: nhiet-ke-60.svg | chỗ: trái | hiện: chuyển động | cùng ý: 3 | nhấn: vạch 60 °C (cam đỏ)]
-- **Ý 4:** Vận tốc và bán kính lớn thì lực lớn, tách tốt hơn, nhưng thiết bị phải bền hơn, đắt hơn. Thời gian lưu dài tách tốt nhưng giảm năng suất.
-  - Chữ trên bảng: ω, R ↑ → tách tốt, máy đắt / Lưu lâu → tốt nhưng chậm
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.86–87
+### Cảnh 1.2 – Ly tâm xử lý bốn loại hỗn hợp và dùng vòng chặn để định mặt phân chia lỏng–lỏng
 
-### Cảnh 1.4 – Ứng dụng và thiết bị
-- **Ý 1:** Ứng dụng: tách béo sữa (sữa gầy có thể còn dưới 0,05% béo), tinh luyện dầu, làm trong bia, dịch nho, nước quả.
-  - Chữ trên bảng: Sữa gầy: < 0,05% béo
-  - [HÌNH: ung-dung-ly-tam.svg | chỗ: giữa | hiện: trượt vào | cùng ý: 1 | nhấn: sữa]
-- **Ý 2:** Tùy vị trí trong quy trình, mục đích có thể là chuẩn bị, khai thác, bảo quản hoặc hoàn thiện.
-  - Chữ trên bảng: Mục đích: chuẩn bị · khai thác / · bảo quản · hoàn thiện
-- **Ý 3:** Ly tâm ống: bán kính 10–15 cm, 15.000–50.000 vòng/phút. Ly tâm đĩa: thân trụ khoảng 20–100 cm, nhiều đĩa hình nón cụt xếp chồng.
-  - Chữ trên bảng: Ống: 15.000–50.000 v/ph / Đĩa: nón cụt xếp chồng
-  - [HÌNH: ly-tam-dia.svg | chỗ: phải | hiện: chuyển động | cùng ý: 3 | nhấn: chồng đĩa, dòng sữa (xanh dương)]
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.84–85, 87
-- **Câu dẫn chuyển:** Ly tâm dựa vào khối lượng riêng. Còn khi hạt lớn hơn lỗ, ta chỉ cần một tấm chắn: đó là lọc.
+- **Thẻ:** Cơ chế
+- Bốn đối tượng: hai chất lỏng không tan vào nhau (nhũ tương o/w, w/o); huyền phù (làm trong nước quả); ly tâm lọc; hạt lơ lửng trong khí (tách bụi).
+- Trong ly tâm lỏng – lỏng, chất lỏng nặng ra sát thành, chất lỏng nhẹ ở gần tâm; giữa hai lớp là mặt phân chia pha. Để phân định mặt phân chia, thiết bị có "vòng chặn" (ring dam) hay "dĩa trọng lực" (gravity disc) (Lê Văn Việt Mẫn và cs., 2011, tr.80–83).
+- Nhớ: Nặng → sát thành · nhẹ → gần tâm · ring dam / gravity disc định mặt phân chia.
 
-**Công thức:** F = m·R·ω²  (F: N; m: kg; R: m; ω: rad/s)
+### Cảnh 1.3 – Độ nhớt, chênh lệch khối lượng riêng, nhiệt độ, vận tốc và thời gian lưu cùng quyết định hiệu quả tách
 
-### Cảnh 1.5 – Tự kiểm tra (5 câu, đạt từ 4)
-[HÌNH: bang-quiz.svg | chỗ: thay bảng | hiện: mờ dần | cùng ý: 1 | nhấn: phương án đúng (xanh lá) khi lộ đáp án]
+- **Thẻ:** Cơ chế
+- Độ nhớt pha lỏng càng lớn thì trở lực càng lớn, tách càng chậm. Chênh lệch khối lượng riêng của hai chất lỏng không nên thấp hơn 3%.
+- Nhiệt độ cao làm giảm độ nhớt; tách béo sữa thường gia nhiệt khoảng 60 °C. Nhưng nhiệt có thể làm biến đổi vitamin, protein.
+- Vận tốc và bán kính lớn thì lực lớn, tách tốt hơn, nhưng thiết bị phải bền hơn, đắt hơn. Thời gian lưu dài tách tốt nhưng giảm năng suất (Lê Văn Việt Mẫn và cs., 2011, tr.86–87).
+- Nhớ: Nhớt ↑ → tách chậm · Δρ ≥ 3% · sữa ≈ 60 °C trước khi tách béo.
+
+### Cảnh 1.4 – Ly tâm ống và ly tâm đĩa phục vụ tách béo sữa, tinh luyện dầu và làm trong đồ uống
+
+- **Thẻ:** Ví dụ số
+- Ứng dụng: tách béo sữa (sữa gầy có thể còn dưới 0,05% béo), tinh luyện dầu, làm trong bia, dịch nho, nước quả. Tùy vị trí trong quy trình, mục đích có thể là chuẩn bị, khai thác, bảo quản hoặc hoàn thiện.
+- Ly tâm ống: bán kính 10–15 cm, 15.000–50.000 vòng/phút. Ly tâm đĩa: thân trụ khoảng 20–100 cm, nhiều đĩa hình nón cụt xếp chồng (Lê Văn Việt Mẫn và cs., 2011, tr.84–85, 87).
+- Nhớ: Ống: 15.000–50.000 v/ph · đĩa: nón cụt xếp chồng · sữa gầy < 0,05% béo.
+
+[VÍ DỤ GIẢI]
+- Bước 1: Đề: giữ nguyên m và R, tăng vận tốc góc ω lên gấp đôi. Lực ly tâm đổi thế nào? | vì sao: Viết F = m·R·ω² để thấy ω nằm ở số mũ 2.
+- Bước 2: F' = m·R·(2ω)² = 4·m·R·ω² = 4F. | vì sao: Bình phương 2 là 4, nên lực tăng 4 lần chứ không phải 2 lần.
+- Bỏ trống: Nếu ω tăng gấp ba thì F tăng ____ lần | đáp: 9 (vì 3² = 9)
+- Tự làm: Giữ nguyên m và ω, giảm bán kính R còn một nửa. F đổi thế nào? | đáp: Giảm còn một nửa, vì F tỷ lệ thuận với R.
+[/VÍ DỤ GIẢI]
+
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao tăng nhiệt độ giúp ly tâm nhanh hơn nhưng có thể làm hỏng vitamin, protein. | đáp: Nhiệt độ cao làm giảm độ nhớt pha liên tục nên trở lực giảm và tách nhanh hơn, nhưng nhiệt có thể làm biến đổi vitamin, protein (Lê Văn Việt Mẫn và cs., 2011, tr.86).]
+
+[QUIZ]
 1. Động lực và yếu tố tạo sự khác biệt để phân riêng trong quá trình ly tâm lần lượt là gì?
-   - A. Chênh lệch áp suất – kích thước hạt
-   - B. Lực ly tâm – khối lượng riêng
-   - C. Chênh lệch nồng độ – độ hòa tan
-   - D. Nhiệt độ – nhiệt độ sôi
+  - A) Chênh lệch áp suất – kích thước hạt
+  - B) Lực ly tâm – khối lượng riêng
+  - C) Chênh lệch nồng độ – độ hòa tan
+  - D) Nhiệt độ – nhiệt độ sôi
+  - đáp: B
+  - vì sao: Động lực là lực ly tâm, yếu tố khác biệt là khối lượng riêng (tr.80); sai A: chênh lệch áp suất là động lực của lọc; sai C: chênh lệch nồng độ là động lực của trích ly; sai D: nhiệt độ sôi không phải yếu tố của ly tâm.
 2. Nếu tăng gấp đôi vận tốc góc ω (giữ nguyên m, R), lực ly tâm thay đổi thế nào?
-   - A. Tăng 2 lần
-   - B. Tăng 4 lần
-   - C. Giảm 2 lần
-   - D. Không đổi
+  - A) Tăng 2 lần
+  - B) Tăng 4 lần
+  - C) Giảm 2 lần
+  - D) Không đổi
+  - đáp: B
+  - vì sao: F = m·R·ω² tỷ lệ với bình phương vận tốc góc nên tăng 2² = 4 lần (tr.80, 86); sai A: nhầm ω với ω².
 3. Khi tách béo khỏi sữa, sữa nguyên liệu thường được gia nhiệt đến khoảng bao nhiêu và vì sao?
-   - A. ≈ 60 °C, để giảm độ nhớt pha liên tục, tăng hiệu quả phân riêng
-   - B. ≈ 100 °C, để tiêu diệt vi sinh vật
-   - C. ≈ 4 °C, để chất béo đông đặc dễ tách
-   - D. ≈ 30 °C, để enzyme lipase hoạt động
+  - A) ≈ 60 °C, để giảm độ nhớt pha liên tục, tăng hiệu quả phân riêng
+  - B) ≈ 100 °C, để tiêu diệt vi sinh vật
+  - C) ≈ 4 °C, để chất béo đông đặc dễ tách
+  - D) ≈ 30 °C, để enzyme lipase hoạt động
+  - đáp: A
+  - vì sao: Nhiệt độ cao làm giảm độ nhớt, giảm trở lực; tách béo sữa thường gia nhiệt khoảng 60 °C (tr.86); sai B, C, D: không khớp con số giáo trình và cơ chế giảm độ nhớt.
 4. Trong ly tâm phân riêng hai chất lỏng, chênh lệch khối lượng riêng của hai chất lỏng KHÔNG nên thấp hơn bao nhiêu?
-   - A. 0,3%
-   - B. 3%
-   - C. 13%
-   - D. 30%
+  - A) 0,3%
+  - B) 3%
+  - C) 13%
+  - D) 30%
+  - đáp: B
+  - vì sao: Giáo trình ghi độ chênh lệch khối lượng riêng của hai chất lỏng không nên thấp hơn 3% (tr.86); các con số còn lại không có trong giáo trình.
 5. Cơ cấu nào giúp phân định mặt phân chia pha trong thiết bị ly tâm lỏng – lỏng?
-   - A. Bột trợ lọc diatomite
-   - B. Vòng chặn (ring dam) / dĩa trọng lực (gravity disc)
-   - C. Cánh khuấy turbine
-   - D. Màng thẩm thấu ngược
+  - A) Bột trợ lọc diatomite
+  - B) Vòng chặn (ring dam) / dĩa trọng lực (gravity disc)
+  - C) Cánh khuấy turbine
+  - D) Màng thẩm thấu ngược
+  - đáp: B
+  - vì sao: Thiết bị được trang bị vòng có bán kính tương đương bán kính cân bằng, gọi là vòng chặn hay dĩa trọng lực (tr.83); sai A: bột trợ lọc thuộc quá trình lọc; sai D: màng thuộc membrane.
+[/QUIZ]
 
-*Đáp án ở mục "Đáp án" cuối file.*
-
-**Hướng dẫn:** Đọc giáo trình LVVM mục 2.1.5 tr.80–87 (chỉ cần phần cơ sở khoa học, yếu tố ảnh hưởng, ứng dụng). · Tự trả lời: vì sao tăng nhiệt độ giúp ly tâm nhanh hơn nhưng có thể làm hỏng vitamin, protein? · Làm bài kiểm tra 5 câu.
+[TÓM: Ly tâm phân riêng theo khối lượng riêng, động lực là lực ly tâm F = m·R·ω² | Lỏng–lỏng cần vòng chặn hoặc dĩa trọng lực, Δρ không dưới 3%, sữa gia nhiệt khoảng 60 °C | Ly tâm ống 15.000–50.000 vòng/phút, ly tâm đĩa có đĩa nón cụt xếp chồng]
 
 ---
 
-## Chương 2 – Lọc (Filtration)
+## Chương 2 – Lọc: giữ pha rắn lại bằng vách ngăn xốp
 
-*Thời gian: 20 phút · bắt đầu 13:55 · Vì sao: Lọc là quá trình phân riêng cơ bản của Ch5; ngân hàng đề có câu 30 và 42 về lọc.*
+[HỎI TRƯỚC: Vì sao nhà máy bia lọc dịch nha ở gần 80 °C nhưng lại lọc bia ở 2–4 °C? | đáp: Dịch nha lọc ở 76–78 °C, còn bia sau lên men phụ lọc ở 2–4 °C. | vì sao: Nhiệt cao làm giảm độ nhớt nên lọc nhanh, nhưng tốn năng lượng và mất cấu tử nhạy nhiệt; bia sau lên men phụ lọc ở 2–4 °C để tách cặn men và tạp chất dạng keo (Lê Văn Việt Mẫn và cs., 2011, tr.97).]
 
-### Cảnh 2.1 – Lọc là gì
-- **Câu mở:** Vì sao nhà máy bia lọc dịch nha ở gần 80 °C nhưng lại lọc bia ở 2–4 °C?
-- **Ý 1:** Lọc phân riêng hỗn hợp không đồng nhất nhờ vách ngăn xốp: pha lỏng đi qua thành dịch lọc, pha rắn giữ lại thành bã lọc.
-  - Chữ trên bảng: Huyền phù → dịch lọc + bã lọc
-  - [HÌNH: vach-ngan-loc.svg | chỗ: trái | hiện: chuyển động | cùng ý: 1 | nhấn: bã lọc]
-- **Ý 2:** Lọc bề mặt: hạt lớn hơn mao dẫn, bã nằm trên vách. Lọc bề sâu: hạt nhỏ hơn mao dẫn, bã nằm trong vách. Thực tế thường kết hợp cả hai.
-  - Chữ trên bảng: Bề mặt · Bề sâu · Kết hợp
-  - [HÌNH: be-mat-be-sau.svg | chỗ: phải | hiện: dựng từng bước | cùng ý: 2 | nhấn: vị trí bã]
-- **Ý 3:** Muốn thu bã thì chọn lọc bề mặt.
-  - Chữ trên bảng: Thu bã → lọc bề mặt
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.91–92
+### Cảnh 2.1 – Lọc giữ pha rắn trên hoặc trong vách ngăn xốp, nên muốn thu bã thì chọn lọc bề mặt
 
-### Cảnh 2.2 – Vách ngăn và động lực
-- **Ý 1:** Vách ngăn: dạng hạt (cát, than hoạt tính), dạng tấm (lưới inox, cotton, nylon, PP…), vật xốp (ceramic, thủy tinh).
-  - Chữ trên bảng: Hạt · Tấm · Vật xốp
-- **Ý 2:** Bột trợ lọc thông dụng nhất là diatomite (kieselguhr), chủ yếu SiO₂.
-  - Chữ trên bảng: Bột trợ lọc: diatomite (SiO₂)
-  - [HÌNH: bot-tro-loc.svg | chỗ: trái | hiện: mờ dần | cùng ý: 2 | nhấn: lớp bột]
-- **Ý 3:** Động lực là chênh lệch áp suất ΔP = P₁ − P₂; tạo bằng áp suất thủy tĩnh, bơm (lọc áp suất) hoặc hút chân không (lọc chân không).
-  - Chữ trên bảng: ΔP = P₁ − P₂ / thủy tĩnh · áp suất · chân không
-  - [HÌNH: ba-cach-tao-dp.svg | chỗ: phải | hiện: dựng từng bước | cùng ý: 3 | nhấn: mũi tên áp suất]
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.92–93
+- **Thẻ:** Định nghĩa
+- Lọc phân riêng hỗn hợp không đồng nhất nhờ vách ngăn xốp: pha lỏng đi qua thành dịch lọc, pha rắn giữ lại thành bã lọc.
+- Lọc bề mặt: hạt lớn hơn mao dẫn, bã nằm trên vách. Lọc bề sâu: hạt nhỏ hơn mao dẫn, bã nằm trong vách. Thực tế thường kết hợp cả hai. Muốn thu bã thì chọn lọc bề mặt (Lê Văn Việt Mẫn và cs., 2011, tr.91–92).
+[HÌNH: https://commons.wikimedia.org/wiki/File:Depth_Filtration.png | file: loc-be-sau.png | loại: sơ đồ | chỗ: phải | hiện: tĩnh | cùng ý: 2 | khẳng định: Trong lọc bề sâu, hạt đi vào trong lòng vật liệu xốp có lỗ lớn nhỏ khác nhau thay vì chỉ nằm trên bề mặt | chức năng: giải thích | nhìn: đường đi của các chấm đỏ và xanh (hạt) theo mũi tên xanh lá (hướng dòng chảy) | giấy phép: CC BY-SA 4.0, tác giả Someguyinaclass]
+- Nhớ: Huyền phù → dịch lọc + bã lọc · thu bã → lọc bề mặt.
 
-### Cảnh 2.3 – Mục đích và yếu tố ảnh hưởng
-- **Ý 1:** Khai thác: thu sinh khối nấm men bánh mì. Hoàn thiện: lọc rượu vang sau tàng trữ để loại cặn protein, tăng độ trong.
-  - Chữ trên bảng: Khai thác: nấm men / Hoàn thiện: rượu vang
-  - [HÌNH: ruou-vang-trong.svg | chỗ: trái | hiện: mờ dần | cùng ý: 1 | nhấn: ly vang đục → trong]
-- **Ý 2:** Ba nhóm yếu tố: tính chất vách ngăn; tính chất huyền phù (pha phân tán; pha liên tục: thành phần, pH, độ nhớt); điều kiện lọc (áp suất, nhiệt độ).
-  - Chữ trên bảng: Vách ngăn · Huyền phù · Điều kiện lọc
-  - [HÌNH: ba-nhom-yeu-to.svg | chỗ: phải | hiện: dựng từng bước | cùng ý: 2 | nhấn: pH (vàng)]
-- **Ý 3:** Tăng nhiệt độ làm giảm độ nhớt, lọc nhanh hơn, nhưng tốn năng lượng và mất cấu tử nhạy nhiệt. Bia: lọc dịch nha 76–78 °C; lọc bia sau lên men phụ 2–4 °C.
-  - Chữ trên bảng: Dịch nha 76–78 °C / Bia 2–4 °C
-  - [HÌNH: hai-nhiet-ke-bia.svg | chỗ: giữa | hiện: chuyển động | cùng ý: 3 | nhấn: cam đỏ 76–78, xanh dương 2–4]
-- **Ý 4:** Với bã bị nén ép, tăng áp lực làm tốc độ lọc tăng lúc đầu rồi chậm lại.
-  - Chữ trên bảng: Bã nén ép: ΔP ↑ → nhanh rồi chậm
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.94–97
-- **Câu dẫn chuyển:** Nếu lỗ lọc nhỏ tới mức giữ được cả vi khuẩn và protein, ta có membrane.
+### Cảnh 2.2 – Vách ngăn, bột trợ lọc và chênh lệch áp suất tạo nên một hệ lọc
 
-**Công thức:** ΔP = P₁ − P₂ (động lực lọc)
+- **Thẻ:** Cơ chế
+- Vách ngăn có ba dạng: dạng hạt (cát, than hoạt tính), dạng tấm (lưới inox, cotton, nylon, PP…), vật xốp (ceramic, thủy tinh). Bột trợ lọc thông dụng nhất là diatomite (kieselguhr), chủ yếu SiO₂.
+- Động lực là chênh lệch áp suất ΔP = P₁ − P₂, tạo bằng áp suất thủy tĩnh, bơm (lọc áp suất) hoặc hút chân không (lọc chân không) (Lê Văn Việt Mẫn và cs., 2011, tr.92–93).
+- Nhớ: ΔP = P₁ − P₂ · bột trợ lọc thông dụng nhất: diatomite (SiO₂).
 
-### Cảnh 2.4 – Tự kiểm tra (5 câu, đạt từ 4)
-[HÌNH: bang-quiz.svg | chỗ: thay bảng | hiện: mờ dần | cùng ý: 1 | nhấn: phương án đúng (xanh lá) khi lộ đáp án]
+### Cảnh 2.3 – Lọc phục vụ mục đích khai thác và hoàn thiện và chịu ảnh hưởng của ba nhóm yếu tố
+
+- **Thẻ:** Cơ chế
+- Khai thác: thu sinh khối nấm men bánh mì. Hoàn thiện: lọc rượu vang sau tàng trữ để loại cặn protein, tăng độ trong.
+- Ba nhóm yếu tố: tính chất vách ngăn; tính chất huyền phù (pha phân tán; pha liên tục: thành phần, pH, độ nhớt); điều kiện lọc (áp suất, nhiệt độ) (Lê Văn Việt Mẫn và cs., 2011, tr.94–96).
+- Nhớ: Khai thác: nấm men · hoàn thiện: rượu vang · 3 nhóm: vách ngăn, huyền phù, điều kiện lọc.
+
+### Cảnh 2.4 – Nhiệt độ lọc là sự đánh đổi giữa tốc độ lọc và tổn thất năng lượng, cấu tử nhạy nhiệt
+
+- **Thẻ:** Ví dụ số
+- Tăng nhiệt độ làm giảm độ nhớt nên lọc nhanh hơn, nhưng tốn năng lượng và mất cấu tử nhạy nhiệt. Bia: lọc dịch nha ở 76–78 °C; lọc bia sau lên men phụ ở 2–4 °C.
+- Với bã bị nén ép, tăng áp lực làm tốc độ lọc tăng lúc đầu rồi chậm lại (Lê Văn Việt Mẫn và cs., 2011, tr.96–97).
+- Nhớ: Dịch nha 76–78 °C · bia 2–4 °C · bã nén ép: ΔP ↑ → nhanh rồi chậm.
+
+[VÍ DỤ GIẢI]
+- Bước 1: Đề: nhà máy cần thu sinh khối nấm men bánh mì từ dịch lên men. Chọn kiểu lọc và nêu mục đích công nghệ. | vì sao: Sản phẩm cần thu là chất rắn (bã) nên xét lọc bề mặt trước.
+- Bước 2: Chọn lọc bề mặt; mục đích là khai thác. | vì sao: Giáo trình nêu thu bã thì chọn lọc bề mặt và xếp thu sinh khối nấm men vào khai thác (tr.92, 95).
+- Bỏ trống: Lọc rượu vang sau tàng trữ để loại cặn protein có mục đích ____ | đáp: hoàn thiện
+- Tự làm: Chọn nhiệt độ lọc cho (a) dịch nha, (b) bia sau lên men phụ. | đáp: (a) 76–78 °C; (b) 2–4 °C (tr.97).
+[/VÍ DỤ GIẢI]
+
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao dịch nha được lọc nóng còn bia được lọc lạnh, dựa vào độ nhớt và cấu tử nhạy nhiệt. | đáp: Nóng làm giảm độ nhớt nên lọc dịch nha nhanh hơn; bia sau lên men phụ lọc ở 2–4 °C để tách cặn men và tạp chất dạng keo, trong khi nhiệt cao làm tốn năng lượng và tổn thất cấu tử nhạy nhiệt (tr.97). Phần nối hai ý này thành lý do "vì sao lọc bia ở nhiệt độ thấp" là suy luận của bài, giáo trình không nói trực tiếp.]
+
+[QUIZ]
 1. Muốn thu sản phẩm là BÃ LỌC, nhà sản xuất nên chọn kiểu lọc nào?
-   - A. Lọc bề sâu
-   - B. Lọc bề mặt
-   - C. Lọc kết hợp bắt buộc
-   - D. Kiểu nào cũng như nhau
+  - A) Lọc bề sâu
+  - B) Lọc bề mặt
+  - C) Lọc kết hợp bắt buộc
+  - D) Kiểu nào cũng như nhau
+  - đáp: B
+  - vì sao: Nếu sản phẩm cần thu là bã lọc thì nên chọn lọc bề mặt (tr.92); sai A: lọc bề sâu giữ bã trong vách; sai D: hai kiểu vị trí bã khác nhau.
 2. Bột trợ lọc thông dụng nhất trong công nghiệp thực phẩm là gì?
-   - A. Than hoạt tính
-   - B. Diatomite (kieselguhr), chủ yếu SiO₂
-   - C. Bentonite
-   - D. Tinh bột biến tính
+  - A) Than hoạt tính
+  - B) Diatomite (kieselguhr), chủ yếu SiO₂
+  - C) Bentonite
+  - D) Tinh bột biến tính
+  - đáp: B
+  - vì sao: Bột trợ lọc thông dụng nhất là diatomite (kieselguhr), thành phần chính SiO₂ (tr.92); sai A: than hoạt tính là vách ngăn dạng hạt.
 3. Lọc rượu vang sau tàng trữ để loại cặn protein biến tính, cải thiện độ trong có mục đích công nghệ là gì?
-   - A. Chuẩn bị
-   - B. Khai thác
-   - C. Hoàn thiện
-   - D. Bảo quản
+  - A) Chuẩn bị
+  - B) Khai thác
+  - C) Hoàn thiện
+  - D) Bảo quản
+  - đáp: C
+  - vì sao: Giáo trình nêu đúng ví dụ này là mục đích hoàn thiện (tr.95); sai B: khai thác là ví dụ thu sinh khối nấm men.
 4. Lọc bia sau lên men phụ thường thực hiện ở nhiệt độ nào?
-   - A. 76–78 °C
-   - B. 60 °C
-   - C. 2–4 °C
-   - D. −5 °C
+  - A) 76–78 °C
+  - B) 60 °C
+  - C) 2–4 °C
+  - D) −5 °C
+  - đáp: C
+  - vì sao: Lọc dịch nha ở 76–78 °C; lọc bia sau lên men phụ ở 2–4 °C để tách cặn men và tạp chất dạng keo (tr.97); sai A: đó là nhiệt độ lọc dịch nha.
 5. Phát biểu nào ĐÚNG về ảnh hưởng của nhiệt độ đến quá trình lọc?
-   - A. Tăng nhiệt độ làm tăng độ nhớt nên lọc chậm
-   - B. Tăng nhiệt độ làm giảm độ nhớt nên tốc độ lọc tăng, nhưng tốn năng lượng và có thể tổn thất cấu tử mẫn cảm nhiệt
-   - C. Nhiệt độ không ảnh hưởng đến lọc
-   - D. Lọc luôn phải thực hiện ở nhiệt độ cao nhất có thể
+  - A) Tăng nhiệt độ làm tăng độ nhớt nên lọc chậm
+  - B) Tăng nhiệt độ làm giảm độ nhớt nên tốc độ lọc tăng, nhưng tốn năng lượng và có thể tổn thất cấu tử mẫn cảm nhiệt
+  - C) Nhiệt độ không ảnh hưởng đến lọc
+  - D) Lọc luôn phải thực hiện ở nhiệt độ cao nhất có thể
+  - đáp: B
+  - vì sao: Tăng nhiệt độ thì độ nhớt giảm, tốc độ lọc tăng, nhưng tăng chi phí năng lượng và tổn thất cấu tử nhạy nhiệt (tr.97); sai D: lọc bia lại thực hiện ở 2–4 °C.
+[/QUIZ]
 
-*Đáp án ở mục "Đáp án" cuối file.*
-
-**Hướng dẫn:** Đọc LVVM mục 2.1.6 tr.91–97. · Vẽ nhanh 3 nhóm yếu tố ảnh hưởng: vách ngăn – huyền phù – điều kiện lọc. · Làm bài kiểm tra 5 câu.
+[TÓM: Lọc dùng vách ngăn xốp, động lực ΔP = P₁ − P₂, muốn thu bã thì chọn lọc bề mặt | Bột trợ lọc thông dụng nhất là diatomite; lọc rượu vang là mục đích hoàn thiện, thu nấm men là khai thác | Tăng nhiệt độ làm lọc nhanh nhưng tốn năng lượng, dịch nha 76–78 °C còn bia 2–4 °C]
 
 ---
 
-## Chương 3 – Phân riêng bằng membrane (MF, UF, NF, RO)
+## Chương 3 – Membrane: hai dòng permeate và retentate, bốn loại màng
 
-*Thời gian: 20 phút · bắt đầu 14:20 · Vì sao: Membrane có trong ngân hàng đề (câu 7, 33, 40) và là công cụ cô đặc lạnh cho nước quả.*
+[HỎI TRƯỚC: Làm sao cô đặc nước cam mà không cần đun sôi? | đáp: Dùng thẩm thấu ngược (RO): màng giữ các chất hòa tan và chỉ cho nước đi qua. | vì sao: Giáo trình nêu RO tách nước làm tăng nồng độ chất khô trong dòng bị giữ lại, mục đích khai thác (Lê Văn Việt Mẫn và cs., 2011, tr.105, 108).]
 
-### Cảnh 3.1 – Permeate và retentate
-- **Câu mở:** Làm sao cô đặc nước cam mà không cần đun sôi?
-- **Ý 1:** Membrane tách các cấu tử có phân tử lượng khác nhau cùng tan trong pha lỏng, hoặc hạt rắn rất nhỏ.
-  - Chữ trên bảng: Membrane: tách theo kích thước phân tử
-  - [HÌNH: membrane-hai-dong.svg | chỗ: trái | hiện: chuyển động | cùng ý: 1 | nhấn: hai dòng ra]
-- **Ý 2:** Dòng đi qua màng là permeate; dòng bị giữ lại là retentate.
-  - Chữ trên bảng: Qua màng: permeate / Giữ lại: retentate
-- **Ý 3:** Động lực là chênh lệch áp suất hai bên màng do bơm tạo ra; thiết bị luôn kín và chịu áp.
-  - Chữ trên bảng: Động lực: ΔP qua màng (bơm)
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.104–105
+### Cảnh 3.1 – Membrane tách theo kích thước phân tử thành hai dòng permeate và retentate dưới áp suất
 
-### Cảnh 3.2 – Bốn loại màng
-- **Ý 1:** Vi lọc MF: mao dẫn 0,01–2 µm, giữ tế bào vi sinh vật.
-  - Chữ trên bảng: MF 0,01–2 µm → giữ vi sinh vật
-  - [HÌNH: thang-bon-mang.svg | chỗ: thay bảng | hiện: dựng từng bước | cùng ý: 1 | nhấn: bậc MF]
-- **Ý 2:** Siêu lọc UF: giữ đại phân tử 2.000–300.000 Da (protein, dextrin).
-  - Chữ trên bảng: UF 2.000–300.000 Da
-- **Ý 3:** Lọc nano NF: tách phân tử 300–1.000 Da.
-  - Chữ trên bảng: NF 300–1.000 Da
-- **Ý 4:** Thẩm thấu ngược RO: giữ các chất hòa tan, chỉ cho nước đi qua.
-  - Chữ trên bảng: RO: chỉ nước đi qua
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.105
+- **Thẻ:** Định nghĩa
+- Membrane tách các cấu tử có phân tử lượng khác nhau cùng tan trong pha lỏng, hoặc hạt rắn rất nhỏ. Dòng đi qua màng là permeate; dòng bị giữ lại là retentate.
+- Động lực là chênh lệch áp suất hai bên màng do bơm tạo ra; thiết bị luôn kín và chịu áp (Lê Văn Việt Mẫn và cs., 2011, tr.104–105).
+- Nhớ: Qua màng: permeate · giữ lại: retentate · động lực: ΔP qua màng (bơm).
 
-### Cảnh 3.3 – Đo hiệu quả và hai hiện tượng
-- **Ý 1:** Độ phân riêng R = 1 − Cp/Cr; R = 1 khi cấu tử không qua màng, R = 0 khi qua hoàn toàn.
-  - Chữ trên bảng: R = 1 − Cp/Cr (0 ≤ R ≤ 1)
-  - [HÌNH: cong-thuc-R.svg | chỗ: trái | hiện: vẽ nét | cùng ý: 1 | nhấn: Cp/Cr]
-- **Ý 2:** Ví dụ (giả định): Cp = 2 g/L, Cr = 10 g/L → R = 1 − 0,2 = 0,8.
-  - Chữ trên bảng: GIẢ ĐỊNH: R = 1 − 2/10 = 0,8
-  - [HÌNH: so-dem-0-8.svg | chỗ: phải | hiện: chuyển động | cùng ý: 2 | nhấn: số chạy tới 0,8]
-- **Ý 3:** Tập trung nồng độ (concentration polarization): cấu tử dồn ở bề mặt màng, giảm lưu lượng; khắc phục bằng khuấy hoặc tăng áp.
-  - Chữ trên bảng: Tập trung nồng độ → khuấy / tăng áp
-  - [HÌNH: tap-trung-nong-do.svg | chỗ: trái | hiện: chuyển động | cùng ý: 3 | nhấn: lớp đặc sát màng]
-- **Ý 4:** Fouling: cấu tử hấp phụ làm tắc mao dẫn; khắc phục bằng vệ sinh màng.
-  - Chữ trên bảng: Fouling → vệ sinh màng
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.106–107
+### Cảnh 3.2 – Bốn loại màng MF, UF, NF, RO được xếp theo kích thước cấu tử mà chúng giữ lại
 
-### Cảnh 3.4 – Bốn mục đích công nghệ
-- **Ý 1:** Chuẩn bị: vi lọc sữa trước khi lên men yaourt. Khai thác: UF làm protein isolate đậu nành; RO cô đặc nước quả.
-  - Chữ trên bảng: Chuẩn bị: MF sữa / Khai thác: UF đậu nành · RO nước quả
-  - [HÌNH: bon-muc-dich.svg | chỗ: giữa | hiện: dựng từng bước | cùng ý: 1 | nhấn: RO nước quả]
-- **Ý 2:** Bảo quản: vi lọc loại vi sinh vật, ít tốn năng lượng và không mất cấu tử nhạy nhiệt. Hoàn thiện: UF loại protein gây đục nước quả trong.
-  - Chữ trên bảng: Bảo quản: MF / Hoàn thiện: UF làm trong
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.107–109
-- **Câu dẫn chuyển:** Lọc và membrane tách theo kích thước. Muốn lấy riêng một chất ra khỏi hạt rắn, ta phải hòa tan nó: trích ly.
+- **Thẻ:** Định nghĩa
+- Vi lọc MF: mao dẫn 0,01–2 µm, giữ tế bào vi sinh vật. Siêu lọc UF: giữ đại phân tử 2.000–300.000 Da (protein, dextrin).
+- Lọc nano NF: tách phân tử 300–1.000 Da. Thẩm thấu ngược RO: giữ các chất hòa tan, chỉ cho nước đi qua (Lê Văn Việt Mẫn và cs., 2011, tr.105).
+- Nhớ: MF 0,01–2 µm · UF 2.000–300.000 Da · NF 300–1.000 Da · RO: chỉ nước đi qua.
 
-**Công thức:** R = 1 − Cp/Cr   (R = 1: giữ lại hoàn toàn; R = 0: đi qua hoàn toàn)
+[VÍ DỤ GIẢI]
+- Bước 1: Đề: cần giữ lại tế bào vi sinh vật nhưng cho dung dịch đi qua. Chọn loại màng. | vì sao: Màng phải có mao dẫn nhỏ hơn tế bào vi sinh vật.
+- Bước 2: Chọn vi lọc MF (0,01–2 µm). | vì sao: MF giữ cấu tử lơ lửng rất nhỏ như tế bào vi sinh vật (tr.105).
+- Bỏ trống: Protein và dextrin có phân tử lượng 2.000–300.000 Da bị giữ bởi màng ____ | đáp: UF (siêu lọc)
+- Tự làm: Muốn tách bớt nước khỏi nước quả, chỉ cho nước đi qua, chọn màng nào? | đáp: Thẩm thấu ngược RO.
+[/VÍ DỤ GIẢI]
 
-### Cảnh 3.5 – Tự kiểm tra (6 câu, đạt từ 5)
-[HÌNH: bang-quiz.svg | chỗ: thay bảng | hiện: mờ dần | cùng ý: 1 | nhấn: phương án đúng (xanh lá) khi lộ đáp án]
+[TỰ GIẢI THÍCH: Hãy tự nói permeate và retentate khác nhau thế nào, và vì sao thiết bị membrane phải kín, chịu áp. | đáp: Permeate là dòng đi qua màng, retentate là dòng bị giữ lại; động lực là chênh lệch áp suất do bơm tạo ra nên thiết bị phải kín và chịu áp (tr.104–105).]
+
+[QUIZ]
 1. Dòng sản phẩm KHÔNG đi qua membrane được gọi là gì?
-   - A. Permeate
-   - B. Retentate
-   - C. Filtrate
-   - D. Raffinate
+  - A) Permeate
+  - B) Retentate
+  - C) Filtrate
+  - D) Raffinate
+  - đáp: B
+  - vì sao: Dòng đi qua màng là permeate, dòng không qua màng là retentate (tr.104); sai A: permeate là dòng đi qua; sai C: filtrate (dịch lọc) là thuật ngữ của lọc thường; sai D: raffinate không phải thuật ngữ dùng cho dòng membrane trong bài này.
 2. Loại màng nào có đường kính mao dẫn 0,01–2 µm và giữ được tế bào vi sinh vật?
-   - A. Vi lọc (MF)
-   - B. Siêu lọc (UF)
-   - C. Lọc nano (NF)
-   - D. Thẩm thấu ngược (RO)
-3. Một cấu tử có Cp = 2 g/L trong permeate và Cr = 10 g/L trong retentate (số liệu giả định). Độ phân riêng R bằng?
-   - A. 0,2
-   - B. 0,5
-   - C. 0,8
-   - D. 5
-4. Dùng thẩm thấu ngược để tách bớt nước khỏi nước trái cây, tạo nước quả cô đặc, có mục đích công nghệ là?
-   - A. Chuẩn bị
-   - B. Khai thác
-   - C. Bảo quản
-   - D. Hoàn thiện
-5. Hiện tượng các cấu tử hấp phụ lên bề mặt màng làm tắc mao dẫn, giảm lưu lượng permeate gọi là gì?
-   - A. Tập trung nồng độ
-   - B. Fouling
-   - C. Thẩm thấu
-   - D. Kết tinh
-6. Siêu lọc (UF) thường giữ lại các đại phân tử có phân tử lượng trong khoảng nào?
-   - A. 300–1.000 Da
-   - B. 2.000–300.000 Da
-   - C. Chỉ ion hóa trị 1
-   - D. Tế bào > 10 µm
+  - A) Vi lọc (MF)
+  - B) Siêu lọc (UF)
+  - C) Lọc nano (NF)
+  - D) Thẩm thấu ngược (RO)
+  - đáp: A
+  - vì sao: Membrane vi lọc 0,01–2 µm giữ cấu tử lơ lửng rất nhỏ như tế bào vi sinh vật (tr.105); sai B: UF giữ đại phân tử 2.000–300.000 Da.
+3. Siêu lọc (UF) thường giữ lại các đại phân tử có phân tử lượng trong khoảng nào?
+  - A) 300–1.000 Da
+  - B) 2.000–300.000 Da
+  - C) Chỉ ion hóa trị 1
+  - D) Tế bào > 10 µm
+  - đáp: B
+  - vì sao: Membrane siêu lọc giữ đại phân tử 2.000–300.000 Da (protein, dextrin) (tr.105); sai A: đó là khoảng của lọc nano NF.
+[/QUIZ]
 
-*Đáp án ở mục "Đáp án" cuối file.*
-
-**Hướng dẫn:** Đọc LVVM mục 2.1.7 tr.104–109. · Lập bảng 4 dòng MF – UF – NF – RO: giữ lại gì, cho đi qua gì. · Làm bài kiểm tra 6 câu.
+[TÓM: Membrane tách theo kích thước phân tử thành permeate (qua màng) và retentate (bị giữ lại) | Động lực là chênh lệch áp suất do bơm tạo ra nên thiết bị kín và chịu áp | MF 0,01–2 µm giữ vi sinh vật, UF 2.000–300.000 Da, NF 300–1.000 Da, RO chỉ cho nước qua]
 
 ---
 
-## Chương 4 – Trích ly rắn – lỏng (Extraction)
+## Chương 4 – Membrane: đo hiệu quả, hai hiện tượng cản trở và bốn mục đích công nghệ
 
-*Thời gian: 15 phút · bắt đầu 14:45 · Vì sao: Trích ly có 2 câu trong ngân hàng đề (câu 17, 36); là quá trình tách thành phần trong Ch5.*
+[HỎI TRƯỚC: Giả sử một cấu tử có Cp = 2 g/L trong permeate và Cr = 10 g/L trong retentate (số liệu giả định). Màng giữ cấu tử này tốt hay kém? | đáp: Khá tốt: R = 0,8. | vì sao: R = 1 − Cp/Cr = 1 − 2/10 = 0,8; R = 1 khi cấu tử không qua màng, R = 0 khi qua hoàn toàn (Lê Văn Việt Mẫn và cs., 2011, tr.106).]
 
-### Cảnh 4.1 – Bản chất trích ly
-- **Câu mở:** Cà phê "decaf" bỏ caffeine bằng cách nào mà vẫn giữ được vị cà phê?
-- **Ý 1:** Trích ly là hòa tan chọn lọc một hay nhiều cấu tử trong nguyên liệu bằng dung môi; động lực là chênh lệch nồng độ, đây là quá trình truyền khối.
-  - Chữ trên bảng: Động lực: chênh lệch nồng độ (truyền khối)
-  - [HÌNH: khuech-tan-hat.svg | chỗ: trái | hiện: chuyển động | cùng ý: 1 | nhấn: mũi tên chất tan ra ngoài]
-- **Ý 2:** Trong CNTP chủ yếu là trích ly rắn – lỏng.
-  - Chữ trên bảng: Chủ yếu: rắn – lỏng
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.310
+### Cảnh 4.1 – Độ phân riêng R = 1 − Cp/Cr cho biết màng giữ một cấu tử tốt đến đâu
 
-### Cảnh 4.2 – Chọn dung môi
-- **Ý 1:** Tiêu chí: hòa tan chọn lọc; trơ với dịch trích; không ăn mòn, khó cháy, không độc; rẻ và thu hồi được.
-  - Chữ trên bảng: 4 tiêu chí: chọn lọc · trơ / · an toàn · rẻ, thu hồi được
-  - [HÌNH: bon-tieu-chi.svg | chỗ: phải | hiện: dựng từng bước | cùng ý: 1 | nhấn: chọn lọc]
-- **Ý 2:** Nước là dung môi phổ biến nhất: trích saccharose từ củ cải đường, chất chiết trà, cà phê.
-  - Chữ trên bảng: Nước: phổ biến nhất (saccharose, trà, cà phê)
-- **Ý 3:** Hexane (sôi 63,5–69,0 °C), heptane, cyclohexane trích dầu béo nhưng dễ cháy.
-  - Chữ trên bảng: Hexane: dầu béo – dễ cháy
-  - [HÌNH: ngon-lua-canh-bao.svg | chỗ: trái | hiện: mờ dần | cùng ý: 3 | nhấn: cam đỏ]
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.310–311
+- **Thẻ:** Định nghĩa
+- R = 1 − Cp/Cr, với Cp là nồng độ trong permeate và Cr là nồng độ trong retentate; R nằm trong khoảng 0 đến 1. R = 1 khi cấu tử không qua màng, R = 0 khi qua hoàn toàn.
+- Ví dụ (giả định): Cp = 2 g/L, Cr = 10 g/L → R = 1 − 0,2 = 0,8 (Lê Văn Việt Mẫn và cs., 2011, tr.106).
+- Nhớ: R = 1 − Cp/Cr (R = 1: giữ lại hoàn toàn; R = 0: đi qua hoàn toàn).
 
-### Cảnh 4.3 – CO₂ siêu tới hạn
-- **Ý 1:** CO₂ siêu tới hạn khi trên 31 °C và 73,8 bar; nó như chất lỏng nhưng độ nhớt rất thấp, khuếch tán nhanh như khí.
-  - Chữ trên bảng: CO₂ siêu tới hạn: > 31 °C và > 73,8 bar
-  - [HÌNH: gian-do-co2.svg | chỗ: thay bảng | hiện: vẽ nét | cùng ý: 1 | nhấn: điểm tới hạn (vàng)]
-- **Ý 2:** Dùng trích caffeine khỏi trà, cà phê, α-acid hoa houblon; không cháy, không độc, rẻ. Có thể thêm đồng dung môi như ethanol, thường không quá 10%.
-  - Chữ trên bảng: Decaf · hoa houblon / Đồng dung môi ≤ 10%
-- **Ý 3:** Mục đích chủ yếu là khai thác; trích caffeine để làm sản phẩm nghèo caffeine là hoàn thiện.
-  - Chữ trên bảng: Khai thác (chính) · Hoàn thiện (decaf)
-- **Thẻ nguồn:** Lê Văn Việt Mẫn và cs., 2011, tr.311–313
-- **Câu dẫn chuyển:** Đọc xong 4 quá trình, giờ thử sức với câu thi thật.
+### Cảnh 4.2 – Tập trung nồng độ và fouling làm giảm lưu lượng và được khắc phục bằng khuấy, tăng áp, vệ sinh màng
 
-### Cảnh 4.4 – Tự kiểm tra (4 câu, đạt từ 4)
-[HÌNH: bang-quiz.svg | chỗ: thay bảng | hiện: mờ dần | cùng ý: 1 | nhấn: phương án đúng (xanh lá) khi lộ đáp án]
+- **Thẻ:** Cơ chế
+- Tập trung nồng độ (concentration polarization): cấu tử dồn ở bề mặt màng, làm giảm lưu lượng; khắc phục bằng khuấy hoặc tăng áp.
+- Fouling: cấu tử hấp phụ làm tắc mao dẫn (hoặc tương tác với màng); khắc phục bằng vệ sinh màng (Lê Văn Việt Mẫn và cs., 2011, tr.106–107).
+- Nhớ: Tập trung nồng độ → khuấy / tăng áp · fouling → vệ sinh màng.
+
+### Cảnh 4.3 – Membrane phục vụ cả bốn mục đích công nghệ: chuẩn bị, khai thác, bảo quản và hoàn thiện
+
+- **Thẻ:** Cơ chế
+- Chuẩn bị: vi lọc sữa trước khi lên men yaourt. Khai thác: UF làm protein isolate đậu nành; RO cô đặc nước quả.
+- Bảo quản: vi lọc loại vi sinh vật, ít tốn năng lượng và không mất cấu tử nhạy nhiệt. Hoàn thiện: UF loại protein gây đục để làm trong nước quả (Lê Văn Việt Mẫn và cs., 2011, tr.107–109).
+- Nhớ: Chuẩn bị: MF sữa · khai thác: UF đậu nành, RO nước quả · bảo quản: MF · hoàn thiện: UF làm trong.
+
+[VÍ DỤ GIẢI]
+- Bước 1: Đề (giả định): permeate có Cp = 3 g/L, retentate có Cr = 12 g/L. Tìm R. | vì sao: Dùng R = 1 − Cp/Cr.
+- Bước 2: Cp/Cr = 3/12 = 0,25 nên R = 1 − 0,25 = 0,75. | vì sao: Tính tỷ số trước rồi trừ khỏi 1.
+- Bỏ trống: Với Cp = 2 g/L và Cr = 10 g/L (giả định), R = ____ | đáp: 0,8
+- Tự làm: Nếu cấu tử đi qua màng hoàn toàn (Cp = Cr) thì R bằng bao nhiêu? | đáp: R = 1 − 1 = 0.
+[/VÍ DỤ GIẢI]
+
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao hiện tượng tập trung nồng độ được xử lý bằng khuấy hoặc tăng áp, còn fouling phải xử lý bằng vệ sinh màng. | đáp: Giáo trình nêu tập trung nồng độ khắc phục bằng khuấy hoặc tăng áp, còn fouling là tắc mao dẫn do cấu tử hấp phụ nên khắc phục bằng vệ sinh màng (tr.106–107). Phần giải thích vì sao khuấy giúp là suy luận của bài, giáo trình chỉ nêu biện pháp.]
+
+[QUIZ]
+1. Một cấu tử có Cp = 2 g/L trong permeate và Cr = 10 g/L trong retentate (số liệu giả định). Độ phân riêng R bằng?
+  - A) 0,2
+  - B) 0,5
+  - C) 0,8
+  - D) 5
+  - đáp: C
+  - vì sao: R = 1 − Cp/Cr = 1 − 2/10 = 0,8 (tr.106); sai A: 0,2 là Cp/Cr chứ chưa trừ khỏi 1.
+2. Dùng thẩm thấu ngược để tách bớt nước khỏi nước trái cây, tạo nước quả cô đặc, có mục đích công nghệ là?
+  - A) Chuẩn bị
+  - B) Khai thác
+  - C) Bảo quản
+  - D) Hoàn thiện
+  - đáp: B
+  - vì sao: Giáo trình nêu RO tách nước làm tăng nồng độ chất khô trong retentate, mục đích khai thác (tr.108); sai D: hoàn thiện là UF làm trong nước quả.
+3. Hiện tượng các cấu tử hấp phụ lên bề mặt màng làm tắc mao dẫn, giảm lưu lượng permeate gọi là gì?
+  - A) Tập trung nồng độ
+  - B) Fouling
+  - C) Thẩm thấu
+  - D) Kết tinh
+  - đáp: B
+  - vì sao: Fouling là hiện tượng tắc nghẽn mao dẫn do cấu tử hấp phụ hoặc tương tác với màng (tr.107); sai A: tập trung nồng độ là cấu tử dồn ở bề mặt màng.
+[/QUIZ]
+
+[TÓM: Độ phân riêng R = 1 − Cp/Cr, R = 1 là giữ hoàn toàn và R = 0 là qua hoàn toàn | Tập trung nồng độ xử lý bằng khuấy hoặc tăng áp, fouling xử lý bằng vệ sinh màng | Membrane phục vụ chuẩn bị, khai thác, bảo quản, hoàn thiện, ví dụ RO cô đặc nước quả là khai thác]
+
+---
+
+## Chương 5 – Trích ly: hòa tan chọn lọc bằng dung môi
+
+[HỎI TRƯỚC: Cà phê "decaf" bỏ caffeine bằng cách nào mà vẫn giữ được vị cà phê? | đáp: Dùng một dung môi hòa tan chọn lọc caffeine ra khỏi hạt, ví dụ CO₂ siêu tới hạn. | vì sao: Trích ly là hòa tan chọn lọc một hay nhiều cấu tử bằng dung môi, và CO₂ siêu tới hạn được dùng để trích caffeine khỏi trà, cà phê (Lê Văn Việt Mẫn và cs., 2011, tr.310–313).]
+
+### Cảnh 5.1 – Trích ly hòa tan chọn lọc cấu tử nhờ chênh lệch nồng độ giữa nguyên liệu và dung môi
+
+- **Thẻ:** Định nghĩa
+- Trích ly là hòa tan chọn lọc một hay nhiều cấu tử trong nguyên liệu bằng dung môi. Đây là quá trình truyền khối, động lực là chênh lệch nồng độ cấu tử giữa nguyên liệu và dung môi.
+- Trong công nghệ thực phẩm, chủ yếu là trích ly rắn – lỏng (Lê Văn Việt Mẫn và cs., 2011, tr.310).
+- Nhớ: Động lực: chênh lệch nồng độ (truyền khối) · chủ yếu rắn – lỏng.
+
+### Cảnh 5.2 – Dung môi phải thỏa bốn tiêu chí, trong đó nước phổ biến nhất còn hexane dễ cháy
+
+- **Thẻ:** Cơ chế
+- Bốn tiêu chí chọn dung môi: hòa tan chọn lọc; trơ với dịch trích; không ăn mòn, khó cháy, không độc; rẻ và thu hồi được.
+- Nước là dung môi phổ biến nhất: trích saccharose từ củ cải đường, chất chiết trà, cà phê. Hexane (sôi 63,5–69,0 °C), heptane, cyclohexane trích dầu béo nhưng dễ cháy (Lê Văn Việt Mẫn và cs., 2011, tr.310–311).
+- Nhớ: 4 tiêu chí: chọn lọc · trơ · an toàn · rẻ, thu hồi được · nước phổ biến nhất · hexane dễ cháy.
+
+### Cảnh 5.3 – CO₂ siêu tới hạn trích caffeine và α-acid hoa houblon khi vượt cả 31 °C lẫn 73,8 bar
+
+- **Thẻ:** Cơ chế
+- CO₂ siêu tới hạn khi trên 31 °C và trên 73,8 bar; nó như chất lỏng nhưng độ nhớt rất thấp, khuếch tán nhanh như khí. Dùng trích caffeine khỏi trà, cà phê, α-acid hoa houblon; không cháy, không độc, rẻ.
+- Có thể thêm đồng dung môi như ethanol, thường không quá 10%. Mục đích chủ yếu là khai thác; trích caffeine để làm sản phẩm nghèo caffeine là hoàn thiện (Lê Văn Việt Mẫn và cs., 2011, tr.311–313).
+- Nhớ: CO₂ siêu tới hạn: > 31 °C và > 73,8 bar · đồng dung môi ≤ 10% · khai thác (chính), hoàn thiện (decaf).
+
+[HÌNH: https://commons.wikimedia.org/wiki/File:Carbon_dioxide_pressure-temperature_phase_diagram.svg | file: gian-do-pha-co2.svg | loại: sơ đồ | chỗ: phải | hiện: tĩnh | cùng ý: 1 | khẳng định: Giản đồ pha của CO₂ có một vùng siêu tới hạn riêng nằm phía trên điểm tới hạn | chức năng: giải thích | nhìn: vùng siêu tới hạn và điểm tới hạn trên trục nhiệt độ và áp suất | giấy phép: CC0, tác giả Ben Finney / Mark Jacobs]
+
+[VÍ DỤ GIẢI]
+- Bước 1: Đề: cần trích caffeine khỏi hạt cà phê, không để lại dung môi cháy hay độc. Chọn dung môi nào trong nước, hexane, CO₂ siêu tới hạn? | vì sao: Đối chiếu với tiêu chí "khó cháy, không độc" của dung môi.
+- Bước 2: Hexane dễ cháy nên loại; CO₂ siêu tới hạn không cháy, không độc, rẻ nên chọn. | vì sao: Giáo trình nêu đúng các ưu điểm này cho CO₂ siêu tới hạn (tr.311–312).
+- Bỏ trống: CO₂ chỉ siêu tới hạn khi T > ____ °C và P > ____ bar | đáp: 31 °C và 73,8 bar
+- Tự làm: CO₂ ở 40 °C và 50 bar (giả định) có siêu tới hạn không? | đáp: Không, vì 40 °C > 31 °C nhưng 50 bar < 73,8 bar; phải vượt cả hai ngưỡng.
+[/VÍ DỤ GIẢI]
+
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao trích dầu béo bằng hexane cần thận trọng hơn so với trích caffeine bằng CO₂ siêu tới hạn. | đáp: Hexane sôi ở 63,5–69,0 °C và dễ cháy, còn CO₂ siêu tới hạn không cháy, không độc, rẻ (Lê Văn Việt Mẫn và cs., 2011, tr.310–312). Việc xếp thành rủi ro an toàn là cách diễn đạt của bài, dựa trên tiêu chí "khó cháy, không độc".]
+
+[QUIZ]
 1. Động lực của quá trình trích ly là gì?
-   - A. Chênh lệch áp suất
-   - B. Chênh lệch nồng độ cấu tử giữa nguyên liệu và dung môi
-   - C. Lực ly tâm
-   - D. Chênh lệch nhiệt độ sôi
+  - A) Chênh lệch áp suất
+  - B) Chênh lệch nồng độ cấu tử giữa nguyên liệu và dung môi
+  - C) Lực ly tâm
+  - D) Chênh lệch nhiệt độ sôi
+  - đáp: B
+  - vì sao: Trích ly là quá trình truyền khối, động lực là chênh lệch nồng độ (tr.310); sai A: áp suất là động lực lọc và membrane; sai C: lực ly tâm là động lực ly tâm.
 2. Dung môi phổ biến nhất trong công nghiệp thực phẩm là?
-   - A. Hexane
-   - B. Ethanol
-   - C. Nước
-   - D. Trichloroethylene
+  - A) Hexane
+  - B) Ethanol
+  - C) Nước
+  - D) Trichloroethylene
+  - đáp: C
+  - vì sao: Nước là dung môi phổ biến nhất (tr.311); sai A: hexane trích dầu béo và dễ cháy.
 3. Để CO₂ ở trạng thái siêu tới hạn, điều kiện là?
-   - A. T > 31 °C và P > 73,8 bar
-   - B. T < 0 °C và P > 1 bar
-   - C. T > 100 °C và P = 1 bar
-   - D. T > 31 °C và P < 10 bar
+  - A) T > 31 °C và P > 73,8 bar
+  - B) T < 0 °C và P > 1 bar
+  - C) T > 100 °C và P = 1 bar
+  - D) T > 31 °C và P < 10 bar
+  - đáp: A
+  - vì sao: Điểm tới hạn của CO₂ là 31 °C và 73,8 bar, phải lớn hơn cả hai giá trị (tr.311); sai D: áp suất thấp hơn 73,8 bar.
 4. Trích ly caffeine khỏi cà phê để sản xuất cà phê nghèo caffeine có mục đích công nghệ là?
-   - A. Khai thác
-   - B. Hoàn thiện
-   - C. Chuẩn bị
-   - D. Bảo quản
+  - A) Khai thác
+  - B) Hoàn thiện
+  - C) Chuẩn bị
+  - D) Bảo quản
+  - đáp: B
+  - vì sao: Giáo trình xếp ví dụ này vào mục đích hoàn thiện (tr.313); sai A: khai thác là thu cấu tử quý như α-acid hoa houblon.
+[/QUIZ]
 
-*Đáp án ở mục "Đáp án" cuối file.*
-
-**Hướng dẫn:** Đọc LVVM mục 2.3.1 tr.310–314. · Ghi nhớ 4 tiêu chí chọn dung môi. · Làm bài kiểm tra 4 câu.
+[TÓM: Trích ly là hòa tan chọn lọc cấu tử bằng dung môi, động lực là chênh lệch nồng độ | Dung môi cần chọn lọc, trơ, an toàn, rẻ; nước phổ biến nhất, hexane dễ cháy | CO₂ siêu tới hạn khi trên 31 °C và 73,8 bar, dùng trích caffeine, đồng dung môi không quá 10%]
 
 ---
 
-## Chương 5 – Ngân hàng đề: Phân riêng & Trích ly
+## Chương 6 – Ngân hàng đề: áp dụng phân riêng và trích ly vào câu thi thật
 
-*Thời gian: 15 phút · bắt đầu 19:45 · Vì sao: Thi cuối kỳ 80 câu trắc nghiệm (60%) lấy từ dạng câu này; làm ngay sau khi đọc giúp nhớ lâu.*
+[HỎI TRƯỚC: Đề thi hay hỏi "công đoạn này có mục đích gì". Lọc rượu vang sau tàng trữ để loại cặn protein, tăng độ trong thuộc mục đích nào? | đáp: Hoàn thiện. | vì sao: Giáo trình nêu đúng ví dụ này là mục đích hoàn thiện (Lê Văn Việt Mẫn và cs., 2011, tr.95).]
 
-### Cảnh 5.1 – Ba ý cần nhớ trước khi làm
-- **Câu mở:** Đề thi hay hỏi "công đoạn này có mục đích gì". Bạn đã sẵn sàng chưa?
-- **Ý 1:** Lọc rượu vang sau tàng trữ để loại cặn, cải thiện độ trong là mục đích hoàn thiện.
-  - Thẻ nguồn: Lê Văn Việt Mẫn và cs., 2011, tr.95
-- **Ý 2:** Các phương pháp tách nước khỏi thực phẩm lỏng: thẩm thấu ngược (membrane), cô đặc lạnh đông; sấy có thể dùng với nguyên liệu lỏng như sấy phun.
-  - Thẻ nguồn: Lê Văn Việt Mẫn và cs., 2011, tr.321 · Lê Văn Việt Mẫn và cs., 2011, tr.332, 347
-- **Ý 3:** Nước dùng để trích ly saccharose trong sản xuất đường từ củ cải đường; màng vi lọc 0,01–2 µm tách được vi sinh vật.
-  - Thẻ nguồn: Lê Văn Việt Mẫn và cs., 2011, tr.311 · Lê Văn Việt Mẫn và cs., 2011, tr.105
-  - [HÌNH: the-on-thi.svg | chỗ: giữa | hiện: trượt vào | cùng ý: 1 | nhấn: chữ "hoàn thiện"]
-- **Câu dẫn chuyển:** Giờ làm 4 câu đề thật.
+### Cảnh 6.1 – Ba ý nền về hoàn thiện, tách nước và dung môi giúp làm nhanh bốn câu đề
 
-### Cảnh 5.2 – Bốn câu ngân hàng đề
-[HÌNH: bang-quiz.svg | chỗ: thay bảng | hiện: mờ dần | cùng ý: 1 | nhấn: phương án đúng (xanh lá)]
+- **Thẻ:** Tự kiểm tra
+- Lọc rượu vang sau tàng trữ để loại cặn, cải thiện độ trong là mục đích hoàn thiện (tr.95). Các phương pháp tách nước khỏi thực phẩm lỏng: thẩm thấu ngược (membrane), cô đặc lạnh đông; sấy có thể dùng với nguyên liệu lỏng như sấy phun (tr.321, 332, 347).
+- Nước dùng để trích ly saccharose trong sản xuất đường từ củ cải đường (tr.311); màng vi lọc 0,01–2 µm tách được vi sinh vật (tr.105) (Lê Văn Việt Mẫn và cs., 2011).
+- Nhớ: Lọc vang = hoàn thiện · tách nước: RO, lạnh đông, sấy phun · nước trích saccharose · MF giữ vi sinh vật.
+
+### Cảnh 6.2 – Bốn câu ngân hàng đề 30, 33, 36, 40 đều giải được bằng các ý nền
+
+- **Thẻ:** Ví dụ số
+- Bốn câu dưới đây lấy từ ngân hàng 80 câu của môn (câu 30, 33, 36, 40); câu 33 đã rút gọn bỏ một phương án sai.
+- Các câu chưa chốt đáp án (câu 7, 17, 42, 64) không đưa vào quiz mà ghi ở mục Cần kiểm tra lại.
+- Nhớ: Câu 30 → B · câu 33 → D · câu 36 → A · câu 40 → B.
+
+[VÍ DỤ GIẢI]
+- Bước 1: Đề (câu 40): phương pháp nào tách được vi sinh vật? | vì sao: Tìm quá trình có lỗ đủ nhỏ để giữ tế bào vi sinh vật.
+- Bước 2: Màng vi lọc có mao dẫn 0,01–2 µm nên giữ được vi sinh vật; trích ly và ly tâm không phải bằng lỗ lọc. | vì sao: Giáo trình nêu MF giữ tế bào vi sinh vật (tr.105).
+- Bỏ trống: Dung môi trích ly saccharose từ củ cải đường là ____ | đáp: nước
+- Tự làm: Vì sao câu 33 chọn "tất cả đều đúng"? | đáp: Vì RO và cô đặc lạnh đông tách nước khỏi thực phẩm lỏng, còn sấy phun dùng được với nguyên liệu lỏng.
+[/VÍ DỤ GIẢI]
+
+[QUIZ]
 1. (Câu 30) Trong công nghệ sản xuất rượu vang, lọc có mục đích?
-   - A. Chuẩn bị
-   - B. Hoàn thiện
-   - C. Cả 2 đáp án đều sai
-   - D. Cả 2 đáp án đều đúng
+  - A) Chuẩn bị
+  - B) Hoàn thiện
+  - C) Cả 2 đáp án đều sai
+  - D) Cả 2 đáp án đều đúng
+  - đáp: B
+  - vì sao: Lọc rượu vang sau tàng trữ loại cặn protein, cải thiện độ trong là hoàn thiện (tr.95); sai A: chuẩn bị không phải mục đích của ví dụ này.
 2. (Câu 33, rút gọn bỏ 1 phương án sai) Phương pháp nào dùng để tách nước ra khỏi thực phẩm lỏng?
-   - A. Sấy
-   - B. Cô đặc lạnh đông
-   - C. Sử dụng membrane
-   - D. Tất cả các đáp án đều đúng
+  - A) Sấy
+  - B) Cô đặc lạnh đông
+  - C) Sử dụng membrane
+  - D) Tất cả các đáp án đều đúng
+  - đáp: D
+  - vì sao: RO và cô đặc lạnh đông tách nước khỏi thực phẩm lỏng, sấy phun dùng nguyên liệu lỏng (tr.321, 332, 347); đáp án câu này đã được kiểm chứng.
 3. (Câu 36) Dung môi nào dùng để trích ly saccharose?
-   - A. Nước
-   - B. Axit
-   - C. Kiềm
-   - D. Muối
+  - A) Nước
+  - B) Axit
+  - C) Kiềm
+  - D) Muối
+  - đáp: A
+  - vì sao: Nước được dùng để trích ly saccharose từ củ cải đường (tr.311); sai B, C, D: không phải dung môi trích saccharose trong giáo trình.
 4. (Câu 40) Phương pháp phân riêng nào có thể lọc, tách được vi sinh vật?
-   - A. Trích ly
-   - B. Lọc màng
-   - C. Ly tâm
-   - D. Lọc
+  - A) Trích ly
+  - B) Lọc màng
+  - C) Ly tâm
+  - D) Lọc
+  - đáp: B
+  - vì sao: Màng vi lọc 0,01–2 µm giữ tế bào vi sinh vật (tr.105); sai D: lọc thường không có lỗ nhỏ tới mức đó.
+[/QUIZ]
 
-**Câu chưa đưa vào kiểm tra:** xem mục "Cần kiểm tra lại" (câu 7, 17, 42, 64).
+[TÓM: Lọc rượu vang là hoàn thiện, nước dùng để trích ly saccharose | Tách nước khỏi thực phẩm lỏng có thể dùng RO, cô đặc lạnh đông, sấy phun | Vi lọc 0,01–2 µm giữ vi sinh vật; câu 7, 17, 42, 64 chưa chốt đáp án nên cần đối chiếu bài giảng]
 
 ---
 
-## Chương 6 – Bài báo: Tăng hiệu quả màng lọc trong sản xuất nước quả
+## Chương 7 – Bài báo Membranes 2023: tăng lưu lượng màng lọc nước quả
 
-*Thời gian: 10 phút · bắt đầu 20:05*
+[HỎI TRƯỚC: Màng lọc ở phòng thí nghiệm chạy tốt, vì sao lên nhà máy lại nhanh tắc? | đáp: Vì fouling: lớp bánh, hấp phụ trong mao dẫn và tập trung nồng độ làm giảm lưu lượng. | vì sao: Bài tổng quan nêu các yếu tố gây fouling khi lọc nước quả bằng MF/UF và các chiến lược tăng lưu lượng (Katibi và cs., 2023).]
 
-### Cảnh 6.1 – Thẻ bài đọc
-- **Câu mở:** Màng lọc trong phòng thí nghiệm chạy tốt, sao lên nhà máy lại nhanh tắc?
-- **Ý 1:** Strategies to Enhance the Membrane-Based Processing Performance for Fruit Juice Production: A Review — Katibi K.K., Mohd Nor M.Z., Md. Yunos K.F., Jaafar J., Show P.L., *Membranes* 2023, 13(7):679. DOI 10.3390/membranes13070679. Bài tổng quan, truy cập mở (MDPI, CC BY 4.0).
-  - Chữ trên bảng: Katibi và cs. (2023) · Membranes / Tổng quan, truy cập mở
-  - [HÌNH: the-bai-doc.svg | chỗ: giữa | hiện: trượt vào | cùng ý: 1 | nhấn: tên tạp chí]
-- **Ý 2:** Tổng quan (truy cập mở) về các yếu tố gây fouling khi dùng màng MF/UF làm trong nước quả và các chiến lược tăng lưu lượng: tiền xử lý enzyme, cải biến màng (TiO₂, plasma), siêu âm, tăng vận tốc dòng ngang.
-  - Chữ trên bảng: Fouling → 5 cách khắc phục
-- **Thẻ nguồn:** Katibi và cs., 2023
+### Cảnh 7.1 – Bài tổng quan Katibi 2023 gom các chiến lược chống fouling cho màng lọc nước quả
 
-### Cảnh 6.2 – Năm phát hiện chính
-- **Ý 1:** Màng PSF/PEI cải biến 0,01% TiO₂ đạt lưu lượng nước táo 44,6 L/m²h, góc tiếp xúc giảm từ 94° xuống 69° (ưa nước hơn).
-  - [HÌNH: mang-tio2.svg | chỗ: trái | hiện: mờ dần | cùng ý: 1 | nhấn: góc tiếp xúc 94° → 69°]
-- **Ý 2:** Siêu lọc nước thanh long đỏ: màng 10 kDa cho lưu lượng cao nhất (~7,9 kg/m²h ở 3 bar); trở lực lớp bánh chiếm 69–94% tổng trở lực.
-  - [HÌNH: cot-tro-luc.svg | chỗ: phải | hiện: chuyển động | cùng ý: 2 | nhấn: cột cake 69–94% mọc lên]
-- **Ý 3:** Tiền xử lý pectinase nước chuối tăng lưu lượng 65,5%, thời gian lọc giảm khoảng một nửa.
-  - [HÌNH: cot-flux-pectinase.svg | chỗ: trái | hiện: chuyển động | cùng ý: 3 | nhấn: +65,5% đếm chạy]
-- **Ý 4:** Tăng vận tốc dòng ngang 0,1 → 0,5 m/s (có bộ tạo rối) tăng lưu lượng ~155%.
-  - [HÌNH: dong-chay-ngang.svg | chỗ: phải | hiện: chuyển động | cùng ý: 4 | nhấn: mũi tên 0,1 → 0,5 m/s (xanh dương)]
-- **Ý 5:** Siêu lọc nước ổi giảm độ đục ~97% nhưng vitamin C và phenolic tổng giảm ~18–27%.
-  - [HÌNH: ly-nuoc-oi.svg | chỗ: trái | hiện: mờ dần | cùng ý: 5 | nhấn: −97% độ đục (xanh lá), −18–27% vitamin C (cam đỏ)]
-- **Thẻ nguồn:** Katibi và cs., 2023
+- **Thẻ:** Định nghĩa
+- Bài: Strategies to Enhance the Membrane-Based Processing Performance for Fruit Juice Production: A Review. Tác giả Katibi K.K., Mohd Nor M.Z., Md. Yunos K.F., Jaafar J., Show P.L.; *Membranes* 2023, 13(7):679; DOI 10.3390/membranes13070679; truy cập mở, CC BY 4.0.
+- Nội dung: các yếu tố gây fouling khi dùng màng MF/UF làm trong nước quả và các chiến lược tăng lưu lượng, gồm tiền xử lý enzyme, cải biến màng (TiO₂, plasma), siêu âm, tăng vận tốc dòng ngang.
+- Nhớ: Katibi 2023 · tổng quan · fouling → 5 cách khắc phục.
 
-### Cảnh 6.3 – Đọc có phê phán
-- **Ý 1:** Là bài tổng quan nên số liệu gom từ nhiều nghiên cứu với điều kiện khác nhau, khó so sánh trực tiếp; một số số liệu trong bài không nhất quán giữa văn bản và bảng (ví dụ lưu lượng nước tinh khiết 2776 L/m²h), cần đối chiếu nghiên cứu gốc trước khi trích dẫn. Phần lớn là thí nghiệm quy mô phòng thí nghiệm; chi phí và độ bền màng ở quy mô công nghiệp ít được bàn.
-  - Chữ trên bảng: Tổng quan → số liệu khác điều kiện / Kiểm tra nghiên cứu gốc
-  - [HÌNH: kinh-lup-canh-bao.svg | chỗ: phải | hiện: vẽ nét | cùng ý: 1 | nhấn: tam giác cảnh báo]
-- **Ý 2 – Liên hệ giáo trình:** tiền xử lý pectinase thuộc nhóm yếu tố "tính chất huyền phù" (Lê Văn Việt Mẫn và cs., 2011, tr.96).
-- **Câu hỏi đào sâu:** Nếu bạn làm trong nước dứa bằng UF, nên tiền xử lý thế nào để giảm lớp bánh mà không làm mất nhiều vitamin C?
+### Cảnh 7.2 – Cải biến màng, chọn màng và tiền xử lý enzyme đều tăng lưu lượng nước quả
 
-### Cảnh 6.4 – Tự kiểm tra (3 câu, đạt 3/3)
-[HÌNH: bang-quiz.svg | chỗ: thay bảng | hiện: mờ dần | cùng ý: 1 | nhấn: phương án đúng]
+- **Thẻ:** Ví dụ số
+- Màng PSF/PEI cải biến 0,01% TiO₂ đạt lưu lượng nước táo 44,6 L/m²h, góc tiếp xúc giảm từ 94° xuống 69° (ưa nước hơn).
+- Siêu lọc nước thanh long đỏ: màng 10 kDa cho lưu lượng cao nhất (~7,9 kg/m²h ở 3 bar); trở lực lớp bánh chiếm 69–94% tổng trở lực. Tiền xử lý pectinase nước chuối tăng lưu lượng 65,5%, thời gian lọc giảm khoảng một nửa (Katibi và cs., 2023).
+- Nhớ: TiO₂ 0,01% → 44,6 L/m²h, góc 94° → 69° · thanh long: cake 69–94% · pectinase chuối +65,5%.
+
+### Cảnh 7.3 – Tăng vận tốc dòng ngang tăng lưu lượng nhưng siêu lọc nước ổi mất vitamin C và phenolic
+
+- **Thẻ:** Hiểu sai thường gặp
+- Tăng vận tốc dòng ngang từ 0,1 lên 0,5 m/s (có bộ tạo rối) tăng lưu lượng khoảng 155%.
+- Siêu lọc nước ổi giảm độ đục khoảng 97% nhưng vitamin C và phenolic tổng giảm khoảng 18–27%; nghĩa là làm trong tốt không đồng nghĩa giữ nguyên chất lượng dinh dưỡng (Katibi và cs., 2023).
+- Nhớ: Dòng ngang 0,1 → 0,5 m/s ≈ +155% · ổi: −97% độ đục nhưng vitamin C, phenolic −18–27%.
+
+### Cảnh 7.4 – Đọc bài tổng quan phải phê phán số liệu và nối với yếu tố huyền phù trong giáo trình
+
+- **Thẻ:** Tự kiểm tra
+- Là bài tổng quan nên số liệu gom từ nhiều nghiên cứu với điều kiện khác nhau, khó so sánh trực tiếp; một số số liệu không nhất quán giữa văn bản và bảng (ví dụ lưu lượng nước tinh khiết 2776 L/m²h), cần đối chiếu nghiên cứu gốc trước khi trích dẫn. Phần lớn là thí nghiệm quy mô phòng thí nghiệm; chi phí và độ bền màng ở quy mô công nghiệp ít được bàn.
+- Liên hệ giáo trình: tiền xử lý pectinase thuộc nhóm yếu tố "tính chất huyền phù" (Lê Văn Việt Mẫn và cs., 2011, tr.96).
+- Nhớ: Tổng quan → số liệu khác điều kiện, kiểm tra nghiên cứu gốc · pectinase thuộc yếu tố huyền phù.
+
+[TỰ GIẢI THÍCH: Nếu bạn làm trong nước dứa bằng UF, nên tiền xử lý thế nào để giảm lớp bánh mà không làm mất nhiều vitamin C? | đáp: Đây là câu hỏi mở, bài báo không trả lời trực tiếp cho nước dứa. Hướng suy luận: tiền xử lý bằng enzyme như pectinase đã làm tăng lưu lượng ở nước chuối, còn nước ổi cho thấy siêu lọc có thể làm mất vitamin C nên cần thử và đo cả độ đục lẫn vitamin C.]
+
+[QUIZ]
 1. Theo tổng quan, nguồn fouling chính khi siêu lọc nước thanh long đỏ là gì?
-   - A. Hấp phụ trong mao dẫn
-   - B. Lớp bánh (cake) – 69–94% tổng trở lực
-   - C. Trở lực của chính màng
-   - D. Phân cực nồng độ chiếm 100%
+  - A) Hấp phụ trong mao dẫn
+  - B) Lớp bánh (cake), chiếm 69–94% tổng trở lực
+  - C) Trở lực của chính màng
+  - D) Phân cực nồng độ chiếm 100%
+  - đáp: B
+  - vì sao: Trở lực lớp bánh chiếm 69–94% tổng trở lực (Katibi và cs., 2023); sai D: 100% không phải số liệu trong bài.
 2. Tiền xử lý pectinase nước chuối làm lưu lượng permeate tăng khoảng bao nhiêu?
-   - A. 6,5%
-   - B. 65,5%
-   - C. 155%
-   - D. 97%
+  - A) 6,5%
+  - B) 65,5%
+  - C) 155%
+  - D) 97%
+  - đáp: B
+  - vì sao: Pectinase tăng lưu lượng 65,5%, thời gian lọc giảm khoảng một nửa; sai C: 155% là mức tăng nhờ vận tốc dòng ngang; sai D: 97% là mức giảm độ đục nước ổi.
 3. Nhược điểm chất lượng được nêu khi siêu lọc nước ổi là gì?
-   - A. Độ đục tăng
-   - B. Vitamin C và phenolic tổng giảm khoảng 18–27%
-   - C. Đường tăng gấp đôi
-   - D. Không có thay đổi
+  - A) Độ đục tăng
+  - B) Vitamin C và phenolic tổng giảm khoảng 18–27%
+  - C) Đường tăng gấp đôi
+  - D) Không có thay đổi
+  - đáp: B
+  - vì sao: Độ đục giảm khoảng 97% nhưng vitamin C và phenolic giảm 18–27%; sai A: độ đục giảm chứ không tăng.
+[/QUIZ]
+
+[TÓM: Bài tổng quan Katibi 2023 nêu các cách chống fouling: enzyme, cải biến màng TiO₂, siêu âm, dòng ngang | Số liệu tiêu biểu: TiO₂ 44,6 L/m²h, cake 69–94%, pectinase +65,5%, dòng ngang +155% | Siêu lọc nước ổi giảm độ đục khoảng 97% nhưng mất 18–27% vitamin C, và số liệu tổng quan cần đối chiếu nghiên cứu gốc]
 
 ---
 
-## Chương 7 – Tiếng Anh: IELTS Writing Task 2 – Urban transport
+## Chương 8 – IELTS Writing Task 2: đề bài, tiêu chí chấm và bài mẫu giao thông đô thị
 
-*Thời gian: 35 phút · bắt đầu 18:30 · Kỹ năng: Writing (thứ 2) · Chủ đề: giao thông đô thị*
+[HỎI TRƯỚC: Bạn có đồng ý rằng nhà nước nên đầu tư cho xe buýt, tàu điện thay vì làm thêm đường? Hãy nêu quan điểm của bạn bằng một câu. | đáp: Câu trả lời mở, ví dụ "I largely agree with this view, because public transport moves more people with less space and pollution." | vì sao: Đề dạng "to what extent" cần nêu rõ mức độ đồng ý ngay mở bài (IELTS, ielts.org).]
 
-### Cảnh 7.1 – Đề bài và tiêu chí chấm
-- **Câu mở:** Bạn có đồng ý rằng nhà nước nên đầu tư cho xe buýt, tàu điện thay vì làm thêm đường?
-- **Ý 1:** Đề: Some people believe that governments should spend money on public transport rather than building new roads. To what extent do you agree or disagree? (Viết ít nhất 250 từ, khoảng 40 phút).
-  - Chữ trên bảng: Task 2 · ≥ 250 từ · ~40 phút / Trọng số gấp đôi Task 1
-  - [HÌNH: dong-ho-40-phut.svg | chỗ: phải | hiện: chuyển động | cùng ý: 1 | nhấn: kim đồng hồ]
-- **Ý 2:** Tiêu chí chấm Task 2: Task response (trả lời đúng và đủ đề, phát triển lập luận có dẫn chứng), Coherence and cohesion (tổ chức và liên kết ý), Lexical resource (độ rộng và chính xác từ vựng), Grammatical range and accuracy; viết câu đầy đủ, không gạch đầu dòng.
-  - Chữ trên bảng: Task response · Coherence & cohesion / Lexical resource · Grammatical range & accuracy
-  - [HÌNH: bon-tieu-chi-ielts.svg | chỗ: thay bảng | hiện: dựng từng bước | cùng ý: 2 | nhấn: Task response (vàng)]
-- **Thẻ nguồn:** IELTS – Academic Writing format (ielts.org)
+### Cảnh 8.1 – Task 2 đòi tối thiểu 250 từ và được chấm theo bốn tiêu chí
 
-### Cảnh 7.2 – Bài mẫu (đọc đủ)
-- **Ý 1 – Mở bài:** It is often argued that public funds should be channelled into buses and railways instead of new motorways. I largely agree with this view, because public transport moves more people with less space and pollution, although some road investment remains necessary in rural areas.
-  - [HÌNH: bai-mau-mo-bai.svg | chỗ: trái | hiện: vẽ nét | cùng ý: 1 | nhấn: câu nêu quan điểm (vàng)]
-- **Ý 2 – Thân bài 1:** The main reason is efficiency. A single train can carry hundreds of passengers, so investing in rail networks can alleviate traffic congestion far more effectively than widening roads, which tends to attract even more cars. In addition, a reliable metro system reduces exhaust emissions in densely populated cities.
-  - [HÌNH: tau-va-o-to.svg | chỗ: phải | hiện: chuyển động | cùng ý: 2 | nhấn: 1 đoàn tàu = hàng trăm người]
-- **Ý 3 – Thân bài 2:** Nevertheless, roads cannot be ignored entirely. In remote villages, buses run infrequently and residents depend on private vehicles to reach hospitals and markets. Therefore, governments should maintain essential rural roads while prioritising public transport in urban areas.
-  - [HÌNH: lang-xa-duong.svg | chỗ: trái | hiện: mờ dần | cùng ý: 3 | nhấn: từ nối Nevertheless]
-- **Ý 4 – Kết bài:** In conclusion, I believe that most transport budgets should go to public transport, as it is more efficient and environmentally friendly, provided that basic road access in the countryside is protected.
-- **Câu dẫn chuyển:** Giờ học từ vựng then chốt trong bài.
+- **Thẻ:** Định nghĩa
+- Đề: Some people believe that governments should spend money on public transport rather than building new roads. To what extent do you agree or disagree? Viết ít nhất 250 từ, khoảng 40 phút; trọng số gấp đôi Task 1.
+- Bốn tiêu chí: Task response (trả lời đúng và đủ đề, phát triển lập luận có dẫn chứng), Coherence and cohesion (tổ chức và liên kết ý), Lexical resource (độ rộng và chính xác từ vựng), Grammatical range and accuracy. Viết câu đầy đủ, không gạch đầu dòng (IELTS, ielts.org).
+- Nhớ: ≥ 250 từ · ~40 phút · gấp đôi Task 1 · 4 tiêu chí: TR, CC, LR, GRA.
 
-### Cảnh 7.3 – Từ vựng (8 từ)
-- **Ý 1:** alleviate /əˈliːvieɪt/ làm giảm nhẹ – 'Bike lanes alleviate congestion.'
-  - [HÌNH: the-tu-vung.svg | chỗ: phải | hiện: trượt vào | cùng ý: 1 | nhấn: IPA]
-- **Ý 2:** congestion /kənˈdʒestʃən/ tắc nghẽn – 'Traffic congestion wastes time.'
-- **Ý 3:** infrastructure /ˈɪnfrəstrʌktʃər/ cơ sở hạ tầng – 'Rail infrastructure is costly.'
-- **Ý 4:** commuter /kəˈmjuːtər/ người đi làm hằng ngày – 'Commuters prefer fast trains.'
-- **Ý 5:** emission /iˈmɪʃən/ khí thải – 'Buses cut emissions per passenger.'
-- **Ý 6:** densely populated /ˈdensli ˈpɒpjuleɪtɪd/ đông dân – 'Hanoi is densely populated.'
-- **Ý 7:** prioritise /praɪˈɒrətaɪz/ ưu tiên – 'Cities should prioritise metro lines.'
-- **Ý 8:** channel funds into /ˈtʃænl fʌndz/ dồn vốn vào – 'They channel funds into railways.'
+### Cảnh 8.2 – Mở bài nêu rõ quan điểm và thân bài 1 triển khai lý do hiệu quả
 
-### Cảnh 7.4 – Tự kiểm tra (7 câu, đạt từ 6)
-[HÌNH: bang-quiz.svg | chỗ: thay bảng | hiện: mờ dần | cùng ý: 1 | nhấn: phương án đúng]
+- **Thẻ:** Ví dụ số
+- Mở bài: It is often argued that public funds should be channelled into buses and railways instead of new motorways. I largely agree with this view, because public transport moves more people with less space and pollution, although some road investment remains necessary in rural areas.
+- Thân bài 1: The main reason is efficiency. A single train can carry hundreds of passengers, so investing in rail networks can alleviate traffic congestion far more effectively than widening roads, which tends to attract even more cars. In addition, a reliable metro system reduces exhaust emissions in densely populated cities.
+- Nhớ: Mở bài: nêu quan điểm + lý do · thân bài 1: hiệu quả (tàu chở hàng trăm người, giảm khí thải).
+
+### Cảnh 8.3 – Thân bài 2 nhượng bộ bằng Nevertheless rồi kết bài khẳng định lại quan điểm
+
+- **Thẻ:** Ví dụ số
+- Thân bài 2: Nevertheless, roads cannot be ignored entirely. In remote villages, buses run infrequently and residents depend on private vehicles to reach hospitals and markets. Therefore, governments should maintain essential rural roads while prioritising public transport in urban areas.
+- Kết bài: In conclusion, I believe that most transport budgets should go to public transport, as it is more efficient and environmentally friendly, provided that basic road access in the countryside is protected. Đề và bài mẫu do Claude tự viết, không phải đề thi thật.
+- Nhớ: Thân bài 2 mở bằng Nevertheless (ý trái chiều) · kết bài nhắc lại quan điểm.
+
+[VÍ DỤ GIẢI]
+- Bước 1: Đề: chọn từ nối mở đầu thân bài 2 để đưa ý trái chiều với thân bài 1. | vì sao: Từ nối phải đúng chức năng, nếu không mất điểm Coherence and cohesion.
+- Bước 2: Furthermore thêm ý cùng chiều, As a result nêu kết quả, For example nêu ví dụ; chỉ Nevertheless nhượng bộ trái chiều nên chọn. | vì sao: Thân bài 2 nói "roads cannot be ignored", trái với thân bài 1.
+- Bỏ trống: Câu mở bài nêu rõ quan điểm phải chứa cụm kiểu "I largely ____ with this view" | đáp: agree
+- Tự làm: Vì sao câu "My favourite car brand is very expensive." không nên có trong thân bài 1? | đáp: Vì lạc đề, không phát triển lập luận nên yếu Task response và Coherence.
+[/VÍ DỤ GIẢI]
+
+[QUIZ]
 1. Theo IELTS, Writing Task 2 yêu cầu tối thiểu bao nhiêu từ và trọng số so với Task 1?
-   - A. 150 từ; bằng Task 1
-   - B. 250 từ; gấp đôi Task 1
-   - C. 250 từ; bằng một nửa Task 1
-   - D. 300 từ; gấp ba Task 1
-2. Câu nào là câu mở bài nêu RÕ quan điểm (Task Response) cho đề 'To what extent do you agree'?
-   - A. Transport is a very important topic nowadays.
-   - B. There are many advantages and disadvantages of roads.
-   - C. I largely agree with this view, because public transport moves more people with less space and pollution.
-   - D. This essay will talk about transport.
-3. Chọn collocation đúng: 'Investing in rail networks can ______ traffic congestion.'
-   - A. alleviate
-   - B. decrease down
-   - C. solve up
-   - D. lower off
-4. Chọn từ nối phù hợp mở đầu Thân bài 2 (đưa ra ý trái chiều): '______, roads cannot be ignored entirely.'
-   - A. Furthermore
-   - B. Nevertheless
-   - C. For example
-   - D. As a result
-5. Tìm câu SAI ngữ pháp:
-   - A. A single train can carry hundreds of passengers.
-   - B. Residents depend on private vehicles.
-   - C. Public transport move more people.
-   - D. Buses run infrequently in remote villages.
-6. Câu nào là cách diễn đạt lại (paraphrase) hợp lý cho 'spend money on public transport'?
-   - A. channel public funds into buses and railways
-   - B. build more motorways
-   - C. buy private cars
-   - D. reduce taxes on petrol
-7. Nếu thêm câu 'My favourite car brand is very expensive.' vào Thân bài 1, lỗi chính là gì?
-   - A. Sai chính tả
-   - B. Lạc đề, không phát triển lập luận (Task Response/Coherence)
-   - C. Câu quá ngắn nên bị trừ điểm
-   - D. Không có lỗi
+  - A) 150 từ; bằng Task 1
+  - B) 250 từ; gấp đôi Task 1
+  - C) 250 từ; bằng một nửa Task 1
+  - D) 300 từ; gấp ba Task 1
+  - đáp: B
+  - vì sao: Task 2 ít nhất 250 từ, khoảng 40 phút, đóng góp gấp đôi Task 1; sai C: nhầm trọng số.
+2. Câu nào là câu mở bài nêu RÕ quan điểm (Task Response) cho đề "To what extent do you agree"?
+  - A) Transport is a very important topic nowadays.
+  - B) There are many advantages and disadvantages of roads.
+  - C) I largely agree with this view, because public transport moves more people with less space and pollution.
+  - D) This essay will talk about transport.
+  - đáp: C
+  - vì sao: Câu C nêu quan điểm và lý do; sai A, B, D: chung chung, không nêu mức độ đồng ý.
+3. Chọn từ nối phù hợp mở đầu Thân bài 2 (ý trái chiều): "______, roads cannot be ignored entirely."
+  - A) Furthermore
+  - B) Nevertheless
+  - C) For example
+  - D) As a result
+  - đáp: B
+  - vì sao: Thân bài 2 nêu nhượng bộ trái với Thân bài 1 nên dùng Nevertheless; sai A: Furthermore thêm ý cùng chiều; sai D: As a result là kết quả.
+4. Nếu thêm câu "My favourite car brand is very expensive." vào Thân bài 1, lỗi chính là gì?
+  - A) Sai chính tả
+  - B) Lạc đề, không phát triển lập luận (Task Response/Coherence)
+  - C) Câu quá ngắn nên bị trừ điểm
+  - D) Không có lỗi
+  - đáp: B
+  - vì sao: Câu không liên quan tới lập luận về đầu tư giao thông công cộng nên làm yếu Task response và tính mạch lạc.
+[/QUIZ]
+
+[TÓM: Task 2 cần ít nhất 250 từ trong khoảng 40 phút, trọng số gấp đôi Task 1 | Chấm theo Task response, Coherence and cohesion, Lexical resource, Grammatical range and accuracy | Bài mẫu: mở bài nêu quan điểm, hai thân bài (hiệu quả, rồi nhượng bộ bằng Nevertheless), kết bài nhắc lại quan điểm]
 
 ---
 
-## Tổng kết
-1. Ly tâm tách theo khối lượng riêng, F = m·R·ω²; tách béo sữa gia nhiệt khoảng 60 °C (Lê Văn Việt Mẫn và cs., 2011, tr.80, 86).
-2. Lọc: động lực ΔP = P₁ − P₂; thu bã → lọc bề mặt; bột trợ lọc diatomite; lọc vang = hoàn thiện (tr.91–97).
-3. Membrane: MF 0,01–2 µm giữ vi sinh vật; UF 2.000–300.000 Da; NF 300–1.000 Da; RO chỉ cho nước qua; R = 1 − Cp/Cr (tr.104–107).
-4. Trích ly: động lực chênh lệch nồng độ; nước là dung môi phổ biến nhất; CO₂ siêu tới hạn > 31 °C, > 73,8 bar (tr.310–311).
-5. Writing Task 2: nêu rõ quan điểm ngay mở bài, mỗi đoạn một ý, từ nối đúng chức năng (IELTS).
-[HÌNH: tong-ket-5-o.svg | chỗ: thay bảng | hiện: dựng từng bước | cùng ý: 1 | nhấn: ô vừa đọc]
+## Chương 9 – Tiếng Anh: từ vựng giao thông, collocation và lỗi ngữ pháp hay gặp
 
-## Trắc nghiệm cuối ngày
-1. Quá trình nào có động lực là chênh lệch nồng độ?
-   - A. Ly tâm
-   - B. Lọc
-   - C. Trích ly
-   - D. Lắng
-2. Thiết bị ly tâm ống có tốc độ quay khoảng bao nhiêu?
-   - A. 150–500 vòng/phút
-   - B. 1.500–5.000 vòng/phút
-   - C. 15.000–50.000 vòng/phút
-   - D. 500.000 vòng/phút
-3. Màng nào giữ lại muối và các chất hòa tan, chỉ cho nước đi qua?
-   - A. MF
-   - B. UF
-   - C. NF
-   - D. RO
-4. Động lực của quá trình lọc là gì?
-   - A. Lực ly tâm
-   - B. Chênh lệch áp suất hai bên vách ngăn
-   - C. Chênh lệch nồng độ
-   - D. Trọng lực của bã
-5. Vi lọc sữa trước khi lên men yaourt có mục đích công nghệ?
-   - A. Chuẩn bị
-   - B. Khai thác
-   - C. Hoàn thiện
-   - D. Không có mục đích
+[HỎI TRƯỚC: Động từ nào hợp nhất để nói đầu tư vào mạng lưới đường sắt có thể làm giảm ùn tắc giao thông: alleviate, decrease down hay reduce down? | đáp: alleviate. | vì sao: "Alleviate congestion" là collocation dùng trong bài mẫu; các phương án có thêm giới từ như "decrease down" là sai cấu trúc.]
 
-## Đáp án
-**Chương 1**
-- Câu 1: **B** – Động lực là lực ly tâm, yếu tố khác biệt để phân riêng là khối lượng riêng. (Lê Văn Việt Mẫn và cs., 2011, tr.80)
-- Câu 2: **B** – F = m·R·ω², tỷ lệ với bình phương vận tốc góc nên tăng 2² = 4 lần. (Lê Văn Việt Mẫn và cs., 2011, tr.80, 86)
-- Câu 3: **A** – Nhiệt độ cao làm giảm độ nhớt, giảm trở lực; khi tách béo sữa thường gia nhiệt khoảng 60 °C. (Lê Văn Việt Mẫn và cs., 2011, tr.86)
-- Câu 4: **B** – Giáo trình ghi: độ chênh lệch khối lượng riêng của hai chất lỏng không nên thấp hơn 3%. (Lê Văn Việt Mẫn và cs., 2011, tr.86)
-- Câu 5: **B** – Thiết bị ly tâm được trang bị vòng có bán kính tương đương bán kính cân bằng, gọi là vòng chặn hay dĩa trọng lực. (Lê Văn Việt Mẫn và cs., 2011, tr.83)
-**Chương 2**
-- Câu 1: **B** – Nếu sản phẩm cần thu là bã lọc thì nên chọn lọc bề mặt. (Lê Văn Việt Mẫn và cs., 2011, tr.92)
-- Câu 2: **B** – Bột trợ lọc thông dụng nhất là diatomite (kieselguhr), thành phần chính SiO₂. (Lê Văn Việt Mẫn và cs., 2011, tr.92)
-- Câu 3: **C** – Giáo trình nêu đúng ví dụ này là mục đích hoàn thiện. (Lê Văn Việt Mẫn và cs., 2011, tr.95)
-- Câu 4: **C** – Lọc dịch nha ở 76–78 °C; lọc bia sau lên men phụ ở 2–4 °C để tách cặn men và tạp chất dạng keo. (Lê Văn Việt Mẫn và cs., 2011, tr.97)
-- Câu 5: **B** – Tăng nhiệt độ thì độ nhớt giảm, tốc độ lọc tăng; nhưng tăng chi phí năng lượng và tổn thất cấu tử nhạy nhiệt. (Lê Văn Việt Mẫn và cs., 2011, tr.97)
-**Chương 3**
-- Câu 1: **B** – Dòng đi qua màng là permeate, dòng không qua màng là retentate. (Lê Văn Việt Mẫn và cs., 2011, tr.104)
-- Câu 2: **A** – Membrane vi lọc 0,01–2 µm giữ cấu tử lơ lửng rất nhỏ như tế bào vi sinh vật. (Lê Văn Việt Mẫn và cs., 2011, tr.105)
-- Câu 3: **C** – R = 1 − Cp/Cr = 1 − 2/10 = 0,8. (Lê Văn Việt Mẫn và cs., 2011, tr.106)
-- Câu 4: **B** – Giáo trình nêu RO tách nước làm tăng nồng độ chất khô trong retentate, mục đích khai thác. (Lê Văn Việt Mẫn và cs., 2011, tr.108)
-- Câu 5: **B** – Fouling là hiện tượng tắc nghẽn mao dẫn do cấu tử hấp phụ hoặc tương tác với màng. (Lê Văn Việt Mẫn và cs., 2011, tr.107)
-- Câu 6: **B** – Membrane siêu lọc giữ đại phân tử 2.000–300.000 Da (protein, dextrin). (Lê Văn Việt Mẫn và cs., 2011, tr.105)
-**Chương 4**
-- Câu 1: **B** – Động lực trích ly là chênh lệch nồng độ cấu tử trong nguyên liệu và dung môi; là quá trình truyền khối. (Lê Văn Việt Mẫn và cs., 2011, tr.310)
-- Câu 2: **C** – Nước là dung môi phổ biến nhất trong công nghiệp thực phẩm. (Lê Văn Việt Mẫn và cs., 2011, tr.311)
-- Câu 3: **A** – Điểm tới hạn của CO₂: 31 °C và 73,8 bar; phải lớn hơn cả hai giá trị. (Lê Văn Việt Mẫn và cs., 2011, tr.311)
-- Câu 4: **B** – Giáo trình xếp ví dụ này vào mục đích hoàn thiện. (Lê Văn Việt Mẫn và cs., 2011, tr.313)
-**Chương 5**
-- Câu 1: **B** – Lọc rượu vang sau tàng trữ loại cặn protein, cải thiện độ trong → hoàn thiện. (Lê Văn Việt Mẫn và cs., 2011, tr.95)
-- Câu 2: **D** – RO và cô đặc lạnh đông tách nước khỏi TP lỏng; sấy phun dùng nguyên liệu lỏng → tất cả đúng (đáp án đã kiểm chứng). (Lê Văn Việt Mẫn và cs., 2011, tr.321 · Lê Văn Việt Mẫn và cs., 2011, tr.332, 347)
-- Câu 3: **A** – Nước được dùng để trích ly saccharose từ củ cải đường. (Lê Văn Việt Mẫn và cs., 2011, tr.311)
-- Câu 4: **B** – Màng vi lọc 0,01–2 µm giữ tế bào vi sinh vật. (Lê Văn Việt Mẫn và cs., 2011, tr.105)
-**Chương 6**
-- Câu 1: **B** – Cake resistance chiếm 69–94% tổng trở lực. (Katibi và cs., 2023)
-- Câu 2: **B** – Pectinase làm tăng flux 65,5%, thời gian lọc giảm khoảng một nửa. (Katibi và cs., 2023)
-- Câu 3: **B** – Độ đục giảm ~97% nhưng ascorbic acid và phenolic tổng giảm ~18–27%. (Katibi và cs., 2023)
-**Chương 7**
-- Câu 1: **B** – Task 2 ít nhất 250 từ, khoảng 40 phút, đóng góp gấp đôi Task 1. (IELTS (ielts.org))
-- Câu 2: **C** – Dạng 'to what extent' cần nêu rõ mức độ đồng ý ngay mở bài; câu C nêu quan điểm và lý do, đúng yêu cầu trả lời đề. (IELTS (ielts.org))
-- Câu 3: **A** – 'Alleviate traffic congestion' là collocation dùng trong bài mẫu; các phương án còn lại sai cấu trúc (thừa giới từ). (giải thích ngữ pháp/từ vựng)
-- Câu 4: **B** – Thân bài 2 nêu nhượng bộ trái với Thân bài 1 → dùng 'Nevertheless' (tuy nhiên). Furthermore = thêm ý cùng chiều; As a result = kết quả. (giải thích ngữ pháp/từ vựng)
-- Câu 5: **C** – 'Public transport' là danh từ không đếm được, chủ ngữ số ít → động từ phải là 'moves'. (giải thích ngữ pháp/từ vựng)
-- Câu 6: **A** – Bài mẫu viết 'public funds should be channelled into buses and railways' – cùng nghĩa với cụm trong đề, tránh lặp từ (Lexical resource). (IELTS (ielts.org))
-- Câu 7: **B** – Câu không liên quan đến lập luận về đầu tư giao thông công cộng → làm yếu Task response và tính mạch lạc; bài lạc đề bị phạt. (IELTS (ielts.org))
-**Trắc nghiệm cuối ngày**
-- Câu 1: **C** – Trích ly là quá trình truyền khối, động lực là chênh lệch nồng độ. (Lê Văn Việt Mẫn và cs., 2011, tr.310)
-- Câu 2: **C** – Ly tâm ống có thể đạt 15.000–50.000 vòng/phút. (Lê Văn Việt Mẫn và cs., 2011, tr.87)
-- Câu 3: **D** – Membrane thẩm thấu ngược giữ các chất hòa tan, nước đi qua. (Lê Văn Việt Mẫn và cs., 2011, tr.105)
-- Câu 4: **B** – ΔP = P₁ − P₂ hai bên vách ngăn là động lực lọc. (Lê Văn Việt Mẫn và cs., 2011, tr.92)
-- Câu 5: **A** – Vi lọc tách bớt vi sinh vật để lên men tốt hơn → chuẩn bị. (Lê Văn Việt Mẫn và cs., 2011, tr.108)
+### Cảnh 9.1 – Tám từ then chốt của bài mẫu cần học kèm phiên âm, nghĩa và ví dụ
 
-## ĐỐI CHIẾU ĐỦ NỘI DUNG
-| # | Mục trong bộ nhiệm vụ ngày | Chương · Cảnh |
-|---|---|---|
-| 1 | Brief + forClass (Ch5, buổi 03/11) | Đầu file |
-| 2 | Lời nhắc (coachNote) | Đầu file |
-| 3 | t1 đọc 1: định nghĩa, động lực, F = m·R·ω² | 1 · 1.1 |
-| 4 | t1 đọc 2: 4 đối tượng, lỏng–lỏng, ring dam | 1 · 1.2 |
-| 5 | t1 đọc 3: yếu tố ảnh hưởng (nhớt, 3%, 60 °C, ω, R, thời gian lưu) | 1 · 1.3 |
-| 6 | t1 đọc 4: ứng dụng, mục đích, ly tâm ống/đĩa | 1 · 1.4 |
-| 7 | t1 công thức + 5 câu kiểm tra + bước | 1 · 1.5 |
-| 8 | t2 đọc 1: định nghĩa, bề mặt/bề sâu | 2 · 2.1 |
-| 9 | t2 đọc 2: vách ngăn, diatomite, ΔP, 3 cách tạo ΔP | 2 · 2.2 |
-| 10 | t2 đọc 3: khai thác/hoàn thiện | 2 · 2.3 |
-| 11 | t2 đọc 4: 3 nhóm yếu tố, 76–78 °C / 2–4 °C, bã nén ép | 2 · 2.3 |
-| 12 | t2 công thức + 5 câu + bước | 2 · 2.4 |
-| 13 | t3 đọc 1: permeate, retentate, động lực | 3 · 3.1 |
-| 14 | t3 đọc 2: MF, UF, NF, RO | 3 · 3.2 |
-| 15 | t3 đọc 3: R, tập trung nồng độ, fouling | 3 · 3.3 |
-| 16 | t3 đọc 4: 4 mục đích | 3 · 3.4 |
-| 17 | t3 công thức + 6 câu + bước | 3 · 3.5 |
-| 18 | t4 đọc 1: định nghĩa, truyền khối | 4 · 4.1 |
-| 19 | t4 đọc 2: tiêu chí dung môi, nước, hexane | 4 · 4.2 |
-| 20 | t4 đọc 3: CO₂ siêu tới hạn, đồng dung môi, mục đích | 4 · 4.3 |
-| 21 | t4 4 câu + bước | 4 · 4.4 |
-| 22 | t5 đọc 1–3 + 4 câu ngân hàng đề (30, 33, 36, 40) | 5 · 5.1, 5.2 |
-| 23 | t5 câu chưa rõ (7, 17, 42, 64) | Cần kiểm tra lại |
-| 24 | t6 + paper: thẻ bài đọc, tóm tắt | 6 · 6.1 |
-| 25 | paper: 5 phát hiện chính | 6 · 6.2 |
-| 26 | paper: critique, liên hệ giáo trình, câu hỏi đào sâu | 6 · 6.3 |
-| 27 | t6 3 câu | 6 · 6.4 |
-| 28 | t7 đề + tiêu chí chấm | 7 · 7.1 |
-| 29 | t7 bài mẫu 4 đoạn | 7 · 7.2 |
-| 30 | t7 8 từ vựng | 7 · 7.3 |
-| 31 | t7 7 câu | 7 · 7.4 |
-| 32 | Thuật ngữ chuyên ngành (8 từ) | Từ điển thuật ngữ |
-| 33 | Quiz cuối ngày (5 câu) | Trắc nghiệm cuối ngày + Đáp án |
-| 34 | Nguồn 1–5 | Nguồn tham khảo |
-| 35 | verifyNote | Dòng verified cuối file |
+- **Thẻ:** Định nghĩa
+- alleviate /əˈliːvieɪt/ làm giảm nhẹ – "Bike lanes alleviate congestion." · congestion /kənˈdʒestʃən/ tắc nghẽn – "Traffic congestion wastes time." · infrastructure /ˈɪnfrəstrʌktʃər/ cơ sở hạ tầng – "Rail infrastructure is costly." · commuter /kəˈmjuːtər/ người đi làm hằng ngày – "Commuters prefer fast trains."
+- emission /iˈmɪʃən/ khí thải – "Buses cut emissions per passenger." · densely populated /ˈdensli ˈpɒpjuleɪtɪd/ đông dân – "Hanoi is densely populated." · prioritise /praɪˈɒrətaɪz/ ưu tiên – "Cities should prioritise metro lines." · channel funds into /ˈtʃænl fʌndz/ dồn vốn vào – "They channel funds into railways."
+- Nhớ: alleviate · congestion · infrastructure · commuter · emission · densely populated · prioritise · channel funds into.
+
+### Cảnh 9.2 – Collocation đúng, danh từ không đếm được và paraphrase giúp tránh mất điểm từ vựng, ngữ pháp
+
+- **Thẻ:** Hiểu sai thường gặp
+- Collocation: "alleviate congestion" (không thêm giới từ thừa như "decrease down"). Paraphrase: "spend money on public transport" có thể viết lại là "channel public funds into buses and railways", tránh lặp từ để tăng Lexical resource.
+- Ngữ pháp: "public transport" là danh từ không đếm được, chủ ngữ số ít nên động từ là "moves", không phải "move" (giải thích ngữ pháp/từ vựng).
+- Nhớ: alleviate congestion · public transport moves · channel public funds into = spend money on.
+
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao "Public transport move more people" là câu sai ngữ pháp. | đáp: "Public transport" là danh từ không đếm được, làm chủ ngữ số ít nên động từ phải là "moves".]
+
+[QUIZ]
+1. Chọn collocation đúng: "Investing in rail networks can ______ traffic congestion."
+  - A) alleviate
+  - B) decrease down
+  - C) solve up
+  - D) lower off
+  - đáp: A
+  - vì sao: "Alleviate traffic congestion" là collocation dùng trong bài mẫu; sai B, C, D: thừa giới từ.
+2. Tìm câu SAI ngữ pháp:
+  - A) A single train can carry hundreds of passengers.
+  - B) Residents depend on private vehicles.
+  - C) Public transport move more people.
+  - D) Buses run infrequently in remote villages.
+  - đáp: C
+  - vì sao: "Public transport" không đếm được, chủ ngữ số ít nên phải là "moves".
+3. Câu nào là cách diễn đạt lại (paraphrase) hợp lý cho "spend money on public transport"?
+  - A) channel public funds into buses and railways
+  - B) build more motorways
+  - C) buy private cars
+  - D) reduce taxes on petrol
+  - đáp: A
+  - vì sao: Bài mẫu viết "public funds should be channelled into buses and railways", cùng nghĩa với cụm trong đề và tránh lặp từ (Lexical resource); sai B, C, D: nghĩa khác.
+[/QUIZ]
+
+[TÓM: Tám từ then chốt: alleviate, congestion, infrastructure, commuter, emission, densely populated, prioritise, channel funds into | Collocation đúng là alleviate congestion, không thêm giới từ thừa | Public transport là danh từ không đếm được nên dùng moves, và channel public funds into là paraphrase của spend money on]
+
+---
+
+## Bản đồ kiến thức
+
+[BẢN ĐỒ]
+Ly tâm --phân riêng theo--> khối lượng riêng
+Ly tâm --động lực là--> lực ly tâm F = m·R·ω²
+Lọc --động lực là--> chênh lệch áp suất ΔP
+Lọc --dùng thêm--> bột trợ lọc diatomite
+Membrane --phân riêng theo--> kích thước phân tử
+Membrane --cho ra--> permeate và retentate
+MF --giữ lại--> vi sinh vật
+RO --chỉ cho qua--> nước
+Màng bị tắc --gây--> fouling giảm lưu lượng
+Trích ly --động lực là--> chênh lệch nồng độ
+CO₂ siêu tới hạn --trích--> caffeine và α-acid hoa houblon
+Mục đích công nghệ --gồm--> chuẩn bị, khai thác, bảo quản, hoàn thiện
+Pectinase --tăng lưu lượng--> màng lọc nước chuối
+[/BẢN ĐỒ]
+
+## Ôn rải
+
+[ÔN RẢI: lịch: 1,3,7,21]
+1. Động lực của quá trình trích ly là gì? | từ: CNTP-N01-C5 | đáp: Chênh lệch nồng độ cấu tử giữa nguyên liệu và dung môi (truyền khối).
+2. Thiết bị ly tâm ống quay với tốc độ khoảng bao nhiêu? | từ: CNTP-N01-C1 | đáp: 15.000–50.000 vòng/phút.
+3. Màng nào giữ muối và các chất hòa tan, chỉ cho nước đi qua? | từ: CNTP-N01-C3 | đáp: Thẩm thấu ngược (RO).
+4. Động lực của quá trình lọc là gì? | từ: CNTP-N01-C2 | đáp: Chênh lệch áp suất ΔP = P₁ − P₂ hai bên vách ngăn.
+5. Vi lọc sữa trước khi lên men yaourt có mục đích công nghệ gì? | từ: CNTP-N01-C4 | đáp: Chuẩn bị.
+6. Nếu tăng gấp đôi vận tốc góc ω thì lực ly tâm đổi thế nào? | từ: CNTP-N01-C1 | đáp: Tăng 4 lần, vì F = m·R·ω².
+7. Một cấu tử có Cp = 2 g/L và Cr = 10 g/L (giả định). Độ phân riêng R bằng bao nhiêu? | từ: CNTP-N01-C4 | đáp: R = 1 − 2/10 = 0,8.
+8. CO₂ siêu tới hạn cần điều kiện nhiệt độ và áp suất nào? | từ: CNTP-N01-C5 | đáp: Trên 31 °C và trên 73,8 bar.
+9. Theo Katibi 2023, trở lực lớp bánh chiếm bao nhiêu phần trăm tổng trở lực khi siêu lọc nước thanh long đỏ? | từ: CNTP-N01-C7 | đáp: 69–94%.
+10. Viết một câu mở bài Task 2 nêu rõ quan điểm cho đề "to what extent". | từ: CNTP-N01-C8 | đáp: Ví dụ: "I largely agree with this view, because public transport moves more people with less space and pollution."
+11. Lọc bia sau lên men phụ thường thực hiện ở nhiệt độ nào, còn lọc dịch nha ở nhiệt độ nào? | từ: CNTP-N01-C2 | đáp: Bia 2–4 °C; dịch nha 76–78 °C.
+12. Bột trợ lọc thông dụng nhất là gì? | từ: CNTP-N01-C2 | đáp: Diatomite (kieselguhr), chủ yếu SiO₂.
+[/ÔN RẢI]
 
 ## Từ điển thuật ngữ
+
 | Term | IPA | Loại từ | Nghĩa Anh | Nghĩa Việt | Ví dụ Anh – Việt |
 |---|---|---|---|---|---|
 | centrifugation | /ˌsentrɪfjuˈɡeɪʃən/ | n | Separation of components with different densities using centrifugal force. | Ly tâm: phân riêng cấu tử có khối lượng riêng khác nhau bằng lực ly tâm. | Centrifugation is used to separate cream from milk. – Ly tâm được dùng để tách cream khỏi sữa. |
@@ -642,19 +662,27 @@
 | co-solvent | /kəʊ ˈsɒlvənt/ | n | A second solvent added to increase solubility of target compounds. | Đồng dung môi, thêm vào để tăng độ hòa tan (thường ≤ 10%). | Ethanol is a common co-solvent in CO₂ extraction. – Ethanol là đồng dung môi phổ biến khi trích ly bằng CO₂. |
 
 ## Nguồn tham khảo
-1. Lê Văn Việt Mẫn (CB), Lại Quốc Đạt, Nguyễn Thị Hiền, Tôn Nữ Minh Nguyệt, Trần Thị Thu Trà (2011). *Công nghệ chế biến thực phẩm*, NXB ĐHQG TP.HCM, tái bản lần 2: mục 2.1.5 Ly tâm (tr.80–90), 2.1.6 Lọc (tr.91–103), 2.1.7 Membrane (tr.104–115), 2.3.1 Trích ly (tr.310–319). Tệp trong thư mục môn của Hoàng; sách có bản quyền, chỉ dùng tự học, không đăng công khai.
+
+1. Lê Văn Việt Mẫn (CB), Lại Quốc Đạt, Nguyễn Thị Hiền, Tôn Nữ Minh Nguyệt, Trần Thị Thu Trà (2011). *Công nghệ chế biến thực phẩm*, NXB ĐHQG TP.HCM, tái bản lần 2: mục 2.1.5 Ly tâm (tr.80–90), 2.1.6 Lọc (tr.91–103), 2.1.7 Membrane (tr.104–115), 2.3.1 Trích ly (tr.310–319). Tệp tài liệu môn học; sách có bản quyền, chỉ dùng tự học, không đăng công khai.
 2. Katibi K.K., Mohd Nor M.Z., Md. Yunos K.F., Jaafar J., Show P.L. (2023). Strategies to Enhance the Membrane-Based Processing Performance for Fruit Juice Production: A Review. *Membranes* 13(7):679. DOI 10.3390/membranes13070679. https://www.mdpi.com/2077-0375/13/7/679 — truy cập mở (MDPI, CC BY 4.0); ghi công tác giả khi dùng.
-3. IELTS (British Council, IDP, Cambridge University Press & Assessment). IELTS Academic format – Writing. https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-writing (mở đọc 02/11/2026). Đề và bài mẫu trong Chương 7 do Claude tự viết, không phải đề thi thật.
-4. Ngân hàng 80 câu trắc nghiệm môn Công nghệ chế biến (ĐỀ CƯƠNG CNCB.docx), tệp trong thư mục môn; đáp án câu 33, 40 theo bankVerified đã kiểm chứng.
-5. Slide giảng viên buổi 1 (20/10/2026) – cấu trúc học phần theo Fellows, Ch5 "Tách và cô các thành phần của TP".
+3. IELTS (British Council, IDP, Cambridge University Press & Assessment). IELTS Academic format – Writing. https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-writing (mở đọc 02/11/2026). Đề và bài mẫu trong Chương 8 do Claude tự viết, không phải đề thi thật.
+4. Ngân hàng 80 câu trắc nghiệm môn Công nghệ chế biến (tệp đề cương môn); đáp án câu 33, 40 đã kiểm chứng.
+5. Slide giảng viên buổi 1 (20/10/2026): cấu trúc học phần theo Fellows, Ch5 "Tách và cô các thành phần của TP".
+6. Hình "Depth Filtration.png", Wikimedia Commons, CC BY-SA 4.0, tác giả Someguyinaclass: https://commons.wikimedia.org/wiki/File:Depth_Filtration.png
+7. Hình "Carbon dioxide pressure-temperature phase diagram.svg", Wikimedia Commons, CC0, tác giả Ben Finney / Mark Jacobs: https://commons.wikimedia.org/wiki/File:Carbon_dioxide_pressure-temperature_phase_diagram.svg
 
 ## Cần kiểm tra lại
-1. Câu 7 (membrane): đề không có phương án, chỉ có ghi chú – cần đối chiếu bài giảng.
-2. Câu 17 (yêu cầu dung môi trích ly): giáo trình chỉ nêu "hòa tan chọn lọc" (tr.310), không khớp hẳn phương án nào – cần đối chiếu bài giảng.
-3. Câu 42 (yếu tố không ảnh hưởng đến lọc): giáo trình liệt kê độ nhớt, áp suất, nhiệt độ và cả pH của pha liên tục đều ảnh hưởng (tr.96–97) – cần đối chiếu bài giảng.
-4. Câu 64 (ly tâm trong chế biến sữa: tách béo / casein / đều đúng): giáo trình chỉ nêu tách chất béo (tr.84) – cần đối chiếu bài giảng.
-5. Giáo trình là bản OCR: các công thức bán kính cân bằng (tr.82) và lưu lượng nhập liệu (tr.84) bị nhiễu nên không đưa vào; tỷ lệ tinh dầu citrus sau ly tâm lần 1 (tr.85) bị lỗi chữ số – kiểm tra lại trong sách.
-6. Bài báo Katibi 2023: lưu lượng nước tinh khiết 2776 L/m²h ghi khác nhau giữa văn bản và bảng – không dùng; muốn trích số liệu khác cần mở nghiên cứu gốc.
-7. Buổi 03/11 có thể giảng viên còn dạy tiếp Ch4 hoặc đổi thứ tự – báo lại để dời kế hoạch.
 
-verified: true — Nội dung chuyên môn đối chiếu giáo trình Lê Văn Việt Mẫn 2011 (toàn văn OCR trong kho tài liệu môn), bài báo Membranes 2023 đã mở trên MDPI và trang định dạng IELTS Writing chính thức; câu ngân hàng đề chưa rõ đáp án được để riêng.
+1. Câu 7 (membrane): đề không có phương án, chỉ có ghi chú; cần đối chiếu bài giảng.
+2. Câu 17 (yêu cầu dung môi trích ly): giáo trình chỉ nêu "hòa tan chọn lọc" (tr.310), không khớp hẳn phương án nào; cần đối chiếu bài giảng.
+3. Câu 42 (yếu tố không ảnh hưởng đến lọc): giáo trình liệt kê độ nhớt, áp suất, nhiệt độ và cả pH của pha liên tục đều ảnh hưởng (tr.96–97); cần đối chiếu bài giảng.
+4. Câu 64 (ly tâm trong chế biến sữa: tách béo / casein / đều đúng): giáo trình chỉ nêu tách chất béo (tr.84); cần đối chiếu bài giảng.
+5. Giáo trình là bản OCR: các công thức bán kính cân bằng (tr.82) và lưu lượng nhập liệu (tr.84) bị nhiễu nên không đưa vào; tỷ lệ tinh dầu citrus sau ly tâm lần 1 (tr.85) bị lỗi chữ số, cần kiểm tra lại trong sách.
+6. Bài báo Katibi 2023: lưu lượng nước tinh khiết 2776 L/m²h ghi khác nhau giữa văn bản và bảng, không dùng; muốn trích số liệu khác cần mở nghiên cứu gốc.
+7. Nếu giảng viên còn dạy tiếp Ch4 hoặc đổi thứ tự thì cần dời kế hoạch học.
+8. Hai hình Wikimedia Commons chỉ mới đọc trang mô tả và giấy phép; chưa xem nội dung ảnh, nên khẳng định gắn với hình giới hạn ở những gì mô tả trang nêu.
+9. Các ví dụ giả định mới (R = 0,75; CO₂ ở 40 °C và 50 bar; ω gấp ba; R giảm một nửa) được tính từ công thức hoặc ngưỡng trong giáo trình, không phải số liệu có nguồn.
+10. Một số câu "vì sao" và "tự giải thích" (vì sao khuấy giúp, hexane là rủi ro an toàn, hướng xử lý nước dứa) là suy luận của bài, không phải câu chữ của giáo trình.
+11. Câu 33 là bản rút gọn bỏ một phương án sai so với đề gốc.
+
+verified: true — Tái cấu trúc từ bản CNTP-Ngay01 ngày 02/11/2026 (đối chiếu giáo trình LVVM 2011, bài Membranes 2023, trang IELTS đã mở lúc đó); ngày 09/11/2026 chỉ mở trang Commons của hai hình để đọc mô tả và giấy phép, chưa xem nội dung ảnh; nội dung chưa chắc ghi ở "Cần kiểm tra lại".

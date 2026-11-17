@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Thiết bị ép khung bản: trục đỡ, bản ép, bản bìa, hướng lực ép, lối thoát dịch, khay, cửa thoát">
+  <defs>
+    <marker id="ekb-mui" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="currentColor"/></marker>
+  </defs>
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <!-- trục đỡ + xà ngang -->
+    <path d="M200 40 V400 M440 40 V400" stroke="#C9D4DF" stroke-width="9"/>
+    <rect x="185" y="30" width="270" height="18" rx="4" fill="#2B3844" stroke="#8AD8FF" stroke-width="1.5"/>
+    <!-- bản bìa trên/dưới -->
+    <rect x="215" y="55" width="210" height="14" rx="3" fill="#3A4B5C" stroke="#C9D4DF" stroke-width="2"/>
+    <rect x="215" y="262" width="210" height="14" rx="3" fill="#3A4B5C" stroke="#C9D4DF" stroke-width="2"/>
+    <!-- bản ép xen túi lọc -->
+    <g stroke="#C9D4DF" stroke-width="2">
+      <rect x="220" y="97" width="200" height="9" fill="#9FB0C2"/><rect x="220" y="145" width="200" height="9" fill="#9FB0C2"/>
+      <rect x="220" y="193" width="200" height="9" fill="#9FB0C2"/><rect x="220" y="241" width="200" height="9" fill="#9FB0C2"/>
+    </g>
+    <g fill="#E6D9B8" stroke="none" opacity=".9">
+      <rect x="222" y="71" width="196" height="25"/><rect x="222" y="107" width="196" height="37"/><rect x="222" y="155" width="196" height="37"/>
+      <rect x="222" y="203" width="196" height="37"/><rect x="222" y="251" width="196" height="10"/>
+    </g>
+    <!-- rãnh + kênh thu dịch -->
+    <path d="M222 101 H418 M222 149 H418 M222 197 H418 M222 245 H418 M222 266 H418" stroke="#2E9BFF" stroke-width="2" stroke-dasharray="3 3"/>
+    <path d="M425 70 V300" stroke="#2E9BFF" stroke-width="5" opacity=".7"/>
+    <!-- pittông -->
+    <rect x="280" y="276" width="80" height="12" fill="#C9D4DF" stroke="none"/>
+    <rect x="302" y="288" width="36" height="56" fill="#C9D4DF"/><rect x="262" y="344" width="116" height="60" rx="8" fill="#2E5A8A" stroke="#8AD8FF" stroke-width="2"/>
+    <path d="M500 395 V320" stroke="#FFD23F" stroke-width="7" marker-end="url(#ekb-mui)" color="#FFD23F"/>
+    <!-- khay + cửa thoát -->
+    <path d="M165 300 V325 H475 V300 M475 322 H560" stroke="#C9D4DF" stroke-width="4"/>
+    <path d="M560 322 V365" stroke="#FFB020" stroke-width="5" marker-end="url(#ekb-mui)" color="#FFB020"/>
+    <path d="M425 80 V316" stroke="#FFB020" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ekb-mui)" color="#FFB020"/>
+  </g>
+  <g font-family="Be Vietnam Pro,Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700" text-anchor="middle">
+    <g fill="#8AD8FF"><circle cx="150" cy="150" r="13"/><circle cx="520" cy="173" r="13"/><circle cx="520" cy="62" r="13"/><circle cx="500" cy="420" r="13"/><circle cx="105" cy="215" r="13"/><circle cx="105" cy="325" r="13"/><circle cx="600" cy="330" r="13"/><circle cx="105" cy="115" r="13"/></g>
+    <g fill="#06101F"><text x="150" y="155">1</text><text x="520" y="178">2</text><text x="520" y="67">3</text><text x="500" y="425">4</text><text x="105" y="220">5</text><text x="105" y="330">6</text><text x="600" y="335">7</text><text x="105" y="120">8</text></g>
+  </g>
+  <g font-family="Be Vietnam Pro,Segoe UI,system-ui,sans-serif" font-size="13" fill="#DCE5EE">
+    <text x="320" y="455" text-anchor="middle">1 Trục đỡ · 2 Bản ép · 3 Bản bìa · 4 Lực ép · 5 Lối thoát dịch · 6 Khay · 7 Cửa thoát · 8 Túi lọc vải</text>
+  </g>
+</svg>

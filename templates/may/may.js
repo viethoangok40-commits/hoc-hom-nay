@@ -93,7 +93,66 @@
       kinh: function (o) { return new T.MeshPhysicalMaterial(Object.assign({ color: 0xffffff, metalness: 0, roughness: 0.05, transmission: 1, thickness: 0.4, envMapIntensity: P.env }, o || {})); },
       son: function (hex, o) { return new T.MeshStandardMaterial(Object.assign({ color: lin(hex), roughness: 0.55, metalness: 0.1, envMapIntensity: P.env }, o || {})); },
     } };
+    // ----- bộ dựng hình + hạt dùng chung cho mọi máy (ctx.u, ctx.hatTuyen, ctx.mat.nuoc) -----
+    ctx.mat.nuoc = function (hex, op) { return new T.MeshStandardMaterial({ color: lin(hex || 0x3AA0FF), transparent: true, opacity: op == null ? 0.3 : op, roughness: 0.1, metalness: 0, depthWrite: false, envMapIntensity: 0.6 }); };
+    ctx.u = (function () {
+      var PI = Math.PI, V = function (a) { return new T.Vector3(a[0], a[1], a[2]); };
+      function bong(m) { m.castShadow = true; m.receiveShadow = true; return m; }
+      function at(m, p) { if (p) m.position.set(p[0], p[1], p[2]); return m; }
+      function truc(g, ax) { if (ax === 'x') g.rotateZ(PI / 2); else if (ax === 'z') g.rotateX(PI / 2); return g; }
+      return {
+        PI: PI, bong: bong, at: at, V: V,
+        lerp: function (a, b, u) { return a + (b - a) * u; },
+        ease: function (u) { return u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2; },
+        rgb: function (h) { var c = lin(h); return [c.r, c.g, c.b]; },
+        box: function (w, h, d, mat, p) { return at(bong(new T.Mesh(new T.BoxGeometry(w, h, d), mat)), p); },
+        cyl: function (r, h, mat, p, ax, open, seg) { return at(bong(new T.Mesh(truc(new T.CylinderGeometry(r, r, h, seg || 40, 1, !!open), ax), mat)), p); },
+        cone: function (rDuoi, rTren, h, mat, p, ax, open, seg) { return at(bong(new T.Mesh(truc(new T.CylinderGeometry(rTren, rDuoi, h, seg || 40, 1, !!open), ax), mat)), p); },
+        sphere: function (r, mat, p) { return at(bong(new T.Mesh(new T.SphereGeometry(r, 32, 24), mat)), p); },
+        torus: function (R, r, mat, p, ax) { var g = new T.TorusGeometry(R, r, 12, 72); if (ax === 'x') g.rotateY(PI / 2); else if (ax === 'y') g.rotateX(PI / 2); return at(bong(new T.Mesh(g, mat)), p); },
+        tube: function (a, b, r, mat, open) { var A = V(a), B = V(b), d = B.clone().sub(A), m = bong(new T.Mesh(new T.CylinderGeometry(r, r, d.length(), 32, 1, !!open), mat)); m.position.copy(A.clone().add(B).multiplyScalar(0.5)); m.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), d.normalize()); return m; },
+        lathe: function (pts, mat, seg, p) { return at(bong(new T.Mesh(new T.LatheGeometry(pts.map(function (q) { return new T.Vector2(q[0], q[1]); }), seg || 64), mat)), p); },
+        // khối đùn dọc trục x từ mặt cắt đa giác (z,y); cx = tâm theo x
+        duc: function (poly, depth, cx, mat) { var sh = new T.Shape(); poly.forEach(function (q, i) { if (i) sh.lineTo(q[0], q[1]); else sh.moveTo(q[0], q[1]); }); var g = new T.ExtrudeGeometry(sh, { depth: depth, bevelEnabled: false }); g.rotateY(-PI / 2); g.translate(cx + depth / 2, 0, 0); return bong(new T.Mesh(g, mat)); },
+        // lỗ rây/lưới: ảnh alpha (đen = lỗ) lặp lại nu×nv lần
+        luoi: function (nu, nv, rLo) { var cv = document.createElement('canvas'); cv.width = cv.height = 64; var g2 = cv.getContext('2d'); g2.fillStyle = '#fff'; g2.fillRect(0, 0, 64, 64); g2.fillStyle = '#000'; g2.beginPath(); g2.arc(32, 32, rLo || 14, 0, PI * 2); g2.fill(); var t = new T.CanvasTexture(cv); t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(nu, nv); return t; },
+      };
+    })();
+    // Hạt chạy theo đường khai báo sẵn. cfg: { tiLe (tỉ lệ đi đường A, mặc định 0,7), thoi:[5 số giây], A:[5 pha], B:[5 pha] }
+    // mỗi pha: { p:[[x,y,z],…] đường gấp khúc, c:['#từ','#đến'], gl:[a,b]|số, s: cỡ, t: giây, rung:[x,y,z] độ lệch ngẫu nhiên,
+    //            quay:{ax:'x'|'y'|'z', r:[r0,r1], k:tốc độ}, mo:true (nhỏ dần) , tuyen:true (đi đều, không ease) }
+    // đường A (S.beo=1) → cột "nhẹ" đồ thị; đường B (S.beo=0) → cột "nặng". Hạt kết thúc ở pha 4.
+    ctx.hatTuyen = function (cfg) {
+      var U = ctx.u, thoi = cfg.thoi || [0.9, 1.4, 1.2, 1, 0.9];
+      [cfg.A, cfg.B].forEach(function (R) { R.forEach(function (ph) {
+        ph.pts = ph.p.map(U.V); ph.cum = [0]; for (var k = 1; k < ph.pts.length; k++) ph.cum.push(ph.cum[k - 1] + ph.pts[k].distanceTo(ph.pts[k - 1]));
+        ph.c0 = U.rgb(ph.c[0]); ph.c1 = U.rgb(ph.c[1] || ph.c[0]); ph.g = ph.gl == null ? [0, 0] : (ph.gl.length ? ph.gl : [ph.gl, ph.gl]);
+      }); });
+      return {
+        sinh: function (S, i) { S.song[i] = 1; S.pha[i] = 0; S.u[i] = 0; S.j[i] = Math.random(); S.beo[i] = Math.random() < (cfg.tiLe == null ? 0.7 : cfg.tiLe) ? 1 : 0; S.th[i] = Math.random() * 6.2832; S.r0[i] = Math.random(); S.a0[i] = Math.random(); S.k[i] = Math.random(); },
+        buoc: function (S, i, dt, omega) {
+          var p = S.pha[i], ph = (S.beo[i] ? cfg.A : cfg.B)[p], j = S.j[i];
+          var u = S.u[i] + dt / ((ph.t || thoi[p]) * (0.85 + 0.3 * j));
+          if (u >= 1) { if (p < 4) { S.pha[i] = p + 1; S.u[i] = 0; return this.buoc(S, i, 0, 0); } S.song[i] = 0; S.s[i] = 0; return; }
+          S.u[i] = u;
+          var f = (ph.tuyen ? u : U.ease(u)) * ph.cum[ph.cum.length - 1], k = 1; while (k < ph.cum.length - 1 && ph.cum[k] < f) k++;
+          var seg = ph.cum[k] - ph.cum[k - 1] || 1, t = (f - ph.cum[k - 1]) / seg, a = ph.pts[k - 1], b = ph.pts[k];
+          var x = U.lerp(a.x, b.x, t), y = U.lerp(a.y, b.y, t), z = U.lerp(a.z, b.z, t);
+          if (ph.rung) { x += (j - 0.5) * ph.rung[0]; y += (S.r0[i] - 0.5) * ph.rung[1]; z += (S.a0[i] - 0.5) * ph.rung[2]; }
+          if (ph.quay) {
+            S.th[i] += omega * dt * (ph.quay.k || 1) * (0.7 + 0.6 * S.k[i]);
+            var r = U.lerp(ph.quay.r[0], ph.quay.r[1], u) * (0.35 + 0.65 * S.r0[i]), s = Math.sin(S.th[i]) * r, c = Math.cos(S.th[i]) * r;
+            if (ph.quay.ax === 'x') { y += s; z += c; } else if (ph.quay.ax === 'y') { x += c; z += s; } else { x += c; y += s; }
+          }
+          S.x[i] = x; S.y[i] = y; S.z[i] = z;
+          S.cr[i] = U.lerp(ph.c0[0], ph.c1[0], u); S.cg[i] = U.lerp(ph.c0[1], ph.c1[1], u); S.cb[i] = U.lerp(ph.c0[2], ph.c1[2], u);
+          S.gl[i] = U.lerp(ph.g[0], ph.g[1], u); S.s[i] = (ph.s == null ? 1 : ph.s) * (ph.mo ? Math.max(0, 1 - u) : 1);
+        },
+      };
+    };
     var M = mk(T, ctx);
+    // [MÔ PHỎNG … kiểu: tháo-lắp]: tên, chức năng, "vì sao ở đó" của từng bộ phận lấy từ chính bài (opt.boPhan[id]), không dùng chữ viết sẵn trong module
+    if (opt.boPhan) M.boPhan.forEach(function (bp) { var o = opt.boPhan[bp.id]; if (!o) return; if (o.ten) bp.ten = o.ten; if (o.chucNang) bp.chucNang = o.chucNang + (o.viSao ? ' Vì sao ở đó: ' + o.viSao : ''); });
 
     // ---------- DOM ----------
     var root = document.createElement('div'); root.className = 'may pc-' + pc; root.setAttribute('role', 'dialog'); root.setAttribute('aria-label', 'Cảnh mô phỏng: ' + M.ten);
@@ -116,6 +175,9 @@
     host.appendChild(root);
     var $ = function (s) { return root.querySelector(s); }, q = function (k) { return root.querySelector('[data-k="' + k + '"]'); };
     $('.may-dau h2').textContent = M.ten; $('.may-dothi h3').textContent = M.chuThichDoThi || 'Số hạt ra';
+    // máy có thể tự đặt màu + chữ chú thích đồ thị: chuThichMau: [[hexNhe, chữ], [hexNang, chữ]]
+    var mauDT = M.chuThichMau ? [M.chuThichMau[0][0], M.chuThichMau[1][0]] : ['#F2C230', '#3BA7E6'];
+    if (M.chuThichMau) { var cgEl = $('.may-dothi .cg'); cgEl.innerHTML = ''; M.chuThichMau.forEach(function (m) { var sp = document.createElement('span'), ii = document.createElement('i'); ii.style.background = m[0]; sp.appendChild(ii); sp.appendChild(document.createTextNode(m[1])); cgEl.appendChild(sp); }); }
     function bao(t) { var b = $('.may-bao'); b.textContent = t; b.classList.add('on'); clearTimeout(bao.t); bao.t = setTimeout(function () { b.classList.remove('on'); }, 2600); }
 
     // ---------- renderer + cảnh ----------
@@ -305,14 +367,14 @@
       var w = dt2.width, h = dt2.height; dctx.clearRect(0, 0, w, h);
       dctx.strokeStyle = 'rgba(255,220,180,.25)'; dctx.lineWidth = 1; for (var g = 1; g < 4; g++) { dctx.beginPath(); dctx.moveTo(0, h * g / 4); dctx.lineTo(w, h * g / 4); dctx.stroke(); }
       var mx = 1; mau.forEach(function (m) { mx = Math.max(mx, m[0], m[1]); });
-      [['#F2C230', 0], ['#3BA7E6', 1]].forEach(function (c) { dctx.strokeStyle = c[0]; dctx.lineWidth = 3; dctx.beginPath(); mau.forEach(function (m, i) { var x = i / 59 * w, y = h - 6 - m[c[1]] / mx * (h - 14); if (i) dctx.lineTo(x, y); else dctx.moveTo(x, y); }); dctx.stroke(); });
+      [[mauDT[0], 0], [mauDT[1], 1]].forEach(function (c) { dctx.strokeStyle = c[0]; dctx.lineWidth = 3; dctx.beginPath(); mau.forEach(function (m, i) { var x = i / 59 * w, y = h - 6 - m[c[1]] / mx * (h - 14); if (i) dctx.lineTo(x, y); else dctx.moveTo(x, y); }); dctx.stroke(); });
     }
 
     // ---------- tách / xuyên / điều khiển ----------
     var tachMuc = 0, tachE = 0, xuyen = false;
     function doiCo() { q('chay').setAttribute('aria-pressed', String(chay)); q('chay').innerHTML = (chay ? '❚❚ Dừng' : '▶ Chạy') + '<kbd>Space</kbd>'; q('xuyen').setAttribute('aria-pressed', String(xuyen)); }
     function datXuyen(b) {
-      xuyen = b; parts.forEach(function (bp) { bp.obj.traverse(function (o) { if (!o.isMesh || o.userData.xuyen === undefined) return; var m = o.material; m.transparent = b; m.opacity = b ? o.userData.xuyen : 1; m.depthWrite = !b; m.needsUpdate = true; o.castShadow = !b; }); });
+      xuyen = b; parts.map(function (bp) { return bp.obj; }).concat(M.trangTri || []).forEach(function (root) { root.traverse(function (o) { if (!o.isMesh || o.userData.xuyen === undefined) return; var m = o.material; m.transparent = b; m.opacity = b ? o.userData.xuyen : 1; m.depthWrite = !b; m.needsUpdate = true; o.castShadow = !b; }); });
       doiCo();
     }
     function datTach(v) { tachMuc = Math.max(0, Math.min(1, v)); q('tach').value = Math.round(tachMuc * 100); if (reduce) tachE = tachMuc; }
@@ -362,8 +424,9 @@
       }
       parts.forEach(function (bp) { bp.obj.position.set(bp.lap.x + bp.tach[0] * e, bp.lap.y + bp.tach[1] * e, bp.lap.z + bp.tach[2] * e); });
       if (M.tach) M.tach(e);
+      if (M.capNhat) M.capNhat(tg, e); // máy có chuyển động riêng theo thời gian mô phỏng (vd. pittông ép tăng áp từng bậc)
       var sdt = dt * toc;
-      if (!dongBang && (chay || hangCho > 0 || dangCon())) { buocSim(sdt); var om = M.omega * sdt; parts.forEach(function (bp) { if (bp.xoay) bp.obj.rotation.y += om; }); }
+      if (!dongBang && (chay || hangCho > 0 || dangCon())) { buocSim(sdt); var om = M.omega * sdt; parts.forEach(function (bp) { if (bp.xoay) bp.obj.rotation[bp.truc || 'y'] += om; }); }
       veHat(); veMuiTen(t / 1000); orbit.update();
       if (t - lastMau > 500 && !dongBang) { lastMau = t; layMau(); }
       if (composer) composer.render(dt); else renderer.render(scene, cam);
@@ -380,7 +443,7 @@
     var api = {
       tach: datTach, xuyen: datXuyen, chay: datChay, mot: mot, tha: tha, tocDo: datToc, chon: function (id) { chonBP(parts.filter(function (x) { return x.id === id || x.so === id; })[0] || null); },
       chatLuong: function (q, khoa) { khoaCL = khoa !== false; apCL(q); }, datLai: datLai, dong: dong,
-      sim: function (giay) { for (var t = 0, n = 0; t < giay; t += 1 / 60, n++) { buocSim(1 / 60); var om = M.omega / 60; parts.forEach(function (bp) { if (bp.xoay) bp.obj.rotation.y += om; }); if (n % 30 === 29) layMau(); } },
+      sim: function (giay) { for (var t = 0, n = 0; t < giay; t += 1 / 60, n++) { buocSim(1 / 60); var om = M.omega / 60; parts.forEach(function (bp) { if (bp.xoay) bp.obj.rotation[bp.truc || 'y'] += om; }); if (n % 30 === 29) layMau(); } },
       xoa: function () { for (var i = 0; i < N; i++) { S.song[i] = 0; S.s[i] = 0; } hangCho = 0; tichSinh = 0; ra = { nhe: 0, nang: 0 }; raCu = { nhe: 0, nang: 0 }; mau.length = 0; tg = 0; },
       dongBang: function (b) { dongBang = b !== false; },
       thongKe: function () { var d = [0, 0, 0, 0, 0], s = 0; for (var i = 0; i < N; i++) if (S.song[i]) { s++; d[S.pha[i]]++; } return { song: s, pha: d, ra: Object.assign({}, ra), tg: tg, chatLuong: chatLuong, pr: renderer.getPixelRatio(), hat: N, ssao: !!(ssao && ssao.enabled), hauKy: !!composer, phongCach: pc }; },

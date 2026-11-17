@@ -565,13 +565,15 @@ function theRa(A, xf = inl, xp = xf) { // xf: chữ trong thẻ (v3: nối {{thu
       case 'tom': return { k: 'tom', items: t.items.map((v) => xp(stripT(v))) };
       case 'mo-phong': {
         const s = t.sim, bad = s.errs.length ? s.errs : null; if (bad) return { k: 'mo-phong', id: esc(s.id), bad, line: s.line, khangRaw: s.khang };
-        return { k: 'mo-phong', id: esc(s.id), kieu: s.kieu, line: s.line, khangRaw: s.khang, bad: null, khang: x(s.khang), chucnang: s.chucnang.trim().toLowerCase(), nhin: x(s.nhin),
+        return { k: 'mo-phong', id: esc(s.id), kieu: s.kieu, line: s.line, khangRaw: s.khang, bad: null, khang: x(s.khang) + (s.kieu === 'thao-lap' ? '<span class="tl-id" data-tl-id="' + esc(s.id) + '" hidden></span>' : ''), chucnang: s.chucnang.trim().toLowerCase(), nhin: x(s.nhin),
           du: s.du && { q: x(s.du.q), opts: s.du.opts.map(esc), dapIdx: s.du.dapIdx, viSao: x(s.du.viSao) },
           hat: s.kieu === 'hat' ? { vung: s.vung.map((v) => ({ ten: esc(v.ten), nen: !!v.nen })), ranh: s.ranh, do: s.do && { nhan: esc(s.do.nhan), chia: s.do.chia }, hat: s.vung.map((v) => v.hat), gd: Object.fromEntries(Object.entries(s.gd).map(([k, v]) => [k, x(v)])) } : null,
           hh: s.kieu === 'hoat-hinh' ? { svg: cleanSvg(s.svg, 'hh' + s.id.replace(/\W/g, '') + '-'), steps: s.buoc.sort((p, q) => p.n - q.n).map((b) => ({ n: b.n, chu: x(b.chu), viSao: x(b.viSao) })) } : null,
           bien: s.bien && { ten: esc(s.bien.ten), nhan: esc(s.bien.nhan || ''), donvi: esc(s.bien.donvi), min: s.bien.min, max: s.bien.max, buoc: s.bien.buoc, mac: s.bien.mac }, hang: s.hang,
+          ...(s.biens.length > 1 ? { them: s.biens.slice(1).map((b) => ({ ten: esc(b.ten), nhan: esc(b.nhan || ''), donvi: esc(b.donvi), min: b.min, max: b.max, buoc: b.buoc, mac: b.mac })) } : {}),
           chon: s.chon.map((c) => ({ ten: esc(c.ten), f: c.f })), tinh: s.tinh.map((u) => ({ ten: esc(u.ten), src: esc(u.src), ast: u.ast })), ra: s.ra.map((r) => ({ ten: r.ten, nhan: esc(r.nhan), so: r.so })),
-          nguong: s.nguong.map((g) => ({ ten: esc(g.ten), plain: g.ten, k: g.k })), nguon: x(s.nguon), gioiHan: x(s.gioiHan) };
+          nguong: s.nguong.map((g) => ({ ten: esc(g.ten), plain: g.ten, k: g.k })), nguon: x(s.nguon), gioiHan: x(s.gioiHan),
+          tl: s.kieu === 'thao-lap' && s.bp ? { ma: s.id, id: s.id, bai: s.file, dong: s.line, khangPlain: unesc(String(x(s.khang)).replace(/<[^>]*>/g, '')).replace(/\s+/g, ' ').trim(), bp: s.bp.map((b) => ({ id: b.ma, ten: x(b.ten), chuc: x(b.chuc), viSao: x(b.viSao) })), buoc: s.buoc.slice().sort((p, q) => p.n - q.n).map((b) => x(b.chu)) } : null };
       }
       case 'ban-do': return { k: 'ban-do', edges: t.edges.map((e) => ({ a: esc(e.a), rel: esc(e.rel), b: esc(e.b) })) };
       case 'so-lieu': return t.table ? { k: 'so-lieu', name: esc(t.main), loai: t.kv.loai || '', x: esc(t.kv.x || ''), y: esc(t.kv.y || ''), nguon: esc(t.kv.nguon || ''), head: t.table.head.map(inl), rows: t.table.rows.map((r) => r.map(inl)) } : null;
@@ -633,8 +635,37 @@ function evalAst(a, sc) {
   return a.o === '+' ? l + r : a.o === '-' ? l - r : a.o === '*' ? l * r : a.o === '/' ? l / r : Math.pow(l, r);
 }
 // ============================================================ [MÔ PHỎNG] (KHUNG v3 phần 2, mục 11)
-const SIM_KIEU = new Set(['thanh-truot', 'du-doan', 'hat', 'hoat-hinh']); // kiểu đã làm; tháo-lắp, bỏ-vào-máy, sắp-xếp, tính-thử: chưa hỗ trợ → cảnh báo
+const SIM_KIEU = new Set(['thanh-truot', 'du-doan', 'hat', 'hoat-hinh', 'thao-lap']); // kiểu đã làm; bỏ-vào-máy, sắp-xếp, tính-thử: chưa hỗ trợ → cảnh báo
+// Kho đăng ký mô hình tháo-lắp 3D = templates/may/<id>.js (ghép theo id của [MÔ PHỎNG]). Thiếu → cảnh báo + ghi hàng đợi mo-hinh-can-lam.md
+const CAN_LAM = new Map();
+const TL_CSS = '.tl{margin:1rem 0;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.tl h4,.tl h5{margin:.2em 0 .4em}.tl .tlb{min-height:44px;padding:0 20px;border-radius:10px;border:2px solid var(--accent);background:var(--accent);color:var(--bg);font:inherit;font-weight:700;cursor:pointer}.tl .tlb:disabled{opacity:.6;cursor:wait}.tl .tlb:focus-visible{outline:3px solid var(--text);outline-offset:3px}.tl ol{padding-left:1.3em;margin:.3em 0}.tl li{margin:.35em 0}.tl-loi{border:3px solid #E5484D}.tl-loi b{color:#E5484D}';
+function mayInfo(ma) { // đọc mã bộ phận và số bước của module (không chạy mã): { so: N, id: '…' } và số "pha: [" trong danh sách bước
+  const f = path.join(ROOT, 'templates', 'may', ma + '.js'); if (!/^[a-z0-9-]+$/.test(ma) || !fs.existsSync(f)) return null;
+  const js = fs.readFileSync(f, 'utf8'); return { ids: [...js.matchAll(/\{\s*so:\s*(\d+),\s*id:\s*'([a-z0-9_-]+)'/g)].map((m) => m[2]), nBuoc: (js.match(/\bpha:\s*\[/g) || []).length };
+}
 const HAT_GD = { dau: 'dau', chuyen: 'chuyen', 'can bang': 'can-bang' }; // giai đoạn của kiểu hạt (chữ hiện theo trạng thái số hạt)
+// ----- Kiểm khối [MÔ PHỎNG … kiểu: tháo-lắp]. Mọi lỗi: in to ra màn hình kèm TÊN BÀI + DÒNG, ẩn mô hình khỏi trang, và (với --nghiem) làm dựng thất bại (mã thoát 2).
+const TL_LOI = [], TL_ID = new Map(), TL_KH = new Map();
+function tlLoi(file, line, msg) { const t = `${file} dòng ${line}: ${msg}`; if (!TL_LOI.includes(t)) { TL_LOI.push(t); console.error(`\n  ✗✗ LỖI MÔ PHỎNG THÁO-LẮP  ${t}\n`); } }
+function kiemTl(S, hdr, err) {
+  const e2 = (n, m) => { err(n, m); tlLoi(S.file, n, m); };
+  const nk = deAccent(S.khang).toLowerCase().replace(/\s+/g, ' ').trim(), vt = (m) => `${m.file} dòng ${m.line}`;
+  const pi = TL_ID.get(S.id), pk = TL_KH.get(nk);
+  if (pi && !(pi.file === S.file && pi.line === hdr)) e2(hdr, `id "${S.id}" trùng với ${vt(pi)} – mỗi id chỉ dùng một lần trong album`); else TL_ID.set(S.id, { file: S.file, line: hdr });
+  if (nk && pk && !(pk.file === S.file && pk.line === hdr)) e2(hdr, `khẳng định trùng với ${vt(pk)} ("${String(S.khang).slice(0, 70)}…") – bộ gắn ghép mô hình theo câu khẳng định nên mỗi câu phải duy nhất`); else if (nk) TL_KH.set(nk, { file: S.file, line: hdr });
+  const mi = mayInfo(S.id);
+  if (!mi) { e2(hdr, `mô hình tháo-lắp "${S.id}" chưa có (cần templates/may/${S.id}.js) – đã ghi vào mo-hinh-can-lam.md`); CAN_LAM.set(S.id, { khang: S.khang, file: S.file }); return; }
+  const bp = S.bp || [], seen = new Set(); let bad = false;
+  if (!bp.length) { e2(hdr, 'kiểu tháo-lắp cần các dòng "- bộ phận: <tên> | mã: <mã> | chức năng: … | vì sao ở đó: …"'); bad = true; }
+  for (const b of bp) {
+    if (!mi.ids.includes(b.ma)) { e2(b.n, `bộ phận "${b.ten}": mã "${b.ma || '(trống)'}" không có trong mô hình ${S.id} (mã hợp lệ: ${mi.ids.join(', ')})`); bad = true; }
+    else if (seen.has(b.ma)) { e2(b.n, `mã bộ phận "${b.ma}" bị lặp`); bad = true; } else seen.add(b.ma);
+    if (!b.chuc) { e2(b.n, `bộ phận "${b.ten}" thiếu "chức năng:"`); bad = true; }
+  }
+  if (!bad && mi.ids.some((i) => !seen.has(i))) e2(hdr, `thiếu bộ phận (mã): ${mi.ids.filter((i) => !seen.has(i)).join(', ')} – bài phải ghi đủ tên và chức năng theo bài giảng`);
+  const ns = S.buoc.map((b) => b.n).sort((p, q) => p - q);
+  if (ns.join(',') !== Array.from({ length: mi.nBuoc }, (_, k) => k + 1).join(',')) e2(hdr, `mô hình ${S.id} có ${mi.nBuoc} bước vận hành; bài ghi ${ns.length} dòng "bước" (cần bước 1..${mi.nBuoc})`);
+}
 function checkSvgHoatHinh(svg) { // 11.6: SVG hoạt hình phải có title + desc; không script, không liên kết ngoài; không tự chạy/lặp vô hạn
   const m = [];
   if (!/<title[\s>]/i.test(svg)) m.push('SVG thiếu <title>'); if (!/<desc[\s>]/i.test(svg)) m.push('SVG thiếu <desc>');
@@ -648,7 +679,7 @@ const RE_ITEM = /([^{};]+?)\s*\{([^{}]*)\}/g;
 function parseSim(a, body, ln0, hdrLine, file = '') {
   const errs = [], err = (n, m) => errs.push({ n, m });
   const S = { id: (a.main || '').trim(), kieu: deAccent(a.kv.kieu || '').toLowerCase().trim().replace(/[\s_]+/g, '-'), khang: a.kv['khang dinh'] || '', chucnang: a.kv['chuc nang'] || '', nhin: a.kv.nhin || '', line: hdrLine,
-    du: null, bien: null, chon: [], hang: {}, tinh: [], ra: [], nguong: [], nguon: '', gioiHan: '', errs, vung: [], ranh: '', do: null, gd: {}, hinh: '', hinhLine: 0, buoc: [], svg: '' };
+    du: null, bien: null, biens: [], chon: [], hang: {}, tinh: [], ra: [], nguong: [], nguon: '', gioiHan: '', errs, vung: [], ranh: '', do: null, gd: {}, hinh: '', hinhLine: 0, buoc: [], svg: '', file: path.basename(String(file || '')) };
   const cfg = [];
   body.forEach((l, j) => { const m = l.match(/^\s*[-*]\s+([^:]{1,14}):\s*(.*)$/); if (m) cfg.push({ k: deAccent(m[1]).toLowerCase().trim(), v: m[2].trim(), n: ln0 + j }); else if (l.trim() && cfg.length) cfg[cfg.length - 1].v += ' ' + l.trim(); });
   const kvs = (segs) => { const o = {}; for (const p of segs) { const m = p.match(/^([^:]{1,12}):\s*(.*)$/); if (m) o[deAccent(m[1]).toLowerCase().trim()] = m[2].trim(); } return o; };
@@ -661,14 +692,16 @@ function parseSim(a, body, ln0, hdrLine, file = '') {
       S.du = { q: segs[0], opts, dap: opts[di] || '', dapIdx: di, viSao: kv['vi sao'] || '' };
     } else if (c.k === 'bien') {
       const kv = kvs(segs.slice(1)), n = (k) => (kv[k] !== undefined && kv[k] !== '' && isFinite(+kv[k]) ? +kv[k] : null);
-      const b = { ten: segs[0], nhan: kv.nhan || '', donvi: kv['don vi'] || '', min: n('min'), max: n('max'), buoc: n('buoc') ?? 1, mac: n('mac dinh') };
+      const b = { ten: segs[0], nhan: kv.nhan || '', donvi: /^(không|khong)(\s+có|\s+co)?$|^[-–—]$/i.test((kv['don vi'] || '').trim()) ? '' : kv['don vi'] || '', min: n('min'), max: n('max'), buoc: n('buoc') ?? 1, mac: n('mac dinh') };
       if (!/^[\p{L}_][\p{L}\p{N}_]*$/u.test(b.ten)) err(c.n, `tên biến "${b.ten}" không hợp lệ (chữ, số, gạch dưới)`);
       if (b.min === null || b.max === null) err(c.n, 'biến cần min và max là số'); else { if (b.mac === null) b.mac = b.min; if (b.max <= b.min) err(c.n, 'biến: max phải lớn hơn min'); }
-      S.bien = b;
+      if (S.bien && S.biens.some((x) => x.ten === b.ten)) err(c.n, `biến "${b.ten}" bị khai báo hai lần (mỗi dòng "- biến:" một tên khác nhau)`);
+      else if (S.biens.length >= 3) err(c.n, 'mô phỏng tối đa 3 dòng "- biến:" (mỗi dòng một thanh trượt)');
+      else { S.biens.push(b); if (S.biens.length === 1) S.bien = b; }
     } else if (c.k === 'chon') { for (const m of c.v.matchAll(RE_ITEM)) S.chon.push({ ten: m[1].trim(), f: numKv(m[2]) }); if (!S.chon.length) err(c.n, 'chọn: dạng "<tên> {M: 1, i: 2, max: 60}; …"'); }
     else if (c.k === 'hang') { for (const p of c.v.split(';').map((x) => x.trim()).filter(Boolean)) { const m = p.match(/^([\p{L}_][\p{L}\p{N}_]*)\s*=\s*(-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)$/u); if (m) S.hang[m[1]] = parseFloat(m[2]); else err(c.n, `hằng "${p}": dạng "tên = số"`); } }
     else if (c.k === 'tinh') {
-      const known = new Set([...(S.bien ? [S.bien.ten] : []), ...Object.keys(S.hang), ...S.chon.flatMap((o) => Object.keys(o.f)), ...S.tinh.map((u) => u.ten)]);
+      const known = new Set([...S.biens.map((b) => b.ten),...Object.keys(S.hang), ...S.chon.flatMap((o) => Object.keys(o.f)), ...S.tinh.map((u) => u.ten)]);
       for (const p of c.v.split(';').map((x) => x.trim()).filter(Boolean)) {
         const m = p.match(/^([\p{L}_][\p{L}\p{N}_]*)\s*=\s*(.+)$/u); if (!m) { err(c.n, `tính "${p}": dạng "tên = công thức"`); continue; }
         try { const { ast, vars } = parseExpr(m[2]); const lạ = [...vars].filter((v) => !known.has(v)); if (lạ.length) err(c.n, `công thức "${m[2]}" dùng "${lạ.join(', ')}" chưa khai báo (biến, hằng, chọn, hoặc dòng tính trước đó)`); else { S.tinh.push({ ten: m[1], src: m[2].trim(), ast }); known.add(m[1]); } }
@@ -682,13 +715,14 @@ function parseSim(a, body, ln0, hdrLine, file = '') {
     else if (c.k === 'giai doan') { const g = HAT_GD[deAccent(segs[0]).toLowerCase().trim()], kv = kvs(segs.slice(1)); if (!g) err(c.n, `giai đoạn "${segs[0]}": chỉ nhận đầu, chuyển, cân bằng`); else if (!kv.chu) err(c.n, `giai đoạn "${segs[0]}" thiếu "chữ:"`); else S.gd[g] = kv.chu; }
     else if (c.k === 'hinh') { S.hinh = c.v.trim(); S.hinhLine = c.n; }
     else if (c.k === 'buoc') { const kv = kvs(segs.slice(1)), n = Number(segs[0]); if (!Number.isInteger(n) || n < 1) err(c.n, `bước "${segs[0]}" phải là số nguyên từ 1`); else if (!kv.chu) err(c.n, `bước ${n} thiếu "chữ:"`); else if (S.buoc.some((b) => b.n === n)) err(c.n, `bước ${n} bị lặp`); else S.buoc.push({ n, chu: kv.chu, viSao: kv['vi sao'] || '' }); }
+    else if (c.k === 'bo phan') { const kv = kvs(segs.slice(1)); (S.bp = S.bp || []).push({ ten: segs[0], ma: (kv.ma || '').toLowerCase(), chuc: kv['chuc nang'] || '', viSao: kv['vi sao o do'] || '', n: c.n }); }
     else if (c.k === 'nguon') S.nguon = (S.nguon ? S.nguon + ' ' : '') + c.v;
     else if (c.k === 'gioi han') S.gioiHan = (S.gioiHan ? S.gioiHan + ' ' : '') + c.v;
-    else err(c.n, `khóa "${c.k}" không hiểu (dùng: dự đoán, biến, chọn, hằng, tính, ra, ngưỡng, vùng, ranh giới, đo, giai đoạn, hình, bước, nguồn, giới hạn)`);
+    else err(c.n, `khóa "${c.k}" không hiểu (dùng: dự đoán, biến, chọn, hằng, tính, ra, ngưỡng, vùng, ranh giới, đo, giai đoạn, hình, bước, bộ phận, nguồn, giới hạn)`);
   }
   if (!S.id) err(hdrLine, 'mô phỏng thiếu id');
   for (const [k, lab] of [['khang', 'khẳng định'], ['chucnang', 'chức năng'], ['nguon', 'nguồn'], ['gioiHan', 'giới hạn']]) if (!String(S[k]).trim()) err(hdrLine, `mô phỏng "${S.id}" thiếu ${lab}`);
-  if (!SIM_KIEU.has(S.kieu)) err(hdrLine, `kiểu "${a.kv.kieu || '(trống)'}" chưa hỗ trợ (đã làm: thanh-trượt, dự-đoán)`);
+  if (!SIM_KIEU.has(S.kieu)) err(hdrLine, `kiểu "${a.kv.kieu || '(trống)'}" chưa hỗ trợ (đã làm: thanh-trượt, dự-đoán, hạt, hoạt-hình, tháo-lắp)`);
   else {
     const calc = !!(S.bien || S.tinh.length || S.ra.length);
     if (S.kieu === 'du-doan' && !S.du) err(hdrLine, `kiểu dự-đoán cần dòng "- dự đoán: …"`);
@@ -713,11 +747,12 @@ function parseSim(a, body, ln0, hdrLine, file = '') {
         }
       }
     }
+    if (S.kieu === 'thao-lap') kiemTl(S, hdrLine, err);
     if (S.kieu === 'thanh-truot' || calc) {
       if (!S.bien) err(hdrLine, 'thiếu dòng "- biến: …"'); if (!S.tinh.length) err(hdrLine, 'thiếu dòng "- tính: …"'); if (!S.ra.length) err(hdrLine, 'thiếu dòng "- ra: …"');
       const names = new Set(S.tinh.map((u) => u.ten)); for (const r of S.ra) if (!names.has(r.ten)) err(r.line, `ra "${r.ten}" không có trong các dòng tính`);
       for (const g of S.nguong) if (S.ra[0] && !(S.ra[0].ten in g.k)) err(hdrLine, `ngưỡng "${g.ten}" cần khóa "${S.ra[0].ten}" (đại lượng ra)`);
-      if (!errs.length) { try { const sc = { ...S.hang, ...(S.chon[0] ? S.chon[0].f : {}), [S.bien.ten]: S.bien.mac }; for (const u of S.tinh) sc[u.ten] = evalAst(u.ast, sc); if (!isFinite(sc[S.ra[0].ten])) err(hdrLine, `kết quả "${S.ra[0].ten}" không hữu hạn ở giá trị mặc định`); } catch (e) { err(hdrLine, e.message); } }
+      if (!errs.length) { try { const sc = { ...S.hang, ...(S.chon[0] ? S.chon[0].f : {}), ...Object.fromEntries(S.biens.map((b) => [b.ten, b.mac])) }; for (const u of S.tinh) sc[u.ten] = evalAst(u.ast, sc); if (!isFinite(sc[S.ra[0].ten])) err(hdrLine, `kết quả "${S.ra[0].ten}" không hữu hạn ở giá trị mặc định`); } catch (e) { err(hdrLine, e.message); } }
     }
   }
   return S;
@@ -861,6 +896,20 @@ function chuongV3(A, T) {
 }
 const inlT = (s) => termify(inl(s)); // chữ trong bài v3: {{thuật ngữ}} → liên kết bấm được
 const inlP = (s) => inl(stripT(s));  // tiêu đề: không có {{ }}
+function bangV3(notes, x) { // các dòng liền nhau bắt đầu bằng "|" → { head, rows }; dòng "|---|" là gạch phân cách tiêu đề. Không có gạch thì dòng đầu vẫn là tiêu đề cột.
+  const out = []; let cur = null;
+  for (const n of notes) {
+    if (!/^\|/.test(n.text)) { cur = null; continue; }
+    if (!cur) { cur = []; out.push(cur); } cur.push(n.text);
+  }
+  return out.map((ls) => {
+    const cells = (l) => l.trim().replace(/^\|/, '').replace(/\|\s*$/, '').split('|').map((c) => c.trim());
+    const rows = ls.filter((l) => !/^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/.test(l)).map(cells);
+    const w = Math.max(...rows.map((r) => r.length));
+    const pad = (r) => Array.from({ length: w }, (_, i) => x(r[i] || ''));
+    return { head: pad(rows[0]), rows: rows.slice(1).map(pad) };
+  }).filter((t) => t.head.length);
+}
 function v3Data(A, F, dirs, T) {
   const x = (v) => inlT(v || '');
   const endItems = T.end.flatMap((g) => g.items);
@@ -868,9 +917,10 @@ function v3Data(A, F, dirs, T) {
     n: ch.n, title: inlP(ch.title), plain: stripT(ch.title), hoi, extras, tom: tom ? tom.items : [],
     blocks: scenes.map(({ sc, charts, maps, sims }, k) => {
       const vai = vaiOf(sc.vai);
-      const paras = sc.steps.map((s) => (s.type === 'note' && s.tag ? `<b>${esc(s.tag)}:</b> ` : '') + inlT(s.text).replace(/\n• /g, '<br>• ')).concat(sc.notes.map((n) => inlT(n.text)));
+      const paras = sc.steps.map((s) => (s.type === 'note' && s.tag ? `<b>${esc(s.tag)}:</b> ` : '') + inlT(s.text).replace(/\n• /g, '<br>• ')).concat(sc.notes.filter((n) => !/^\|/.test(n.text)).map((n) => inlT(n.text)));
+      const tbls = bangV3(sc.notes, x); // bảng markdown trong Cảnh → bảng thật (thẻ <table>), dựng ở album-v3.html
       const figs = []; for (const { f } of sc.figs) { const id = resolveFig(f, { board: [] }, dirs, F); if (id !== null) figs.push(id); }
-      return { id: `c${ch.n}-${k + 1}`, num: sc.num, title: inlP(sc.title), plain: stripT(sc.title), vai: vai ? vai[0] : '', vaiLabel: vai ? vai[1] : esc(sc.vai || ''), paras, nho: x(sc.nho), figs, charts, maps, sims: sims.filter((s) => !s.bad) };
+      return { id: `c${ch.n}-${k + 1}`, num: sc.num, title: inlP(sc.title), plain: stripT(sc.title), vai: vai ? vai[0] : '', vaiLabel: vai ? vai[1] : esc(sc.vai || ''), paras, ...(tbls.length ? { tbls } : {}), nho: x(sc.nho), figs, charts, maps, sims: sims.filter((s) => !s.bad) };
     }),
   }));
   const onRai = endItems.filter((i) => i.k === 'on-rai');
@@ -903,12 +953,15 @@ function kiemMau(tpl) { // đọc biến màu trong templates/album-v3.html, ki�
   if (/@keyframes|animation\s*:|backdrop-filter/.test(css)) loi.push('có animation hoặc backdrop-filter (glass) trong CSS – bị cấm');
   return loi;
 }
+// Dòng "bài | …" của hinh-da-dung.md thuộc chính bài đang kiểm? Mã bài có thể dài ("CNTP-Ngay01_2026-11-02_cncb") còn sổ ghi mã ngắn ("CNTP-Ngay01"): khớp cả hai.
+const maBai = (A) => new Set([A.code, String(A.code || '').split(/[_\s·]/)[0]].filter(Boolean).map((x) => x.toLowerCase()));
+const hdDungFiles = (mdFile) => [...new Set([path.join(path.dirname(mdFile), 'hinh-da-dung.md'), path.join(ROOT, 'hinh-da-dung.md'), path.join(IN, 'hinh-da-dung.md'), path.join(ROOT, 'rd-food-lab', 'hinh-da-dung.md'), path.join(ROOT, 'docs-v3', 'hinh-da-dung.md')])];
 function hinhDaDung(A, mdFile) { // khóa hình (url nguồn / PubChem CID) đã dùng ở các bài khác trong bai/ và trong hinh-da-dung.md (nếu có)
   const refs = new Map(), norm = (u) => u.replace(/^http:/i, 'https:').replace(/[?#].*$/, '').replace(/\/+$/, '').toLowerCase();
   const base = (s) => s.replace(/\.md$/i, '').replace(/-album(-v3)?$/i, '').replace(/\s*\(\d+\)$/, '').toLowerCase();
   const scan = (txt, where, anyUrl, skipCode) => {
     for (const l of txt.split(/\r?\n/)) {
-      if (skipCode && l.includes(skipCode)) continue;
+      if (skipCode) { const t = l.replace(/^\s*[-*]\s+/, ''), own = t.includes('|') ? t.split('|')[0].trim().toLowerCase() : null; if (own !== null ? skipCode.has(own) : [...skipCode].some((c) => l.toLowerCase().includes(c))) continue; }
       const m = l.match(/^\s*(?:[-*]\s+)?\[(?:HÌNH|HINH)\s*:\s*(https?:\/\/[^\s|\]]+)/i); if (m && !refs.has(norm(m[1]))) refs.set(norm(m[1]), where);
       const c = l.match(/^\s*(?:[-*]\s+)?\[3D\s*:[^\]]*?pub\s*chem\s*(?:cid)?\s*[:#]?\s*(\d+)/i); if (c && !refs.has('pubchem:' + c[1])) refs.set('pubchem:' + c[1], where);
       if (anyUrl) for (const u of l.match(/https?:\/\/[^\s|)\]>]+/g) || []) if (!refs.has(norm(u))) refs.set(norm(u), where);
@@ -916,7 +969,7 @@ function hinhDaDung(A, mdFile) { // khóa hình (url nguồn / PubChem CID) đã
   };
   const self = base(path.basename(mdFile));
   if (fs.existsSync(IN)) for (const f of fs.readdirSync(IN).filter((x) => /\.md$/i.test(x) && /-album/i.test(x))) { if (base(f) === self || path.join(IN, f) === mdFile) continue; scan(fs.readFileSync(path.join(IN, f), 'utf8'), f, false); }
-  for (const p of [path.join(ROOT, 'hinh-da-dung.md'), path.join(IN, 'hinh-da-dung.md'), path.join(ROOT, 'rd-food-lab', 'hinh-da-dung.md'), path.join(ROOT, 'docs-v3', 'hinh-da-dung.md')]) if (fs.existsSync(p)) scan(fs.readFileSync(p, 'utf8'), path.relative(ROOT, p), true, A.code);
+  for (const p of hdDungFiles(mdFile)) if (fs.existsSync(p)) scan(fs.readFileSync(p, 'utf8'), path.relative(ROOT, p), true, maBai(A));
   return { refs, norm };
 }
 function moPhongDaDung(A, mdFile) { // id và khẳng định mô phỏng đã dùng ở bài khác (bai/*-album.md) và trong mục "Mô phỏng đã dùng" của hinh-da-dung.md
@@ -926,11 +979,12 @@ function moPhongDaDung(A, mdFile) { // id và khẳng định mô phỏng đã d
     if (base(f) === self || path.join(IN, f) === mdFile) continue;
     for (const l of fs.readFileSync(path.join(IN, f), 'utf8').split(/\r?\n/)) { const m = l.match(/^\s*(?:[-*]\s+)?\[MÔ PHỎNG\s*:\s*([^|\]]+?)\s*[|\]]/i); if (m) add(m[1], (l.match(/khẳng định\s*:\s*([^|\]]+)/i) || [])[1], f); }
   }
-  for (const p of [path.join(ROOT, 'hinh-da-dung.md'), path.join(IN, 'hinh-da-dung.md'), path.join(ROOT, 'rd-food-lab', 'hinh-da-dung.md'), path.join(ROOT, 'docs-v3', 'hinh-da-dung.md')]) {
+  const mine = maBai(A);
+  for (const p of hdDungFiles(mdFile)) {
     if (!fs.existsSync(p)) continue; let on = false;
     for (const l of fs.readFileSync(p, 'utf8').split(/\r?\n/)) {
       if (/^#{1,6}\s/.test(l)) on = /mô phỏng đã dùng/i.test(l);
-      else if (on && /^\s*-\s+/.test(l)) { const c = l.replace(/^\s*-\s+/, '').split('|').map((x) => x.trim()); if (c.length >= 4 && !(A.code && c[0].toLowerCase() === A.code.toLowerCase())) add(c[1], c[3], path.relative(ROOT, p)); }
+      else if (on && /^\s*-\s+/.test(l)) { const c = l.replace(/^\s*-\s+/, '').split('|').map((x) => x.trim()); if (c.length >= 4 && !mine.has(c[0].toLowerCase())) add(c[1], c[3], path.relative(ROOT, p)); }
     }
   }
   return { ids, khang };
@@ -949,7 +1003,7 @@ function kiemNghiem(A, T, F, mdFile) {
     if (!tom) loi.push(`Chương ${ch.n}: thiếu [TÓM: …]`);
     if (!extras.some((i) => i.k === 'quiz')) loi.push(`Chương ${ch.n}: thiếu [QUIZ]`);
     for (const { sc, sims } of scenes) {
-      const np = sc.steps.length + sc.notes.length;
+      const np = sc.steps.length + sc.notes.filter((n) => !/^\|/.test(n.text)).length; // dòng bảng markdown ("| … |") không tính là đoạn
       if (np > 3) loi.push(`Cảnh ${sc.num}: ${np} đoạn (> 3)`);
       const nh = sc.figs.length + sims.length;
       if (nh > 1) loi.push(`Cảnh ${sc.num}: ${nh} hình (> 1${sims.length ? ', tính cả mô phỏng' : ''})`);
@@ -1032,6 +1086,10 @@ async function renderAlbum(A, mdFile, extra = {}) {
   }
   html = html.replace('__KINH_CSS__', () => kinhCss).replace('__KINH_JS__', () => kinhJs);
   html = html.replace('__TITLE__', () => esc(A.title.replace(/\*\*/g, ''))).replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript(data)).replace('__VENDOR__', () => (extra.offline ? ((F.has3d || (extra.kinh && !F.v2) || F.may.size ? threeJs() : '') + (F.has3dmol ? molJs() : '') + (F.may.size ? mayJs([...F.may]) : '')) : ''));
+  if (F.v3) { // mô hình tháo-lắp: chèn bộ gắn (không sửa album-v3.html)
+    const tls = []; (function w(o) { if (!o || typeof o !== 'object') return; if (o.k === 'mo-phong' && o.tl) { tls.push(o.tl); return; } for (const v of Object.values(o)) w(v); })(data.v3);
+    if (tls.length) html = html.replace('</body>', () => '<script type="application/json" id="hhn-tl">' + jsonForScript(tls) + '</script><style>' + TL_CSS + '</style><script>' + fs.readFileSync(path.join(ROOT, 'templates', 'may', 'nhung-thao-lap.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script></body>');
+  }
   const qs =chapters.flatMap((c) => c.scenes.filter((s) => s.quiz).flatMap((s) => s.quiz.qs)).concat(data.endQuiz);
   const stats = { chapters: chapters.length, scenes: chapters.reduce((a, c) => a + c.scenes.length, 0), quiz: qs.length, quizNoAns: qs.filter((q) => q.ans < 0).length, figs: Object.keys(F.figs).length, figsTuVe: F.missing.size + F.tuVe.length, has3d: F.has3d, has3dmol: F.has3dmol, loiNguon: F.loiNguon.length, kb: Math.round(Buffer.byteLength(html) / 1024) };
   if (F.v3) { const cs = data.v3.chapters; Object.assign(stats, { giaoDien: 'v3', chapters: cs.length, scenes: cs.reduce((a, c) => a + c.blocks.length, 0), quiz: cs.reduce((a, c) => a + c.extras.filter((e) => e.k === 'quiz').reduce((b, e) => b + e.qs.length, 0), 0), quizNoAns: 0, hinhBoQua: F.boQua.length, theV2: A.the.length }); }
@@ -1133,6 +1191,8 @@ async function main() {
   fs.writeFileSync(path.join(OUT, 'index.html'), home, 'utf8');
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
   console.log(`Trang chủ: index.html (${items.length} bài) → ${OUT}`);
+  if (TL_LOI.length) { console.error(`\n✗✗ ${TL_LOI.length} LỖI MÔ PHỎNG THÁO-LẮP:\n` + TL_LOI.map((m) => '   - ' + m).join('\n') + '\n'); if (nghiem) nghiemLoi += TL_LOI.length; }
+  if (CAN_LAM.size) { fs.writeFileSync(path.join(OUT, 'mo-hinh-can-lam.md'), '# MÔ HÌNH THÁO-LẮP CẦN LÀM (tự sinh mỗi lần dựng)\nid | bài | khẳng định\n' + [...CAN_LAM].map(([id, v]) => `- ${id} | ${v.file} | ${v.khang}`).join('\n') + '\n', 'utf8'); console.log(`Mô hình tháo-lắp cần làm: ${[...CAN_LAM.keys()].join(', ')} → ${path.join(OUT, 'mo-hinh-can-lam.md')}`); }
   if (failed) { console.error(`${failed} bài lỗi`); process.exitCode = 1; }
   if (nghiemLoi) { console.error(`--nghiem: ${nghiemLoi} lỗi theo khung v3`); process.exitCode = 2; }
 }
