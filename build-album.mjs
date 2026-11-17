@@ -1132,6 +1132,11 @@ async function main() {
   const kinh = !args.includes('--giao-dien=phan'); // mặc định: giao diện kính 3D; --giao-dien=phan → bảng phấn cũ
   // --nghiem: ép MỌI bài dùng giao diện v2 (nền trơn, không tự vẽ hình dự phòng). Không có cờ: chỉ bài có thẻ v2 mới dùng v2, bài cũ giữ nguyên.
   const nghiem = args.includes('--nghiem'); // kiểm theo KHUNG v3 (chỉ bài dùng thẻ v3); có lỗi → thoát mã 2
+  // --bo-bai-loi: kiểm nghiêm từng bài; bài lỗi (kiểm nghiêm, thẻ tháo-lắp, đọc hoặc dựng hỏng) bị BỎ khỏi lần dựng, các bài khác vẫn đăng.
+  // --giu-trang-cu=<địa chỉ trang đã đăng>: với bài bị bỏ, lấy lại trang cũ (cùng ảnh) từ trang đã đăng để không mất bài.
+  const boLoi = args.includes('--bo-bai-loi');
+  const giuArg = args.find((a) => a.startsWith('--giu-trang-cu=')), giuBase = giuArg ? giuArg.slice(15).replace(/\/*$/, '/') : '';
+  const baiLoi = [], parseHong = []; // { md, loi: [..] }
   let nghiemLoi = 0;
   fs.mkdirSync(path.join(OUT, 'bai'), { recursive: true });
   fs.mkdirSync(path.join(OUT, 'tai-ve'), { recursive: true });
@@ -1158,32 +1163,73 @@ async function main() {
       const nhom = /^CNTP-/i.test(mdName) ? 'cntp' : /^D0/i.test(mdName) ? 'rnd' : '';
       items.push({ f: 'bai/' + name, date: A.date, mon: A.mon, nhom, topic: A.topic.replace(/\*\*/g, '').replace(/^Ch(?:ương)?\s*\d+\s*/i, '').trim(), title: A.title.replace(/\*\*/g, ''), md: mdName });
       parsed.push({ md, A, name });
-    } catch (e) { failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
+    } catch (e) { if (boLoi) parseHong.push({ md: path.basename(md), loi: [`không đọc được bài: ${e.message}`] }); else failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
   }
   TD = loadTuDien(TD_DIR); TDX.xh = quetXuatHien(parsed); // kho thuật ngữ và "Xuất hiện ở" (tự quét mọi album)
   for (const m of TD.errs) console.warn(`  (tu-dien: ${m})`);
   const thuTu = { cntp: 0, rnd: 1, '': 2 };
   items.sort((a, b) => b.date.localeCompare(a.date) || thuTu[a.nhom] - thuTu[b.nhom] || a.md.localeCompare(b.md));
-  // Lượt 2: dựng từng bài
-  for (const { md, A, name } of parsed) {
-    if (only.length && !only.includes(path.resolve(md))) continue;
-    try {
-      await prefetch(figsToFetch(A), assetDir(A));
-      const v2 = A.the.length > 0, v3 = !!A.v3; // bài cũ (không có thẻ v2/v3) dựng y hệt trước
-      const { html, stats, missing, F } = await renderAlbum(A, md, { self: name, ds: items, kinh, v2, v3, outDir: OUT });
-      fs.writeFileSync(path.join(OUT, 'bai', name), html, 'utf8');
-      if (nghiem) {
-        if (!v3) console.log(`   --nghiem: ${path.basename(md)} là bài cũ (chưa theo khung v3) → bỏ qua kiểm nghiêm`);
-        else { const loi = kiemNghiem(A, theRa(A, inlT, inlP), F, md); nghiemLoi += loi.length; console.log(`   --nghiem ${path.basename(md)}: ${loi.length ? loi.length + ' LỖI' : 'ĐẠT'}` + loi.map((m) => '\n     ✗ ' + m).join('')); }
-      }
-      const off = await renderAlbum(A, md, { self: name, ds: items, kinh, v2, v3, outDir: OUT, offline: true });
-      fs.writeFileSync(path.join(OUT, 'tai-ve', name), off.html, 'utf8');
-      const nang = stats.kb > 1536 ? `  ⚠ trang > 1,5 MB trước khi tải 3D` : '';
-      console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name} (${stats.kb} KB${nang}) + tai-ve/ (${off.stats.kb} KB, offline)\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
-    } catch (e) { failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
+  // Lượt 2: dựng từng bài. Mỗi bài dựng ra bộ nhớ (trang thường + trang tải về) và kiểm nghiêm; chỉ ghi file sau khi biết bài nào bị bỏ.
+  const todo = parsed.filter(({ md }) => !(only.length && !only.includes(path.resolve(md))));
+  const dungMot = async ({ md, A, name }, ds) => {
+    await prefetch(figsToFetch(A), assetDir(A));
+    const v2 = A.the.length > 0, v3 = !!A.v3; // bài cũ (không có thẻ v2/v3) dựng y hệt trước
+    const r = await renderAlbum(A, md, { self: name, ds, kinh, v2, v3, outDir: OUT });
+    let loi = null;
+    if ((nghiem || boLoi) && v3) { loi = kiemNghiem(A, theRa(A, inlT, inlP), r.F, md); if (boLoi) loi = loi.concat(TL_LOI.filter((t) => t.startsWith(path.basename(md) + ' dòng'))); }
+    const off = await renderAlbum(A, md, { self: name, ds, kinh, v2, v3, outDir: OUT, offline: true });
+    return { ...r, off, loi, v3 };
+  };
+  const xong = new Map(), bo = new Map(); // bài → kết quả dựng / bài → danh sách lỗi
+  for (const p of todo) {
+    try { const r = await dungMot(p, items); if (boLoi && r.loi && r.loi.length) bo.set(p, r.loi); else xong.set(p, r); }
+    catch (e) { console.error(`LỖI ${path.basename(p.md)}: ${e.stack || e.message}`); if (boLoi) bo.set(p, [`ngoại lệ khi dựng: ${e.message}`]); else failed++; }
   }
+  // bài bị bỏ: giữ trang cũ (nếu có) để không mất bài; các bài còn lại dựng lại với danh sách "Bài khác" đã sửa
+  const cache = {};
+  const layTrangCu = async (mdName) => {
+    if (!giuBase) return null;
+    try {
+      if (!cache.ds) { const r = await fetch(giuBase + 'bai/danh-sach.json'); if (!r.ok) throw new Error('HTTP ' + r.status); cache.ds = await r.json(); }
+      const it = (cache.ds.items || []).find((x) => x.md === mdName); if (!it || !/^bai\/[\w.-]+\.html$/.test(it.f)) return null;
+      const nm = it.f.slice(4), get = async (u) => { const r = await fetch(u); if (!r.ok) throw new Error(u + ' → HTTP ' + r.status); return Buffer.from(await r.arrayBuffer()); };
+      const html = await get(giuBase + it.f); fs.writeFileSync(path.join(OUT, 'bai', nm), html);
+      try { fs.writeFileSync(path.join(OUT, 'tai-ve', nm), await get(giuBase + 'tai-ve/' + nm)); } catch (e) { console.warn(`  (không lấy được bản tải về cũ của ${mdName}: ${e.message})`); }
+      const imgs = [...new Set([...html.toString('utf8').matchAll(/["'(](anh\/[\w.-]+)/g)].map((m) => m[1]))];
+      for (const im of imgs) try { fs.mkdirSync(path.join(OUT, 'bai', 'anh'), { recursive: true }); fs.writeFileSync(path.join(OUT, 'bai', im), await get(giuBase + 'bai/' + im)); } catch (e) { console.warn(`  (không lấy được ảnh cũ ${im}: ${e.message})`); }
+      return it;
+    } catch (e) { console.warn(`  (không giữ được trang cũ của ${mdName}: ${e.message})`); return null; }
+  };
+  const ds2 = []; // nhật ký các bài bị bỏ
+  for (const [p, loi] of bo) ds2.push({ md: path.basename(p.md), loi, p });
+  for (const h of parseHong) ds2.push({ md: h.md, loi: h.loi, p: null });
+  if (ds2.length) {
+    for (const b of ds2) {
+      const it = await layTrangCu(b.md); b.giu = !!it;
+      const i = items.findIndex((x) => x.md === b.md); if (i >= 0) items.splice(i, 1); if (it) items.push(it);
+    }
+    items.sort((a, b) => b.date.localeCompare(a.date) || thuTu[a.nhom] - thuTu[b.nhom] || a.md.localeCompare(b.md));
+    for (const p of [...xong.keys()]) { try { xong.set(p, await dungMot(p, items)); } catch (e) { console.error(`LỖI ${path.basename(p.md)}: ${e.stack || e.message}`); xong.delete(p); const l = [`ngoại lệ khi dựng lại: ${e.message}`]; ds2.push({ md: path.basename(p.md), loi: l, p, giu: false }); } }
+    TDX.xh = quetXuatHien(parsed.filter((p) => xong.has(p) || !todo.includes(p))); // "Xuất hiện ở" không trỏ tới trang đã bỏ
+  }
+  for (const [p, r] of xong) {
+    const { md, name } = p, { html, stats, missing, loi, v3, off } = r;
+    fs.writeFileSync(path.join(OUT, 'bai', name), html, 'utf8');
+    if (nghiem || boLoi) {
+      if (!v3) console.log(`   --nghiem: ${path.basename(md)} là bài cũ (chưa theo khung v3) → bỏ qua kiểm nghiêm`);
+      else { if (!boLoi) nghiemLoi += loi.length; console.log(`   --nghiem ${path.basename(md)}: ${loi.length ? loi.length + ' LỖI' : 'ĐẠT'}` + loi.map((m) => '\n     ✗ ' + m).join('')); }
+    }
+    fs.writeFileSync(path.join(OUT, 'tai-ve', name), off.html, 'utf8');
+    const nang = stats.kb > 1536 ? `  ⚠ trang > 1,5 MB trước khi tải 3D` : '';
+    console.log(`ĐÃ DỰNG ${path.basename(md)} → bai/${name} (${stats.kb} KB${nang}) + tai-ve/ (${off.stats.kb} KB, offline)\n   ${JSON.stringify(stats)}${missing.length ? `\n   tự vẽ thay ${missing.length} hình chưa có: ${missing.join(', ')}` : ''}`);
+  }
+  for (const b of ds2) {
+    console.error(`✗✗ BÀI BỊ BỎ KHỎI LẦN DỰNG: ${b.md} (${b.loi.length} lỗi) → ${b.giu ? 'giữ nguyên trang cũ đã đăng' : 'không có trang cũ để giữ, bài không được đăng'}` + b.loi.map((m) => '\n     ✗ ' + m).join(''));
+    console.error(`::error title=Bài ${b.md} bị bỏ khỏi lần dựng::${b.loi.slice(0, 12).join('%0A').replace(/\r?\n/g, ' ')}`);
+  }
+  if (ds2.length && process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### ⚠ Bài bị bỏ khỏi lần dựng (${ds2.length})\n` + ds2.map((b) => `- **${b.md}** — ${b.giu ? 'giữ trang cũ' : 'không có trang cũ'}\n${b.loi.map((m) => '  - ' + m).join('\n')}`).join('\n') + '\n');
   const nTd = dungTuDien(OUT, TDX.xh);
-  if (nTd) { console.log(`Thuật ngữ: ${nTd} trang → tu-dien/ (+ index.html)`); if (nghiem) { console.log(`   --nghiem tu-dien: ${TD.errs.length ? TD.errs.length + ' LỖI' : 'ĐẠT'}` + TD.errs.map((m) => '\n     ✗ ' + m).join('')); nghiemLoi += TD.errs.length; } }
+  if (nTd) { console.log(`Thuật ngữ: ${nTd} trang → tu-dien/ (+ index.html)`); if (nghiem || boLoi) { console.log(`   --nghiem tu-dien: ${TD.errs.length ? TD.errs.length + ' LỖI' : 'ĐẠT'}` + TD.errs.map((m) => '\n     ✗ ' + m).join('')); if (!boLoi) nghiemLoi += TD.errs.length; else for (const m of TD.errs) console.error(`::warning title=Kho thuật ngữ::${m}`); } }
   // danh sách mới nhất cho các trang bài (trang bài đọc file này; mở offline thì dùng danh sách nhúng sẵn)
   fs.writeFileSync(path.join(OUT, 'bai', 'danh-sach.json'), JSON.stringify({ items, built: vnNow() }), 'utf8');
   let home = fs.readFileSync(HOME_TPL, 'utf8');
@@ -1191,8 +1237,9 @@ async function main() {
   fs.writeFileSync(path.join(OUT, 'index.html'), home, 'utf8');
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
   console.log(`Trang chủ: index.html (${items.length} bài) → ${OUT}`);
-  if (TL_LOI.length) { console.error(`\n✗✗ ${TL_LOI.length} LỖI MÔ PHỎNG THÁO-LẮP:\n` + TL_LOI.map((m) => '   - ' + m).join('\n') + '\n'); if (nghiem) nghiemLoi += TL_LOI.length; }
+  if (TL_LOI.length) { console.error(`\n✗✗ ${TL_LOI.length} LỖI MÔ PHỎNG THÁO-LẮP:\n` + TL_LOI.map((m) => '   - ' + m).join('\n') + '\n'); if (nghiem && !boLoi) nghiemLoi += TL_LOI.length; }
   if (CAN_LAM.size) { fs.writeFileSync(path.join(OUT, 'mo-hinh-can-lam.md'), '# MÔ HÌNH THÁO-LẮP CẦN LÀM (tự sinh mỗi lần dựng)\nid | bài | khẳng định\n' + [...CAN_LAM].map(([id, v]) => `- ${id} | ${v.file} | ${v.khang}`).join('\n') + '\n', 'utf8'); console.log(`Mô hình tháo-lắp cần làm: ${[...CAN_LAM.keys()].join(', ')} → ${path.join(OUT, 'mo-hinh-can-lam.md')}`); }
+  if (boLoi && (todo.length + parseHong.length) && !fs.readdirSync(path.join(OUT, 'bai')).some((f) => /\.html$/.test(f))) { console.error('Không có trang bài nào để đăng (mọi bài đều bị bỏ và không có trang cũ) → dừng, không thay trang đã đăng'); process.exitCode = 1; }
   if (failed) { console.error(`${failed} bài lỗi`); process.exitCode = 1; }
   if (nghiemLoi) { console.error(`--nghiem: ${nghiemLoi} lỗi theo khung v3`); process.exitCode = 2; }
 }

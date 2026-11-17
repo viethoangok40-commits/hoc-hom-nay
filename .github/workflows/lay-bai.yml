@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 22
 
-      - name: Tải *-album.md từ Google Drive vào bai/
+      - name: Tải album, từ điển (tu-dien/), hình động (hoat-hinh/) và hinh-da-dung.md từ Google Drive
         id: lay
         run: node tools/lay-drive.mjs
 
@@ -36,14 +36,15 @@ jobs:
 
       - name: Dựng các bài (tải hình nguồn, mô hình 3D) và trang chủ
         run: |
-          node build-album.mjs --ra=_site
+          node build-album.mjs --ra=_site --bo-bai-loi --giu-trang-cu=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           for f in _site/bai/*.html; do s=$(stat -c%s "$f"); [ "$s" -lt 1572864 ] || echo "::warning file=$f::Trang bài nặng $((s/1024)) KB (> 1,5 MB trước khi tải 3D)"; done
 
       - name: Commit + push bài và hình mới (GITHUB_TOKEN)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add bai assets/bai
+          git add bai assets/bai tu-dien hoat-hinh
+          [ -f docs-v3/hinh-da-dung.md ] && git add docs-v3/hinh-da-dung.md
           if git diff --cached --quiet; then
             echo "Không có bài hay hình mới."
           else

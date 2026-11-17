@@ -86,34 +86,56 @@ async function pool(items, n, fn) {
   return res;
 }
 
-const normName = (n) => n.replace(/\s*\(\d+\)(?=\.md$)/i, '').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').trim();
+const normName = (n) => n.replace(/\s*\(\d+\)(?=\.(?:md|svg)$)/i, '').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').trim();
+// Phân loại file Drive: album (*-album.md → bai/), từ điển (*.md trong thư mục con "tu-dien" → tu-dien/), hình động (*.svg trong "hoat-hinh" → hoat-hinh/),
+// sổ hình đã dùng (hinh-da-dung.md ở bất kỳ thư mục nào → docs-v3/hinh-da-dung.md, chỗ bộ dựng đọc; bản sửa gần nhất thắng).
+const DICH = {
+  album: { dir: BAI, nhan: 'album' },
+  'tu-dien': { dir: path.join(ROOT, 'tu-dien'), nhan: 'từ điển' },
+  'hoat-hinh': { dir: path.join(ROOT, 'hoat-hinh'), nhan: 'hình động' },
+  hdd: { dir: path.join(ROOT, 'docs-v3'), nhan: 'sổ hình đã dùng', ten: 'hinh-da-dung.md' },
+};
+const loai = (f) => {
+  const cha = String(f.from || '').split('/').pop().trim().toLowerCase();
+  if (RE_ALBUM.test(f.name)) return 'album';
+  if (cha === 'tu-dien' && /\.md$/i.test(f.name)) return 'tu-dien';
+  if (cha === 'hoat-hinh' && /\.svg$/i.test(f.name)) return 'hoat-hinh';
+  if (/^hinh-da-dung(\s*\(\d+\))?\.md$/i.test(f.name)) return 'hdd';
+  return null;
+};
+const hopLe = (k, txt) => (k === 'hoat-hinh' ? /<svg[\s>]/i.test(txt) : txt.trim().length > 0); // đừng ghi đè bằng file rỗng / trang lỗi
 async function main() {
   fs.mkdirSync(BAI, { recursive: true });
   console.log('Liệt kê thư mục Drive:');
   let all = [];
   for (const t of CFG.thuMuc) all = all.concat(await listFolder(t.id, t.ten));
-  const albums = all.filter((f) => RE_ALBUM.test(f.name));
-  console.log(`Tổng ${all.length} file, trong đó ${albums.length} file *-album.md (bỏ qua ${all.length - albums.length} file khác).`);
-  // trùng tên giữa các thư mục: giữ bản sửa gần nhất
+  const lay = all.map((f) => ({ ...f, loai: loai(f) })).filter((f) => f.loai);
+  const dem = (k) => lay.filter((f) => f.loai === k).length;
+  console.log(`Tổng ${all.length} file: ${dem('album')} album *-album.md · ${dem('tu-dien')} từ điển · ${dem('hoat-hinh')} hình động · ${dem('hdd')} sổ hình đã dùng (bỏ qua ${all.length - lay.length} file khác).`);
+  // trùng tên (giữa các thư mục hoặc "keep both" của Drive): giữ bản sửa gần nhất
   const byName = new Map();
-  for (const f of albums) { const k = normName(f.name).toLowerCase(); const o = byName.get(k); if (!o || (f.modified || 0) > (o.modified || 0)) byName.set(k, f); }
+  for (const f of lay) { const k = f.loai + '/' + (f.loai === 'hdd' ? 'hinh-da-dung.md' : normName(f.name).toLowerCase()); const o = byName.get(k); if (!o || (f.modified || 0) > (o.modified || 0)) byName.set(k, f); }
   const list = [...byName.values()];
-  const stat = { thuMuc: CFG.thuMuc.length, tongFile: all.length, album: list.length, moi: 0, doi: 0, giuNguyen: 0, loi: 0, tep: [] };
+  const stat = { thuMuc: CFG.thuMuc.length, tongFile: all.length, album: dem('album'), moi: 0, doi: 0, giuNguyen: 0, loi: 0, tep: [], theoLoai: {} };
+  for (const k of Object.keys(DICH)) stat.theoLoai[k] = { moi: 0, doi: 0, giu: 0, loi: 0 };
   await pool(list, 4, async (f) => {
-    const name = normName(f.name), dst = path.join(BAI, name);
+    const D = DICH[f.loai], name = D.ten || normName(f.name), dst = path.join(D.dir, name), s = stat.theoLoai[f.loai];
     try {
       const txt = await download(f);
+      if (!hopLe(f.loai, txt)) throw new Error('nội dung rỗng hoặc không đúng loại – giữ bản đang có');
+      fs.mkdirSync(D.dir, { recursive: true });
       const cur = fs.existsSync(dst) ? fs.readFileSync(dst, 'utf8') : null;
-      if (cur === txt) { stat.giuNguyen++; return; }
+      if (cur === txt) { stat.giuNguyen++; s.giu++; return; }
       fs.writeFileSync(dst, txt, 'utf8');
-      if (cur === null) stat.moi++; else stat.doi++;
-      stat.tep.push(`${cur === null ? 'mới' : 'đổi'}: ${name} (${f.from})`);
-    } catch (e) { stat.loi++; console.warn(`  ! lỗi tải ${f.name}: ${e.message}`); }
+      if (cur === null) { stat.moi++; s.moi++; } else { stat.doi++; s.doi++; }
+      stat.tep.push(`${cur === null ? 'mới' : 'đổi'}: ${f.loai === 'album' ? '' : f.loai + '/'}${name} (${f.from})`);
+    } catch (e) { stat.loi++; s.loi++; console.warn(`  ! lỗi tải ${f.name} (${f.from}): ${e.message}`); }
   });
   for (const l of stat.tep) console.log('  ' + l);
-  console.log(`Kết quả: ${stat.album} file album · mới ${stat.moi} · đổi ${stat.doi} · giữ nguyên ${stat.giuNguyen} · lỗi ${stat.loi}`);
-  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### Lấy bài từ Google Drive\n- Thư mục: ${CFG.thuMuc.map((t) => t.ten).join(', ')}\n- Tổng ${stat.tongFile} file, ${stat.album} file *-album.md\n- Mới ${stat.moi} · đổi ${stat.doi} · giữ nguyên ${stat.giuNguyen} · lỗi ${stat.loi}\n${stat.tep.map((l) => '  - ' + l).join('\n')}\n`);
+  const tl = Object.entries(stat.theoLoai).filter(([, s]) => s.moi + s.doi + s.giu + s.loi).map(([k, s]) => `${DICH[k].nhan}: mới ${s.moi} · đổi ${s.doi} · giữ ${s.giu} · lỗi ${s.loi}`).join('\n  ');
+  console.log(`Kết quả: ${list.length} file · mới ${stat.moi} · đổi ${stat.doi} · giữ nguyên ${stat.giuNguyen} · lỗi ${stat.loi}\n  ${tl}`);
+  if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### Lấy bài từ Google Drive\n- Thư mục: ${CFG.thuMuc.map((t) => t.ten).join(', ')}\n- Tổng ${stat.tongFile} file; lấy ${list.length} (album, từ điển, hình động, sổ hình)\n- Mới ${stat.moi} · đổi ${stat.doi} · giữ nguyên ${stat.giuNguyen} · lỗi ${stat.loi}\n${stat.tep.map((l) => '  - ' + l).join('\n')}\n`);
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `album=${stat.album}\nmoi=${stat.moi}\ndoi=${stat.doi}\nloi=${stat.loi}\n`);
-  if (stat.loi && stat.loi === stat.album && stat.album > 0) process.exitCode = 1; // tải hỏng toàn bộ → báo lỗi
+  if (stat.loi && stat.loi === list.length && list.length > 0) process.exitCode = 1; // tải hỏng toàn bộ → báo lỗi
 }
 main().catch((e) => { console.error(e); process.exitCode = 1; });
