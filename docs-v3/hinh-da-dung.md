@@ -1,4 +1,4 @@
-# HÌNH ĐÃ DÙNG (chống trùng giữa các album) – bản gộp 18/11/2026
+# HÌNH ĐÃ DÙNG (chống trùng giữa các album) – bản gộp 20/11/2026
 Soạn bài: đọc file này TRƯỚC khi thiết kế mô phỏng/hình; không dùng lại id hay khẳng định đã có. Dùng xong thêm dòng mới: `bài | id | kiểu | khẳng định | nguồn`.
 
 ## Ảnh thật đã dùng hoặc đã mở (không dùng lại)
@@ -35,6 +35,10 @@ Soạn bài: đọc file này TRƯỚC khi thiết kế mô phỏng/hình; khôn
 - D011 | dong-phan-hexose | hoạt-hình | Glucose, galactose, fructose cùng C6H12O6; glucose và galactose là aldose khác nhau ở OH của C4, fructose là ketose có C=O ở C2
 - D011 | so-dong-phan-aldose | thanh-trượt | Mỗi carbon thêm vào mạch aldose thêm một tâm bất đối nên số đồng phân gấp đôi, từ 2 ở aldotriose lên 16 ở aldohexose
 - D011 | dong-vong-glucose | hoạt-hình | Khi glucose đóng vòng, OH ở C5 tấn công C1 tạo vòng sáu cạnh; OH mới ở C1 hướng xuống là dạng α, hướng lên là β
+- D012 | ngung-tu-glycoside | hoạt-hình | Khi hai đường đơn nối thành đường đôi, OH ở C1 đường thứ nhất kết hợp H của OH đường thứ hai tách một phân tử nước, còn lại cầu O là liên kết glycoside
+- D012 | khoi-luong-chuoi-duong | thanh-trượt | Mỗi lần nối thêm một glucose mất một phân tử nước, chuỗi n đơn vị nặng n·180,1559 − (n − 1)·18,0153 g/mol, đường đôi 342,2965 g/mol
+- D012 | phan-biet-duong-khu | hoạt-hình | Maltose và lactose còn một carbon anomer tự do nên là đường khử, sucrose dùng cả hai carbon anomer để nối nên không phải đường khử
+- D012 | thuy-phan-sucrose-khoi-luong | thanh-trượt | Thủy phân hoàn toàn 342,2965 g sucrose cho 360,3118 g glucose cộng fructose, khối lượng đường tăng 5,26%
 - CNTP-Ngay02 | q2-qua-trinh-quy-trinh | hoạt-hình | Quá trình trả lời WHAT, quy trình/thủ tục trả lời HOW
 - CNTP-Ngay02 | q2-pdca-bac-thang | hoạt-hình | Mỗi vòng PDCA tiêu chuẩn hóa rồi vòng sau nâng lên: hiện trạng, chuẩn quốc gia, chuẩn quốc tế
 - CNTP-Ngay02 | q2-bac-thang-qlcl | hoạt-hình | Quản lý chất lượng đi qua 5 bậc: kiểm tra, kiểm soát (4M), đảm bảo, TQC, TQM
@@ -71,3 +75,10 @@ Soạn bài: đọc file này TRƯỚC khi thiết kế mô phỏng/hình; khôn
 - CNTP-Ngay12 | q12-ghep-mi-con-lan | hoạt-hình | Ghép mí hộp kim loại qua ba công đoạn: vào máy ghép, con lăn cuộn 1 móc mép nắp và vành thân, con lăn cuộn 2 ép chặt
 - CNTP-Ngay12 | q12-botulinum-115-120 | thanh-trượt | C. botulinum cần 10 phút ở 115 °C nhưng 4 phút ở 120 °C, nội suy hàm mũ cho khoảng 6,3 phút ở 117,5 °C
 - CNTP-Ngay12 | q12-cong-thuc-thanh-trung | thanh-trượt | Trong công thức thanh trùng (A − B − C)/T, ba số là ba khoảng thời gian nối tiếp nên thời gian một mẻ bằng A + B + C
+- CNTP-Ngay13 | q13-cay-quyet-dinh-ccp | hoạt-hình | Theo cây quyết định Codex bản 2020, bước có mối nguy đáng kể được hỏi lần lượt bốn câu và chỉ là CCP khi qua tới câu bốn với câu trả lời có
+- CNTP-Ngay13 | q13-khoang-giam-sat | thanh-trượt | Giám sát CCP không liên tục phải đủ dày để giới hạn lượng sản phẩm bị ảnh hưởng; mô hình: 600 kg/giờ đo mỗi 30 phút là 300 kg
+- CNTP-Ngay13 | q13-xu-ly-sai-lech | hoạt-hình | Khi sai lệch khỏi giới hạn tới hạn, hành động khắc phục đưa CCP về kiểm soát, cô lập và đánh giá sản phẩm, rồi tái chế, chuyển mục đích hoặc hủy
+- CNTP-Ngay14 | q14-bon-truong-hop-truyen-nhiet | hoạt-hình | Thời gian truyền nhiệt vào tâm hộp tăng dần: lỏng trong sắt tây, lỏng trong thủy tinh, đặc trong sắt tây, đặc trong thủy tinh; bao bì chỉ ảnh hưởng rõ khi đối lưu mạnh
+- CNTP-Ngay14 | q14-ti-le-hop-truyen-nhiet | thanh-trượt | Theo t0 = A(8,3HD + D²), cùng thể tích thời gian truyền nhiệt nhỏ nhất khi H/D khoảng 0,24; hộp H = 3D cần khoảng 1,34 lần hộp H = D
+- CNTP-Ngay14 | q14-f0-xac-suat-song-sot | thanh-trượt | F0 cần thiết = D121,1 × (lg N0 + số mũ PNSU): D 1,5 phút, N0 10² cần 6 phút khi PNSU 10⁻² nhưng 12 phút khi PNSU 10⁻⁶
+- CNTP-Ngay14 | q14-hu-hong-do-hop | hoạt-hình | Hộp phồng có thể do vi sinh vật sinh khí, ăn mòn kim loại sinh hydro hoặc nguyên nhân cơ lý, còn hộp hỏng do vi sinh vật có thể không phồng
