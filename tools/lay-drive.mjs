@@ -14,7 +14,7 @@ const ROOT = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), '..'
 const BAI = path.join(ROOT, 'bai');
 const CFG = JSON.parse(fs.readFileSync(path.join(ROOT, 'drive.json'), 'utf8'));
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
-const RE_ALBUM = /-album(\s*\(\d+\))?\.md$/i;
+const RE_ALBUM = /-album(-v3)?(\s*\(\d+\))?\.md$/i;
 const FOLDER_MIME = 'application/vnd.google-apps.folder';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -86,7 +86,7 @@ async function pool(items, n, fn) {
   return res;
 }
 
-const normName = (n) => n.replace(/\s*\(\d+\)(?=\.(?:md|svg)$)/i, '').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').trim();
+const normName = (n) => n.replace(/-album-v3(?=\s*(?:\(\d+\))?\.md$)/i, '-album').replace(/\s*\(\d+\)(?=\.(?:md|svg)$)/i, '').replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').trim();
 // Phân loại file Drive: album (*-album.md → bai/), từ điển (*.md trong thư mục con "tu-dien" → tu-dien/), hình động (*.svg trong "hoat-hinh" → hoat-hinh/),
 // sổ hình đã dùng (hinh-da-dung.md ở bất kỳ thư mục nào → docs-v3/hinh-da-dung.md, chỗ bộ dựng đọc; bản sửa gần nhất thắng).
 const DICH = {
