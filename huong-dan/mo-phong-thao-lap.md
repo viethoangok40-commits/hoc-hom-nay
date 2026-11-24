@@ -56,6 +56,8 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `ca-pectin` | `khongvoi` `covoi` | 4 | CNTP-Ngay09 Cảnh 4.2 | Ca²⁺ nối hai chuỗi pectin (hộp trứng) so với không nước vôi. Nguồn nền PMID 36198382. Khối dán: `khoi-dan-khuech-tan-ca-pectin.md`. |
 | `khuech-tan-chat-tan` | `nuoc` `nuocduong` | 4 | CNTP-Ngay09 Cảnh 4.3 | Chất tan ra nước chần so với nước đường độ khô gần quả (vào bằng ra). Không vẽ quả teo. Khối dán cùng file. |
 | `oxy-hoa-lipid` | `axitbeo` `oxy` `kimloai` `goctudo` | 4 | D010 Cảnh 3.1 | Chuỗi gốc tự do trên 3 phân tử axit béo (khởi đầu, gắn O₂, lấy H, lan truyền). Nguồn nền PMC2868362. Khối dán: `khoi-dan-oxy-hoa-lipid.md`. |
+| `phan-tu-nuoc` | `oxy` `hydro` `lienket` | 3 | D006 Cảnh 1.2 | Phân tử nước hình chữ V, đám mây δ−/δ+, electron lệch về O. Khối dán: `khoi-dan-d006-nuoc.md`. |
+| `mang-lien-ket-hydro` | `phantunuoc` `lienkethydro` | 3 | D006 Cảnh 4.1 | 8 phân tử nối bằng liên kết hydro, nóng lên thì đứt và bay hơi. Khối dán cùng file. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):
