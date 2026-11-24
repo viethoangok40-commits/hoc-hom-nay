@@ -302,7 +302,7 @@
 
 ## Chương 4 – Phân loại thiết bị cô đặc và nồi cô đặc chân không gián đoạn một nồi (20 chú thích)
 
-[HỎI TRƯỚC: Nồi cô đặc chân không cần những thiết bị phụ nào để giữ được chân không? | đáp: Thùng ngưng tụ, bơm chân không và nước lạnh. | vì sao: Chú thích slide có 17 thùng ngưng tụ, 19 bơm chân không và 20 nước lạnh (Cảnh 4.2).]
+[HỎI TRƯỚC: Nồi cô đặc chân không cần những thiết bị phụ nào để giữ được chân không? | đáp: Tháp ngưng tụ, bơm chân không và nước lạnh. | vì sao: Chú thích slide có 17 tháp ngưng tụ, 19 bơm chân không và 20 nước lạnh (Cảnh 4.2).]
 
 ### Cảnh 4.1 – Thiết bị cô đặc phân loại theo số nồi, áp suất, chất tải nhiệt, bộ phận truyền nhiệt và tính chất hoạt động
 
@@ -314,8 +314,8 @@
 ### Cảnh 4.2 – Nồi cô đặc chân không gián đoạn một nồi có hai mươi chú thích từ áo hơi đến bơm chân không
 
 - **Thẻ:** Cơ chế
-- Slide chú thích: 1 khoang áo hơi; 2 áo hơi; 3 hơi vào; 4 cửa nạp liệu; 5 nhiệt kế; 6 cửa kính sáng; 7 chân không kế; 8 kính quan sát; 9 vòi rửa kính quan sát; 10 van xả khí; 11 van bổ sung nguyên liệu; 12 van lấy mẫu; 13 nước ngưng; 14 cửa tháo liệu; 15 trục giảm tốc; 16 áp kế; 17 thùng ngưng tụ (chữ chưa chắc); 18 bơm ly tâm; 19 bơm chân không; 20 nước lạnh. Thiết bị là {{nồi cô đặc chân không gián đoạn}}.
-[MÔ PHỎNG: noi-co-dac-chan-khong | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo chú thích trên slide, thiết bị cô đặc chân không gián đoạn một nồi có áo hơi (1 khoang áo hơi, 2 áo hơi, 3 hơi vào, 13 nước ngưng), cửa nạp và tháo liệu (4, 11, 14, 12), dụng cụ quan sát và đo (5, 6, 8, 9, 7, 16), trục giảm tốc 15, thùng ngưng tụ 17 với nước lạnh 20 và van xả khí 10, cùng bơm chân không 19 và bơm ly tâm 18 | chức năng: giải thích | nhìn: nồi có áo hơi, thùng ngưng tụ và hai bơm hiện dần theo sáu nhóm chú thích kèm bảng số bên dưới]
+- Slide chú thích: 1 khoang áo hơi; 2 áo hơi; 3 hơi vào; 4 cửa nạp liệu; 5 nhiệt kế; 6 cửa kính sáng; 7 chân không kế; 8 kính quan sát; 9 vòi rửa kính quan sát; 10 van xả khí; 11 van bổ sung nguyên liệu; 12 van lấy mẫu; 13 nước ngưng; 14 cửa tháo liệu; 15 trục giảm tốc; 16 áp kế; 17 tháp ngưng tụ (ảnh slide cắt chữ ở "Thá…" và hình là cột cao nên nhiều khả năng là "tháp", không phải "thùng"; Cần kiểm tra); 18 bơm ly tâm; 19 bơm chân không; 20 nước lạnh. Thiết bị là {{nồi cô đặc chân không gián đoạn}}.
+[MÔ PHỎNG: noi-co-dac-chan-khong | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo chú thích trên slide, thiết bị cô đặc chân không gián đoạn một nồi có áo hơi (1 khoang áo hơi, 2 áo hơi, 3 hơi vào, 13 nước ngưng), cửa nạp và tháo liệu (4, 11, 14, 12), dụng cụ quan sát và đo (5, 6, 8, 9, 7, 16), trục giảm tốc 15, tháp ngưng tụ 17 với nước lạnh 20 và van xả khí 10, cùng bơm chân không 19 và bơm ly tâm 18 | chức năng: giải thích | nhìn: nồi có áo hơi, tháp ngưng tụ và hai bơm hiện dần theo sáu nhóm chú thích kèm bảng số bên dưới]
 - bộ phận: Khoang áo hơi | mã: khoang | chức năng: Tên theo chú thích slide; trên ảnh nhãn 1 chỉ vào thân trụ phía trên nồi. | vì sao ở đó: Chú thích slide 1.
 - bộ phận: Áo hơi | mã: aohoi | chức năng: Hơi nhả nhiệt đun dịch trong nồi (Cảnh 4.3, suy từ chú thích). | vì sao ở đó: Chú thích slide 2; trên ảnh nhãn 2 chỉ vào đáy chảo.
 - bộ phận: Hơi vào | mã: hoivao | chức năng: Hơi nước vào áo hơi. | vì sao ở đó: Chú thích slide 3; vị trí ống là cách vẽ của album.
@@ -340,28 +340,28 @@
 - bước: 2 | chữ: Nạp và tháo: 4 cửa nạp liệu, 11 van bổ sung nguyên liệu, 14 cửa tháo liệu, 12 van lấy mẫu. | vì sao: Chú thích slide 4, 11, 14, 12.
 - bước: 3 | chữ: Quan sát: 5 nhiệt kế, 6 cửa kính sáng, 8 kính quan sát, 9 vòi rửa kính quan sát. | vì sao: Chú thích slide 5, 6, 8, 9.
 - bước: 4 | chữ: Đo: 7 chân không kế, 16 áp kế; 15 trục giảm tốc. | vì sao: Chú thích slide 7, 16, 15; vị trí chân không kế trên đường hơi là cách vẽ của album.
-- bước: 5 | chữ: Hơi thứ sang 17 thùng ngưng tụ, 20 nước lạnh vào, 10 van xả khí. | vì sao: Chú thích slide 17, 20, 10; đường hơi từ nồi sang thùng ngưng tụ là suy luận.
+- bước: 5 | chữ: Hơi thứ sang 17 tháp ngưng tụ, 20 nước lạnh vào, 10 van xả khí. | vì sao: Chú thích slide 17, 20, 10; đường hơi từ nồi sang tháp ngưng tụ là suy luận.
 - bước: 6 | chữ: 19 bơm chân không giữ chân không, 18 bơm ly tâm. | vì sao: Chú thích slide 19, 18; công dụng của hai bơm là suy luận từ tên gọi.
 - nguồn: Hình "Thiết bị cô đặc chân không gián đoạn 1 nồi" trên slide Chương 7 (ban-hoc-cntp/ghi-chep/cncb-buoi-2026-11-10-bo-sung-drive.md mục C.9); sơ đồ tự vẽ
-- giới hạn: Sơ đồ rút gọn do album vẽ, không phải bản sao hình slide; vị trí, hình dạng, đường ống và cách nối các bộ phận là cách vẽ của album (ảnh có thể khác). Chú thích 17 "thùng ngưng tụ" đọc từ OCR không chắc. Cần kiểm tra: nhìn lại ảnh hình để xác nhận vị trí 15, 17, 18, 19 và công dụng từng bộ phận.
+- giới hạn: Sơ đồ rút gọn do album vẽ, không phải bản sao hình slide; vị trí, hình dạng, đường ống và cách nối các bộ phận là cách vẽ của album (ảnh có thể khác). Chú thích 17 đọc là "tháp ngưng tụ" (ảnh cắt chữ ở "Thá…", hình là cột cao; bản trước ghi "thùng"). Cần kiểm tra: nhìn lại ảnh hình để xác nhận vị trí 15, 17, 18, 19 và công dụng từng bộ phận.
 [/MÔ PHỎNG]
 - Nhớ: 20 chú thích: 1–3 áo hơi · 4, 11, 12, 14 nạp, bổ sung, lấy mẫu, tháo · 5–9 quan sát, đo · 10 xả khí · 13 nước ngưng · 15 trục · 16 áp kế · 17 ngưng tụ · 18 bơm ly tâm · 19 bơm chân không · 20 nước lạnh.
 
 ### Cảnh 4.3 – Hơi cấp vào áo hơi đun dịch sôi dưới chân không còn hơi bốc ra được ngưng tụ nên chân không được giữ
 
 - **Thẻ:** Cơ chế
-- Suy từ chú thích và nguyên lý chung (kiến thức thêm, cần đối chiếu bài giảng): hơi nước vào áo hơi (3) nhả nhiệt đun dịch trong nồi và ngưng thành nước ngưng (13); hơi bốc ra khỏi dịch được dẫn sang thùng ngưng tụ (17) và nước lạnh (20) làm ngưng; bơm chân không (19) hút khí không ngưng nên áp suất trong nồi thấp, nhiệt độ sôi giảm (Chương 2).
+- Suy từ chú thích và nguyên lý chung (kiến thức thêm, cần đối chiếu bài giảng): hơi nước vào áo hơi (3) nhả nhiệt đun dịch trong nồi và ngưng thành nước ngưng (13); hơi bốc ra khỏi dịch được dẫn sang tháp ngưng tụ (17) và nước lạnh (20) làm ngưng; bơm chân không (19) hút khí không ngưng nên áp suất trong nồi thấp, nhiệt độ sôi giảm (Chương 2).
 - Cửa kính sáng và kính quan sát (6, 8) cho người vận hành nhìn mức dịch và trạng thái sôi; vòi rửa (9) giữ kính trong; nhiệt kế (5) và chân không kế (7) cho biết nhiệt độ và độ chân không; van lấy mẫu (12) và bổ sung nguyên liệu (11) cho kiểm tra và điều chỉnh khi đang cô.
-- Nhớ: Hơi đun ở áo hơi · hơi từ dịch ngưng ở thùng ngưng tụ · bơm chân không giữ áp suất thấp · quan sát, đo, lấy mẫu để điều chỉnh.
+- Nhớ: Hơi đun ở áo hơi · hơi từ dịch ngưng ở tháp ngưng tụ · bơm chân không giữ áp suất thấp · quan sát, đo, lấy mẫu để điều chỉnh.
 
-### Cảnh 4.4 – Thùng ngưng tụ không đun dịch mà ngưng hơi để giữ chân không là điểm dễ nhầm
+### Cảnh 4.4 – Tháp ngưng tụ không đun dịch mà ngưng hơi để giữ chân không là điểm dễ nhầm
 
 - **Thẻ:** Hiểu sai thường gặp
-- Hiểu sai: "thùng ngưng tụ 17 và bơm chân không 19 là chỗ cô đặc dịch". Dịch được cô trong nồi (có áo hơi); thùng ngưng tụ chỉ ngưng hơi bốc ra, bơm chân không giữ chân không (suy từ tên gọi, kiến thức thêm).
+- Hiểu sai: "tháp ngưng tụ 17 và bơm chân không 19 là chỗ cô đặc dịch". Dịch được cô trong nồi (có áo hơi); tháp ngưng tụ chỉ ngưng hơi bốc ra, bơm chân không giữ chân không (suy từ tên gọi, kiến thức thêm).
 - Hiểu sai thứ hai: "gián đoạn thì không thể có chân không". Chân không và gián đoạn là hai tiêu chí phân loại khác nhau (áp suất làm việc và tính chất hoạt động).
-- Nhớ: Cô ở nồi · ngưng ở thùng ngưng tụ · chân không do bơm 19 giữ · chân không và gián đoạn là hai tiêu chí khác nhau.
+- Nhớ: Cô ở nồi · ngưng ở tháp ngưng tụ · chân không do bơm 19 giữ · chân không và gián đoạn là hai tiêu chí khác nhau.
 
-[TỰ GIẢI THÍCH: Hãy tự nói vì sao nồi cô đặc chân không cần thùng ngưng tụ và bơm chân không chứ không chỉ cần áo hơi. | đáp: Áo hơi chỉ đun dịch. Muốn nhiệt độ sôi thấp phải có áp suất thấp: thùng ngưng tụ ngưng hơi bốc ra, bơm chân không hút khí không ngưng nên giữ được chân không (suy luận từ chú thích và nguyên lý chung).]
+[TỰ GIẢI THÍCH: Hãy tự nói vì sao nồi cô đặc chân không cần tháp ngưng tụ và bơm chân không chứ không chỉ cần áo hơi. | đáp: Áo hơi chỉ đun dịch. Muốn nhiệt độ sôi thấp phải có áp suất thấp: tháp ngưng tụ ngưng hơi bốc ra, bơm chân không hút khí không ngưng nên giữ được chân không (suy luận từ chú thích và nguyên lý chung).]
 
 [QUIZ]
 1. Trong nồi cô đặc chân không gián đoạn trên slide, bộ phận số 19 là?
@@ -399,10 +399,10 @@
   - D) Rửa kính
   - đáp: A
   - vì sao: Chân không kế đo độ chân không (hiểu theo tên gọi); sai B: nhiệt kế số 5; sai C: van số 12; sai D: vòi số 9.
-6. [TỰ LUẬN] Kể 20 chú thích của nồi cô đặc chân không gián đoạn một nồi theo nhóm và giải thích vì sao cần chân không. | mẫu: Áo hơi: 1 khoang áo hơi, 2 áo hơi, 3 hơi vào, 13 nước ngưng. Nạp, tháo: 4 cửa nạp liệu, 11 van bổ sung nguyên liệu, 14 cửa tháo liệu, 12 van lấy mẫu. Quan sát, đo: 5 nhiệt kế, 6 cửa kính sáng, 8 kính quan sát, 9 vòi rửa kính, 7 chân không kế, 16 áp kế. Còn lại: 10 van xả khí, 15 trục giảm tốc, 17 thùng ngưng tụ, 18 bơm ly tâm, 19 bơm chân không, 20 nước lạnh. Cần chân không để hạ nhiệt độ sôi nên cô ở nhiệt độ thấp, ít cháy đường và mất chất thơm.
+6. [TỰ LUẬN] Kể 20 chú thích của nồi cô đặc chân không gián đoạn một nồi theo nhóm và giải thích vì sao cần chân không. | mẫu: Áo hơi: 1 khoang áo hơi, 2 áo hơi, 3 hơi vào, 13 nước ngưng. Nạp, tháo: 4 cửa nạp liệu, 11 van bổ sung nguyên liệu, 14 cửa tháo liệu, 12 van lấy mẫu. Quan sát, đo: 5 nhiệt kế, 6 cửa kính sáng, 8 kính quan sát, 9 vòi rửa kính, 7 chân không kế, 16 áp kế. Còn lại: 10 van xả khí, 15 trục giảm tốc, 17 tháp ngưng tụ, 18 bơm ly tâm, 19 bơm chân không, 20 nước lạnh. Cần chân không để hạ nhiệt độ sôi nên cô ở nhiệt độ thấp, ít cháy đường và mất chất thơm.
 [/QUIZ]
 
-[TÓM: Thiết bị cô đặc phân loại theo số nồi và áp suất và chất tải nhiệt và bộ phận truyền nhiệt và tính chất hoạt động | Nồi chân không gián đoạn một nồi có hai mươi chú thích gồm áo hơi và nạp tháo liệu và dụng cụ đo và thùng ngưng tụ và hai bơm | Thùng ngưng tụ và bơm chân không giữ chân không để dịch sôi ở nhiệt độ thấp còn dịch được cô trong nồi]
+[TÓM: Thiết bị cô đặc phân loại theo số nồi và áp suất và chất tải nhiệt và bộ phận truyền nhiệt và tính chất hoạt động | Nồi chân không gián đoạn một nồi có hai mươi chú thích gồm áo hơi và nạp tháo liệu và dụng cụ đo và tháp ngưng tụ và hai bơm | Tháp ngưng tụ và bơm chân không giữ chân không để dịch sôi ở nhiệt độ thấp còn dịch được cô trong nồi]
 
 ---
 
@@ -413,7 +413,7 @@
 ### Cảnh 5.1 – Sơ đồ cô đặc liên tục dưới áp suất khí quyển có bảy bộ phận từ thùng chứa đến thiết bị ngưng tụ
 
 - **Thẻ:** Cơ chế
-- Slide chú thích: 1 thùng chứa dịch cần cô đặc; 2 bơm; 3 thiết bị gia nhiệt dạng tấm bản; 4 thiết bị đun nóng; 5 thiết bị bốc hơi; 6 thiết bị chưng cất (chữ chưa chắc); 7 thiết bị ngưng tụ. Sơ đồ là {{cô đặc liên tục}} dưới áp suất khí quyển.
+- Slide chú thích: 1 thùng chứa dịch cần cô đặc; 2 bơm; 3 thiết bị gia nhiệt dạng tấm bản; 4 thiết bị đun nóng; 5 thiết bị bốc hơi; 6 thiết bị chưng cất (đã đối chiếu ảnh slide, đọc rõ); 7 thiết bị ngưng tụ. Sơ đồ là {{cô đặc liên tục}} dưới áp suất khí quyển.
 [MÔ PHỎNG: co-dac-lien-tuc | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo chú thích trên slide, sơ đồ nguyên lý cô đặc liên tục dưới áp suất khí quyển gồm bảy bộ phận theo số: 1 thùng chứa dịch, 2 bơm, 3 gia nhiệt dạng tấm bản, 4 thiết bị đun nóng, 5 thiết bị bốc hơi, 6 thiết bị chưng cất và 7 thiết bị ngưng tụ, trong đó thứ tự nối theo số là suy luận | chức năng: giải thích | nhìn: sơ đồ khối bảy ô nối theo thứ tự số, hơi bay ra từ ô 5 và dịch đặc ra]
 - bộ phận: Thùng chứa dịch cần cô đặc | mã: thung | chức năng: Chứa dịch cần cô đặc. | vì sao ở đó: Chú thích slide 1.
 - bộ phận: Bơm | mã: bom | chức năng: Đưa dịch đi tiếp (hiểu theo tên gọi). | vì sao ở đó: Chú thích slide 2.
@@ -425,12 +425,12 @@
 - bước: 1 | chữ: Dịch ở thùng chứa 1 được bơm 2 đẩy sang thiết bị gia nhiệt dạng tấm bản 3. | vì sao: Chú thích slide 1, 2, 3; thứ tự nối là suy luận từ số.
 - bước: 2 | chữ: Thiết bị đun nóng 4 nâng nhiệt độ dịch. | vì sao: Chú thích slide 4; công dụng theo tên gọi.
 - bước: 3 | chữ: Thiết bị bốc hơi 5: nước bay hơi, dịch đặc dần. | vì sao: Chú thích slide 5; bay hơi nước là bản chất của cô đặc (slide mục 1).
-- bước: 4 | chữ: Bộ phận 6 (chưng cất, chưa chắc) và 7 thiết bị ngưng tụ. | vì sao: Chú thích slide 6 và 7; 6 đọc từ OCR không chắc, vị trí 7 theo thứ tự số.
+- bước: 4 | chữ: Bộ phận 6 thiết bị chưng cất và 7 thiết bị ngưng tụ. | vì sao: Chú thích slide 6 và 7; chữ 6 đã đối chiếu ảnh, đọc rõ; vị trí 7 theo thứ tự số.
 - bước: 5 | chữ: Dịch đặc ra khỏi hệ thống; nối theo thứ tự số chưa xác nhận bằng ảnh. | vì sao: Suy luận của album; slide chỉ có danh sách chú thích.
 - nguồn: Hình "Sơ đồ nguyên lý thiết bị cô đặc liên tục dưới áp suất khí quyển" trên slide Chương 7 (ban-hoc-cntp/ghi-chep/cncb-buoi-2026-11-10-bo-sung-drive.md mục C.9); sơ đồ khối tự vẽ
-- giới hạn: Sơ đồ khối rút gọn do album vẽ, không phải bản sao hình slide; đường nối, vị trí dịch đặc ra và hơi bay ra là suy luận. Chú thích 6 "thiết bị chưng cất" đọc từ OCR có thể sai. Không có số liệu nhiệt độ, áp suất hay lưu lượng. Cần kiểm tra: nhìn lại ảnh để xác nhận thứ tự dòng chảy và bộ phận 6.
+- giới hạn: Sơ đồ khối rút gọn do album vẽ, không phải bản sao hình slide; đường nối, vị trí dịch đặc ra và hơi bay ra là suy luận. Chú thích 6 đã đối chiếu ảnh, đọc rõ "thiết bị chưng cất"; chức năng cụ thể trong sơ đồ chưa rõ. Không có số liệu nhiệt độ, áp suất hay lưu lượng. Cần kiểm tra: nhìn lại ảnh để xác nhận thứ tự dòng chảy và bộ phận 6.
 [/MÔ PHỎNG]
-- Nhớ: Bảy bộ phận: 1 thùng chứa · 2 bơm · 3 gia nhiệt tấm bản · 4 đun nóng · 5 bốc hơi · 6 chưng cất (?) · 7 ngưng tụ.
+- Nhớ: Bảy bộ phận: 1 thùng chứa · 2 bơm · 3 gia nhiệt tấm bản · 4 đun nóng · 5 bốc hơi · 6 chưng cất · 7 ngưng tụ.
 
 ### Cảnh 5.2 – Thiết bị liên tục cho thời gian cô ngắn còn gián đoạn làm từng mẻ nên thời gian lâu hơn
 
@@ -439,12 +439,12 @@
 - So sánh với nồi chân không gián đoạn (Chương 4): nồi gián đoạn nạp cả mẻ, giữ dịch cho đến khi đạt nồng độ rồi tháo; sơ đồ liên tục này làm ở áp suất khí quyển nên nhiệt độ sôi cao hơn (Chương 2), trong khi nồi trên dùng chân không để hạ nhiệt độ sôi.
 - Nhớ: Liên tục → thời gian ngắn · gián đoạn → từng mẻ · khí quyển → sôi cao hơn chân không.
 
-### Cảnh 5.3 – Chú thích số 6 là thiết bị chưng cất có thể do OCR đọc sai nên không học thuộc
+### Cảnh 5.3 – Chú thích số 6 đọc rõ là thiết bị chưng cất nhưng cô đặc vẫn chỉ là bay hơi nước nên đừng gộp hai quá trình
 
 - **Thẻ:** Hiểu sai thường gặp
-- Hiểu sai: "cô đặc cần một thiết bị chưng cất". Chưng cất tách các chất theo độ bay hơi, khác cô đặc chỉ bay hơi nước; chữ "chưng cất" ở chú thích 6 đọc từ OCR có thể sai (có thể là thiết bị khác), nên bài không học thuộc chú thích 6.
+- Hiểu sai: "cô đặc cần một thiết bị chưng cất". Chưng cất tách các chất theo độ bay hơi, khác cô đặc chỉ bay hơi nước; chữ "chưng cất" ở chú thích 6 đã đối chiếu ảnh, đọc rõ, nhưng slide không nói nó làm gì trong sơ đồ, nên chỉ thuộc tên, chưa giải thích công dụng (Cần kiểm tra).
 - Hiểu sai thứ hai: "7 bộ phận luôn đi theo đúng thứ tự số". Thứ tự nối theo số là suy luận của album; ảnh có thể nối khác.
-- Nhớ: Chú thích 6 chưa chắc · thứ tự nối cần nhìn ảnh · cô đặc là bay hơi nước.
+- Nhớ: Chú thích 6 = thiết bị chưng cất (công dụng chưa rõ) · thứ tự nối cần nhìn ảnh · cô đặc là bay hơi nước.
 
 [TỰ GIẢI THÍCH: Hãy tự nói vì sao thiết bị liên tục thường cho chất lượng sản phẩm tốt hơn nồi gián đoạn dùng cùng nhiệt độ. | đáp: Dịch lưu trong thiết bị liên tục ngắn hơn nên tổng thời gian chịu nhiệt ít hơn; slide ghi thời gian kéo dài làm giảm chất lượng, nên rút ngắn thời gian là có lợi (suy luận từ slide).]
 
@@ -470,13 +470,13 @@
   - D) Không xác định
   - đáp: A
   - vì sao: Slide ghi thiết bị liên tục và cường độ bốc hơi lớn thì thời gian ngắn; sai B, C, D: trái với slide.
-4. Vì sao không nên học thuộc chú thích số 6 (thiết bị chưng cất)?
-  - A) Vì OCR có thể đọc sai và chưng cất khác cô đặc
-  - B) Vì cô cấm học
-  - C) Vì chú thích số 6 không tồn tại
-  - D) Vì chỉ có 5 chú thích
+4. Chú thích số 6 trong sơ đồ cô đặc liên tục là?
+  - A) Thiết bị chưng cất
+  - B) Thiết bị bốc hơi
+  - C) Thùng chứa dịch
+  - D) Bơm
   - đáp: A
-  - vì sao: Ghi chú: chữ đọc từ OCR không chắc; sai B, C, D: sơ đồ có 7 chú thích và chưa có chỉ dẫn cấm.
+  - vì sao: Chú thích 6 đã đối chiếu ảnh slide, đọc rõ "thiết bị chưng cất"; sai B: số 5; sai C: số 1; sai D: số 2.
 5. Sơ đồ cô đặc liên tục trên slide làm việc ở áp suất nào?
   - A) Áp suất khí quyển
   - B) Chân không cao
@@ -487,7 +487,7 @@
 6. [TỰ LUẬN] So sánh sơ đồ cô đặc liên tục khí quyển với nồi cô đặc chân không gián đoạn về áp suất, tính chất hoạt động và ảnh hưởng đến chất lượng. | mẫu: Nồi chân không gián đoạn làm từng mẻ dưới chân không nên nhiệt độ sôi thấp, ít cháy, ít mất chất thơm nhưng thời gian một mẻ lâu hơn; sơ đồ liên tục dưới áp suất khí quyển có dịch vào và ra liên tục, thời gian lưu ngắn nhưng nhiệt độ sôi cao hơn (suy luận từ slide). Thời gian kéo dài hay nhiệt độ cao đều làm giảm chất lượng nên phải cân bằng.
 [/QUIZ]
 
-[TÓM: Sơ đồ cô đặc liên tục khí quyển có bảy bộ phận từ thùng chứa và bơm đến gia nhiệt bốc hơi và ngưng tụ | Thiết bị liên tục cho thời gian cô ngắn còn gián đoạn làm từng mẻ và khí quyển sôi cao hơn chân không | Chú thích số sáu thiết bị chưng cất và thứ tự nối theo số chưa chắc nên không học thuộc]
+[TÓM: Sơ đồ cô đặc liên tục khí quyển có bảy bộ phận từ thùng chứa và bơm đến gia nhiệt bốc hơi và ngưng tụ | Thiết bị liên tục cho thời gian cô ngắn còn gián đoạn làm từng mẻ và khí quyển sôi cao hơn chân không | Chú thích số sáu đọc rõ là thiết bị chưng cất còn thứ tự nối theo số vẫn là suy luận]
 
 ---
 
@@ -504,7 +504,7 @@ Cường độ bốc hơi --giảm khi--> dịch đặc, nhớt, nhiều khí tr
 Caramel hóa --làm--> sản phẩm đen, đắng
 Maillard --là phản ứng giữa--> acid amin và đường khử
 Nồi chân không gián đoạn --có--> 20 chú thích từ áo hơi đến bơm chân không
-Thùng ngưng tụ --giữ--> chân không cùng bơm chân không
+Tháp ngưng tụ --giữ--> chân không cùng bơm chân không
 Cô đặc liên tục khí quyển --có--> 7 bộ phận
 [/BẢN ĐỒ]
 
@@ -522,7 +522,7 @@ Làm không nhìn lại rồi đối chiếu; lịch ôn 1, 3, 7, 21 ngày.
 7. Biến đổi vật lý khi cô đặc? | từ: CNTP-N10-C3 | đáp: Chất tan, nhiệt độ sôi, độ nhớt, khối lượng riêng tăng; hệ số truyền nhiệt và không khí giảm.
 8. Bốn cách tránh biến đổi hóa học bất lợi? | từ: CNTP-N10-C3 | đáp: Khuấy trộn, nhiệt độ thấp bằng chân không, rút ngắn thời gian, làm nguội nhanh.
 9. Năm tiêu chí phân loại thiết bị cô đặc? | từ: CNTP-N10-C4 | đáp: Số nồi, áp suất, chất tải nhiệt, bộ phận truyền nhiệt, tính chất hoạt động.
-10. Bộ phận 17, 19, 20 của nồi chân không? | từ: CNTP-N10-C4 | đáp: Thùng ngưng tụ (chưa chắc), bơm chân không, nước lạnh.
+10. Bộ phận 17, 19, 20 của nồi chân không? | từ: CNTP-N10-C4 | đáp: Tháp ngưng tụ (Cần kiểm tra chữ), bơm chân không, nước lạnh.
 11. Bộ phận 3 và 5 của sơ đồ cô đặc liên tục? | từ: CNTP-N10-C5 | đáp: 3 thiết bị gia nhiệt dạng tấm bản, 5 thiết bị bốc hơi.
 12. Chế độ chần – hấp trên slide? | từ: CNTP-N09-C1 | đáp: 75–100 °C, 3–15 phút.
 [/ÔN RẢI]
@@ -558,10 +558,10 @@ Làm không nhìn lại rồi đối chiếu; lịch ôn 1, 3, 7, 21 ngày.
 2. Ba câu hỏi cô cho về cô đặc trong file ghi chú của Hoàng buổi 10/11/2026 (mục A cùng file): (1) so sánh ưu nhược điểm các phương pháp; (2) các thông số kỹ thuật cơ bản; (3) những biến đổi của thực phẩm trong cô đặc.
 
 **Kiến thức thêm của người soạn (cần đối chiếu bài giảng)**
-3. Phương trình Antoine của nước (log10 P mmHg = 8,07131 − 1730,63/(233,426 + T)) dùng để dựng đường liên tục và kiểm lại bảng slide; thẩm thấu nghịch dùng áp suất cao hơn áp suất thẩm thấu; công dụng của thùng ngưng tụ, bơm chân không; phép cân bằng chất khô W = F × (1 − x₀/x). Chưa có nguồn riêng trong dự án.
+3. Phương trình Antoine của nước (log10 P mmHg = 8,07131 − 1730,63/(233,426 + T)) dùng để dựng đường liên tục và kiểm lại bảng slide; thẩm thấu nghịch dùng áp suất cao hơn áp suất thẩm thấu; công dụng của tháp ngưng tụ, bơm chân không; phép cân bằng chất khô W = F × (1 − x₀/x). Chưa có nguồn riêng trong dự án.
 4. CNTP-Ngay09 v3 (ban-hoc-cntp/album/CNTP-Ngay09_2026-11-10_cncb-album-v3.md) cho ba câu Nhớ lại và một câu Ôn rải.
 
-**Hình:** không dùng ảnh. Ba hoạt hình thiết bị (q10-ba-phuong-phap, q10-noi-co-dac-chan-khong, q10-co-dac-lien-tuc) là sơ đồ rút gọn tự vẽ; hai mô phỏng thanh trượt (q10-chan-khong-nhiet-do-soi, q10-bay-hoi-chat-kho) là mô hình tính của album; mỗi hình gắn một khẳng định, một nguồn và giới hạn trong khối mô phỏng.
+**Hình:** không dùng ảnh. Hoạt hình q10-ba-phuong-phap là sơ đồ rút gọn tự vẽ; ba mô hình tháo-lắp 3D do ô Thiết kế dựng (noi-co-dac-chan-khong và co-dac-lien-tuc thay hai hoạt hình q10 cùng tên ngày 24/11; phan-ung-maillard thêm ngày 24/11) dùng chữ của bài; hai mô phỏng thanh trượt (q10-chan-khong-nhiet-do-soi, q10-bay-hoi-chat-kho) là mô hình tính của album; mỗi hình gắn một khẳng định, một nguồn và giới hạn trong khối mô phỏng.
 
 ---
 
@@ -571,10 +571,10 @@ Làm không nhìn lại rồi đối chiếu; lịch ôn 1, 3, 7, 21 ngày.
 2. Mục đích cô đặc trên slide chỉ ghi "hoàn thiện, chuẩn bị, khai thác, bảo quản" mà chưa có ý chi tiết; cần hỏi cô.
 3. Dòng "không giữ được các chất thơm" trong mục ưu nhược điểm không rõ thuộc phương pháp nào (bốc hơi nước hay thẩm thấu nghịch), nên bài không gán.
 4. Thẩm thấu nghịch: slide chỉ ghi "dựa trên chênh lệch nồng độ"; phần dùng áp suất là kiến thức thêm.
-5. Hình nồi cô đặc chân không gián đoạn: chú thích 17 "thùng ngưng tụ" đọc từ OCR không chắc; vị trí và công dụng các bộ phận (nhất là 15, 17, 18, 19) trong sơ đồ album là cách vẽ và suy luận, cần nhìn lại ảnh.
-6. Hình cô đặc liên tục: chú thích 6 "thiết bị chưng cất" có thể sai, thứ tự nối giữa bảy bộ phận chưa xác nhận.
+5. Hình nồi cô đặc chân không gián đoạn: chú thích 17 nay đọc là "tháp ngưng tụ" (ảnh cắt chữ ở "Thá…", hình là cột cao; ô Thiết kế đối chiếu 24/11) nhưng vẫn cần nhìn ảnh rõ hơn; vị trí và công dụng các bộ phận (nhất là 15, 17, 18, 19) trong sơ đồ album là cách vẽ và suy luận, cần nhìn lại ảnh.
+6. Hình cô đặc liên tục: chú thích 6 đã đối chiếu ảnh, đọc rõ "thiết bị chưng cất" (ô Thiết kế, 24/11) nhưng công dụng chưa rõ; thứ tự nối giữa bảy bộ phận chưa xác nhận.
 7. Slide Chương 7 từ phần 14 trở đi (cô đặc nhiều nồi, cô đặc lạnh, thẩm thấu nghịch chi tiết) chưa thấy trong thư mục Drive; chưa có hình các thiết bị cô đặc khác (nhiều nồi, ống chùm, màng rơi).
 8. Ví dụ 100 kg dịch 10% và 200 kg dịch 12% là bài của album tự đặt, chưa phải bài cô; cô có yêu cầu tính cô đặc hay không chưa biết. Câu ngân hàng về cô đặc chưa có; ba câu hỏi cô cho mới chỉ có đề, không có đáp án gốc.
 9. Ba sơ đồ thiết bị là hình rút gọn tự vẽ, không phải bản sao hình slide; IPA chưa đối chiếu từ điển chuẩn; việc gom tanin–kim loại, enzyme, pectin... thành "chín nguyên nhân" là cách đếm của album (slide liệt kê rời).
 
-verified: false — Bản v3 chờ Hoàng duyệt; nội dung lấy từ chữ OCR của slide Chương 7 ngày 10/11/2026 và ghi chú lớp; phương trình Antoine, nguyên lý thùng ngưng tụ và thẩm thấu nghịch dùng áp suất là kiến thức thêm cần đối chiếu bài giảng; các phép tính (bảng độ chân không, cân bằng chất khô) chạy lại bằng Python; sơ đồ rút gọn tự vẽ chưa đối chiếu cô.
+verified: false — Bản v3 chờ Hoàng duyệt; nội dung lấy từ chữ OCR của slide Chương 7 ngày 10/11/2026 và ghi chú lớp; phương trình Antoine, nguyên lý tháp ngưng tụ và thẩm thấu nghịch dùng áp suất là kiến thức thêm cần đối chiếu bài giảng; các phép tính (bảng độ chân không, cân bằng chất khô) chạy lại bằng Python; sơ đồ rút gọn tự vẽ chưa đối chiếu cô.
