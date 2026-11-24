@@ -193,7 +193,7 @@
     var CP = new T.Vector3().fromArray(M.camera.pos), CT = new T.Vector3().fromArray(M.camera.target);
     cam.position.copy(CP);
     var orbit = new T.OrbitControls(cam, renderer.domElement); orbit.target.copy(CT); orbit.enableDamping = !reduce; orbit.dampingFactor = 0.08;
-    orbit.minDistance = 2.2; orbit.maxDistance = 10; orbit.maxPolarAngle = Math.PI * 0.56; orbit.update();
+    orbit.minDistance = 2.2; orbit.maxDistance = M.khoangCachMax || 10; orbit.maxPolarAngle = Math.PI * 0.56; orbit.update();
     // ánh sáng: HDRI nhỏ (môi trường) + đèn chính đổ bóng mềm + đèn viền màu gói
     var pm = new T.PMREMGenerator(renderer);
     scene.environment = pm.fromScene(new T.RoomEnvironment(), 0.04).texture; // tạm thời, thay bằng HDRI khi tải xong
@@ -385,6 +385,7 @@
     function datLai() { cam.position.copy(CP); orbit.target.copy(CT); orbit.update(); }
     q('tach').addEventListener('input', function () { datTach(this.value / 100); });
     q('tocdo').addEventListener('input', function () { datToc(this.value / 100); });
+    if (M.xuyenMacDinh) datXuyen(true); // mô hình có hạt chạy bên trong ống/vỏ: mở sẵn chế độ xuyên thấu
     q('xuyen').addEventListener('click', function () { datXuyen(!xuyen); });
     q('chay').addEventListener('click', function () { datChay(!chay); });
     q('buoc1').addEventListener('click', mot);
@@ -408,8 +409,8 @@
     // ---------- vòng lặp ----------
     var raf = 0, last = 0, fpsT = 0, fpsN = 0, chamLau = 0, song = true, dongBang = false, ePrev = 0;
     function layMau() { mau.push([ra.nhe - raCu.nhe, ra.nang - raCu.nang]); raCu = { nhe: ra.nhe, nang: ra.nang }; if (mau.length > 60) mau.shift(); if (P.doThi) veDoThi(); veBuoc(); } // mỗi 0,5 s
-    function size() { W = cv.clientWidth || innerWidth; H = cv.clientHeight || innerHeight; cam.aspect = W / H; cam.updateProjectionMatrix(); renderer.setSize(W, H); if (composer) { composer.setSize(W, H); } }
-    window.addEventListener('resize', size);
+    function size() { W = cv.clientWidth || innerWidth; H = cv.clientHeight || innerHeight; cam.aspect = W / H; cam.fov = cam.aspect < 1 ? Math.min(80, 2 * Math.atan(Math.tan(17 * Math.PI / 180) / cam.aspect) * 180 / Math.PI) : 34; cam.updateProjectionMatrix(); renderer.setSize(W, H); if (composer) { composer.setSize(W, H); } }
+    window.addEventListener('resize', size); size();
     function frame(t) {
       if (!song) return; raf = requestAnimationFrame(frame);
       var dt = last ? Math.min(0.05, (t - last) / 1000) : 0; last = t;

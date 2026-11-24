@@ -63,19 +63,15 @@
   }
   var raNhe = cuaRa(Y_RA_NHE, 0.15, 1, 0xF2C230), raNang = cuaRa(Y_RA_NANG, 0.3, -1, 0x3BA7E6);
 
+  // CHỈ 2 bộ phận có nhãn, đúng thứ CNTP-Ngay01 Cảnh 1.4 nêu (Lê Văn Việt Mẫn và cs. 2011, tr.84–87): "thân trụ" và "nhiều đĩa hình nón cụt xếp chồng".
+  // Chén/vỏ được hiểu là thân trụ. Ống nạp, hai cửa ra, đế, trục, lỗ đĩa, số vòng quay, nhiệt độ sữa: bài KHÔNG nêu → vật trang trí không nhãn, không khẳng định gì.
   var boPhan = [
-    { so: 1, id: 'chen', ten: 'Chén xoay', obj: chen, xoay: true, neo: [0.975, -0.2, 0], tach: [0, -0.4, 0],
-      chucNang: 'Quay 4.000–10.000 vòng/phút, tạo lực ly tâm F = m·R·ω². Phần nặng bị ép ra sát thành chén.' },
-    { so: 2, id: 'ong', ten: 'Ống nạp giữa', obj: ong, neo: [0, 1.62, 0.07], tach: [0, 0.95, 0],
-      chucNang: 'Dẫn sữa nguyên liệu (đã gia nhiệt ≈ 60 °C) xuống đáy chén, đứng yên, không quay.' },
-    { so: 3, id: 'dia', ten: 'Chồng đĩa nón cụt có lỗ', obj: dia, xoay: true, neo: [0.62, yDia(N_DIA - 1, 0.62), 0], tach: [0, 0.25, 0],
-      chucNang: 'Chia sữa thành nhiều lớp mỏng trong khe đĩa, rút ngắn quãng lắng. Sữa lên qua các lỗ thẳng hàng rồi vào khe.' },
-    { so: 4, id: 'nhe', ten: 'Cửa ra phần nhẹ (váng béo)', obj: raNhe, neo: [1.2, Y_RA_NHE + 0.06, 0], tach: [0.2, 0.8, 0],
-      chucNang: 'Hạt béo nhẹ hơn dồn vào tâm, theo khe quanh ống nạp lên và ra ở đây: cream (váng sữa).' },
-    { so: 5, id: 'nang', ten: 'Cửa ra phần nặng (sữa gầy)', obj: raNang, neo: [-1.2, Y_RA_NANG + 0.06, 0], tach: [-0.2, 0.55, 0],
-      chucNang: 'Pha nước nặng hơn văng ra thành, đi theo nắp nón lên và ra ở đây: sữa gầy (< 0,05 % béo).' },
+    { so: 1, id: 'than', ten: 'Thân trụ', obj: chen, xoay: true, neo: [0.975, -0.2, 0], tach: [0, -0.4, 0],
+      chucNang: 'Thân trụ của máy ly tâm đĩa, khoảng 20–100 cm (Cảnh 1.4).' },
+    { so: 2, id: 'dia', ten: 'Chồng đĩa hình nón cụt', obj: dia, xoay: true, neo: [0.62, yDia(N_DIA - 1, 0.62), 0], tach: [0, 0.25, 0],
+      chucNang: 'Nhiều đĩa hình nón cụt xếp chồng lên nhau (Cảnh 1.4). Số đĩa trong hình là minh họa.' },
   ];
-  var trangTri = [de];
+  var trangTri = [de, ong, raNhe, raNang];
 
   // khi tách: các đĩa giãn cách ra (đĩa trên lên cao hơn)
   function tach(e) { diaList.forEach(function (d) { d.position.y = d.userData.k * 0.1 * e; }); }
@@ -142,12 +138,12 @@
     boPhan: boPhan, trangTri: trangTri, tach: tach, hat: hat, omega: 2.4, tuyen: tuyen,
     // pha hạt → bước (mặc định); [MÁY: … | bước: a; b; …] thay chữ theo thứ tự
     buoc: [
-      { ten: 'Sữa vào ống nạp giữa', pha: [0], bp: 'ong' },
-      { ten: 'Xuống đáy, tỏa ra dưới đĩa phân phối', pha: [1], bp: 'dia' },
-      { ten: 'Lên qua các lỗ đĩa thẳng hàng', pha: [2], bp: 'dia' },
+      { ten: 'Sữa vào máy ở giữa', pha: [0] },
+      { ten: 'Xuống đáy, tỏa ra dưới đĩa', pha: [1], bp: 'dia' },
+      { ten: 'Lên qua các đĩa', pha: [2], bp: 'dia' },
       { ten: 'Vào khe giữa các đĩa: tách hai pha', pha: [3], bp: 'dia' },
-      { ten: 'Béo (nhẹ, vàng) vào tâm → cửa ra phần nhẹ', pha: [4], beo: 1, bp: 'nhe' },
-      { ten: 'Nước (nặng, xanh) văng ra thành → cửa ra phần nặng', pha: [4], beo: 0, bp: 'nang' },
+      { ten: 'Béo (nhẹ, vàng) đi vào tâm', pha: [4], beo: 1 },
+      { ten: 'Nước (nặng, xanh) văng ra thành', pha: [4], beo: 0 },
     ],
     chuThichDoThi: 'Số hạt ở mỗi cửa ra',
   };
