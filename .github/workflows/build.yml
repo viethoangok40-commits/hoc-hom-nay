@@ -37,6 +37,12 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Dựng các bài trong bai/ và trang chủ
         run: node build-album.mjs --ra=_site --bo-bai-loi --giu-trang-cu=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+      - name: Báo cáo kiểm nghiêm các bài (không chặn đăng, xem ở Summary của lần chạy)
+        continue-on-error: true
+        run: |
+          node build-album.mjs --ra=_nghiem-tmp --nghiem 2>&1 | tee nghiem.log || true
+          { echo '### Kiểm nghiêm (--nghiem)'; echo '```'; grep -E 'nghiem|✗' nghiem.log || echo 'Không có dòng kết quả'; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Kiểm tra có trang chủ, ít nhất 1 bài, dung lượng trang bài
         run: |
           test -s _site/index.html
