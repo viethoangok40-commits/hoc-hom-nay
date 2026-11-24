@@ -58,6 +58,7 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `oxy-hoa-lipid` | `axitbeo` `oxy` `kimloai` `goctudo` | 4 | D010 Cảnh 3.1 | Chuỗi gốc tự do trên 3 phân tử axit béo (khởi đầu, gắn O₂, lấy H, lan truyền). Nguồn nền PMC2868362. Khối dán: `khoi-dan-oxy-hoa-lipid.md`. |
 | `phan-tu-nuoc` | `oxy` `hydro` `lienket` | 3 | D006 Cảnh 1.2 | Phân tử nước hình chữ V, đám mây δ−/δ+, electron lệch về O. Khối dán: `khoi-dan-d006-nuoc.md`. |
 | `mang-lien-ket-hydro` | `phantunuoc` `lienkethydro` | 3 | D006 Cảnh 4.1 | 8 phân tử nối bằng liên kết hydro, nóng lên thì đứt và bay hơi. Khối dán cùng file. |
+| `ho-hoa-tinh-bot` | `tinhthe` `vodinhhinh` `amylose` `nuoc` | 4 | D014 Cảnh 2.2 | Hạt tinh bột trương, xoắn kép tháo ra, amylose rỉ ra. Thay khối hoạt-hình ho-hoa-bon-buoc. Nguồn: Ratnayake và Jackson 2006; Chiodetti 2024; Teng 2025. Khối dán: `khoi-dan-d014-ho-hoa.md`. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):
