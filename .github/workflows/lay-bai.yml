@@ -39,6 +39,12 @@ jobs:
           node build-album.mjs --ra=_site --bo-bai-loi --giu-trang-cu=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           for f in _site/bai/*.html; do s=$(stat -c%s "$f"); [ "$s" -lt 1572864 ] || echo "::warning file=$f::Trang bài nặng $((s/1024)) KB (> 1,5 MB trước khi tải 3D)"; done
 
+      - name: Báo cáo kiểm nghiêm các bài (không chặn đăng, xem ở Summary của lần chạy)
+        continue-on-error: true
+        run: |
+          node build-album.mjs --ra=_nghiem-tmp --nghiem 2>&1 | tee nghiem.log || true
+          { echo '### Kiểm nghiêm (--nghiem)'; echo '```'; grep -E 'nghiem|✗' nghiem.log || echo 'Không có dòng kết quả'; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Commit + push bài và hình mới (GITHUB_TOKEN)
         run: |
           git config user.name "github-actions[bot]"

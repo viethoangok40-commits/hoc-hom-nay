@@ -116,8 +116,18 @@
 
 - **Thẻ:** Cơ chế
 - Slide chú thích: 1 vỏ trong; 2 vỏ ngoài; 3 phòng hơi; 4 ống dẫn hơi; 5 ống tháo nước không ngưng; 6 van tháo nước ngưng; 7 van hơi an toàn; 8 áp kế; 9 giá đỡ; 10 tay quay; 11 bánh quay răng khía. Tên thiết bị là {{nồi hai vỏ}}.
-[MÔ PHỎNG: q9-noi-hai-vo | kiểu: hoạt-hình | chỗ: phải | khẳng định: Theo chú thích trên slide, nồi chần – hấp hai vỏ làm việc gián đoạn có vỏ trong 1 chứa nguyên liệu, vỏ ngoài 2, phòng hơi 3 ở giữa nhận hơi qua ống dẫn 4, nước ngưng thoát qua van 6, cùng van hơi an toàn 7, áp kế 8, giá đỡ 9, tay quay 10 và bánh quay răng khía 11 | chức năng: giải thích | nhìn: mặt cắt nồi hai vỏ hiện dần theo sáu nhóm bộ phận]
-- hình: hoat-hinh/q9-noi-hai-vo.svg
+[MÔ PHỎNG: noi-hai-vo | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo chú thích trên slide, nồi chần – hấp hai vỏ làm việc gián đoạn có vỏ trong 1 chứa nguyên liệu, vỏ ngoài 2, phòng hơi 3 ở giữa nhận hơi qua ống dẫn 4, nước ngưng thoát qua van 6, cùng van hơi an toàn 7, áp kế 8, giá đỡ 9, tay quay 10 và bánh quay răng khía 11 | chức năng: giải thích | nhìn: mặt cắt nồi hai vỏ hiện dần theo sáu nhóm bộ phận]
+- bộ phận: Vỏ trong | mã: votrong | chức năng: Chứa nguyên liệu. | vì sao ở đó: Chú thích slide 1; nguyên liệu nằm trong vỏ trong (Cảnh 2.2).
+- bộ phận: Vỏ ngoài | mã: vongoai | chức năng: Bao quanh vỏ trong, tạo khoảng giữa hai vỏ. | vì sao ở đó: Chú thích slide 2; tên nồi hai vỏ.
+- bộ phận: Phòng hơi | mã: phonghoi | chức năng: Khoảng giữa hai vỏ, nơi hơi đi vào (suy từ chú thích). | vì sao ở đó: Hơi nằm cách ly nguyên liệu nên không trộn vào nguyên liệu (Cảnh 2.3).
+- bộ phận: Ống dẫn hơi | mã: ongdan | chức năng: Dẫn hơi vào phòng hơi (suy từ chú thích). | vì sao ở đó: Chú thích slide 4; vị trí ống là cách vẽ của album.
+- bộ phận: Ống tháo | mã: ongtao | chức năng: Ống tháo; slide ghi "nước không ngưng", Cần kiểm tra vì có thể là OCR của "khí không ngưng". | vì sao ở đó: Chú thích slide 5; vị trí ống là cách vẽ của album.
+- bộ phận: Van tháo nước ngưng | mã: vannuoc | chức năng: Tháo nước ngưng ra khỏi phòng hơi. | vì sao ở đó: Nước ngưng tích ở đáy phòng hơi nên van ở đáy (Cảnh 2.3, kiến thức thêm).
+- bộ phận: Van hơi an toàn | mã: vanat | chức năng: Van hơi an toàn, giới hạn áp suất hơi (hiểu theo tên gọi). | vì sao ở đó: Chú thích slide 7; vị trí do album vẽ.
+- bộ phận: Áp kế | mã: apke | chức năng: Theo dõi áp suất hơi (hiểu theo tên gọi). | vì sao ở đó: Chú thích slide 8; vị trí do album vẽ.
+- bộ phận: Giá đỡ | mã: giado | chức năng: Giữ nồi. | vì sao ở đó: Chú thích slide 9.
+- bộ phận: Tay quay | mã: tayquay | chức năng: Gợi ý nghiêng nồi để tháo liệu (suy luận từ hình, Cần kiểm tra). | vì sao ở đó: Chú thích slide 10; vị trí do album vẽ.
+- bộ phận: Bánh quay răng khía | mã: banhrang | chức năng: Đi cùng tay quay (Cần kiểm tra chức năng). | vì sao ở đó: Chú thích slide 11; vị trí do album vẽ.
 - bước: 1 | chữ: Vỏ trong 1 chứa nguyên liệu, vỏ ngoài 2 bao quanh. | vì sao: Chú thích slide: 1 vỏ trong, 2 vỏ ngoài.
 - bước: 2 | chữ: Hơi vào qua ống dẫn 4 và lấp đầy phòng hơi 3 giữa hai vỏ. | vì sao: Chú thích slide: 3 phòng hơi, 4 ống dẫn hơi; vị trí hơi nằm giữa hai vỏ suy từ tên phòng hơi.
 - bước: 3 | chữ: Nước ngưng thoát qua van 6; ống 5 tháo phần không ngưng. | vì sao: Chú thích slide: 5 ống tháo nước không ngưng (chữ có thể là OCR của khí không ngưng), 6 van tháo nước ngưng.
@@ -299,6 +309,16 @@
 - **Thẻ:** Định nghĩa
 - Ảnh slide "Ảnh hưởng đến thực phẩm" có đúng năm ô: Vật lý, Hóa học, Hóa lý, Sinh học, Hóa sinh. Ví dụ gắn với chần đã nêu ở Ngay05 (lấy từ giáo trình): rau mềm đi; vitamin C và chlorophyll mất; khí thoát khỏi gian bào, tinh bột hồ hóa; một phần vi sinh vật bị ức chế hoặc diệt; enzyme bị vô hoạt.
 - Slide về màu và mùi bổ sung: chlorophyll trong môi trường acid hoặc có oxy bị biến đổi thành {{pheophytin}} có màu vàng xanh hoặc nâu; mùi vị nguyên liệu giảm ít nhiều do tổn thất chất thơm. Chần ở nhiệt độ thích hợp vài phút thì chlorophyll được ổn định, không bị oxy hóa thành pheophytin dù sau đó thanh trùng ở 121 °C (nhiệt độ chần trên slide OCR nhiễu).
+[MÔ PHỎNG: chlorophyll-pheophytin | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo slide bổ sung về màu và mùi, chlorophyll trong môi trường acid hoặc có oxy bị biến đổi thành pheophytin có màu vàng xanh hoặc nâu, và ghi chú lớp cho biết bổ sung kiềm vào nước chần để khắc phục chlorophyll phân hủy | chức năng: giải thích | nhìn: hai ô dung dịch, ô trên là acid khiến chlorophyll đổi sang màu ô liu, ô dưới là kiềm nên vẫn xanh]
+- bộ phận: Chlorophyll → pheophytin (acid) | mã: acid | chức năng: Chlorophyll trong môi trường acid bị biến đổi thành pheophytin màu vàng xanh hoặc nâu (slide Ảnh hưởng đến thực phẩm, phần màu và mùi). | vì sao ở đó: Là sắc tố xanh của rau; vòng và đuôi vẽ rút gọn là cách vẽ của album.
+- bộ phận: Chlorophyll (môi trường kiềm) | mã: kiem | chức năng: Ghi chú lớp: bổ sung kiềm vào nước chần để khắc phục chlorophyll phân hủy. | vì sao ở đó: Làm đối chứng với hàng acid; loại kiềm chưa rõ nên Cần kiểm tra.
+- bước: 1 | chữ: Chlorophyll màu xanh, ion Mg ở tâm vòng. | vì sao: Slide chỉ nêu chlorophyll; ion Mg ở tâm là kiến thức nền.
+- bước: 2 | chữ: Môi trường acid: H⁺ thế chỗ Mg ở tâm. | vì sao: Slide nêu môi trường acid làm chlorophyll biến đổi; cơ chế H⁺ thế Mg là kiến thức nền (Cần kiểm tra: cô có giảng không).
+- bước: 3 | chữ: Thành pheophytin màu vàng xanh hoặc nâu. | vì sao: Slide: chlorophyll biến đổi thành pheophytin có màu vàng xanh hoặc nâu.
+- bước: 4 | chữ: Môi trường kiềm: chlorophyll giữ màu xanh. | vì sao: Ghi chú lớp: bổ sung kiềm vào nước chần để khắc phục chlorophyll phân hủy; vì sao kiềm giữ được xanh là kiến thức nền.
+- nguồn: Slide "Ảnh hưởng đến thực phẩm" phần màu và mùi (Cảnh 4.1) và ghi chú lớp (Cảnh 4.3); kiến thức nền: ScienceDirect Topics "Chlorophyllin", Zhang 2025 (PMC12248490).
+- giới hạn: Slide không có hình hay cơ chế phân tử. Vòng porphyrin, đuôi, ion H⁺ và OH⁻ vẽ rút gọn là minh họa của album; thời gian và màu là cách vẽ. Không vẽ trường hợp có oxy mà slide cũng nêu. Cần kiểm tra: loại kiềm (NaOH hay Na₂CO₃) và cô có giảng cơ chế thế Mg không.
+[/MÔ PHỎNG]
 - Nhớ: Câu 2: năm ô vật lý · hóa học · hóa lý · sinh học · hóa sinh; màu: chlorophyll → pheophytin khi acid hoặc có oxy; mùi giảm.
 
 ### Cảnh 4.2 – Bất lợi của chần là mất chất khô hòa tan, mềm nhũn và mất vitamin và chần mất nhiều hơn hấp
@@ -306,6 +326,16 @@
 - **Thẻ:** Cơ chế
 - Slide "Những bất lợi khi chần – hấp": tổn thất chất khô hòa tan do khuếch tán vào môi trường chần; chần thường làm mềm nhũn một số rau quả, giảm giá trị cảm quan và ảnh hưởng cấu trúc; mất một số vitamin. Bảng tỉ lệ tổn thất theo điều kiện xử lý nhiệt (chần 90–100 °C, hấp 100 °C, hấp 110 °C) đọc từ OCR không ghép được hàng cột nên KHÔNG dùng số.
 - Slide kế tiếp: chần thì tổn thất dinh dưỡng nhiều hơn hấp; tổn thất cao hơn nếu lượng nước chần nhiều, thời gian dài, nhiệt độ cao. Khớp với bảng vitamin C ở Ngay05 và ghi chú lớp: tiếp xúc nước càng nhiều thì mất càng nhiều.
+[MÔ PHỎNG: ca-pectin | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo slide và ghi chú lớp, chần thường làm mềm nhũn một số rau quả, và thêm ít nước vôi trong khi chần thì rau quả ít bị mềm nhũn | chức năng: giải thích | nhìn: hai ô, ô trên chần không nước vôi thì hai chuỗi pectin rời nhau, ô dưới có ion Ca nối hai chuỗi]
+- bộ phận: Chần không thêm nước vôi | mã: khongvoi | chức năng: Chần thường làm mềm nhũn một số rau quả (slide Những bất lợi khi chần – hấp). | vì sao ở đó: Là đối chứng; hai chuỗi pectin rời nhau là hình ảnh của album cho "mềm nhũn".
+- bộ phận: Chần có thêm nước vôi (ion Ca²⁺) | mã: covoi | chức năng: Ghi chú lớp: thêm ít nước vôi khi chần để rau quả ít bị mềm nhũn. | vì sao ở đó: Ion Ca²⁺ nối hai chuỗi là kiến thức thêm cần đối chiếu bài giảng.
+- bước: 1 | chữ: Pectin là chuỗi mang nhóm carboxyl, giữ các tế bào dính nhau. | vì sao: Kiến thức nền; slide không nêu cấu trúc pectin (Cần kiểm tra).
+- bước: 2 | chữ: Chần nóng không có nước vôi: hai chuỗi rời nhau, rau mềm nhũn. | vì sao: Slide: chần làm mềm nhũn một số rau quả; hai chuỗi rời nhau là cách vẽ.
+- bước: 3 | chữ: Có nước vôi: ion Ca²⁺ nối hai chuỗi qua nhóm carboxyl. | vì sao: Ghi chú lớp chỉ nêu nước vôi giữ cứng; ion Ca²⁺ nối chuỗi là kiến thức thêm.
+- bước: 4 | chữ: Chần nóng: chuỗi vẫn nối nhờ Ca²⁺, rau ít nhũn. | vì sao: Ghi chú lớp: thêm ít nước vôi để ít bị mềm nhũn.
+- nguồn: Slide và ghi chú lớp (Cảnh 4.2, 4.3); kiến thức nền: Huang 2023 (PMID 36198382) về mô hình hộp trứng Ca–pectin, Ni, Lin, Barrett 2005.
+- giới hạn: Hai chuỗi, số nhóm carboxyl và vị trí Ca²⁺ vẽ rút gọn là minh họa của album; không có số đo. Cần kiểm tra: cô có giảng cơ chế ion canxi không.
+[/MÔ PHỎNG]
 - Nhớ: Ba bất lợi: mất chất khô hòa tan · mềm nhũn · mất vitamin · chần mất nhiều hơn hấp · nước nhiều, lâu, nóng thì mất nhiều.
 
 ### Cảnh 4.3 – Cách khắc phục gồm nước đường nồng độ gần độ khô quả, thêm vôi hoặc kiềm và chọn cách tiếp xúc ít nước
@@ -313,6 +343,16 @@
 - **Thẻ:** Cơ chế
 - Slide: để giảm tổn thất chất hòa tan trong quả, dùng nước đường có nồng độ xấp xỉ độ khô của quả (chênh lệch nồng độ nhỏ nên chất tan ít khuếch tán ra), nhưng siro nồng độ cao thì quả dễ bị teo lại khi chần. Ghi chú lớp: thêm ít nước vôi trong khi chần rau quả để ít bị mềm nhũn; bổ sung kiềm (NaOH hay Na₂CO₃, chưa rõ) vào nước chần để khắc phục chlorophyll phân hủy.
 - Giải thích thêm (kiến thức thêm, cần đối chiếu bài giảng): ion canxi từ nước vôi hoặc CaCl₂ làm cứng cấu trúc vách tế bào nên rau ít nhũn; môi trường kiềm nhẹ hạn chế đổi chlorophyll thành pheophytin; còn chọn cách tiếp xúc ít nước như phun hoặc hấp, và chần ngâm trong dung dịch muối hay acid để giữ màu theo slide, giảm tổn thất chất tan.
+[MÔ PHỎNG: khuech-tan-chat-tan | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo slide những bất lợi khi chần hấp, chất khô hòa tan bị tổn thất do khuếch tán vào môi trường chần, và dùng nước đường có nồng độ xấp xỉ độ khô của quả thì chênh lệch nồng độ nhỏ nên chất tan ít khuếch tán ra | chức năng: giải thích | nhìn: hai ô, ô trên chần trong nước thì chất tan đi ra, ô dưới chần trong nước đường thì chất tan đổi chỗ vào ra bằng nhau]
+- bộ phận: Chần trong nước | mã: nuoc | chức năng: Chất khô hòa tan khuếch tán vào nước chần nên bị tổn thất (slide Những bất lợi khi chần – hấp). | vì sao ở đó: Nước chần không có chất tan nên chênh lệch nồng độ lớn; hộp và hạt cam là cách vẽ của album.
+- bộ phận: Chần trong nước đường độ khô gần quả | mã: nuocduong | chức năng: Chênh lệch nồng độ nhỏ nên chất tan ít khuếch tán ra (slide, cách khắc phục). | vì sao ở đó: Đối chứng với hàng nước; số chất tan vào bằng số ra là cách vẽ của album.
+- bước: 1 | chữ: Rau quả chứa chất khô hòa tan trong tế bào. | vì sao: Slide nêu chất khô hòa tan của rau quả.
+- bước: 2 | chữ: Chần trong nước: chất khô hòa tan khuếch tán ra, tổn thất. | vì sao: Slide: tổn thất chất khô hòa tan do khuếch tán vào môi trường chần.
+- bước: 3 | chữ: Nước đường độ khô gần quả: chênh lệch nồng độ nhỏ. | vì sao: Slide: nước đường nồng độ xấp xỉ độ khô của quả, chênh lệch nồng độ nhỏ.
+- bước: 4 | chữ: Chất tan vào và ra bằng nhau nên ít tổn thất. | vì sao: Slide: chất tan ít khuếch tán ra; việc số vào bằng số ra là kiến thức nền (Cần kiểm tra: cô có giảng không).
+- nguồn: Slide "Những bất lợi khi chần – hấp" và cách khắc phục (Cảnh 4.2, 4.3); kiến thức nền: định luật Fick về khuếch tán.
+- giới hạn: Slide không có hình. Tế bào, hạt chất tan, số lượng, thời điểm là minh họa của album, không có số đo. Không vẽ hiện tượng quả teo khi siro quá đặc dù slide có nêu. Cần kiểm tra: cô có giảng cơ chế chênh lệch nồng độ không.
+[/MÔ PHỎNG]
 - Nhớ: Câu 3 khắc phục: nước đường độ khô gần quả · nước vôi giữ cứng · kiềm giữ xanh (NaOH hay Na₂CO₃?) · phun hoặc hấp thay ngâm.
 
 ### Cảnh 4.4 – Thêm càng nhiều kiềm hay siro đặc càng tốt là hiểu sai vì đổi lại là teo quả và hư cấu trúc

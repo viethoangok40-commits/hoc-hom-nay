@@ -226,6 +226,19 @@
 - **Thẻ:** Cơ chế
 - Slide biến đổi hóa học: {{caramel hóa}} tạo sản phẩm màu đen, vị đắng làm chất lượng kém; sẫm màu còn do phản ứng giữa acid amin (nhóm –NH₂) và đường khử (nhóm –CHO) tạo melanoidin, tức {{phản ứng Maillard}}.
 - Để tránh biến đổi bất lợi, slide ghi bốn cách: khuấy trộn khi cô đặc; cô đặc ở nhiệt độ thấp (áp suất chân không); rút ngắn thời gian cô đặc; làm nguội nhanh sau cô. Khuấy giảm gia nhiệt cục bộ, chân không hạ nhiệt độ sôi (Cảnh 2.2), thời gian ngắn và làm nguội nhanh hạn chế phản ứng tiếp diễn (giải thích của album).
+[MÔ PHỎNG: phan-ung-maillard | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo slide biến đổi hóa học khi cô đặc, caramel hóa tạo sản phẩm màu đen vị đắng, còn phản ứng Maillard là phản ứng giữa acid amin (nhóm –NH₂) và đường khử (nhóm –CHO) tạo melanoidin làm sẫm màu | chức năng: giải thích | nhìn: hai ô dung dịch được đun, ô trên là acid amin gặp đường khử tạo melanoidin, ô dưới là đường tự sẫm màu thành caramel]
+- bộ phận: Acid amin (nhóm –NH₂) | mã: amin | chức năng: Có nhóm –NH₂, phản ứng với nhóm –CHO của đường khử (slide Biến đổi hóa học). | vì sao ở đó: Là một trong hai chất tham gia phản ứng Maillard; hình glycine rút gọn là cách vẽ của album.
+- bộ phận: Đường khử (nhóm –CHO) | mã: duongkhu | chức năng: Có nhóm –CHO, phản ứng với nhóm –NH₂ của acid amin (slide Biến đổi hóa học). | vì sao ở đó: Là chất còn lại tham gia phản ứng Maillard; hình glucose mạch hở rút gọn là cách vẽ của album.
+- bộ phận: Melanoidin | mã: melanoidin | chức năng: Sản phẩm của phản ứng Maillard làm sản phẩm sẫm màu (slide Biến đổi hóa học). | vì sao ở đó: Là sản phẩm cuối của hàng trên; cụm hình cầu nâu là minh họa của album, không phải cấu trúc thật.
+- bộ phận: Sản phẩm caramel hóa | mã: caramel | chức năng: Caramel hóa tạo sản phẩm màu đen, vị đắng làm chất lượng kém (slide Biến đổi hóa học). | vì sao ở đó: Là sản phẩm của hàng dưới; cụm khối đen là minh họa của album.
+- bước: 1 | chữ: Nhóm –NH₂ của acid amin gặp nhóm –CHO của đường khử. | vì sao: Slide: sẫm màu còn do phản ứng giữa acid amin (nhóm –NH₂) và đường khử (nhóm –CHO).
+- bước: 2 | chữ: Gia nhiệt: hai nhóm kết hợp và tách ra một phân tử nước. | vì sao: Slide chỉ ghi phản ứng giữa hai nhóm; việc tách nước là kiến thức nền (Cần kiểm tra: cô có nói đến không).
+- bước: 3 | chữ: Phản ứng tiếp diễn tạo melanoidin làm dung dịch sẫm màu. | vì sao: Slide: phản ứng tạo melanoidin gây sẫm màu.
+- bước: 4 | chữ: Caramel hóa: đường chịu nhiệt tạo sản phẩm đen, vị đắng. | vì sao: Slide: caramel hóa tạo sản phẩm màu đen, vị đắng; đường tự chịu nhiệt không cần acid amin là kiến thức nền.
+- bước: 5 | chữ: Làm nguội nhanh: phản ứng chậm lại, màu không đậm thêm. | vì sao: Slide ghi làm nguội nhanh là một trong bốn cách tránh; vì sao hiệu quả là giải thích của album.
+- nguồn: Slide Chương 7 "Biến đổi hóa học khi cô đặc" (Cảnh 3.2); kiến thức nền: Foods 2025 (PMC12154226) về cơ chế Maillard; BakerPedia, Science of Cooking về caramel hóa.
+- giới hạn: Slide không có hình hay cơ chế phân tử. Phân tử vẽ rút gọn (glycine, glucose mạch hở, bỏ H trên cacbon), cụm melanoidin và caramel là minh họa, nhiệt độ, thời gian và màu là cách vẽ của album. Không nêu nhiệt độ bắt đầu phản ứng. Cần kiểm tra: cô có giảng về tách nước hay các bước trung gian không.
+[/MÔ PHỎNG]
 - Nhớ: Caramel hóa (đen, đắng) · Maillard (acid amin + đường khử → melanoidin) · tránh: khuấy · chân không · rút ngắn thời gian · làm nguội nhanh.
 
 ### Cảnh 3.3 – Chín nguyên nhân khác làm sản phẩm cô đặc giảm chất lượng từ tanin, enzyme đến pectin, protein và vitamin
@@ -302,8 +315,27 @@
 
 - **Thẻ:** Cơ chế
 - Slide chú thích: 1 khoang áo hơi; 2 áo hơi; 3 hơi vào; 4 cửa nạp liệu; 5 nhiệt kế; 6 cửa kính sáng; 7 chân không kế; 8 kính quan sát; 9 vòi rửa kính quan sát; 10 van xả khí; 11 van bổ sung nguyên liệu; 12 van lấy mẫu; 13 nước ngưng; 14 cửa tháo liệu; 15 trục giảm tốc; 16 áp kế; 17 thùng ngưng tụ (chữ chưa chắc); 18 bơm ly tâm; 19 bơm chân không; 20 nước lạnh. Thiết bị là {{nồi cô đặc chân không gián đoạn}}.
-[MÔ PHỎNG: q10-noi-co-dac-chan-khong | kiểu: hoạt-hình | chỗ: phải | khẳng định: Theo chú thích trên slide, thiết bị cô đặc chân không gián đoạn một nồi có áo hơi (1 khoang áo hơi, 2 áo hơi, 3 hơi vào, 13 nước ngưng), cửa nạp và tháo liệu (4, 11, 14, 12), dụng cụ quan sát và đo (5, 6, 8, 9, 7, 16), trục giảm tốc 15, thùng ngưng tụ 17 với nước lạnh 20 và van xả khí 10, cùng bơm chân không 19 và bơm ly tâm 18 | chức năng: giải thích | nhìn: nồi có áo hơi, thùng ngưng tụ và hai bơm hiện dần theo sáu nhóm chú thích kèm bảng số bên dưới]
-- hình: hoat-hinh/q10-noi-co-dac-chan-khong.svg
+[MÔ PHỎNG: noi-co-dac-chan-khong | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo chú thích trên slide, thiết bị cô đặc chân không gián đoạn một nồi có áo hơi (1 khoang áo hơi, 2 áo hơi, 3 hơi vào, 13 nước ngưng), cửa nạp và tháo liệu (4, 11, 14, 12), dụng cụ quan sát và đo (5, 6, 8, 9, 7, 16), trục giảm tốc 15, thùng ngưng tụ 17 với nước lạnh 20 và van xả khí 10, cùng bơm chân không 19 và bơm ly tâm 18 | chức năng: giải thích | nhìn: nồi có áo hơi, thùng ngưng tụ và hai bơm hiện dần theo sáu nhóm chú thích kèm bảng số bên dưới]
+- bộ phận: Khoang áo hơi | mã: khoang | chức năng: Tên theo chú thích slide; trên ảnh nhãn 1 chỉ vào thân trụ phía trên nồi. | vì sao ở đó: Chú thích slide 1.
+- bộ phận: Áo hơi | mã: aohoi | chức năng: Hơi nhả nhiệt đun dịch trong nồi (Cảnh 4.3, suy từ chú thích). | vì sao ở đó: Chú thích slide 2; trên ảnh nhãn 2 chỉ vào đáy chảo.
+- bộ phận: Hơi vào | mã: hoivao | chức năng: Hơi nước vào áo hơi. | vì sao ở đó: Chú thích slide 3; vị trí ống là cách vẽ của album.
+- bộ phận: Cửa nạp liệu | mã: cuanap | chức năng: Nạp dịch vào nồi. | vì sao ở đó: Chú thích slide 4.
+- bộ phận: Nhiệt kế | mã: nhietke | chức năng: Cho biết nhiệt độ (Cảnh 4.3). | vì sao ở đó: Chú thích slide 5.
+- bộ phận: Cửa kính sáng | mã: cuakinh | chức năng: Cửa kính sáng cho người vận hành nhìn (Cảnh 4.3). Chữ đã đối chiếu ảnh slide, đọc rõ. | vì sao ở đó: Chú thích slide 6.
+- bộ phận: Chân không kế | mã: chankhongke | chức năng: Cho biết độ chân không (Cảnh 4.3). | vì sao ở đó: Chú thích slide 7.
+- bộ phận: Kính quan sát | mã: kinhqs | chức năng: Nhìn mức dịch và trạng thái sôi (Cảnh 4.3). | vì sao ở đó: Chú thích slide 8.
+- bộ phận: Vòi rửa kính quan sát | mã: voirua | chức năng: Giữ kính trong (Cảnh 4.3). | vì sao ở đó: Chú thích slide 9.
+- bộ phận: Van xả khí | mã: vanxakhi | chức năng: Van xả khí (chức năng cụ thể Cần kiểm tra). | vì sao ở đó: Chú thích slide 10.
+- bộ phận: Van bổ sung nguyên liệu | mã: vanbosung | chức năng: Bổ sung nguyên liệu khi đang cô (Cảnh 4.3). | vì sao ở đó: Chú thích slide 11.
+- bộ phận: Van lấy mẫu | mã: vanlaymau | chức năng: Lấy mẫu để kiểm tra khi đang cô (Cảnh 4.3). | vì sao ở đó: Chú thích slide 12.
+- bộ phận: Nước ngưng | mã: nuocngung | chức năng: Nước ngưng của hơi cấp thoát ra từ áo hơi (Cảnh 4.3). | vì sao ở đó: Chú thích slide 13.
+- bộ phận: Cửa tháo liệu | mã: cuatao | chức năng: Tháo liệu khỏi nồi. | vì sao ở đó: Chú thích slide 14.
+- bộ phận: Trục giảm tốc | mã: trucgt | chức năng: Trục giảm tốc (chức năng Cần kiểm tra; trên ảnh nằm ở đỉnh nồi). | vì sao ở đó: Chú thích slide 15.
+- bộ phận: Áp kế | mã: apke | chức năng: Đo áp suất (Cần kiểm tra: áp suất hơi hay áp suất trong nồi). | vì sao ở đó: Chú thích slide 16.
+- bộ phận: Tháp ngưng tụ | mã: thapngung | chức năng: Ngưng hơi bốc ra từ dịch (Cảnh 4.3). Cần kiểm tra: ảnh slide cắt chữ ở "Thá…" và hình vẽ là cột cao, nhiều khả năng là "tháp" chứ không phải "thùng". | vì sao ở đó: Chú thích slide 17.
+- bộ phận: Bơm ly tâm | mã: bomlt | chức năng: Bơm ly tâm (công dụng Cần kiểm tra). | vì sao ở đó: Chú thích slide 18.
+- bộ phận: Bơm chân không | mã: bomck | chức năng: Hút khí không ngưng để giữ áp suất thấp (Cảnh 4.3, suy từ tên gọi). | vì sao ở đó: Chú thích slide 19.
+- bộ phận: Nước lạnh | mã: nuoclanh | chức năng: Làm ngưng hơi ở thiết bị ngưng tụ (Cảnh 4.3). | vì sao ở đó: Chú thích slide 20.
 - bước: 1 | chữ: Nồi và áo hơi: 1 khoang áo hơi, 2 áo hơi, 3 hơi vào, 13 nước ngưng. | vì sao: Chú thích slide 1, 2, 3, 13; vị trí các bộ phận là cách vẽ của album.
 - bước: 2 | chữ: Nạp và tháo: 4 cửa nạp liệu, 11 van bổ sung nguyên liệu, 14 cửa tháo liệu, 12 van lấy mẫu. | vì sao: Chú thích slide 4, 11, 14, 12.
 - bước: 3 | chữ: Quan sát: 5 nhiệt kế, 6 cửa kính sáng, 8 kính quan sát, 9 vòi rửa kính quan sát. | vì sao: Chú thích slide 5, 6, 8, 9.
@@ -382,8 +414,14 @@
 
 - **Thẻ:** Cơ chế
 - Slide chú thích: 1 thùng chứa dịch cần cô đặc; 2 bơm; 3 thiết bị gia nhiệt dạng tấm bản; 4 thiết bị đun nóng; 5 thiết bị bốc hơi; 6 thiết bị chưng cất (chữ chưa chắc); 7 thiết bị ngưng tụ. Sơ đồ là {{cô đặc liên tục}} dưới áp suất khí quyển.
-[MÔ PHỎNG: q10-co-dac-lien-tuc | kiểu: hoạt-hình | chỗ: phải | khẳng định: Theo chú thích trên slide, sơ đồ nguyên lý cô đặc liên tục dưới áp suất khí quyển gồm bảy bộ phận theo số: 1 thùng chứa dịch, 2 bơm, 3 gia nhiệt dạng tấm bản, 4 thiết bị đun nóng, 5 thiết bị bốc hơi, 6 thiết bị chưng cất và 7 thiết bị ngưng tụ, trong đó thứ tự nối theo số là suy luận | chức năng: giải thích | nhìn: sơ đồ khối bảy ô nối theo thứ tự số, hơi bay ra từ ô 5 và dịch đặc ra]
-- hình: hoat-hinh/q10-co-dac-lien-tuc.svg
+[MÔ PHỎNG: co-dac-lien-tuc | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo chú thích trên slide, sơ đồ nguyên lý cô đặc liên tục dưới áp suất khí quyển gồm bảy bộ phận theo số: 1 thùng chứa dịch, 2 bơm, 3 gia nhiệt dạng tấm bản, 4 thiết bị đun nóng, 5 thiết bị bốc hơi, 6 thiết bị chưng cất và 7 thiết bị ngưng tụ, trong đó thứ tự nối theo số là suy luận | chức năng: giải thích | nhìn: sơ đồ khối bảy ô nối theo thứ tự số, hơi bay ra từ ô 5 và dịch đặc ra]
+- bộ phận: Thùng chứa dịch cần cô đặc | mã: thung | chức năng: Chứa dịch cần cô đặc. | vì sao ở đó: Chú thích slide 1.
+- bộ phận: Bơm | mã: bom | chức năng: Đưa dịch đi tiếp (hiểu theo tên gọi). | vì sao ở đó: Chú thích slide 2.
+- bộ phận: Thiết bị gia nhiệt dạng tấm bản | mã: tamban | chức năng: Gia nhiệt dạng tấm bản. Trên ảnh dịch đặc quay lại qua đây rồi ra "Sản phẩm" (mũi tên nhỏ, Cần kiểm tra). | vì sao ở đó: Chú thích slide 3.
+- bộ phận: Thiết bị đun nóng | mã: dunnong | chức năng: Nâng nhiệt độ dịch (hiểu theo tên gọi). | vì sao ở đó: Chú thích slide 4.
+- bộ phận: Thiết bị bốc hơi | mã: bochoi | chức năng: Nước bay hơi, dịch đặc dần (slide mục 1). | vì sao ở đó: Chú thích slide 5.
+- bộ phận: Thiết bị chưng cất | mã: chungcat | chức năng: Chữ đã đối chiếu ảnh slide, đọc rõ "chưng cất"; hình là cột đứng. Chức năng cụ thể Cần kiểm tra. | vì sao ở đó: Chú thích slide 6.
+- bộ phận: Thiết bị ngưng tụ | mã: ngungtu | chức năng: Ngưng hơi (hiểu theo tên gọi). | vì sao ở đó: Chú thích slide 7.
 - bước: 1 | chữ: Dịch ở thùng chứa 1 được bơm 2 đẩy sang thiết bị gia nhiệt dạng tấm bản 3. | vì sao: Chú thích slide 1, 2, 3; thứ tự nối là suy luận từ số.
 - bước: 2 | chữ: Thiết bị đun nóng 4 nâng nhiệt độ dịch. | vì sao: Chú thích slide 4; công dụng theo tên gọi.
 - bước: 3 | chữ: Thiết bị bốc hơi 5: nước bay hơi, dịch đặc dần. | vì sao: Chú thích slide 5; bay hơi nước là bản chất của cô đặc (slide mục 1).

@@ -46,7 +46,16 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `ep-hai-truc` | `trai` `phai` `khe` | 2 | CNTP-Ngay03 Cảnh 3.5 Ý1 | Khớp Ý1 (trục có rãnh dọc, khe hẹp, nhiều trục nối tiếp, hai trục quay ngược chiều theo mô tả hình). Đã bỏ nhãn phễu, khay, dao gạt, khung. |
 | `ep-bang-tai` | `tren` `duoi` `dao` | 3 | CNTP-Ngay03 Cảnh 3.5 Ý2 | Khớp Ý2 (băng trên nén, băng dưới có lỗ lọc, dao cạo). Đã bỏ nhãn phễu, khay, máng, con lăn, động cơ. "Băng tải gói" và "trục – băng tải" (Ý3, Ý4) chưa dựng. |
 | `thung-quay-chan` | `be` `thung` | 4 | CNTP-Ngay05 Cảnh 2.3 Ý1 | Khớp Ý1 (nước chần 70–100 °C; thùng ngang đục lỗ, xoay, thanh gạt). Hạt "chất tan" là minh họa tổn thất; đường đi qua lỗ thùng là suy ra → Cần kiểm tra. Đã bỏ nhãn phễu, ống hơi, máng, động cơ. |
-| `ly-tam-dia` | `chen` `ong` `dia` `nhe` `nang` | 6 | CNTP-Ngay01 Cảnh 1.4 | **CHƯA đối chiếu, không phải do phiên này viết.** Cảnh 1.4 chỉ nêu: ly tâm đĩa có thân trụ khoảng 20–100 cm, nhiều đĩa hình nón cụt xếp chồng; ứng dụng tách béo sữa, sữa gầy còn dưới 0,05 % béo. Module có thêm các chi tiết bài không nêu ("4.000–10.000 vòng/phút", sữa gia nhiệt "≈ 60 °C", lỗ phân phối thẳng hàng…) → cần xem lại hoặc tìm nguồn trước khi dùng. |
+| `ly-tam-dia` | `than` `dia` | 6 | CNTP-Ngay01 Cảnh 1.4 | Đã rút về 2 nhãn bài nêu (thân trụ, chồng đĩa hình nón cụt) ngày 18/11. Ống nạp, cửa ra, đế là vật trang trí. Hạt minh họa. |
+| `noi-hai-vo` | `votrong` `vongoai` `phonghoi` `ongdan` `ongtao` `vannuoc` `vanat` `apke` `giado` `tayquay` `banhrang` | 6 | CNTP-Ngay09 Cảnh 2.2 | 11 chú thích slide. Chú thích 5 "Cần kiểm tra". Vị trí do album vẽ. Khối dán: `khoi-dan-mo-hinh-moi.md`. |
+| `noi-co-dac-chan-khong` | 20 mã (xem khối dán) | 6 | CNTP-Ngay10 Cảnh 4.2 | Đối chiếu ảnh slide 18/11: 6 đọc rõ; 17 nhiều khả năng là "tháp". |
+| `co-dac-lien-tuc` | `thung` `bom` `tamban` `dunnong` `bochoi` `chungcat` `ngungtu` | 5 | CNTP-Ngay10 Cảnh 5.1 | Đối chiếu ảnh slide 18/11: 6 đọc rõ "chưng cất". Đường nối theo mũi tên nhỏ trên ảnh, Cần kiểm tra. |
+| `di-nguyen-khang-the` | `dinguyen` `khangthe` | 3 | CNTP-Ngay11 Cảnh 5.1 | Cơ chế khớp hình (kiến thức nền: Abcam, Akbar 2019): chén của kháng thể ôm khớp mấu dị nguyên, protein khác không khớp. Khối dán: `khoi-dan-di-nguyen-khang-the.md`. |
+| `phan-ung-maillard` | `amin` `duongkhu` `melanoidin` `caramel` | 5 | CNTP-Ngay10 Cảnh 3.2 | Hàng trên Maillard (–NH₂ + –CHO, tách nước, melanoidin), hàng dưới caramel hóa. Phân tử rút gọn; nguồn nền PMC12154226. Khối dán: `khoi-dan-phan-ung-maillard.md`. |
+| `chlorophyll-pheophytin` | `acid` `kiem` | 4 | CNTP-Ngay09 Cảnh 4.1 | H⁺ thế Mg ở tâm vòng porphyrin, vòng sang ô liu; hàng kiềm đối chứng. Nguồn nền PMC12248490. Khối dán: `khoi-dan-chlorophyll-pheophytin.md`. |
+| `ca-pectin` | `khongvoi` `covoi` | 4 | CNTP-Ngay09 Cảnh 4.2 | Ca²⁺ nối hai chuỗi pectin (hộp trứng) so với không nước vôi. Nguồn nền PMID 36198382. Khối dán: `khoi-dan-khuech-tan-ca-pectin.md`. |
+| `khuech-tan-chat-tan` | `nuoc` `nuocduong` | 4 | CNTP-Ngay09 Cảnh 4.3 | Chất tan ra nước chần so với nước đường độ khô gần quả (vào bằng ra). Không vẽ quả teo. Khối dán cùng file. |
+| `oxy-hoa-lipid` | `axitbeo` `oxy` `kimloai` `goctudo` | 4 | D010 Cảnh 3.1 | Chuỗi gốc tự do trên 3 phân tử axit béo (khởi đầu, gắn O₂, lấy H, lan truyền). Nguồn nền PMC2868362. Khối dán: `khoi-dan-oxy-hoa-lipid.md`. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):

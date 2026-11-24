@@ -403,6 +403,15 @@
 - Slide "Khái quát chung về chất gây dị ứng": {{chất gây dị ứng}} hay dị nguyên là những chất sau khi xâm nhập cơ thể sinh vật sẽ được hệ thống miễn dịch nhận biết và đáp ứng, tức là sinh ra các kháng thể có đặc tính kết hợp với chính kháng nguyên ấy. {{Dị ứng thực phẩm}} là phản ứng dị thường của hệ miễn dịch xảy ra ngay sau khi ăn một hoặc nhiều loại thức ăn nhất định, do cơ thể phản ứng với một loại protein hoặc một chất nào đó.
 - Triệu chứng cơ bản trên slide: ngứa ran hoặc ngứa trong miệng, sưng môi, mặt, lưỡi và các bộ phận khác; phát ban, ngứa; khó thở, nghẹt mũi, thở khò khè; đau bụng, tiêu chảy, buồn nôn hoặc nôn; chóng mặt, choáng váng, thậm chí ngất xỉu.
 - Ở một số người dị ứng thực phẩm có thể gây {{sốc phản vệ}}, cần được điều trị khẩn cấp để tránh hôn mê hoặc tử vong; slide nói mức độ dị ứng tùy theo đối tượng (độ tuổi) và mức độ tiếp xúc (cuối câu bị cắt nên cần xem lại ảnh).
+[MÔ PHỎNG: di-nguyen-khang-the | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo slide khái quát chung về chất gây dị ứng, dị nguyên là chất khi xâm nhập cơ thể được hệ miễn dịch nhận biết và sinh ra kháng thể kết hợp với chính kháng nguyên ấy | chức năng: giải thích | nhìn: dị nguyên và kháng thể, hạt xanh là kháng thể tìm tới dị nguyên]
+- bộ phận: Dị nguyên | mã: dinguyen | chức năng: Chất xâm nhập cơ thể và được hệ miễn dịch nhận biết (slide Khái quát chung về chất gây dị ứng). | vì sao ở đó: Là phía bị nhận biết; hình cầu và mấu vàng là cách vẽ của album.
+- bộ phận: Kháng thể | mã: khangthe | chức năng: Được hệ miễn dịch sinh ra, có đặc tính kết hợp với chính kháng nguyên ấy. | vì sao ở đó: Là phía nhận biết; hình chữ Y là cách vẽ của album.
+- bước: 1 | chữ: Dị nguyên xâm nhập cơ thể. | vì sao: Slide: chất sau khi xâm nhập cơ thể sinh vật.
+- bước: 2 | chữ: Hệ miễn dịch nhận biết và đáp ứng, sinh ra kháng thể. | vì sao: Slide: được hệ thống miễn dịch nhận biết và đáp ứng, tức là sinh ra các kháng thể.
+- bước: 3 | chữ: Kháng thể kết hợp với chính kháng nguyên ấy, không kết hợp với protein khác. | vì sao: Slide: kháng thể có đặc tính kết hợp với chính kháng nguyên ấy; vế "không kết hợp với protein khác" là cách hiểu của album.
+- nguồn: Slide "Khái quát chung về chất gây dị ứng" (Cảnh 5.1).
+- giới hạn: Hình dạng, kích thước, số lượng và chuyển động là minh họa của album. Slide không nêu IgE, tế bào mast hay cơ chế phân tử nên mô hình không khẳng định chúng. Cần kiểm tra: slide có nói kháng thể không kết hợp chất khác không.
+[/MÔ PHỎNG]
 - Nhớ: Dị nguyên → hệ miễn dịch tạo kháng thể · dị ứng thực phẩm = phản ứng dị thường với protein · nặng nhất là sốc phản vệ.
 
 ### Cảnh 5.2 – Thống kê trên slide cho thấy dị ứng thực phẩm phổ biến ở trẻ em và khiến hàng trăm nghìn người ở Mỹ phải cấp cứu mỗi năm
