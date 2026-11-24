@@ -474,7 +474,7 @@ Làm không nhìn lại rồi đối chiếu; lịch ôn 1, 3, 7, 21 ngày.
 3. CNTP-Ngay05 v3 (ban-hoc-cntp/album/CNTP-Ngay05_2026-11-06_cncb-album-v3.md): ba giai đoạn, peroxidase, bảng 2.1.16.1, hệ thống chần hơi nước; trích lại từ Lê Văn Việt Mẫn và cs. (2011), Công nghệ chế biến thực phẩm, NXB ĐHQG TP.HCM, mục 2.1.16.
 4. Nguyên lý tầng sôi, nồi hai vỏ nhả nhiệt và vai trò canxi, kiềm: kiến thức thêm của người soạn, chưa có nguồn riêng trong dự án, đều đã đánh dấu cần đối chiếu bài giảng.
 
-**Hình:** không dùng ảnh. Bốn hoạt hình (q9-noi-hai-vo, q9-chan-ngam-phun, q9-chan-tang-soi, q9-ong-xoan-nam-ngang) là sơ đồ rút gọn do album tự vẽ, mỗi hình gắn một khẳng định, một nguồn và giới hạn trong khối mô phỏng.
+**Hình:** không dùng ảnh. Ba hoạt hình (q9-chan-ngam-phun, q9-chan-tang-soi, q9-ong-xoan-nam-ngang) là sơ đồ rút gọn do album tự vẽ; bốn mô hình tháo-lắp 3D do ô Thiết kế dựng (noi-hai-vo thay hoạt hình q9-noi-hai-vo ngày 24/11; chlorophyll-pheophytin, ca-pectin, khuech-tan-chat-tan thêm ngày 24/11) dùng chữ của bài; mỗi hình gắn một khẳng định, một nguồn và giới hạn trong khối mô phỏng.
 
 ---
 

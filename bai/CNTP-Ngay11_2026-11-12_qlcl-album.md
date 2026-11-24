@@ -557,7 +557,7 @@ Làm không nhìn lại rồi đối chiếu; lịch ôn 1, 3, 7, 21 ngày.
 **Kiến thức thêm (cần đối chiếu bài giảng; không có nguồn mở lại trong lần viết này)**
 4. Tên gọi FATTOM; sulfite/sulphite và vài giải thích về làm sạch, khử trùng; mốc FDA 18/12/1995 và 18/12/1997; việc bảng phân tích mối nguy mẫu có các cột nào. Đây là hiểu biết nền của người viết, chưa kiểm chứng bằng nguồn ngoài.
 
-**Hình:** không dùng ảnh slide. Hai hoạt hình (q11-12-buoc, q11-ba-bien-phap-vsv) và hai mô phỏng thanh trượt (q11-rui-ro, q11-vi-khuan-nhan-doi) là hình tự dựng, mỗi hình gắn một khẳng định và một nguồn.
+**Hình:** không dùng ảnh slide. Hai hoạt hình (q11-12-buoc, q11-ba-bien-phap-vsv) và hai mô phỏng thanh trượt (q11-rui-ro, q11-vi-khuan-nhan-doi) là hình tự dựng, mỗi hình gắn một khẳng định và một nguồn. Mô hình tháo-lắp 3D di-nguyen-khang-the (ô Thiết kế dựng, thêm ngày 24/11) ở Cảnh 5.1 dùng chữ của bài.
 
 ---
 
