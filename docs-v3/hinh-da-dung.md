@@ -1,33 +1,84 @@
-# HÌNH ĐÃ DÙNG (chống trùng giữa các album)
-Soạn bài: đọc file này TRƯỚC khi tìm hình hoặc thiết kế mô phỏng; không dùng lại hình/url hay mô phỏng đã có ở đây. Dùng xong thêm các dòng mới: `bài | url nguồn đã mở | khẳng định hình chứng minh`.
-Ghi chú 08/11/2026: danh sách mới chỉ có D008 (đọc từ chú thích hình trên trang web). D006, D007, D009, D010 và CNTP-Ngay02–05 sẽ được quét khi viết lại.
-Ghi chú 09/11/2026: đã thêm CNTP-Ngay01 (bản v3). Hai trang Commons chỉ mở để đọc mô tả và giấy phép, chưa xem nội dung ảnh.
-Ghi chú 10/11/2026: thêm mục "Mô phỏng đã dùng" (xem khung-album-v3-phan-2.md mục 11). D008-v3 đã sửa: bỏ hình mật ong, bỏ 3D sucrose CID 5988 (thay bằng mô phỏng aw-raoult).
+# HÌNH ĐÃ DÙNG (chống trùng giữa các album) – bản gộp 20/11/2026
+Soạn bài: đọc file này TRƯỚC khi thiết kế mô phỏng/hình; không dùng lại id hay khẳng định đã có. Dùng xong thêm dòng mới: `bài | id | kiểu | khẳng định | nguồn`.
 
-## D008 (ảnh thật, theo chú thích nguồn; mục này gồm cả hình của bản cũ)
-- Mold on bread FoV 322um · Pavel.Somov · Wikimedia Commons · (dùng trong D008-v3)
-- Dried Fruit in Armenia E6157 · Narek75 · Wikimedia Commons · (dùng trong D008-v3, Cảnh 4.3)
-- Staphylococcus aureus SEM · Mogana Das Murtey và Patchamuthu Ramasamy · Wikimedia Commons · (dùng trong D008-v3, Cảnh 4.1)
-- Haar-Hygrometer (Firma Fischer) · Rhetos · Wikimedia Commons · (dùng trong D008-v3, Cảnh 5.1)
-- Protein Bar (52140143528) · Wildlife Terry · Wikimedia Commons · (dùng trong D008-v3, Cảnh 6.1)
-- Małecki và cs. 2022, Hình 2 (PMC8997551) · (dùng trong D008-v3, Cảnh 6.2; chưa có nguồn ảnh tải được)
-- Dipper stick and honey in a jar · Shixart1985 · Wikimedia Commons · (D008 cũ; ĐÃ BỎ khỏi D008-v3, nhưng giữ trong danh sách để các bài khác không dùng lại)
-- Water (CID 962, 3D) · PubChem · (D008 cũ; không dùng trong v3)
-- Sucrose (CID 5988, 3D) · PubChem · (D008 cũ; ĐÃ BỎ khỏi v3, thay bằng mô phỏng aw-raoult)
-- Sodium Chloride (CID 5234, 2D) · PubChem · (D008 cũ; không dùng trong v3)
-- Beef Jerky in space · NASA · Wikimedia Commons · (D008 cũ; không dùng trong v3)
-- Bread Mold (NIH BioArt 705) · NIAID Ryan Kissinger · Wikimedia Commons · (D008 cũ; không dùng trong v3)
-- Raw protein bar at FIBO 2019 (47952480716) · Wikimedia Commons · (D008 cũ; không dùng trong v3)
-
-## CNTP-Ngay01 (sơ đồ, theo trang mô tả đã mở 09/11/2026)
-- CNTP-Ngay01 | https://commons.wikimedia.org/wiki/File:Depth_Filtration.png | Trong lọc bề sâu, hạt đi vào trong lòng vật liệu xốp có lỗ lớn nhỏ khác nhau thay vì chỉ nằm trên bề mặt (CC BY-SA 4.0, Someguyinaclass)
-- CNTP-Ngay01 | https://commons.wikimedia.org/wiki/File:Carbon_dioxide_pressure-temperature_phase_diagram.svg | Giản đồ pha của CO₂ có một vùng siêu tới hạn riêng nằm phía trên điểm tới hạn (CC0, Ben Finney / Mark Jacobs)
+## Ảnh thật đã dùng hoặc đã mở (không dùng lại)
+- D008 · Mold on bread FoV 322um · Wikimedia Commons (dùng trong D008-v3)
+- D008 · Dried Fruit in Armenia E6157 · Wikimedia Commons (dùng trong D008-v3)
+- D008 · Staphylococcus aureus SEM · Wikimedia Commons (dùng trong D008-v3)
+- D008 · Haar-Hygrometer (Firma Fischer) · Wikimedia Commons (dùng trong D008-v3)
+- D008 · Protein Bar (52140143528) · Wikimedia Commons (dùng trong D008-v3)
+- D008 · Małecki và cs. 2022, Hình 2 (PMC8997551) (đã bỏ, không dùng lại)
+- D008 cũ đã bỏ, không dùng lại: Dipper stick and honey in a jar; Water CID 962; Sucrose CID 5988; Sodium Chloride CID 5234; Beef Jerky in space; Bread Mold NIH BioArt 705; Raw protein bar at FIBO 2019
+- D007 cũ đã bỏ, không dùng lại: okara.jpg, Exsiccator hg.jpg, KF Titrator.jpg, Chen 2022 Hình 2/5/6/8, PubChem CID 962 và 5793, PDB 2VB1
+- CNTP-Ngay01 | https://commons.wikimedia.org/wiki/File:Depth_Filtration.png | lọc bề sâu (CC BY-SA 4.0)
+- CNTP-Ngay01 | https://commons.wikimedia.org/wiki/File:Carbon_dioxide_pressure-temperature_phase_diagram.svg | giản đồ pha CO2 (CC0)
 - CNTP-Ngay01 | https://commons.wikimedia.org/wiki/File:Filtration_Chart.jpg | đã mở nhưng KHÔNG dùng
 
-## Mô phỏng đã dùng (mỗi id và mỗi khẳng định chỉ một lần trong toàn bộ album)
-Định dạng: `bài | id | kiểu | khẳng định | nguồn dữ liệu` (không dùng dấu | bên trong khẳng định)
-- D008 | aw-raoult | thanh-trượt | Định luật Raoult đếm hạt, không đếm gam, nên cùng khối lượng chất tan thì NaCl hạ aw lý tưởng nhiều hơn sucrose | Ví dụ giải D008 Cảnh 3.3 và khối lượng mol; LibreTexts (Lower). Đã vào D008-v3 Cảnh 3.2.
-- D008 | aw-dong-nuoc | hạt | Phân tử nước chuyển động ngẫu nhiên hai chiều ở cả hai bên, nhưng bên aw cao có nhiều phân tử hơn nên số đi sang bên aw thấp nhiều hơn số đi ngược lại, tạo dòng nước thuần từ aw cao sang aw thấp | Schiraldi, Fessas, Signorelli 2012 (thế hóa học của nước). Đã vào D008-v3 Cảnh 2.4. Mẫu: hoat-hinh-aw-thu.html.
-
-## Thuật ngữ (kho dùng chung, không phải mục chống lặp)
-Kho `tu-dien/` (một trang một thuật ngữ, viết một lần). Đã có 18 trang cho D008 (10/11/2026): hoat-do-nuoc, do-am, erh, ap-suat-hoi, dinh-luat-raoult, phan-mol, nuoc-tu-do, nuoc-lien-ket, the-hoa-hoc-cua-nuoc, hydrocolloid, nhom-thuc-pham-theo-aw, aw-toi-thieu, staphylococcus-aureus, clostridium-botulinum, chuyen-thuy-tinh, aw-toi-han, duong-dang-nhiet, hien-tuong-tre. Bài mới: kiểm tra kho trước, thuật ngữ đã có thì chỉ đánh dấu {{…}}, không viết lại.
+## Mô phỏng và hoạt hình đã dùng (mỗi id và mỗi khẳng định chỉ một lần trong toàn bộ album)
+- D006 | luong-cuc-goc | thanh-trượt | Với hai lưỡng cực liên kết bằng nhau, tổng lưỡng cực bằng 2μ·cos(θ/2): bằng 0 khi phân tử thẳng 180° và khác 0 khi gấp khúc, nên hình dạng quyết định phân tử có phân cực hay không
+- D006 | nacl-chuyen-electron | hoạt-hình | Liên kết ion hình thành khi một electron chuyển hẳn từ natri sang clo, hai ion có tám electron ở lớp ngoài và hút nhau rồi xếp xen kẽ thành tinh thể
+- D006 | lien-ket-hydro | hoạt-hình | Trong nước lỏng liên kết hydro liên tục hình thành và đứt, mỗi phân tử tạo tối đa bốn liên kết
+- D006 | vo-hydrat-hoa | hoạt-hình | Khi NaCl tan, phân tử nước bao quanh từng ion với đầu trái dấu hướng vào, tạo vỏ hydrat hóa giữ các ion rời nhau
+- D006 | say-rau-nang-luong | thanh-trượt | Nhiệt hóa hơi chiếm khoảng 88% tổng năng lượng khi làm nóng nước 25–100 °C rồi hóa hơi, bất kể khối lượng
+- D007 | nuoc-bi-nhot | hoạt-hình | Khi thành tế bào bị cắt, nước bị nhốt chảy ra còn lớp nước bám sát thành vẫn ở lại
+- D007 | t2-tat-dan | thanh-trượt | Cùng thời điểm đo, nhóm proton có T2 ngắn tắt gần hết còn nhóm T2 dài còn phần lớn, nên tách được các nhóm nước
+- D007 | doi-co-so | thanh-trượt | Độ ẩm cơ sở khô luôn lớn hơn độ ẩm cơ sở ướt và tăng vọt khi cơ sở ướt gần 100%
+- D007 | say-can-bang | thanh-trượt | Khi sấy, độ ẩm cơ sở ướt giảm ít điểm phần trăm nhưng lượng nước mất rất lớn: 78,8% xuống 57% đã bay hơi khoảng 64% nước
+- D008 | aw-raoult | thanh-trượt | Định luật Raoult đếm hạt không đếm gam, nên cùng khối lượng NaCl hạ aw nhiều hơn sucrose
+- D008 | aw-dong-nuoc | hạt | Bên aw cao có nhiều phân tử nước hơn nên số đi sang bên aw thấp nhiều hơn số đi ngược lại, tạo dòng nước thuần
+- D009 | gab-duong-cong | thanh-trượt | Theo mô hình GAB độ ẩm cân bằng không tăng đều theo aw, vùng aw cao vút lên khi K gần 1
+- D009 | chai-muc | hoạt-hình | Ở cùng RH lỗ cổ hẹp chứa ít nước khi hấp phụ nhưng đầy nước khi giải hấp
+- D009 | han-dung-mang | thanh-trượt | Hạn dùng sản phẩm giòn tỉ lệ nghịch với độ thấm hơi nước của màng
+- D010 | ban-do-on-dinh | hoạt-hình | Mỗi loại phản ứng hỏng có đường riêng theo aw: vi sinh tăng theo aw, Maillard có đỉnh ở aw trung bình
+- D010 | hang-rao | hoạt-hình | Nhiều rào cường độ nhỏ phối hợp chặn vi sinh vật như một rào lớn vì đánh vào các đích khác nhau
+- D010 | han-dung-aw | thanh-trượt | Mô hình tuyến tính giả định: hạn dùng giảm 2 tháng mỗi 0,05 aw tăng, hạn 6 tháng cần aw tối đa 0,60
+- D011 | dong-phan-hexose | hoạt-hình | Glucose, galactose, fructose cùng C6H12O6; glucose và galactose là aldose khác nhau ở OH của C4, fructose là ketose có C=O ở C2
+- D011 | so-dong-phan-aldose | thanh-trượt | Mỗi carbon thêm vào mạch aldose thêm một tâm bất đối nên số đồng phân gấp đôi, từ 2 ở aldotriose lên 16 ở aldohexose
+- D011 | dong-vong-glucose | hoạt-hình | Khi glucose đóng vòng, OH ở C5 tấn công C1 tạo vòng sáu cạnh; OH mới ở C1 hướng xuống là dạng α, hướng lên là β
+- D012 | ngung-tu-glycoside | hoạt-hình | Khi hai đường đơn nối thành đường đôi, OH ở C1 đường thứ nhất kết hợp H của OH đường thứ hai tách một phân tử nước, còn lại cầu O là liên kết glycoside
+- D012 | khoi-luong-chuoi-duong | thanh-trượt | Mỗi lần nối thêm một glucose mất một phân tử nước, chuỗi n đơn vị nặng n·180,1559 − (n − 1)·18,0153 g/mol, đường đôi 342,2965 g/mol
+- D012 | phan-biet-duong-khu | hoạt-hình | Maltose và lactose còn một carbon anomer tự do nên là đường khử, sucrose dùng cả hai carbon anomer để nối nên không phải đường khử
+- D012 | thuy-phan-sucrose-khoi-luong | thanh-trượt | Thủy phân hoàn toàn 342,2965 g sucrose cho 360,3118 g glucose cộng fructose, khối lượng đường tăng 5,26%
+- CNTP-Ngay02 | q2-qua-trinh-quy-trinh | hoạt-hình | Quá trình trả lời WHAT, quy trình/thủ tục trả lời HOW
+- CNTP-Ngay02 | q2-pdca-bac-thang | hoạt-hình | Mỗi vòng PDCA tiêu chuẩn hóa rồi vòng sau nâng lên: hiện trạng, chuẩn quốc gia, chuẩn quốc tế
+- CNTP-Ngay02 | q2-bac-thang-qlcl | hoạt-hình | Quản lý chất lượng đi qua 5 bậc: kiểm tra, kiểm soát (4M), đảm bảo, TQC, TQM
+- CNTP-Ngay02 | q2-can-bang-brix | thanh-trượt | Lượng nước cần thêm = m·(B1/B2 − 1), hạ Brix 13,1 xuống 12,0 cần thêm khoảng 9,2% khối lượng
+- CNTP-Ngay03 | q3-may-cha | hoạt-hình | ĐÃ THAY bằng may-cha (không dùng lại): máy chà cánh đập nghiêng 1,5–2°, quay khoảng 700 v/ph
+- CNTP-Ngay03 | may-cha | tháo-lắp | Rây tròn cố định bao quanh trục gắn cánh đập, thịt quả lọt rây xuống máng, phần còn lại bị cánh nghiêng đẩy xoắn ốc ra cửa bã
+- CNTP-Ngay03 | ep-khung-ban | tháo-lắp | Nguyên liệu trong túi vải giữa các bản ép, dịch chảy theo rãnh ra khay chứa rồi qua cửa thoát
+- CNTP-Ngay03 | ep-truc-vit | tháo-lắp | Ren thấp dần và khoảng chứa hẹp dần nén dần nguyên liệu, dịch thoát qua lỗ nhỏ, bã ra lỗ tháo cuối máy
+- CNTP-Ngay03 | q3-hieu-suat-ep | thanh-trượt | Hiệu suất ép B tỉ lệ thuận với k; ép quá mạnh làm mao dẫn tắc thì B giảm
+- CNTP-Ngay03 | q3-ep-bon-giai-doan | hoạt-hình | Kỹ thuật ép đi qua bốn giai đoạn, tới 150–200 at rồi hạ về khí quyển để phục hồi độ xốp
+- CNTP-Ngay03 | q3-stokes-keo | thanh-trượt | Tốc độ lắng theo Stokes tỉ lệ bình phương đường kính hạt: hạt 34 nm lắng 1 cm mất khoảng một năm, hạt 10 µm vài phút
+- CNTP-Ngay04 | q4-xuong-ca-ca-phe | hoạt-hình | Sơ đồ xương cá đi từ nguyên nhân phụ qua bốn nhánh chính tới quả là cà phê không ngon
+- CNTP-Ngay04 | q4-thap-haccp-prp | hoạt-hình | PRP gồm GMP và SSOP là nền, HACCP xây lên trên nền đó
+- CNTP-Ngay04 | q4-phan-luong-mot-chieu | hoạt-hình | Ngăn ô nhiễm chéo bằng phân luồng một chiều, tách vùng bẩn và vùng sạch
+- CNTP-Ngay04 | q4-fefo-fifo | thanh-trượt | FEFO để lại nhiều ngày hạn dư hơn FIFO khi lô vào sau có hạn ngắn hơn
+- CNTP-Ngay05 | q5-chan-hoi-nuoc | hoạt-hình | Hệ thống chần hơi nước: cửa nạp 5, nâng 1, đường hầm gia nhiệt 2 (hơi vào 6), nâng 3, làm nguội 4, cửa tháo 7
+- CNTP-Ngay05 | q5-giam-thap-phan | thanh-trượt | Số tế bào sống giảm 10 lần sau mỗi khoảng D: 10^9 với D = 1 phút còn 1 sau 9 phút, còn 0,1 sau 10 phút
+- CNTP-Ngay05 | q5-nhiet-do-tam | hoạt-hình | Nhiệt độ tâm sản phẩm trong bao bì tăng chậm hơn bề mặt và có thể thấp hơn nhiệt độ tác nhân gia nhiệt
+- CNTP-Ngay05 | q5-phoi-tron-bt | thanh-trượt | V = 100·(c − 15)/(50 − c): BT1 đích 30% cần 75 ml sirô 50%
+- CNTP-Ngay09 | q9-noi-hai-vo | hoạt-hình | Nồi hai vỏ có 11 bộ phận; hơi nước nằm ở phòng hơi giữa hai vỏ
+- CNTP-Ngay09 | q9-chan-ngam-phun | hoạt-hình | Chần ngâm và chần phun: tiếp xúc nước ít hơn thì ít tổn thất
+- CNTP-Ngay09 | q9-chan-tang-soi | hoạt-hình | Tầng sôi nâng nguyên liệu lơ lửng nên nóng đều
+- CNTP-Ngay09 | q9-ong-xoan-nam-ngang | hoạt-hình | Ống xoắn nằm ngang đun nóng rau quả nghiền, nước quả
+- CNTP-Ngay10 | q10-ba-phuong-phap | hoạt-hình | Ba phương pháp cô đặc: bốc hơi nước, kết tinh dung môi, thẩm thấu nghịch
+- CNTP-Ngay10 | q10-chan-khong-nhiet-do-soi | thanh-trượt | Chân không hạ nhiệt độ sôi của nước
+- CNTP-Ngay10 | q10-bay-hoi-chat-kho | thanh-trượt | W = F·(1 − x0/x); cô 10 lên 40% thì bay 75 kg trên 100 kg
+- CNTP-Ngay10 | q10-noi-co-dac-chan-khong | hoạt-hình | Nồi cô đặc chân không gián đoạn có 20 chú thích
+- CNTP-Ngay10 | q10-co-dac-lien-tuc | hoạt-hình | Cô đặc liên tục ở áp suất khí quyển có 7 bộ phận
+- CNTP-Ngay11 | q11-12-buoc | hoạt-hình | 12 bước HACCP chia 5 bước chuẩn bị và 7 bước theo nguyên tắc
+- CNTP-Ngay11 | q11-ba-bien-phap-vsv | hoạt-hình | Ba nhóm biện pháp phòng ngừa vi sinh
+- CNTP-Ngay11 | q11-rui-ro | thanh-trượt | Rủi ro = khả năng × hậu quả (thang 1–5)
+- CNTP-Ngay11 | q11-vi-khuan-nhan-doi | thanh-trượt | Nhân đôi mỗi 20 phút, sau 120 phút thành 64
+- CNTP-Ngay12 | q12-bai-khi-chan-khong | hoạt-hình | Vào hộp và ghép nắp ở nhiệt độ càng cao thì độ chân không sau làm nguội càng lớn, từ 220 mmHg ở 50 °C tới 482,6 mmHg ở 90 °C
+- CNTP-Ngay12 | q12-ghep-mi-con-lan | hoạt-hình | Ghép mí hộp kim loại qua ba công đoạn: vào máy ghép, con lăn cuộn 1 móc mép nắp và vành thân, con lăn cuộn 2 ép chặt
+- CNTP-Ngay12 | q12-botulinum-115-120 | thanh-trượt | C. botulinum cần 10 phút ở 115 °C nhưng 4 phút ở 120 °C, nội suy hàm mũ cho khoảng 6,3 phút ở 117,5 °C
+- CNTP-Ngay12 | q12-cong-thuc-thanh-trung | thanh-trượt | Trong công thức thanh trùng (A − B − C)/T, ba số là ba khoảng thời gian nối tiếp nên thời gian một mẻ bằng A + B + C
+- CNTP-Ngay13 | q13-cay-quyet-dinh-ccp | hoạt-hình | Theo cây quyết định Codex bản 2020, bước có mối nguy đáng kể được hỏi lần lượt bốn câu và chỉ là CCP khi qua tới câu bốn với câu trả lời có
+- CNTP-Ngay13 | q13-khoang-giam-sat | thanh-trượt | Giám sát CCP không liên tục phải đủ dày để giới hạn lượng sản phẩm bị ảnh hưởng; mô hình: 600 kg/giờ đo mỗi 30 phút là 300 kg
+- CNTP-Ngay13 | q13-xu-ly-sai-lech | hoạt-hình | Khi sai lệch khỏi giới hạn tới hạn, hành động khắc phục đưa CCP về kiểm soát, cô lập và đánh giá sản phẩm, rồi tái chế, chuyển mục đích hoặc hủy
+- CNTP-Ngay14 | q14-bon-truong-hop-truyen-nhiet | hoạt-hình | Thời gian truyền nhiệt vào tâm hộp tăng dần: lỏng trong sắt tây, lỏng trong thủy tinh, đặc trong sắt tây, đặc trong thủy tinh; bao bì chỉ ảnh hưởng rõ khi đối lưu mạnh
+- CNTP-Ngay14 | q14-ti-le-hop-truyen-nhiet | thanh-trượt | Theo t0 = A(8,3HD + D²), cùng thể tích thời gian truyền nhiệt nhỏ nhất khi H/D khoảng 0,24; hộp H = 3D cần khoảng 1,34 lần hộp H = D
+- CNTP-Ngay14 | q14-f0-xac-suat-song-sot | thanh-trượt | F0 cần thiết = D121,1 × (lg N0 + số mũ PNSU): D 1,5 phút, N0 10² cần 6 phút khi PNSU 10⁻² nhưng 12 phút khi PNSU 10⁻⁶
+- CNTP-Ngay14 | q14-hu-hong-do-hop | hoạt-hình | Hộp phồng có thể do vi sinh vật sinh khí, ăn mòn kim loại sinh hydro hoặc nguyên nhân cơ lý, còn hộp hỏng do vi sinh vật có thể không phồng
