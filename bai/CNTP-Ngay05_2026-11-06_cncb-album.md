@@ -47,6 +47,18 @@
 - Rau quả chứa nhiều enzyme (giáo trình kể lipoxygenase, polyphenoloxidase, polygalacturonase, chlorophyllase) và mỗi enzyme bị vô hoạt ở nhiệt độ khác nhau. Độ bền nhiệt của enzyme đánh giá bằng hai giá trị giống vi sinh vật: {{thời gian phá hủy thập phân}} (D) là thời gian xử lý ở một nhiệt độ xác định để hoạt tính giảm 10 lần, và giá trị {{z}} là khoảng nhiệt độ cần tăng để D giảm 10 lần.
 - Hai enzyme bền nhiệt nhất trong rau quả là {{peroxidase}} rồi catalase, đặc biệt là peroxidase (LVVM, tr.222). Sau chần, nhà sản xuất kiểm tra hoạt tính peroxidase; không phát hiện enzyme này thì chần đạt yêu cầu, vì phép phát hiện đơn giản và dễ làm nên peroxidase là enzyme chỉ thị.
 - Số liệu không nên học thuộc: LVVM nêu z = 37,2 °C của peroxidase trong đậu (D đi kèm bị OCR mất), còn bảng 4.5 của Lê Mỹ Hồng ghi peroxidase D = 232 phút ở 80 °C và z = 28 °C (số của Carla 1992); hai nguồn khác nhau nên chỉ cần nhớ "peroxidase bền nhất".
+[MÔ PHỎNG: enzyme-chi-thi | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo bài, peroxidase rồi catalase là hai enzyme bền nhiệt nhất trong rau quả, nên sau chần nếu không phát hiện peroxidase thì chần đạt yêu cầu và peroxidase được dùng làm enzyme chỉ thị | chức năng: giải thích | nhìn: kéo mức xử lý nhiệt, các enzyme duỗi ra và tắt đốm sáng lần lượt, peroxidase mất sau cùng rồi đèn thử chuyển xanh]
+- bộ phận: Các enzyme khác | mã: khac | chức năng: Lipoxygenase, polyphenoloxidase, polygalacturonase, chlorophyllase… mỗi loại vô hoạt ở nhiệt độ khác nhau (bài). | vì sao ở đó: Mất trước trong mô hình.
+- bộ phận: Catalase | mã: catalase | chức năng: Bền nhiệt thứ hai (LVVM, tr.222). | vì sao ở đó: Mất sau các enzyme khác.
+- bộ phận: Peroxidase (bền nhiệt nhất) | mã: peroxidase | chức năng: Bền nhiệt nhất, phép phát hiện đơn giản nên là enzyme chỉ thị (bài). | vì sao ở đó: Mất sau cùng.
+- bộ phận: Phép thử peroxidase sau chần | mã: phepthu | chức năng: Không phát hiện peroxidase thì chần đạt yêu cầu (bài). | vì sao ở đó: Đèn đỏ/xanh là cách vẽ.
+- bước: 1 | chữ: Rau quả chứa nhiều enzyme, mỗi loại có độ bền nhiệt riêng. | vì sao: Bài.
+- bước: 2 | chữ: Catalase bền hơn các enzyme khác. | vì sao: Bài: hai enzyme bền nhất là peroxidase rồi catalase.
+- bước: 3 | chữ: Peroxidase bền nhiệt nhất nên mất hoạt tính sau cùng. | vì sao: Bài.
+- bước: 4 | chữ: Không còn phát hiện peroxidase: chần đạt yêu cầu. | vì sao: Bài (LVVM, tr.222).
+- nguồn: Bài CNTP-Ngay05 Cảnh 1.3 (Lê Văn Việt Mẫn và cs., tr.222).
+- giới hạn: Mô hình minh họa, không phải số đo. Hình chuỗi gấp cuộn, duỗi ra (biến tính) là kiến thức nền để vẽ; thanh nhiệt không gắn nhiệt độ hay thời gian; bài không nêu thứ tự giữa các enzyme khác. Màu đèn không phải màu thuốc thử thật. Không vẽ D và z.
+[/MÔ PHỎNG]
 - Nhớ: Hết peroxidase = chần đạt · peroxidase bền nhất, rồi catalase · D giảm 10 lần theo thời gian · z giảm D 10 lần theo nhiệt độ.
 
 ### Cảnh 1.4 – Chần chỉ tiêu diệt một phần vi sinh vật chứ không diệt hết và gây biến đổi ở cả năm nhóm của slide
@@ -330,6 +342,18 @@
 - Thời gian truyền nhiệt t₁ là thời gian nhiệt đi từ môi trường qua bao bì vào tâm; thời gian tiêu diệt t₂ là thời gian giữ ở nhiệt độ thanh trùng sau khi tâm đạt nhiệt độ ấy; tổng quát t = t₁ + t₂. Nhưng ngay trong thời gian truyền nhiệt một số vi sinh vật đã bị diệt, nên thời gian thực tế t < t₁ + t₂ (Lê Mỹ Hồng, 2005, chương 4).
 - Theo cùng giáo trình, tâm hộp đạt nhiệt độ thanh trùng chậm hơn thiết bị khoảng 13–15 phút với sản phẩm lỏng (đối lưu), khoảng 40 phút với sản phẩm đặc (dẫn nhiệt) và khoảng 28 phút với sản phẩm vừa đặc vừa lỏng. Thực phẩm lỏng truyền nhiệt tốt hơn rắn, bao bì sắt tây dẫn nhiệt tốt hơn thủy tinh.
 - Thành phần hóa học: đường, chất béo và protein làm vi sinh vật chịu nhiệt hơn nên phải kéo dài thời gian, muối tăng thì độ bền nhiệt giảm, một số gia vị chứa phitoncid (hành, tỏi, ớt, tiêu) có thể giảm thời gian. Yếu tố ảnh hưởng đến chọn nhiệt độ gồm hệ vi sinh vật và thành phần hóa học (cả hai đều đúng).
+[MÔ PHỎNG: hop-truyen-nhiet | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo bài, thời gian thanh trùng thực tế nhỏ hơn t₁ cộng t₂, và tâm hộp đạt nhiệt độ thanh trùng chậm hơn thiết bị khoảng 13–15 phút với sản phẩm lỏng nhờ đối lưu nhưng khoảng 40 phút với sản phẩm đặc do dẫn nhiệt | chức năng: giải thích | nhìn: bấm Chạy, hộp lỏng có dòng đối lưu và đỏ sớm, hộp đặc nóng lan từ ngoài vào và tâm đỏ sau cùng; hai đèn trên thanh thời gian sáng ở khoảng 14 và 40 phút]
+- bộ phận: Sản phẩm lỏng (đối lưu) | mã: long | chức năng: Truyền nhiệt bằng đối lưu; tâm chậm hơn thiết bị khoảng 13–15 phút (Lê Mỹ Hồng, 2005). | vì sao ở đó: Đặt bên trái để so.
+- bộ phận: Sản phẩm đặc (dẫn nhiệt) | mã: dac | chức năng: Truyền nhiệt vào tâm chậm nhất; chậm hơn khoảng 40 phút (Lê Mỹ Hồng, 2005). | vì sao ở đó: Đặt bên phải.
+- bộ phận: Chỗ nóng chậm nhất | mã: diemnguoi | chức năng: Nơi đạt nhiệt độ thanh trùng sau cùng. | vì sao ở đó: Hộp đặc ở tâm; hộp lỏng ở khoảng 1/4 chiều cao từ đáy theo USDA FSIS (kiến thức nền).
+- bộ phận: Thời gian truyền nhiệt t₁ | mã: thoigian | chức năng: Thời gian nhiệt đi từ môi trường qua bao bì vào tâm (bài). | vì sao ở đó: Thang thời gian của album.
+- bước: 1 | chữ: Nhiệt đi từ môi trường qua bao bì vào hộp. | vì sao: Bài: định nghĩa t₁.
+- bước: 2 | chữ: Sản phẩm lỏng: đối lưu, tâm nóng nhanh hơn. | vì sao: Bài: khoảng 13–15 phút.
+- bước: 3 | chữ: Sản phẩm đặc: dẫn nhiệt, tâm nóng chậm nhất. | vì sao: Bài: khoảng 40 phút.
+- bước: 4 | chữ: Trong lúc truyền nhiệt đã có vi sinh vật bị diệt: t thực tế < t₁ + t₂. | vì sao: Bài (Lê Mỹ Hồng, 2005).
+- nguồn: Bài CNTP-Ngay05 Cảnh 4.2 (Lê Mỹ Hồng, 2005, chương 4); kiến thức nền: USDA FSIS, Module 6 Principles of Thermal Processing (điểm nguội nhất).
+- giới hạn: Mô hình minh họa, không phải số đo. 1 giây trên màn hình khoảng 2 phút; hộp lỏng dùng mốc 14 phút trong khoảng 13–15; màu chỉ định tính, không có số nhiệt độ; dòng đối lưu và mặt nóng lan dần là cách vẽ. Không vẽ loại vừa đặc vừa lỏng (khoảng 28 phút), làm nguội và số vi sinh vật. Vị trí 1/4 chiều cao của hộp lỏng có thể khác theo sản phẩm.
+[/MÔ PHỎNG]
 - Nhớ: t₁ truyền nhiệt, t₂ tiêu diệt, t thực tế < t₁ + t₂ · lỏng 13–15', hỗn hợp 28', đặc 40' · đường, béo, protein cần thời gian dài hơn.
 
 ### Cảnh 4.3 – Công thức (5 – 13 – 15)/100 °C nghĩa là nâng nhiệt 5 phút, giữ 13 phút, làm nguội 15 phút trong thiết bị
