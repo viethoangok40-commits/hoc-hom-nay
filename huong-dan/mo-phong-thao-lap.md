@@ -62,6 +62,7 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `chai-muc` | `cohep` `khoangrong` `mangmong` | 5 | D009 Cảnh 2.2 | Thay hoạt hình 2D chai-muc.svg. Thanh RH (chữ định tính, không số) kéo lên rồi xuống để thấy vòng trễ; nước có nhớ lịch sử. Khối dán: `khoi-dan-d009-chai-muc.md`. Engine: tùy chọn dieuKhien (thanh trượt) trong may.js. |
 | `raoult-pha-loang` | `tinhkhiet` `dungdich` | 4 | D008 Cảnh 3.1 | Hai bình kín, thanh phần mol chất tan 0–30%, chất tan pha loãng nước (LibreTexts 8.7), cột aw. Khối dán: `khoi-dan-d008-raoult.md`. |
 | `hop-kin-erh` | `mau` `khongkhi` `cambien` | 4 | D008 Cảnh 2.2 | Hộp kín, cân bằng động, cột RH chạm vòng aw×100; thanh aw 0,20–0,95. Cần bấm Chạy. Khối dán: `khoi-dan-d008-hop-kin.md`. |
+| `knudsen-aw` | `nuoc` `mau` `can` | 4 | D008 Cảnh 7.2 | Hai tế bào Knudsen trên cân, hơi thoát qua lỗ, cột khối lượng; thanh aw mẫu. Nguồn: Schiraldi và cs. 2012. Khối dán: `khoi-dan-d008-knudsen.md`. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):
