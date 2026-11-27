@@ -66,6 +66,8 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `lop-nuoc-lien-ket` | `daiphantu` `lopsat` `lopngoai` `tudo` | 4 | D007 Cảnh 1.3 | Ba vùng nước quanh đại phân tử, thanh lấy nước ra. Khối dán: `khoi-dan-d007.md`. |
 | `t2-va-tu-khuech-tan` | `khoangkin` `thong` | 4 | D007 Cảnh 2.4 | Khoang kín so với không bị ngăn, vệt đường đi (T2 khác D). |
 | `say-khoi-luong-khong-doi` | `tusay` `denguoi` `can` `lichsu` | 4 | D007 Cảnh 3.2 | Tủ sấy, để nguội, cân lặp đến khối lượng không đổi. |
+| `loc-tro-loc` | `vachngan` `trolocbot` `chenhap` `dichloc` | 4 | CNTP-Ngay01 Cảnh 2.2 | Hệ lọc có thanh ΔP. Khối dán: `khoi-dan-ngay01-loc-mang.md`. |
+| `mang-tap-trung-fouling` | `mang` `tapt` `fouling` `luuluong` | 4 | CNTP-Ngay01 Cảnh 4.2 | Thanh Khuấy và Vệ sinh màng. Nguồn nền PMC7073750. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):
