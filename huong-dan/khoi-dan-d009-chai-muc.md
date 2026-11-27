@@ -1,6 +1,6 @@
 # Khối dán D009 Cảnh 2.2: thay ĐÚNG khối [MÔ PHỎNG: chai-muc | hoạt-hình] bằng khối này.
 ```
-[MÔ PHỎNG: chai-muc | kiểu: tháo-lắp | chỗ: phải | khẳng định: Ở cùng RH trung bình, lỗ có cổ hẹp chứa ít nước khi hấp phụ nhưng đầy nước khi giải hấp, vì cổ hẹp giữ nước của khoang rộng lại | chức năng: giải thích | nhìn: so khung 2 với khung 4]
+[MÔ PHỎNG: chai-muc | kiểu: tháo-lắp | chỗ: phải | khẳng định: Ở cùng RH trung bình, lỗ có cổ hẹp chứa ít nước khi hấp phụ nhưng đầy nước khi giải hấp, vì cổ hẹp giữ nước của khoang rộng lại | chức năng: giải thích | nhìn: chai mực với thanh RH bên trái; kéo RH lên rồi xuống thì cổ hẹp đầy trước và giữ nước của khoang rộng lại]
 - bộ phận: Cổ hẹp | mã: cohep | chức năng: Đầy nước khi bán kính tới hạn đủ lớn cho cổ; giữ nước của khoang rộng lại khi RH giảm (Pöllmann và cs. 2022, mục 2.5). | vì sao ở đó: Là phần hẹp của lỗ chai mực; hình chai thủy tinh là cách vẽ của album.
 - bộ phận: Khoang rộng | mã: khoangrong | chức năng: Chỉ đầy khi RH đủ cao; khi RH giảm, nước chỉ thoát sau khi cổ hẹp trống (Pöllmann và cs. 2022). | vì sao ở đó: Là phần rộng của lỗ; kích thước là cách vẽ của album.
 - bộ phận: Màng nước mỏng | mã: mangmong | chức năng: Ở RH thấp lỗ khô, chỉ có màng nước mỏng bám thành (bài, Cảnh 2.2). | vì sao ở đó: Là lớp nước đầu tiên bám thành; độ dày là cách vẽ của album.
