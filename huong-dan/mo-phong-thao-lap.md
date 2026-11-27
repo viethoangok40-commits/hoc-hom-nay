@@ -59,6 +59,7 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `phan-tu-nuoc` | `oxy` `hydro` `lienket` | 3 | D006 Cảnh 1.2 | Phân tử nước hình chữ V, đám mây δ−/δ+, electron lệch về O. Khối dán: `khoi-dan-d006-nuoc.md`. |
 | `mang-lien-ket-hydro` | `phantunuoc` `lienkethydro` | 3 | D006 Cảnh 4.1 | 8 phân tử nối bằng liên kết hydro, nóng lên thì đứt và bay hơi. Khối dán cùng file. |
 | `ho-hoa-tinh-bot` | `tinhthe` `vodinhhinh` `amylose` `nuoc` | 4 | D014 Cảnh 2.2 | Hạt tinh bột trương, xoắn kép tháo ra, amylose rỉ ra. Thay khối hoạt-hình ho-hoa-bon-buoc. Nguồn: Ratnayake và Jackson 2006; Chiodetti 2024; Teng 2025. Khối dán: `khoi-dan-d014-ho-hoa.md`. |
+| `chai-muc` | `cohep` `khoangrong` `mangmong` | 5 | D009 Cảnh 2.2 | Thay hoạt hình 2D chai-muc.svg. Thanh RH (chữ định tính, không số) kéo lên rồi xuống để thấy vòng trễ; nước có nhớ lịch sử. Khối dán: `khoi-dan-d009-chai-muc.md`. Engine: tùy chọn dieuKhien (thanh trượt) trong may.js. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):

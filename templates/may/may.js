@@ -371,6 +371,7 @@
     }
 
     // ---------- tách / xuyên / điều khiển ----------
+    var DK = {}; (M.dieuKhien || []).forEach(function (d) { DK[d.id] = d.mac; var lb = document.createElement('label'); lb.innerHTML = d.nhan + ' <input type="range" min="' + d.min + '" max="' + d.max + '" step="' + (d.buoc || 1) + '" value="' + d.mac + '" aria-label="' + d.nhan + '"><span></span>'; var inp = lb.querySelector('input'), sp = lb.querySelector('span'); function cap() { DK[d.id] = parseFloat(inp.value); sp.textContent = d.chu ? d.chu(DK[d.id]) : inp.value + (d.don ? ' ' + d.don : ''); } inp.addEventListener('input', cap); cap(); root.querySelector('.may-dk').insertBefore(lb, root.querySelector('[data-k="tha"]')); });
     var tachMuc = 0, tachE = 0, xuyen = false;
     function doiCo() { q('chay').setAttribute('aria-pressed', String(chay)); q('chay').innerHTML = (chay ? '❚❚ Dừng' : '▶ Chạy') + '<kbd>Space</kbd>'; q('xuyen').setAttribute('aria-pressed', String(xuyen)); }
     function datXuyen(b) {
@@ -425,7 +426,7 @@
       }
       parts.forEach(function (bp) { bp.obj.position.set(bp.lap.x + bp.tach[0] * e, bp.lap.y + bp.tach[1] * e, bp.lap.z + bp.tach[2] * e); });
       if (M.tach) M.tach(e);
-      if (M.capNhat) M.capNhat(tg, e); // máy có chuyển động riêng theo thời gian mô phỏng (vd. pittông ép tăng áp từng bậc)
+      if (M.capNhat) M.capNhat(tg, e, DK); // máy có chuyển động riêng theo thời gian mô phỏng (vd. pittông ép tăng áp từng bậc)
       var sdt = dt * toc;
       if (!dongBang && (chay || hangCho > 0 || dangCon())) { buocSim(sdt); var om = M.omega * sdt; parts.forEach(function (bp) { if (bp.xoay) bp.obj.rotation[bp.truc || 'y'] += om; }); }
       veHat(); veMuiTen(t / 1000); orbit.update();
