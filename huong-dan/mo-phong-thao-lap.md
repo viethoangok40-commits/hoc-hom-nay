@@ -63,6 +63,9 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `raoult-pha-loang` | `tinhkhiet` `dungdich` | 4 | D008 Cảnh 3.1 | Hai bình kín, thanh phần mol chất tan 0–30%, chất tan pha loãng nước (LibreTexts 8.7), cột aw. Khối dán: `khoi-dan-d008-raoult.md`. |
 | `hop-kin-erh` | `mau` `khongkhi` `cambien` | 4 | D008 Cảnh 2.2 | Hộp kín, cân bằng động, cột RH chạm vòng aw×100; thanh aw 0,20–0,95. Cần bấm Chạy. Khối dán: `khoi-dan-d008-hop-kin.md`. |
 | `knudsen-aw` | `nuoc` `mau` `can` | 4 | D008 Cảnh 7.2 | Hai tế bào Knudsen trên cân, hơi thoát qua lỗ, cột khối lượng; thanh aw mẫu. Nguồn: Schiraldi và cs. 2012. Khối dán: `khoi-dan-d008-knudsen.md`. |
+| `lop-nuoc-lien-ket` | `daiphantu` `lopsat` `lopngoai` `tudo` | 4 | D007 Cảnh 1.3 | Ba vùng nước quanh đại phân tử, thanh lấy nước ra. Khối dán: `khoi-dan-d007.md`. |
+| `t2-va-tu-khuech-tan` | `khoangkin` `thong` | 4 | D007 Cảnh 2.4 | Khoang kín so với không bị ngăn, vệt đường đi (T2 khác D). |
+| `say-khoi-luong-khong-doi` | `tusay` `denguoi` `can` `lichsu` | 4 | D007 Cảnh 3.2 | Tủ sấy, để nguội, cân lặp đến khối lượng không đổi. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):
