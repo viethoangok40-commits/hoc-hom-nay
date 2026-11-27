@@ -68,6 +68,8 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `say-khoi-luong-khong-doi` | `tusay` `denguoi` `can` `lichsu` | 4 | D007 Cảnh 3.2 | Tủ sấy, để nguội, cân lặp đến khối lượng không đổi. |
 | `loc-tro-loc` | `vachngan` `trolocbot` `chenhap` `dichloc` | 4 | CNTP-Ngay01 Cảnh 2.2 | Hệ lọc có thanh ΔP. Khối dán: `khoi-dan-ngay01-loc-mang.md`. |
 | `mang-tap-trung-fouling` | `mang` `tapt` `fouling` `luuluong` | 4 | CNTP-Ngay01 Cảnh 4.2 | Thanh Khuấy và Vệ sinh màng. Nguồn nền PMC7073750. |
+| `hop-truyen-nhiet` | `long` `dac` `diemnguoi` `thoigian` | 4 | CNTP-Ngay05 Cảnh 4.2 | Đối lưu so với dẫn nhiệt trong hộp, mốc 14 và 40 phút. Nguồn nền USDA FSIS Module 6. Khối dán: `khoi-dan-ngay05.md`. |
+| `enzyme-chi-thi` | `khac` `catalase` `peroxidase` `phepthu` | 4 | CNTP-Ngay05 Cảnh 1.3 | Thanh mức nhiệt, enzyme duỗi lần lượt, peroxidase sau cùng. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):
