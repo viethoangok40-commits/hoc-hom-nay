@@ -91,6 +91,17 @@
 - Áp suất hơi khó đo trực tiếp, độ ẩm không khí thì đo được. Đặt thực phẩm trong hộp kín, chờ cân bằng, rồi đo độ ẩm tương đối của khoảng không phía trên. Đó là độ ẩm tương đối cân bằng {{ERH}}.
 - Khi cân bằng thật: %ERH = aw × 100 (IFT/FDA). Ví dụ ERH 70% nghĩa là aw 0,70.
 - Phân biệt: RH là của không khí, aw là của thực phẩm. Chúng chỉ trùng nhau (chia 100) khi đã cân bằng thật. Điều kiện "cân bằng thật" sẽ quay lại ở Chương 5.
+[MÔ PHỎNG: hop-kin-erh | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo bài, đặt thực phẩm trong hộp kín rồi chờ cân bằng thì đo được độ ẩm tương đối cân bằng ERH của khoảng không phía trên, và khi cân bằng thật %ERH = aw × 100 | chức năng: giải thích | nhìn: kéo aw của thực phẩm rồi bấm Chạy, hơi nước phía trên tăng dần đến khi cột RH chạm vòng vàng và số phân tử rời mẫu bằng số quay về]
+- bộ phận: Thực phẩm (aw) | mã: mau | chức năng: Mẫu trong hộp kín; aw là tính chất của thực phẩm (bài, Cảnh 2.2). | vì sao ở đó: Đặt ở đáy hộp; khối bánh là cách vẽ của album.
+- bộ phận: Hơi nước phía trên mẫu | mã: khongkhi | chức năng: Khoảng không phía trên mẫu, chờ cân bằng rồi đo độ ẩm tương đối (IFT/FDA). | vì sao ở đó: Nằm giữa mẫu và nắp; số phân tử vẽ tỉ lệ với RH.
+- bộ phận: Cảm biến và số đọc RH | mã: cambien | chức năng: Cảm biến gắn phía trên mẫu (FDA, 1984); khi cân bằng %ERH = aw × 100. | vì sao ở đó: Gắn ở nắp hộp; cột RH và vòng vàng là cách vẽ của album.
+- bước: 1 | chữ: Đặt thực phẩm trong hộp kín, cảm biến phía trên mẫu. | vì sao: Bài: đặt thực phẩm trong hộp kín; FDA (1984): cảm biến gắn phía trên mẫu.
+- bước: 2 | chữ: Chưa cân bằng: nước rời mẫu nhiều hơn quay về, RH tăng dần. | vì sao: Cân bằng động là kiến thức nền; bài ghi phải chờ cân bằng.
+- bước: 3 | chữ: Cân bằng: số rời bằng số về, RH không đổi. | vì sao: Cân bằng động là kiến thức nền.
+- bước: 4 | chữ: Đọc ERH: khi cân bằng thật, %ERH = aw × 100. | vì sao: Bài (IFT/FDA).
+- nguồn: Bài D008 Cảnh 2.2 và 5.1 (IFT/FDA; FDA, 1984); kiến thức nền về cân bằng động: Food Online "Measuring Water Activity for Product Quality".
+- giới hạn: Mô hình minh họa, không phải số đo. Thời gian cân bằng rút còn vài giây (bài ghi thật cần vài giờ). Không khí ban đầu đặt ở RH 20% là lựa chọn của album; mẫu coi như đủ lớn nên aw không đổi; số phân tử, kích thước là cách vẽ. Không mô phỏng ảnh hưởng nhiệt độ (Cảnh 2.3, 5.2). Cần kiểm tra: giáo trình hóa lý cho phần cân bằng động.
+[/MÔ PHỎNG]
 - Nhớ: Hộp kín, cân bằng: %ERH = aw × 100.
 
 ### Cảnh 2.3 – aw tăng theo nhiệt độ, nên mọi con số aw phải ghi kèm °C
@@ -158,6 +169,16 @@
 - FDA nêu hai cách chính hạ aw: điều chỉnh công thức (thêm muối hoặc đường) và làm khô. Học liệu Kuna giải thích: chất tan pha loãng nước nên còn ít phân tử {{nước tự do}} để bay hơi.
 - Với chất tan không bay hơi, {{định luật Raoult}} cho p = x_nước × p₀, trong đó x_nước là {{phần mol}} của nước (LibreTexts, Lower, Chem1).
 - Ghép với aw = p/p₀: trong dung dịch lý tưởng, aw ≈ x_nước. Đây là suy ra trực tiếp từ hai công thức trên.
+[MÔ PHỎNG: raoult-pha-loang | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo bài, chất tan pha loãng nước nên còn ít phân tử nước tự do để bay hơi, và với chất tan không bay hơi trong dung dịch lý tưởng thì p = x nước × p₀ nên aw ≈ phần mol của nước | chức năng: giải thích | nhìn: hai bình kín, kéo phần mol chất tan thì hạt cam thay hạt nước, số phân tử hơi và cột aw của bình phải giảm]
+- bộ phận: Nước tinh khiết (p₀, aw = 1) | mã: tinhkhiet | chức năng: Mốc so sánh: áp suất hơi của nước tinh khiết là p₀, aw = 1,00. | vì sao ở đó: Đặt bên trái làm đối chứng; bình kín là cách vẽ của album.
+- bộ phận: Dung dịch (p = x × p₀) | mã: dungdich | chức năng: Chất tan pha loãng nước nên còn ít phân tử nước tự do để bay hơi (Kuna); dung dịch lý tưởng aw ≈ x nước (LibreTexts, Lower). | vì sao ở đó: Cạnh bình nước tinh khiết để so; hạt cam là chất tan, số hạt là cách vẽ của album.
+- bước: 1 | chữ: Bình kín: phân tử nước rời mặt thoáng và quay về liên tục. | vì sao: Áp suất hơi cân bằng là cân bằng động (kiến thức nền).
+- bước: 2 | chữ: Thêm chất tan không bay hơi: nước bị pha loãng. | vì sao: Bài (Kuna): chất tan pha loãng nước.
+- bước: 3 | chữ: Còn ít phân tử nước tự do để bay hơi, áp suất hơi giảm. | vì sao: Bài (Kuna) và Raoult p = x nước × p₀ (LibreTexts, Lower).
+- bước: 4 | chữ: Dung dịch lý tưởng: aw ≈ phần mol của nước. | vì sao: Suy ra từ aw = p/p₀ và Raoult, như bài ghi.
+- nguồn: Bài D008 Cảnh 3.1 (FDA; Kuna; LibreTexts, Lower, Chem1); kiến thức nền: LibreTexts Chem1 (Lower) mục 8.7 về pha loãng dung môi.
+- giới hạn: Đây là dung dịch lý tưởng, không phải số đo; thực phẩm thật lệch khỏi giá trị này (Cảnh 3.3). 120 hạt mỗi bình, số phân tử hơi tỉ lệ với aw, kích thước và chuyển động là cách vẽ của album. Chất tan vẽ như hạt không phân ly (muối phân ly xem Cảnh 3.2). Thanh trượt giới hạn 0–30% do album chọn.
+[/MÔ PHỎNG]
 - Nhớ: Dung dịch lý tưởng: aw ≈ x_nước.
 
 ### Cảnh 3.2 – Muối hạ aw mạnh hơn đường vì cho nhiều hạt hơn
@@ -430,6 +451,17 @@
 - aw ≈ p_w/p_w* = RH × 10⁻². Phương pháp truyền thống cần thời gian cân bằng dài cho từng điểm; cả đường đẳng nhiệt có thể mất vài ngày.
 - KTG dùng tế bào Knudsen có lỗ cỡ 1–10 μm. Tốc độ mất khối lượng tỷ lệ với {{áp suất hơi}}, nên aw bằng tỷ số tốc độ mất khối lượng của mẫu so với nước tinh khiết. Một lần chạy thường 2–3 giờ cho cả đường giải hấp.
 - Chi tiết thú vị: chạy cân nhiệt tăng nhiệt (tới khoảng 200 °C) sau khi giải hấp Knudsen cho thấy phần ẩm không rời mẫu ở nhiệt độ phòng, khoảng 15% tổng ẩm của ruột bánh mì tươi.
+[MÔ PHỎNG: knudsen-aw | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo Schiraldi và cs. trong bài, KTG dùng tế bào Knudsen có lỗ cỡ 1–10 µm, tốc độ mất khối lượng tỷ lệ với áp suất hơi nên aw bằng tốc độ mất khối lượng của mẫu chia cho của nước tinh khiết | chức năng: giải thích | nhìn: hai tế bào trên hai cân, kéo aw của mẫu rồi bấm Chạy thì dòng hơi qua lỗ thưa đi và cột khối lượng của mẫu giảm chậm hơn cột của nước]
+- bộ phận: Tế bào nước tinh khiết | mã: nuoc | chức năng: Mốc so sánh: tốc độ mất khối lượng của nước tinh khiết. | vì sao ở đó: Đặt cạnh tế bào mẫu để so tỷ số; bố trí hai cân là cách vẽ của album.
+- bộ phận: Tế bào chứa mẫu (lỗ 1–10 µm) | mã: mau | chức năng: Hơi nước thoát qua lỗ nhỏ; tốc độ mất khối lượng tỷ lệ với áp suất hơi (Schiraldi và cs., 2012). | vì sao ở đó: Mẫu nằm trong tế bào có lỗ; lỗ vẽ to hơn thật rất nhiều.
+- bộ phận: Cân và khối lượng còn lại | mã: can | chức năng: Theo dõi tốc độ mất khối lượng; aw = tốc độ của mẫu / tốc độ của nước. | vì sao ở đó: Cân nằm dưới tế bào; cột khối lượng là cách vẽ của album.
+- bước: 1 | chữ: Mỗi tế bào Knudsen có một lỗ rất nhỏ. | vì sao: Bài: lỗ cỡ 1–10 µm.
+- bước: 2 | chữ: Hơi nước thoát qua lỗ nên khối lượng giảm dần. | vì sao: Bài: đo tốc độ mất khối lượng.
+- bước: 3 | chữ: Tốc độ mất khối lượng tỷ lệ với áp suất hơi. | vì sao: Bài; bài gốc: dòng khối tỷ lệ với chênh áp suất qua lỗ.
+- bước: 4 | chữ: aw = tốc độ mất khối lượng của mẫu chia cho của nước. | vì sao: Bài (Schiraldi và cs., 2012).
+- nguồn: Bài D008 Cảnh 7.2 (Schiraldi, Fessas và Signorelli, 2012); kiến thức nền: đoạn trích bài gốc "Water Activity in Biological Systems – A Review" về dòng thoát Knudsen đẳng nhiệt.
+- giới hạn: Mô hình minh họa, không phải số đo. Lỗ, tế bào, chuông chân không và cột khối lượng là cách vẽ của album; thời gian rút còn vài chục giây (bài ghi thường 2–3 giờ cho cả đường giải hấp). aw của mẫu được giữ không đổi trong lúc chạy; thật thì mẫu khô dần nên aw giảm theo đường giải hấp. Cần kiểm tra: điều kiện áp suất bên ngoài tế bào trong thiết bị thật.
+[/MÔ PHỎNG]
 - Nhớ: KTG: aw = tốc độ mất khối lượng của mẫu / của nước.
 
 ### Cảnh 7.3 – Đường đẳng nhiệt phản ánh tính chất bề mặt khi RH thấp và tính chất khối khi RH cao
