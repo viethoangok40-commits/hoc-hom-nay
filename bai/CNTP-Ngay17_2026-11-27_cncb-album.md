@@ -188,14 +188,17 @@
 
 - **Thẻ:** Cơ chế
 - Theo giáo trình (tr.276, hình 2.1.20.1), {{tủ lạnh cơ|tu-lanh-co}} (mechanical refrigerator) gồm bốn thành phần chính: bộ phận bốc hơi, máy nén, bộ phận ngưng tụ và van giãn nở. {{Môi chất lạnh|moi-chat-lanh}} chuyển động tuần hoàn qua bốn bộ phận, chuyển từ lỏng sang hơi rồi quay lại lỏng.
-[MÔ PHỎNG: q17-chu-trinh-tu-lanh-co | kiểu: hoạt-hình | chỗ: phải | khẳng định: Theo giáo trình Lê Văn Việt Mẫn, trong tủ lạnh cơ môi chất lạnh lỏng hóa hơi ở áp suất thấp trong bộ phận bốc hơi và làm giảm nhiệt độ chất làm lạnh, hơi được máy nén tăng áp suất, ngưng tụ thành lỏng ở bộ phận ngưng tụ rồi qua van giãn nở giảm áp để bắt đầu chu kỳ mới | chức năng: giải thích | nhìn: vòng mũi tên nối bốn bộ phận và đường chia khu vực áp suất thấp, áp suất cao]
-- hình: hoat-hinh/q17-chu-trinh-tu-lanh-co.svg
+[MÔ PHỎNG: tu-lanh-co | kiểu: tháo-lắp | chỗ: phải | khẳng định: Theo giáo trình Lê Văn Việt Mẫn, trong tủ lạnh cơ môi chất lạnh lỏng hóa hơi ở áp suất thấp trong bộ phận bốc hơi và làm giảm nhiệt độ chất làm lạnh, hơi được máy nén tăng áp suất, ngưng tụ thành lỏng ở bộ phận ngưng tụ rồi qua van giãn nở giảm áp để bắt đầu chu kỳ mới | chức năng: giải thích | nhìn: bấm Chạy, hạt môi chất đi một vòng qua bốn bộ phận, đổi màu khi từ lỏng sang hơi và khi đi qua đường chia hai khu vực áp suất]
+- bộ phận: Bộ phận bốc hơi | mã: bochoi | chức năng: Môi chất lạnh lỏng chuyển thành hơi ở áp suất thấp, làm giảm nhiệt độ chất làm lạnh (tr.276). | vì sao ở đó: Cần kiểm tra
+- bộ phận: Máy nén | mã: maynen | chức năng: Tăng áp suất hơi môi chất (tr.276). | vì sao ở đó: Cần kiểm tra
+- bộ phận: Bộ phận ngưng tụ | mã: ngungtu | chức năng: Hơi môi chất chuyển thành lỏng (tr.276). | vì sao ở đó: Cần kiểm tra
+- bộ phận: Van giãn nở | mã: vangiano | chức năng: Giảm áp môi chất lỏng (tr.276). | vì sao ở đó: Cần kiểm tra
 - bước: 1 | chữ: Bộ phận bốc hơi: môi chất lạnh lỏng chuyển thành hơi ở áp suất thấp, làm giảm nhiệt độ chất làm lạnh. | vì sao: Giáo trình tr.276, bước "đầu tiên" của chu kỳ.
 - bước: 2 | chữ: Hơi môi chất đi đến máy nén để tăng áp suất. | vì sao: Giáo trình tr.276.
-- bước: 3 | chữ: Hơi áp suất cao vào bộ phận ngưng tụ và chuyển thành lỏng. | vì sao: Giáo trình tr.276; nhãn "thải nhiệt" trên hình là kiến thức thêm.
+- bước: 3 | chữ: Hơi áp suất cao vào bộ phận ngưng tụ và chuyển thành lỏng. | vì sao: Giáo trình tr.276.
 - bước: 4 | chữ: Môi chất lỏng qua van giãn nở để giảm áp, rồi tiếp tục chu kỳ mới ở bộ phận bốc hơi. | vì sao: Giáo trình tr.276; hình 2.1.20.1 ghi khu vực áp suất thấp và khu vực áp suất cao.
-- nguồn: Lê Văn Việt Mẫn và cs. (2011), mục 2.1.20 phần thiết bị, tr.276 và hình 2.1.20.1 Tủ lạnh cơ (docId s-2-1-20); sơ đồ khối tự vẽ, không sao chép hình sách
-- giới hạn: Sơ đồ khối định tính, không có nhiệt độ, áp suất hay loại môi chất cụ thể; vị trí đường chia áp suất thấp/cao vẽ theo logic chu trình (van giãn nở và bộ phận bốc hơi bên thấp, máy nén ra và bộ phận ngưng tụ bên cao) vì nhãn hình trong bản OCR không đọc đủ. "Thu nhiệt" và "thải nhiệt" là kiến thức thêm (nhiệt hóa hơi và ngưng tụ), cần đối chiếu bài giảng.
+- nguồn: Lê Văn Việt Mẫn và cs. (2011), mục 2.1.20 phần thiết bị, tr.276 và hình 2.1.20.1 Tủ lạnh cơ (docId s-2-1-20); mô hình tự dựng, không sao chép hình sách
+- giới hạn: Mô hình minh họa, không phải số đo: không có nhiệt độ, áp suất hay loại môi chất cụ thể. Hình dạng bốn bộ phận (ống xoắn gấp khúc, vỏ trụ, hai hình nón), vị trí của chúng và đường chia áp suất thấp/cao là cách vẽ theo logic chu trình, vì nhãn hình trong bản OCR không đọc đủ (Cần kiểm tra). Không vẽ cấu tạo bên trong máy nén và van, không vẽ chất làm lạnh. Hạt, màu và độ phát sáng chỉ để phân biệt lỏng, hơi và hai khu vực áp suất.
 [/MÔ PHỎNG]
 - Ngân hàng: câu 23 (thiết bị làm lạnh gồm mấy bộ phận) khớp 4 bộ phận; câu 46 (nhiệm vụ của dàn hơi) khớp bộ phận bốc hơi chuyển lỏng sang hơi; câu 79 (bộ phận làm thay đổi áp suất của khí) khớp máy nén. "Dàn hơi" là tên gọi khác của bộ phận bốc hơi (cách hiểu của album, cần đối chiếu bài giảng).
 - Nhớ: Bốc hơi (lỏng → hơi, áp thấp, làm lạnh) → máy nén (tăng áp) → ngưng tụ (hơi → lỏng) → van giãn nở (giảm áp) → bốc hơi.
@@ -525,7 +528,7 @@ Làm không nhìn lại rồi đối chiếu; lịch ôn 1, 3, 7, 21 ngày.
 5. Định luật khí cho câu 66, nhiệt ẩn kết tinh, định nghĩa điểm eutectic theo hỗn hợp eutectic, R22 là CHClF₂, ví dụ chuối thâm khi để tủ lạnh: hiểu biết nền của người soạn, chưa mở nguồn trong lần soạn này.
 6. Định dạng và tiêu chí chấm IELTS Writing Task 2, IPA: hiểu biết nền của người soạn, chưa mở trang chính thức hôm nay. Đề và bài mẫu Chương 5 do Claude tự viết, không phải đề thi thật, không có số liệu.
 
-**Hình:** không dùng ảnh. Hai hoạt hình (q17-chu-trinh-tu-lanh-co, q17-sau-giai-doan-lanh-dong) và hai mô phỏng thanh trượt (q17-ti-le-be-mat-the-tich, q17-nuoc-ket-tinh-20) là hình tự dựng, mỗi hình gắn một khẳng định và một nguồn, giới hạn nêu trong khối. Bài không dùng bài báo khoa học (không có DOI).
+**Hình:** không dùng ảnh. Một mô hình 3D tháo-lắp (tu-lanh-co, Cảnh 3.1, do ô Thiết kế dựng 28/11/2026, thay hoạt hình q17-chu-trinh-tu-lanh-co), một hoạt hình (q17-sau-giai-doan-lanh-dong) và hai mô phỏng thanh trượt (q17-ti-le-be-mat-the-tich, q17-nuoc-ket-tinh-20) là hình tự dựng, mỗi hình gắn một khẳng định và một nguồn, giới hạn nêu trong khối. Bài không dùng bài báo khoa học (không có DOI).
 
 ---
 
@@ -536,7 +539,7 @@ Làm không nhìn lại rồi đối chiếu; lịch ôn 1, 3, 7, 21 ngày.
 3. Câu 22 (A), 23 (B), 46 (B), 79 (B) chọn theo giáo trình; câu 66 (A) và câu 20/75 (A) dựa vào kiến thức thêm; câu 61 (môi chất thường dùng ngày nay) chưa chọn được vì giáo trình liệt kê nhiều chất mà không xếp hạng.
 4. "Dàn hơi" trong câu 46 được album hiểu là bộ phận bốc hơi (evaporator); cần cô xác nhận.
 5. Cụm "3 °C đến 10 °C so với điểm lạnh đông" (tổn thương lạnh) album hiểu là cao hơn điểm lạnh đông 3–10 độ; cần xem bản in tr.274.
-6. Nhãn hình 2.1.20.1 (vùng áp suất thấp, áp suất cao) và hình 2.1.21.1 (vị trí các điểm) không đọc rõ trong OCR; hai hoạt hình vẽ theo phần chữ.
+6. Nhãn hình 2.1.20.1 (vùng áp suất thấp, áp suất cao) và hình 2.1.21.1 (vị trí các điểm) không đọc rõ trong OCR; mô hình tu-lanh-co và hoạt hình sáu giai đoạn vẽ theo phần chữ; "vì sao ở đó" của bốn bộ phận tủ lạnh cơ chưa có nguồn.
 7. Con số 88%, 91%, 93% và khoảng 80–120 cm, 4–10 m, 3 t/h đọc từ OCR; cần đối chiếu bản in.
 8. Tên tiếng Việt "hệ thống lạnh đông" cho cryogenic systems là chữ của giáo trình, dễ nhầm với quá trình lạnh đông; cô có thể gọi khác.
 9. Chương 5: đề và bài mẫu do Claude tự viết, chưa có giáo viên IELTS chấm; định dạng, độ dài tối thiểu, thời gian gợi ý, bốn tiêu chí là kiến thức chung; IPA chưa đối chiếu từ điển chuẩn.

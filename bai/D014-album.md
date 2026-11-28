@@ -106,7 +106,7 @@
 - bộ phận: Vùng vô định hình (amylose, điểm nhánh) | mã: vodinhhinh | chức năng: Chủ yếu amylose và các điểm nhánh của amylopectin; nước thấm vào đây trước (Ratnayake và Jackson 2006; Chiodetti và cs. 2024). | vì sao ở đó: Xen giữa các đoạn xoắn; chuỗi xám với chấm cam là cách vẽ của album.
 - bộ phận: Amylose | mã: amylose | chức năng: Rỉ ra khỏi hạt và phân tán trong nước khi hồ hóa; các chuỗi không bị cắt ngắn (Teng và cs. 2025; Ratnayake và Jackson 2006). | vì sao ở đó: Là phần thoát ra khỏi hạt; 5 chuỗi vàng xanh là cách vẽ của album.
 - bộ phận: Nước | mã: nuoc | chức năng: Thấm vào vùng vô định hình trước làm hạt trương, rồi làm mất ổn định tinh thể (Chiodetti và cs. 2024). | vì sao ở đó: Là tác nhân hồ hóa; chấm xanh là cách vẽ của album.
-- bước: 1 | chữ: Hạt nguyên: nét đậm là vùng tinh thể, nét mảnh là vùng vô định hình. | vì sao: Ratnayake và Jackson: hạt có vùng tinh thể xen vùng vô định hình.
+- bước: 1 | chữ: Hạt nguyên: các đoạn xoắn kép là vùng tinh thể, các chuỗi xen giữa là vùng vô định hình. | vì sao: Ratnayake và Jackson: hạt có vùng tinh thể xen vùng vô định hình.
 - bước: 2 | chữ: Nước thấm vào vùng vô định hình, hạt trương lên. | vì sao: Chiodetti: nước vào vùng vô định hình trước; Ratnayake: nước thấm vào đó làm mất ổn định tinh thể.
 - bước: 3 | chữ: Xoắn kép của tinh thể tháo ra, trật tự mất, hạt mất lưỡng chiết. | vì sao: Teng và cộng sự (mô hình Waigh): xoắn tách rồi tháo xoắn đồng loạt; mất lưỡng chiết là chỉ báo hồ hóa.
 - bước: 4 | chữ: Amylose rỉ ra khỏi hạt và phân tán trong nước; các chuỗi vẫn nguyên độ dài. | vì sao: Teng: amylose rỉ ra; Ratnayake và Jackson: HPSEC không thấy chuỗi bị cắt ngắn.
