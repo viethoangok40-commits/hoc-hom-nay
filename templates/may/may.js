@@ -355,6 +355,7 @@
     if (opt.buoc) for (var bi = M.buoc.length; bi < opt.buoc.length; bi++) buoc.push({ ten: opt.buoc[bi], pha: [] });
     buoc.forEach(function (b, i) { var li = document.createElement('li'); li.textContent = b.ten; li.setAttribute('data-n', i + 1); li.addEventListener('click', function () { var bp = parts.filter(function (x) { return x.id === b.bp; })[0]; if (bp) chonBP(bp); }); $('.may-buoc').appendChild(li); b.li = li; });
     function veBuoc() {
+      if (M.buocHienTai) { var ht = M.buocHienTai(tg); buoc.forEach(function (b, i) { b.li.classList.toggle('on', i === ht); }); return; } // mô hình tự chạy theo thời gian: tự báo bước đang diễn ra
       var dem = buoc.map(function () { return 0; });
       for (var i = 0; i < N; i += 3) { if (!S.song[i]) continue; var p = S.pha[i]; for (var b = 0; b < buoc.length; b++) { var x = buoc[b]; if (x.pha.indexOf(p) >= 0 && (x.beo === undefined || x.beo === S.beo[i])) { dem[b]++; break; } } }
       var mx = 0, bi = -1; dem.forEach(function (d, i) { if (d > mx) { mx = d; bi = i; } });
