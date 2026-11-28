@@ -33,6 +33,9 @@ function mayJs(mas) { // bản offline: nhúng addon + bộ máy + module các m
 const IN = path.join(ROOT, 'bai');
 const TPL = path.join(ROOT, 'templates', 'album.html');
 const HOME_TPL = path.join(ROOT, 'templates', 'index.html');
+// giao diện mới: lớp phủ CSS + JS chèn sau mẫu (không sửa album-v3.html, index.html). Dựng với --giao-dien-cu để tắt.
+const GD_CU = process.argv.includes('--giao-dien-cu');
+function lopPhu(html, ten) { if (GD_CU) return html; const doc = (f) => fs.readFileSync(path.join(ROOT, 'templates', 'giao-dien-moi', f), 'utf8'); return html.replace('</body>', () => '<style>' + doc(ten + '.css') + '</style><script>' + doc(ten + '.js').replace(/<\/script/gi, '<\\/script') + '</script></body>'); }
 const p2 = (n) => String(n).padStart(2, '0');
 const vnNow = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).format(new Date());
 
@@ -1090,6 +1093,7 @@ async function renderAlbum(A, mdFile, extra = {}) {
     const tls = []; (function w(o) { if (!o || typeof o !== 'object') return; if (o.k === 'mo-phong' && o.tl) { tls.push(o.tl); return; } for (const v of Object.values(o)) w(v); })(data.v3);
     if (tls.length) html = html.replace('</body>', () => '<script type="application/json" id="hhn-tl">' + jsonForScript(tls) + '</script><style>' + TL_CSS + '</style><script>' + fs.readFileSync(path.join(ROOT, 'templates', 'may', 'nhung-thao-lap.js'), 'utf8').replace(/<\/script/gi, '<\\/script') + '</script></body>');
   }
+  if (F.v3) html = lopPhu(html, 'bai');
   const qs =chapters.flatMap((c) => c.scenes.filter((s) => s.quiz).flatMap((s) => s.quiz.qs)).concat(data.endQuiz);
   const stats = { chapters: chapters.length, scenes: chapters.reduce((a, c) => a + c.scenes.length, 0), quiz: qs.length, quizNoAns: qs.filter((q) => q.ans < 0).length, figs: Object.keys(F.figs).length, figsTuVe: F.missing.size + F.tuVe.length, has3d: F.has3d, has3dmol: F.has3dmol, loiNguon: F.loiNguon.length, kb: Math.round(Buffer.byteLength(html) / 1024) };
   if (F.v3) { const cs = data.v3.chapters; Object.assign(stats, { giaoDien: 'v3', chapters: cs.length, scenes: cs.reduce((a, c) => a + c.blocks.length, 0), quiz: cs.reduce((a, c) => a + c.extras.filter((e) => e.k === 'quiz').reduce((b, e) => b + e.qs.length, 0), 0), quizNoAns: 0, hinhBoQua: F.boQua.length, theV2: A.the.length }); }
@@ -1161,7 +1165,7 @@ async function main() {
       const mdName = path.basename(md);
       if (A.the.length) console.log(`  thẻ v2 trong ${mdName}: ` + Object.entries(A.the.reduce((o, t) => (o[t.the] = (o[t.the] || 0) + 1, o), {})).map(([k, v]) => k + ' ×' + v).join(', ') + ' → giao diện ' + (A.v3 ? 'v3' : 'v2'));
       const nhom = /^CNTP-/i.test(mdName) ? 'cntp' : /^D0/i.test(mdName) ? 'rnd' : '';
-      items.push({ f: 'bai/' + name, date: A.date, mon: A.mon, nhom, topic: A.topic.replace(/\*\*/g, '').replace(/^Ch(?:ương)?\s*\d+\s*/i, '').trim(), title: A.title.replace(/\*\*/g, ''), md: mdName });
+      items.push({ f: 'bai/' + name, code: esc(A.code), date: A.date, mon: A.mon, nhom, topic: A.topic.replace(/\*\*/g, '').replace(/^Ch(?:ương)?\s*\d+\s*/i, '').trim(), title: A.title.replace(/\*\*/g, ''), md: mdName });
       parsed.push({ md, A, name });
     } catch (e) { if (boLoi) parseHong.push({ md: path.basename(md), loi: [`không đọc được bài: ${e.message}`] }); else failed++; console.error(`LỖI ${path.basename(md)}: ${e.stack || e.message}`); }
   }
@@ -1234,7 +1238,7 @@ async function main() {
   fs.writeFileSync(path.join(OUT, 'bai', 'danh-sach.json'), JSON.stringify({ items, built: vnNow() }), 'utf8');
   let home = fs.readFileSync(HOME_TPL, 'utf8');
   home = home.replace('__FONTS__', () => fontCss()).replace('__DATA__', () => jsonForScript({ items, built: vnNow() }));
-  fs.writeFileSync(path.join(OUT, 'index.html'), home, 'utf8');
+  fs.writeFileSync(path.join(OUT, 'index.html'), lopPhu(home, 'chu'), 'utf8');
   fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
   console.log(`Trang chủ: index.html (${items.length} bài) → ${OUT}`);
   if (TL_LOI.length) { console.error(`\n✗✗ ${TL_LOI.length} LỖI MÔ PHỎNG THÁO-LẮP:\n` + TL_LOI.map((m) => '   - ' + m).join('\n') + '\n'); if (nghiem && !boLoi) nghiemLoi += TL_LOI.length; }
