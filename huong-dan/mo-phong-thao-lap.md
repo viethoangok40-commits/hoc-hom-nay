@@ -70,6 +70,7 @@ Chưa nói gì về giao diện (390 px, bố cục, màu): phần này chỉ l�
 | `mang-tap-trung-fouling` | `mang` `tapt` `fouling` `luuluong` | 4 | CNTP-Ngay01 Cảnh 4.2 | Thanh Khuấy và Vệ sinh màng. Nguồn nền PMC7073750. |
 | `hop-truyen-nhiet` | `long` `dac` `diemnguoi` `thoigian` | 4 | CNTP-Ngay05 Cảnh 4.2 | Đối lưu so với dẫn nhiệt trong hộp, mốc 14 và 40 phút. Nguồn nền USDA FSIS Module 6. Khối dán: `khoi-dan-ngay05.md`. |
 | `enzyme-chi-thi` | `khac` `catalase` `peroxidase` `phepthu` | 4 | CNTP-Ngay05 Cảnh 1.3 | Thanh mức nhiệt, enzyme duỗi lần lượt, peroxidase sau cùng. |
+| `tu-lanh-co` | `bochoi` `maynen` `ngungtu` `vangiano` | 4 | CNTP-Ngay17 Cảnh 3.1 | Vòng môi chất lạnh qua bốn bộ phận, hai khu vực áp suất (LVVM 2011, tr.276). Hình dạng và vị trí do album vẽ, "vì sao ở đó" Cần kiểm tra. Khối dán: `khoi-dan-ngay17-tu-lanh.md`. |
 
 ### Chữ chép được vào thẻ (chỉ phần bài nêu; "vì sao ở đó" phải điền từ nguồn, không có thì ghi "Cần kiểm tra")
 `may-cha` (Cảnh 1.5):
