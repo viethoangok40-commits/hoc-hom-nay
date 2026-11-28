@@ -33,9 +33,9 @@
   n1.material.side = n2.material.side = T.DoubleSide; n1.userData.xuyen = n2.userData.xuyen = 0.35; van.add(n1); van.add(n2);
   van.add(U.cyl(0.035, 0.42, M.inox(), [0, -0.96, 0], 'y')); van.add(U.torus(0.17, 0.035, can(0xC0392B), [0, -0.72, 0], 'y'));
   var boPhan = [
-    { so: 1, id: 'bochoi', ten: 'Bộ phận bốc hơi', obj: bochoi, neo: [-3.3, 0.45, 0.2], tach: [-0.9, 0, 0.3], chucNang: 'Môi chất lạnh lỏng chuyển thành hơi ở áp suất thấp, làm giảm nhiệt độ chất làm lạnh.' },
+    { so: 1, id: 'bochoi', ten: 'Bộ phận bốc hơi', obj: bochoi, neo: [-2.5, 0.75, 0.2], tach: [-0.9, 0, 0.3], chucNang: 'Môi chất lạnh lỏng chuyển thành hơi ở áp suất thấp, làm giảm nhiệt độ chất làm lạnh.' },
     { so: 2, id: 'maynen', ten: 'Máy nén', obj: maynen, neo: [0, 1.95, 0.2], tach: [0, 0.8, 0.3], chucNang: 'Tăng áp suất hơi môi chất.' },
-    { so: 3, id: 'ngungtu', ten: 'Bộ phận ngưng tụ', obj: ngungtu, neo: [3.3, 0.45, 0.2], tach: [0.9, 0, 0.3], chucNang: 'Hơi môi chất chuyển thành lỏng.' },
+    { so: 3, id: 'ngungtu', ten: 'Bộ phận ngưng tụ', obj: ngungtu, neo: [2.5, 0.75, 0.2], tach: [0.9, 0, 0.3], chucNang: 'Hơi môi chất chuyển thành lỏng.' },
     { so: 4, id: 'vangiano', ten: 'Van giãn nở', obj: van, neo: [0, -1.42, 0.35], tach: [0, -0.5, 0.9], chucNang: 'Giảm áp môi chất lỏng.' },
   ];
   // trang trí: ống nối, đường đứt chia hai khu vực áp suất (ghi chữ theo hình 2.1.20.1 mà bài dẫn), đế
